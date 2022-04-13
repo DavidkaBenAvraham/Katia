@@ -1,0 +1,173 @@
+{
+  "brand": {
+    "ACER": {
+      "prestashop_category": 24
+    },
+    "AMD": {
+      "prestashop_category": 9
+    },
+    "ANTEC": {
+      
+      "prestashop_category": 3
+    },
+    "AOC": {
+      
+      "prestashop_category": 26
+    },
+    "AOURUS BY GIGABYTE": {
+      
+      "prestashop_category": 33
+    },
+    "APC": {
+      
+      "prestashop_category": 38
+    },
+    "APPLE": {
+      
+      "prestashop_category": 20
+    },
+    "ASUS": {
+      
+      "prestashop_category": 13
+    },
+    "CISCO": {
+      
+      "prestashop_category": 39
+    },
+    "COOLER MASTER": {
+      
+      "prestashop_category": 4
+    },
+    "CORSAIR": {
+      
+      "prestashop_category": 5
+    },
+    "CREATIVE": {
+      
+      "prestashop_category": 23
+    },
+    "CRUCIAL": {
+      
+      "prestashop_category": 16
+    },
+    "D-LINK": {
+      
+      "prestashop_category": 41
+    },
+    "DELL": {
+      
+      "prestashop_category": 18
+    },
+    "EATON": {
+      
+      "prestashop_category": 40
+    },
+    "ENERMAX": {
+      
+      "prestashop_category": 34
+    },
+    "G.SKILL": {
+      
+      "prestashop_category": 17
+    },
+    "GENERIC": {
+      
+      "prestashop_category": 6
+    },
+    "GENIUS": {
+      
+      "prestashop_category": 10
+    },
+    "GIGABYTE": {
+      
+      "prestashop_category": 7
+    },
+    "HP": {
+      
+      "prestashop_category": 19
+    },
+    "INTEL": {
+      
+      "prestashop_category": 8
+    },
+    "KINGSTON": {
+      
+      "prestashop_category": 15
+    },
+    "LENOVO": {
+      
+      "prestashop_category": 14
+    },
+    "LOGITECH": {
+      
+      "prestashop_category": 11
+    },
+    "MAG": {
+      
+      "prestashop_category": 32
+    },
+    "MICROSOFT": {
+      
+      "prestashop_category": 12
+    },
+    "MSI": {
+      
+      "prestashop_category": 35
+    },
+    "NVIDIA": {
+      
+      "prestashop_category": 22
+    },
+    "NVIDIA TESLA": {
+      
+      "prestashop_category": 37
+    },
+    "NVIDIA QUATRO": {
+      
+      "prestashop_category": 28
+    },
+    "PHILIPS": {
+      
+      "prestashop_category": 27
+    },
+    "PNY": {
+      
+      "prestashop_category": 25
+    },
+    "SAMSUNG": {
+      
+      "prestashop_category": 21
+    },
+    "SANDISK": {
+      
+      "prestashop_category": 29
+    },
+    "SEAGATE": {
+      
+      "prestashop_category": 42
+    },
+    "TOSHIBA": {
+      
+      "prestashop_category": 36
+    },
+    "TP-LINK": {
+      
+      "prestashop_category": 52
+    },
+    "WESTERN DIGITAL": {
+      
+      "prestashop_category": 30
+    },
+    "WD": {
+      
+      "prestashop_category": 30
+    },
+
+
+    "ZALMAN": {
+      
+      "prestashop_category": 31
+    }
+
+  }
+}

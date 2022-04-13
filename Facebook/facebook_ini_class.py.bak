@@ -1,0 +1,47 @@
+import facebook_global_constants
+import json
+
+        #Класс для работы с файлом инициализации 
+        #facebook.ini
+
+class Ini(object):
+
+    def __init__(self, **kwargs):
+        if 'filesystem_path' in kwargs: 
+            self.ini_file = kwargs.get('filesystem_path') + '\\facebook.ini'
+        self.ini_dict =  self._read()
+        
+        pass
+   
+
+    def get_ini_dict(self , **kwards):
+        return self.ini_dict
+
+    def set_ini_dict(self , **kwargs):
+    #dict.update([other]) - обновляет словарь, добавляя пары (ключ, значение)
+    #из other. #Существующие ключи перезаписываются.
+    ## Возвращает None (не новый словарь!).
+        for key in kwargs:
+            self.ini_dict.update(key)
+        self._write()
+        return ini_dict
+        
+    def add_ini_key(self , key, value):
+        self.ini_dict.update({key:value})
+
+    def remove_ini_key(self , key):
+        pass
+
+    def _read(self):
+        try:
+            return json.load(open(self.ini_file, 'r' , encoding='utf-8'))
+        except:
+            return False
+      
+
+    def _write(self):
+        try:
+            json.dump(self.ini_dict , open(self.ini_file, 'w' , encoding='utf-8'))
+            return True
+        except:
+            return False

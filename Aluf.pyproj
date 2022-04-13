@@ -1,0 +1,1004 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>bd6236e0-7a92-4d45-a606-215d72b843b7</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>main.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>Aluf</Name>
+    <RootNamespace>Aluf</RootNamespace>
+    <InterpreterId>Global|ContinuumAnalytics|Anaconda39-64</InterpreterId>
+    <IsWindowsApplication>False</IsWindowsApplication>
+    <SuppressConfigureTestFrameworkPrompt>true</SuppressConfigureTestFrameworkPrompt>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="bot\bot_keyboard.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="bot\config.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="bot\conversationbot.py" />
+    <Compile Include="bot\echobot.py" />
+    <Compile Include="bot\inlinekeyboard.py" />
+    <Compile Include="bot\jsn.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="bot\messenger_db.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="check_and_convert_datatypes.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Driver\driver_options.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="execute_dataframe.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="execute_json.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PCPart\__init__.py" />
+    <Compile Include="_regex.py" />
+    <Compile Include="suppliers\ksp\__init__.py" />
+    <Compile Include="__dornet\login.py" />
+    <Compile Include="__dornet\product.py" />
+    <Compile Include="__dornet\__init__.py" />
+    <Compile Include="DB\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DoskaObjavlenij\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Driver\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ExceptionsHandler\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="execute_scenaries.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Facebook\db.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Facebook\scenario\message_controllers.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Facebook\ui\QT_login_controller.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="filemanager.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ini\morlevi_categories_headsets.json">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="product_fields.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ini\cdata_categories_aio_hp.json">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ini\morlevi_categories_mb_gigabyte.json">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ini\morlevi_categories_psu_antec.json">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ini\morlevi_categories_video.json">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ini\morlevi_locators.json">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Messages\db.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Messages\ui\QT_messages_editor_controller.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Messages\ui\QT_messages_editor_interface.py" />
+    <Compile Include="Facebook\ui\QT_login_interface.py" />
+    <Compile Include="Facebook\scenario\login.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Facebook\scenario\message.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Facebook\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Messages\ui\QT_Add_Edit_Delete_Message_controller.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Messages\ui\QT_Add_Edit_Delete_Message_interface.py" />
+    <Compile Include="Messages\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="price_cleaner.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="execute_products.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="python-telegram-bot-master\docs\source\conf.py" />
+    <Compile Include="python-telegram-bot-master\examples\conversationbot.py" />
+    <Compile Include="python-telegram-bot-master\examples\conversationbot2.py" />
+    <Compile Include="python-telegram-bot-master\examples\deeplinking.py" />
+    <Compile Include="python-telegram-bot-master\examples\echobot.py" />
+    <Compile Include="python-telegram-bot-master\examples\errorhandlerbot.py" />
+    <Compile Include="python-telegram-bot-master\examples\inlinebot.py" />
+    <Compile Include="python-telegram-bot-master\examples\inlinekeyboard.py" />
+    <Compile Include="python-telegram-bot-master\examples\inlinekeyboard2.py" />
+    <Compile Include="python-telegram-bot-master\examples\nestedconversationbot.py" />
+    <Compile Include="python-telegram-bot-master\examples\passportbot.py" />
+    <Compile Include="python-telegram-bot-master\examples\paymentbot.py" />
+    <Compile Include="python-telegram-bot-master\examples\persistentconversationbot.py" />
+    <Compile Include="python-telegram-bot-master\examples\pollbot.py" />
+    <Compile Include="python-telegram-bot-master\examples\rawapibot.py" />
+    <Compile Include="python-telegram-bot-master\examples\timerbot.py" />
+    <Compile Include="python-telegram-bot-master\setup.py" />
+    <Compile Include="python-telegram-bot-master\telegram\base.py" />
+    <Compile Include="python-telegram-bot-master\telegram\bot.py" />
+    <Compile Include="python-telegram-bot-master\telegram\botcommand.py" />
+    <Compile Include="python-telegram-bot-master\telegram\callbackquery.py" />
+    <Compile Include="python-telegram-bot-master\telegram\chat.py" />
+    <Compile Include="python-telegram-bot-master\telegram\chataction.py" />
+    <Compile Include="python-telegram-bot-master\telegram\chatmember.py" />
+    <Compile Include="python-telegram-bot-master\telegram\chatpermissions.py" />
+    <Compile Include="python-telegram-bot-master\telegram\choseninlineresult.py" />
+    <Compile Include="python-telegram-bot-master\telegram\constants.py" />
+    <Compile Include="python-telegram-bot-master\telegram\dice.py" />
+    <Compile Include="python-telegram-bot-master\telegram\error.py" />
+    <Compile Include="python-telegram-bot-master\telegram\ext\basepersistence.py" />
+    <Compile Include="python-telegram-bot-master\telegram\ext\callbackcontext.py" />
+    <Compile Include="python-telegram-bot-master\telegram\ext\callbackqueryhandler.py" />
+    <Compile Include="python-telegram-bot-master\telegram\ext\choseninlineresulthandler.py" />
+    <Compile Include="python-telegram-bot-master\telegram\ext\commandhandler.py" />
+    <Compile Include="python-telegram-bot-master\telegram\ext\conversationhandler.py" />
+    <Compile Include="python-telegram-bot-master\telegram\ext\defaults.py" />
+    <Compile Include="python-telegram-bot-master\telegram\ext\dictpersistence.py" />
+    <Compile Include="python-telegram-bot-master\telegram\ext\dispatcher.py" />
+    <Compile Include="python-telegram-bot-master\telegram\ext\filters.py" />
+    <Compile Include="python-telegram-bot-master\telegram\ext\handler.py" />
+    <Compile Include="python-telegram-bot-master\telegram\ext\inlinequeryhandler.py" />
+    <Compile Include="python-telegram-bot-master\telegram\ext\jobqueue.py" />
+    <Compile Include="python-telegram-bot-master\telegram\ext\messagehandler.py" />
+    <Compile Include="python-telegram-bot-master\telegram\ext\messagequeue.py" />
+    <Compile Include="python-telegram-bot-master\telegram\ext\picklepersistence.py" />
+    <Compile Include="python-telegram-bot-master\telegram\ext\pollanswerhandler.py" />
+    <Compile Include="python-telegram-bot-master\telegram\ext\pollhandler.py" />
+    <Compile Include="python-telegram-bot-master\telegram\ext\precheckoutqueryhandler.py" />
+    <Compile Include="python-telegram-bot-master\telegram\ext\regexhandler.py" />
+    <Compile Include="python-telegram-bot-master\telegram\ext\shippingqueryhandler.py" />
+    <Compile Include="python-telegram-bot-master\telegram\ext\stringcommandhandler.py" />
+    <Compile Include="python-telegram-bot-master\telegram\ext\stringregexhandler.py" />
+    <Compile Include="python-telegram-bot-master\telegram\ext\typehandler.py" />
+    <Compile Include="python-telegram-bot-master\telegram\ext\updater.py" />
+    <Compile Include="python-telegram-bot-master\telegram\ext\__init__.py" />
+    <Compile Include="python-telegram-bot-master\telegram\files\animation.py" />
+    <Compile Include="python-telegram-bot-master\telegram\files\audio.py" />
+    <Compile Include="python-telegram-bot-master\telegram\files\chatphoto.py" />
+    <Compile Include="python-telegram-bot-master\telegram\files\contact.py" />
+    <Compile Include="python-telegram-bot-master\telegram\files\document.py" />
+    <Compile Include="python-telegram-bot-master\telegram\files\file.py" />
+    <Compile Include="python-telegram-bot-master\telegram\files\inputfile.py" />
+    <Compile Include="python-telegram-bot-master\telegram\files\inputmedia.py" />
+    <Compile Include="python-telegram-bot-master\telegram\files\location.py" />
+    <Compile Include="python-telegram-bot-master\telegram\files\photosize.py" />
+    <Compile Include="python-telegram-bot-master\telegram\files\sticker.py" />
+    <Compile Include="python-telegram-bot-master\telegram\files\venue.py" />
+    <Compile Include="python-telegram-bot-master\telegram\files\video.py" />
+    <Compile Include="python-telegram-bot-master\telegram\files\videonote.py" />
+    <Compile Include="python-telegram-bot-master\telegram\files\voice.py" />
+    <Compile Include="python-telegram-bot-master\telegram\files\__init__.py" />
+    <Compile Include="python-telegram-bot-master\telegram\forcereply.py" />
+    <Compile Include="python-telegram-bot-master\telegram\games\callbackgame.py" />
+    <Compile Include="python-telegram-bot-master\telegram\games\game.py" />
+    <Compile Include="python-telegram-bot-master\telegram\games\gamehighscore.py" />
+    <Compile Include="python-telegram-bot-master\telegram\games\__init__.py" />
+    <Compile Include="python-telegram-bot-master\telegram\inline\inlinekeyboardbutton.py" />
+    <Compile Include="python-telegram-bot-master\telegram\inline\inlinekeyboardmarkup.py" />
+    <Compile Include="python-telegram-bot-master\telegram\inline\inlinequery.py" />
+    <Compile Include="python-telegram-bot-master\telegram\inline\inlinequeryresult.py" />
+    <Compile Include="python-telegram-bot-master\telegram\inline\inlinequeryresultarticle.py" />
+    <Compile Include="python-telegram-bot-master\telegram\inline\inlinequeryresultaudio.py" />
+    <Compile Include="python-telegram-bot-master\telegram\inline\inlinequeryresultcachedaudio.py" />
+    <Compile Include="python-telegram-bot-master\telegram\inline\inlinequeryresultcacheddocument.py" />
+    <Compile Include="python-telegram-bot-master\telegram\inline\inlinequeryresultcachedgif.py" />
+    <Compile Include="python-telegram-bot-master\telegram\inline\inlinequeryresultcachedmpeg4gif.py" />
+    <Compile Include="python-telegram-bot-master\telegram\inline\inlinequeryresultcachedphoto.py" />
+    <Compile Include="python-telegram-bot-master\telegram\inline\inlinequeryresultcachedsticker.py" />
+    <Compile Include="python-telegram-bot-master\telegram\inline\inlinequeryresultcachedvideo.py" />
+    <Compile Include="python-telegram-bot-master\telegram\inline\inlinequeryresultcachedvoice.py" />
+    <Compile Include="python-telegram-bot-master\telegram\inline\inlinequeryresultcontact.py" />
+    <Compile Include="python-telegram-bot-master\telegram\inline\inlinequeryresultdocument.py" />
+    <Compile Include="python-telegram-bot-master\telegram\inline\inlinequeryresultgame.py" />
+    <Compile Include="python-telegram-bot-master\telegram\inline\inlinequeryresultgif.py" />
+    <Compile Include="python-telegram-bot-master\telegram\inline\inlinequeryresultlocation.py" />
+    <Compile Include="python-telegram-bot-master\telegram\inline\inlinequeryresultmpeg4gif.py" />
+    <Compile Include="python-telegram-bot-master\telegram\inline\inlinequeryresultphoto.py" />
+    <Compile Include="python-telegram-bot-master\telegram\inline\inlinequeryresultvenue.py" />
+    <Compile Include="python-telegram-bot-master\telegram\inline\inlinequeryresultvideo.py" />
+    <Compile Include="python-telegram-bot-master\telegram\inline\inlinequeryresultvoice.py" />
+    <Compile Include="python-telegram-bot-master\telegram\inline\inputcontactmessagecontent.py" />
+    <Compile Include="python-telegram-bot-master\telegram\inline\inputlocationmessagecontent.py" />
+    <Compile Include="python-telegram-bot-master\telegram\inline\inputmessagecontent.py" />
+    <Compile Include="python-telegram-bot-master\telegram\inline\inputtextmessagecontent.py" />
+    <Compile Include="python-telegram-bot-master\telegram\inline\inputvenuemessagecontent.py" />
+    <Compile Include="python-telegram-bot-master\telegram\inline\__init__.py" />
+    <Compile Include="python-telegram-bot-master\telegram\keyboardbutton.py" />
+    <Compile Include="python-telegram-bot-master\telegram\keyboardbuttonpolltype.py" />
+    <Compile Include="python-telegram-bot-master\telegram\loginurl.py" />
+    <Compile Include="python-telegram-bot-master\telegram\message.py" />
+    <Compile Include="python-telegram-bot-master\telegram\messageentity.py" />
+    <Compile Include="python-telegram-bot-master\telegram\parsemode.py" />
+    <Compile Include="python-telegram-bot-master\telegram\passport\credentials.py" />
+    <Compile Include="python-telegram-bot-master\telegram\passport\data.py" />
+    <Compile Include="python-telegram-bot-master\telegram\passport\encryptedpassportelement.py" />
+    <Compile Include="python-telegram-bot-master\telegram\passport\passportdata.py" />
+    <Compile Include="python-telegram-bot-master\telegram\passport\passportelementerrors.py" />
+    <Compile Include="python-telegram-bot-master\telegram\passport\passportfile.py" />
+    <Compile Include="python-telegram-bot-master\telegram\passport\__init__.py" />
+    <Compile Include="python-telegram-bot-master\telegram\payment\invoice.py" />
+    <Compile Include="python-telegram-bot-master\telegram\payment\labeledprice.py" />
+    <Compile Include="python-telegram-bot-master\telegram\payment\orderinfo.py" />
+    <Compile Include="python-telegram-bot-master\telegram\payment\precheckoutquery.py" />
+    <Compile Include="python-telegram-bot-master\telegram\payment\shippingaddress.py" />
+    <Compile Include="python-telegram-bot-master\telegram\payment\shippingoption.py" />
+    <Compile Include="python-telegram-bot-master\telegram\payment\shippingquery.py" />
+    <Compile Include="python-telegram-bot-master\telegram\payment\successfulpayment.py" />
+    <Compile Include="python-telegram-bot-master\telegram\payment\__init__.py" />
+    <Compile Include="python-telegram-bot-master\telegram\poll.py" />
+    <Compile Include="python-telegram-bot-master\telegram\replykeyboardmarkup.py" />
+    <Compile Include="python-telegram-bot-master\telegram\replykeyboardremove.py" />
+    <Compile Include="python-telegram-bot-master\telegram\replymarkup.py" />
+    <Compile Include="python-telegram-bot-master\telegram\update.py" />
+    <Compile Include="python-telegram-bot-master\telegram\user.py" />
+    <Compile Include="python-telegram-bot-master\telegram\userprofilephotos.py" />
+    <Compile Include="python-telegram-bot-master\telegram\utils\deprecate.py" />
+    <Compile Include="python-telegram-bot-master\telegram\utils\helpers.py" />
+    <Compile Include="python-telegram-bot-master\telegram\utils\promise.py" />
+    <Compile Include="python-telegram-bot-master\telegram\utils\request.py" />
+    <Compile Include="python-telegram-bot-master\telegram\utils\types.py" />
+    <Compile Include="python-telegram-bot-master\telegram\utils\webhookhandler.py" />
+    <Compile Include="python-telegram-bot-master\telegram\utils\__init__.py" />
+    <Compile Include="python-telegram-bot-master\telegram\vendor\__init__.py" />
+    <Compile Include="python-telegram-bot-master\telegram\version.py" />
+    <Compile Include="python-telegram-bot-master\telegram\webhookinfo.py" />
+    <Compile Include="python-telegram-bot-master\telegram\__init__.py" />
+    <Compile Include="python-telegram-bot-master\telegram\__main__.py" />
+    <Compile Include="python-telegram-bot-master\tests\bots.py" />
+    <Compile Include="python-telegram-bot-master\tests\conftest.py" />
+    <Compile Include="python-telegram-bot-master\tests\plugin_github_group.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_animation.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_audio.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_bot.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_botcommand.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_callbackcontext.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_callbackquery.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_callbackqueryhandler.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_chat.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_chatmember.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_chatpermissions.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_chatphoto.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_choseninlineresult.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_choseninlineresulthandler.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_commandhandler.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_constants.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_contact.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_conversationhandler.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_defaults.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_dice.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_dispatcher.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_document.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_encryptedcredentials.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_encryptedpassportelement.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_error.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_file.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_filters.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_forcereply.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_game.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_gamehighscore.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_helpers.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_inlinekeyboardbutton.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_inlinekeyboardmarkup.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_inlinequery.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_inlinequeryhandler.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_inlinequeryresultarticle.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_inlinequeryresultaudio.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_inlinequeryresultcachedaudio.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_inlinequeryresultcacheddocument.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_inlinequeryresultcachedgif.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_inlinequeryresultcachedmpeg4gif.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_inlinequeryresultcachedphoto.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_inlinequeryresultcachedsticker.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_inlinequeryresultcachedvideo.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_inlinequeryresultcachedvoice.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_inlinequeryresultcontact.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_inlinequeryresultdocument.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_inlinequeryresultgame.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_inlinequeryresultgif.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_inlinequeryresultlocation.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_inlinequeryresultmpeg4gif.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_inlinequeryresultphoto.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_inlinequeryresultvenue.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_inlinequeryresultvideo.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_inlinequeryresultvoice.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_inputcontactmessagecontent.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_inputfile.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_inputlocationmessagecontent.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_inputmedia.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_inputtextmessagecontent.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_inputvenuemessagecontent.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_invoice.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_jobqueue.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_keyboardbutton.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_keyboardbuttonpolltype.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_labeledprice.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_location.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_loginurl.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_message.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_messageentity.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_messagehandler.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_messagequeue.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_meta.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_official.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_orderinfo.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_parsemode.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_passport.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_passportelementerrordatafield.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_passportelementerrorfile.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_passportelementerrorfiles.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_passportelementerrorfrontside.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_passportelementerrorreverseside.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_passportelementerrorselfie.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_passportelementerrortranslationfile.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_passportelementerrortranslationfiles.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_passportelementerrorunspecified.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_passportfile.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_persistence.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_photo.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_poll.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_pollanswerhandler.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_pollhandler.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_precheckoutquery.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_precheckoutqueryhandler.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_regexhandler.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_replykeyboardmarkup.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_replykeyboardremove.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_request.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_shippingaddress.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_shippingoption.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_shippingquery.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_shippingqueryhandler.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_sticker.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_stringcommandhandler.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_stringregexhandler.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_successfulpayment.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_telegramobject.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_typehandler.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_update.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_updater.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_user.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_userprofilephotos.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_venue.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_video.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_videonote.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_voice.py" />
+    <Compile Include="python-telegram-bot-master\tests\test_webhookinfo.py" />
+    <Compile Include="python-telegram-bot-master\tests\__init__.py" />
+    <Compile Include="suppliers\cdata\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="suppliers\grandadvance\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="suppliers\morlevi\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="suppliers\visualdg\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="suppliers\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="__techorezef\login.py" />
+    <Compile Include="__techorezef\product.py" />
+    <Compile Include="__techorezef\__init__.py" />
+    <Compile Include="SiteStockManager\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\QT_launcher_controller.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\QT_launcher_interface.py" />
+    <Compile Include="Ini\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Logging\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="main.py" />
+    <Compile Include="execute_csv.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Mor_avoda_im_excel\aluf_data.py" />
+    <Compile Include="Orbita\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Mor_avoda_im_excel\readwrite_exel_csv.py" />
+    <Compile Include="Mor_avoda_im_excel\read_csv.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Mor_avoda_im_excel\аluf.py" />
+    <Compile Include="strings_cleaner.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Примеры\QT\QT_Table-pandas.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Примеры\Понимаем декораторы в Python%27e, шаг за шагом. Шаг 1\module1.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Примеры\Понимаем декораторы в Python%27e, шаг за шагом. Шаг 1\module2.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Примеры\Понимаем декораторы в Python%27e, шаг за шагом. Шаг 1\module3.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Примеры\Понимаем декораторы в Python%27e, шаг за шагом. Шаг 1\module4.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Примеры\Понимаем декораторы в Python%27e, шаг за шагом. Шаг 1\module5.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Примеры\Понимаем декораторы в Python%27e, шаг за шагом. Шаг 1\module6.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Примеры\Работа с классами\module1.py">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="aluf.co.il\lab\" />
+    <Folder Include="Facebook\" />
+    <Folder Include="Facebook\.ipynb_checkpoints\" />
+    <Folder Include="Facebook\ui\" />
+    <Folder Include="Facebook\scenario\" />
+    <Folder Include="Facebook\__pycache__\" />
+    <Folder Include="Logging\logs\" />
+    <Folder Include="Messages\ui\" />
+    <Folder Include="Mor_avoda_im_excel\" />
+    <Folder Include="ExceptionsHandler\" />
+    <Folder Include="DoskaObjavlenij\" />
+    <Folder Include="Logging\" />
+    <Folder Include="Ini\" />
+    <Folder Include="Driver\" />
+    <Folder Include="callil.co.il\" />
+    <Folder Include="Messages\" />
+    <Folder Include="aluf.co.il\" />
+    <Folder Include="PCPart\" />
+    <Folder Include="scenaries\" />
+    <Folder Include="bot\" />
+    <Folder Include="suppliers\ksp\" />
+    <Folder Include="__dornet\" />
+    <Folder Include="suppliers\" />
+    <Folder Include="suppliers\cdata\" />
+    <Folder Include="suppliers\morlevi\" />
+    <Folder Include="suppliers\grandadvance\" />
+    <Folder Include="suppliers\visualdg\" />
+    <Folder Include="__techorezef\" />
+    <Folder Include="python-telegram-bot-master\" />
+    <Folder Include="python-telegram-bot-master\.github\" />
+    <Folder Include="python-telegram-bot-master\.github\ISSUE_TEMPLATE\" />
+    <Folder Include="python-telegram-bot-master\.github\workflows\" />
+    <Folder Include="python-telegram-bot-master\contrib\" />
+    <Folder Include="python-telegram-bot-master\contrib\debian\" />
+    <Folder Include="python-telegram-bot-master\contrib\debian\source\" />
+    <Folder Include="python-telegram-bot-master\docs\" />
+    <Folder Include="python-telegram-bot-master\docs\source\" />
+    <Folder Include="python-telegram-bot-master\docs\source\_static\" />
+    <Folder Include="python-telegram-bot-master\examples\" />
+    <Folder Include="python-telegram-bot-master\telegram\" />
+    <Folder Include="python-telegram-bot-master\telegram\ext\" />
+    <Folder Include="python-telegram-bot-master\telegram\files\" />
+    <Folder Include="python-telegram-bot-master\telegram\games\" />
+    <Folder Include="python-telegram-bot-master\telegram\inline\" />
+    <Folder Include="python-telegram-bot-master\telegram\passport\" />
+    <Folder Include="python-telegram-bot-master\telegram\payment\" />
+    <Folder Include="python-telegram-bot-master\telegram\utils\" />
+    <Folder Include="python-telegram-bot-master\telegram\vendor\" />
+    <Folder Include="python-telegram-bot-master\telegram\vendor\ptb_urllib3\" />
+    <Folder Include="python-telegram-bot-master\tests\" />
+    <Folder Include="python-telegram-bot-master\tests\data\" />
+    <Folder Include="SiteStockManager\" />
+    <Folder Include="UI\" />
+    <Folder Include="Orbita\" />
+    <Folder Include="Примеры\" />
+    <Folder Include="DB\" />
+    <Folder Include="Примеры\QT\" />
+    <Folder Include="Примеры\Понимаем декораторы в Python%27e, шаг за шагом. Шаг 1\" />
+    <Folder Include="Примеры\Работа с классами\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Facebook\.ipynb_checkpoints\facebook.ini 23042020-checkpoint.ipynb" />
+    <Content Include="Facebook\.ipynb_checkpoints\Untitled-checkpoint.ipynb" />
+    <Content Include="Facebook\.ipynb_checkpoints\Написать сообщение-checkpoint.ipynb" />
+    <Content Include="Facebook\.ipynb_checkpoints\Старт-checkpoint.ipynb" />
+    <Content Include="Facebook\scenario\JavaScript.js" />
+    <Content Include="Facebook\ui\login.ui" />
+    <Content Include="Facebook\ui\messages.ui" />
+    <Content Include="Ini\brands.json">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Ini\bug.json" />
+    <Content Include="Ini\bug_categories_apple.json" />
+    <Content Include="Ini\cdata.json" />
+    <Content Include="Ini\dornet_categories_kvm_aten.json">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Ini\dornet_locators.json" />
+    <Content Include="Ini\dornet.json" />
+    <Content Include="Ini\cdata_categories_aio_asus.json" />
+    <Content Include="Ini\cdata_categories_aio_dell.json" />
+    <Content Include="Ini\cdata_categories_webcams.json" />
+    <Content Include="Ini\dornet_login.json" />
+    <Content Include="Ini\facebook_groups.json">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Ini\grandadvance_categories_keyboards_hp.json" />
+    <Content Include="Ini\grandadvance_categories_keyboards_microsoft.json" />
+    <Content Include="Ini\grandadvance_categories_laptops_acer.json" />
+    <Content Include="Ini\grandadvance_categories_laptops_dell.json" />
+    <Content Include="Ini\grandadvance_categories_laptops_hp.json" />
+    <Content Include="Ini\grandadvance_categories_video_nvidia.json" />
+    <Content Include="Ini\grandadvance_categories_laptops_lenovo.json" />
+    <Content Include="Ini\grandadvance_categories_keyboards_logitech.json" />
+    <Content Include="Ini\grandadvance_categories_mb_msi.json" />
+    <Content Include="Ini\ksp.json" />
+    <Content Include="Ini\ksp_categories_apple_wathces.json" />
+    <Content Include="Ini\ksp_categories_consoles_nintendo.json" />
+    <Content Include="Ini\ksp_categories_consoles_sony.json" />
+    <Content Include="Ini\ksp_categories_headphones_bang_olufsen.json" />
+    <Content Include="Ini\ksp_categories_headphones_razer.json" />
+    <Content Include="Ini\ksp_categories_headphones_hyperx.json" />
+    <Content Include="Ini\ksp_categories_headphones_sony.json" />
+    <Content Include="Ini\ksp_categories_consoles_microsoft.json" />
+    <Content Include="Ini\ksp_categories_headphones_jbl.json" />
+    <Content Include="Ini\ksp_categories_imacs.json" />
+    <Content Include="Ini\ksp_categories_monitors_lg.json" />
+    <Content Include="Ini\ksp_categories_monitors_samsung.json" />
+    <Content Include="Ini\ksp_categories_headphones_xiaomi.json" />
+    <Content Include="Ini\ksp_categories_notebooks_hp_by_model.json" />
+    <Content Include="Ini\ksp_categories_notebooks_dell_by_model.json" />
+    <Content Include="Ini\ksp_categories_notebooks_lenovo_by_model.json" />
+    <Content Include="Ini\ksp_categories_notebooks_huawei_by_model.json" />
+    <Content Include="Ini\ksp_categories_notebooks_asus_by_model.json" />
+    <Content Include="Ini\ksp_categories_phones_nokia.json" />
+    <Content Include="Ini\ksp_categories_phones_philips.json" />
+    <Content Include="Ini\ksp_categories_tablets_xiaomi.json" />
+    <Content Include="Ini\ksp_categories_speakers_jbl.json" />
+    <Content Include="Ini\ksp_categories_speakers_google.json" />
+    <Content Include="Ini\ksp_categories_phones_oneplus.json" />
+    <Content Include="Ini\ksp_categories_phones_oppo.json" />
+    <Content Include="Ini\ksp_categories_phones_asus.json" />
+    <Content Include="Ini\ksp_categories_phones_google.json" />
+    <Content Include="Ini\ksp_categories_streamers_google.json" />
+    <Content Include="Ini\ksp_categories_tablets_amazon.json" />
+    <Content Include="Ini\ksp_categories_tablets_lenovo.json" />
+    <Content Include="Ini\ksp_categories_watches_lenovo.json" />
+    <Content Include="Ini\ksp_categories_watches_amazfit.json" />
+    <Content Include="Ini\ksp_categories_watches_honor.json" />
+    <Content Include="Ini\ksp_categories_watches_xiaomi.json" />
+    <Content Include="Ini\ksp_categories_phones_xiaomi.json" />
+    <Content Include="Ini\ksp_categories_watches_garmin.json" />
+    <Content Include="Ini\ksp_categories_tablets_samsung.json" />
+    <Content Include="Ini\ksp_categories_watches_samsung.json" />
+    <Content Include="Ini\ksp_categories_phones_samsung.json" />
+    <Content Include="Ini\ksp_categories_macbook.json" />
+    <Content Include="Ini\ksp_categories_ipads.json" />
+    <Content Include="Ini\ksp_categories_ipods.json" />
+    <Content Include="Ini\ksp_categories_iphones.json" />
+    <Content Include="Ini\ksp_locators.json" />
+    <Content Include="Ini\morlevi_categories_mb_gigabyte - Copy.json" />
+    <Content Include="Ini\morlevi_categories_memory_sodimm_ddr4.json" />
+    <Content Include="Ini\morlevi_categories_monitors_coolermaster.json" />
+    <Content Include="Ini\morlevi_categories_monitors_gigabyte.json" />
+    <Content Include="Ini\morlevi_categories_monitors_mag.json" />
+    <Content Include="Ini\morlevi_categories_monitors_samsung.json" />
+    <Content Include="Ini\morlevi_categories_psu_corsair.json" />
+    <Content Include="Ini\morlevi_categories_psu_gigabyte.json" />
+    <Content Include="Ini\morlevi_categories_psu_cooler_maser.json" />
+    <Content Include="Ini\morlevi_categories_storage_toshiba.json" />
+    <Content Include="Ini\morlevi_categories_storage_wd.json" />
+    <Content Include="Ini\morlevi_categories_storage_crucial.json" />
+    <Content Include="Ini\morlevi_categories_storage_gigabyte.json" />
+    <Content Include="Ini\morlevi_categories_storage_kingston.json" />
+    <Content Include="Ini\morlevi_categories_storage_intel.json" />
+    <Content Include="Ini\prestashop_product_fields.json" />
+    <Content Include="Ini\suppliers.json">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Ini\techorezef.json" />
+    <Content Include="Ini\visualdg_categories_monitors_asus.json" />
+    <Content Include="Ini\visualdg_categories_cases_asus.json" />
+    <Content Include="Ini\morlevi_categories_keyboards_hp.json" />
+    <Content Include="Ini\morlevi_categories_minipc_gigabyte.json" />
+    <Content Include="Ini\morlevi_categories_monitors_aoc.json" />
+    <Content Include="Ini\morlevi_categories_monitors_dell.json" />
+    <Content Include="Ini\morlevi_categories_monitors_lenovo.json" />
+    <Content Include="Ini\morlevi_categories_storage_sandisk.json" />
+    <Content Include="Ini\morlevi_categories_minipc_intel.json" />
+    <Content Include="Ini\cdata_categories_video.json" />
+    <Content Include="Ini\cdata_categories_ups.json" />
+    <Content Include="Ini\visualdg_categories_minipc_asus.json">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Ini\visualdg_categories_video_asus.json" />
+    <Content Include="Ini\visualdg_categories_mb_asus.json" />
+    <Content Include="Ini\visualdg_categories_desktops_lenovo_workstation_p.json" />
+    <Content Include="Ini\cdata_categories_gaming_laptops_hp.json" />
+    <Content Include="Ini\cdata_categories_gaming_laptops_dell.json" />
+    <Content Include="Ini\cdata_categories_keyboards.json" />
+    <Content Include="Ini\visualdg_categories_laptops_asus.json">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Ini\visualdg_categories_laptops_lenovo_v_essentials.json" />
+    <Content Include="Ini\visualdg_categories_laptops_lenovo_thinkbook.json" />
+    <Content Include="Ini\visualdg_categories_laptops_lenovo_yoga.json" />
+    <Content Include="Ini\visualdg_categories_laptops_lenovo_thinkpad_e.json" />
+    <Content Include="Ini\visualdg_categories_laptops_lenovo_thinkpad_t.json" />
+    <Content Include="Ini\visualdg_categories_laptops_lenovo_thinkpad_l.json" />
+    <Content Include="Ini\visualdg_categories_laptops_lenovo_thinkpad_x.json" />
+    <Content Include="Ini\visualdg_categories_laptops_lenovo_thinkpad_p.json" />
+    <Content Include="Ini\cdata_categories_laptops_asus.json" />
+    <Content Include="Ini\cdata_categories_laptops_dell.json" />
+    <Content Include="Ini\cdata_categories_monitors_dell.json" />
+    <Content Include="Ini\cdata_categories_monitors_apple.json" />
+    <Content Include="Ini\cdata_categories_printers.json" />
+    <Content Include="Ini\cdata_categories_gaming_laptops_asus.json" />
+    <Content Include="Ini\cdata_categories_gaming_desktops.json" />
+    <Content Include="Ini\cdata_categories_workstatios.json" />
+    <Content Include="Ini\cdata_categories_monitors_hp.json" />
+    <Content Include="Ini\cdata_categories_desktops.json">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Ini\cdata_categories_laptops_hp.json" />
+    <Content Include="Ini\techorezef_locators.json" />
+    <Content Include="Ini\visualdg_locators.json">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Ini\techorezef_login.json" />
+    <Content Include="Ini\visualdg_login.json" />
+    <Content Include="Ini\visualdg.json" />
+    <Content Include="Ini\grandadvance_locators.json" />
+    <Content Include="Ini\cdata_locators.json">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Ini\grandadvance_login.json" />
+    <Content Include="Ini\cdata_login.json">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Ini\grandadvance.json">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Ini\messages.json">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Ini\morlevi.json">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Ini\morlevi_categories_cases_coolermaster.json" />
+    <Content Include="Ini\morlevi_categories_cases_antec.json" />
+    <Content Include="Ini\morlevi_categories_cases_corsair.json" />
+    <Content Include="Ini\morlevi_categories_cases_generic.json" />
+    <Content Include="Ini\morlevi_categories_cases_gigabyte.json" />
+    <Content Include="Ini\morlevi_categories_cases_zalman.json">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Ini\morlevi_categories_keyboards_genius.json" />
+    <Content Include="Ini\morlevi_categories_keyboards_coolermaster.json" />
+    <Content Include="Ini\morlevi_categories_keyboards_logitech.json" />
+    <Content Include="Ini\morlevi_categories_laptops_dell.json" />
+    <Content Include="Ini\morlevi_categories_laptops_hp.json" />
+    <Content Include="Ini\morlevi_categories_laptops_asus.json" />
+    <Content Include="Ini\morlevi_categories_memory_sodimm_ddr3.json" />
+    <Content Include="Ini\morlevi_categories_memory_dimm_ddr4.json" />
+    <Content Include="Ini\morlevi_categories_sound.json" />
+    <Content Include="Ini\morlevi_categories_ups.json" />
+    <Content Include="Ini\morlevi_categories_network.json" />
+    <Content Include="Ini\morlevi_categories_printers.json" />
+    <Content Include="Ini\morlevi_categories_keyboards_microsoft.json" />
+    <Content Include="Ini\morlevi_categories_cpu.json">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Ini\morlevi_categories_laptops_lenovo.json">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Ini\morlevi_categories_monitors_philips.json" />
+    <Content Include="Ini\morlevi_categories_storage_samsung.json">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Ini\morlevi_categories_memory_dimm_ddr3.json" />
+    <Content Include="Ini\readme.md">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Logging\logs\test.html" />
+    <Content Include="Logging\readme.md">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Messages\ui\QT_messages_editor_interface.ui" />
+    <Content Include="Facebook\ui\readme.md">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Facebook\__pycache__\class_main.cpython-37.pyc" />
+    <Content Include="Facebook\__pycache__\csv_executor.cpython-37.pyc" />
+    <Content Include="Facebook\__pycache__\ini.cpython-37.pyc" />
+    <Content Include="Facebook\__pycache__\login_scenario.cpython-37.pyc" />
+    <Content Include="Facebook\__pycache__\log_send_messages.cpython-37.pyc" />
+    <Content Include="Facebook\__pycache__\messages_log.cpython-37.pyc" />
+    <Content Include="Facebook\__pycache__\send_messages.cpython-37.pyc" />
+    <Content Include="Facebook\__pycache__\send_messages_to.cpython-37.pyc" />
+    <Content Include="Facebook\__pycache__\send_to.cpython-37.pyc" />
+    <Content Include="Ini\facebook_locators.json">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Ini\morlevi_login.json">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Ini\db_connectors_strings.json">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Ini\webdriver.json">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Messages\ui\QT_Add_Edit_Delete_Message_interface.ui" />
+    <Content Include="python-telegram-bot-master\.github\CONTRIBUTING.rst" />
+    <Content Include="python-telegram-bot-master\.github\ISSUE_TEMPLATE\bug_report.md" />
+    <Content Include="python-telegram-bot-master\.github\ISSUE_TEMPLATE\config.yml" />
+    <Content Include="python-telegram-bot-master\.github\ISSUE_TEMPLATE\feature_request.md" />
+    <Content Include="python-telegram-bot-master\.github\ISSUE_TEMPLATE\question.md" />
+    <Content Include="python-telegram-bot-master\.github\stale.yml" />
+    <Content Include="python-telegram-bot-master\.github\workflows\example_notifier.yml" />
+    <Content Include="python-telegram-bot-master\.github\workflows\lock.yml" />
+    <Content Include="python-telegram-bot-master\.github\workflows\test.yml" />
+    <Content Include="python-telegram-bot-master\.gitignore" />
+    <Content Include="python-telegram-bot-master\.gitmodules" />
+    <Content Include="python-telegram-bot-master\.pre-commit-config.yaml" />
+    <Content Include="python-telegram-bot-master\.readthedocs.yml" />
+    <Content Include="python-telegram-bot-master\AUTHORS.rst" />
+    <Content Include="python-telegram-bot-master\CHANGES.rst" />
+    <Content Include="python-telegram-bot-master\codecov.yml" />
+    <Content Include="python-telegram-bot-master\CODE_OF_CONDUCT.md" />
+    <Content Include="python-telegram-bot-master\contrib\build-debian.sh" />
+    <Content Include="python-telegram-bot-master\contrib\debian\changelog" />
+    <Content Include="python-telegram-bot-master\contrib\debian\compat" />
+    <Content Include="python-telegram-bot-master\contrib\debian\control" />
+    <Content Include="python-telegram-bot-master\contrib\debian\copyright" />
+    <Content Include="python-telegram-bot-master\contrib\debian\install" />
+    <Content Include="python-telegram-bot-master\contrib\debian\rules" />
+    <Content Include="python-telegram-bot-master\contrib\debian\source\format" />
+    <Content Include="python-telegram-bot-master\contrib\debian\source\options" />
+    <Content Include="python-telegram-bot-master\docs\Makefile" />
+    <Content Include="python-telegram-bot-master\docs\requirements-docs.txt" />
+    <Content Include="python-telegram-bot-master\docs\source\changelog.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\index.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\ptb-logo-orange.ico" />
+    <Content Include="python-telegram-bot-master\docs\source\ptb-logo-orange.png" />
+    <Content Include="python-telegram-bot-master\docs\source\ptb-logo_1024.png" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.animation.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.audio.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.bot.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.botcommand.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.callbackgame.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.callbackquery.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.chat.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.chataction.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.chatmember.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.chatpermissions.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.chatphoto.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.choseninlineresult.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.constants.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.contact.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.credentials.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.datacredentials.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.dice.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.document.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.encryptedcredentials.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.encryptedpassportelement.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.error.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.ext.basepersistence.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.ext.callbackcontext.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.ext.callbackqueryhandler.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.ext.choseninlineresulthandler.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.ext.commandhandler.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.ext.conversationhandler.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.ext.defaults.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.ext.delayqueue.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.ext.dictpersistence.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.ext.dispatcher.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.ext.dispatcherhandlerstop.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.ext.filters.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.ext.handler.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.ext.inlinequeryhandler.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.ext.job.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.ext.jobqueue.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.ext.messagehandler.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.ext.messagequeue.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.ext.picklepersistence.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.ext.pollanswerhandler.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.ext.pollhandler.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.ext.precheckoutqueryhandler.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.ext.prefixhandler.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.ext.regexhandler.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.ext.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.ext.shippingqueryhandler.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.ext.stringcommandhandler.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.ext.stringregexhandler.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.ext.typehandler.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.ext.updater.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.file.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.filecredentials.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.forcereply.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.game.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.gamehighscore.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.iddocumentdata.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.inlinekeyboardbutton.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.inlinekeyboardmarkup.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.inlinequery.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.inlinequeryresult.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.inlinequeryresultarticle.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.inlinequeryresultaudio.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.inlinequeryresultcachedaudio.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.inlinequeryresultcacheddocument.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.inlinequeryresultcachedgif.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.inlinequeryresultcachedmpeg4gif.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.inlinequeryresultcachedphoto.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.inlinequeryresultcachedsticker.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.inlinequeryresultcachedvideo.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.inlinequeryresultcachedvoice.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.inlinequeryresultcontact.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.inlinequeryresultdocument.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.inlinequeryresultgame.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.inlinequeryresultgif.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.inlinequeryresultlocation.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.inlinequeryresultmpeg4gif.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.inlinequeryresultphoto.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.inlinequeryresultvenue.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.inlinequeryresultvideo.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.inlinequeryresultvoice.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.inputcontactmessagecontent.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.inputfile.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.inputlocationmessagecontent.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.inputmedia.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.inputmediaanimation.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.inputmediaaudio.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.inputmediadocument.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.inputmediaphoto.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.inputmediavideo.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.inputmessagecontent.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.inputtextmessagecontent.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.inputvenuemessagecontent.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.invoice.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.keyboardbutton.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.keyboardbuttonpolltype.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.labeledprice.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.location.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.loginurl.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.maskposition.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.message.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.messageentity.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.orderinfo.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.parsemode.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.passportdata.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.passportelementerror.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.passportelementerrordatafield.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.passportelementerrorfile.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.passportelementerrorfiles.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.passportelementerrorfrontside.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.passportelementerrorreverseside.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.passportfile.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.personaldetails.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.photosize.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.poll.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.pollanswer.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.polloption.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.precheckoutquery.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.replykeyboardmarkup.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.replykeyboardremove.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.replymarkup.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.residentialaddress.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.securedata.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.shippingaddress.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.shippingoption.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.shippingquery.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.sticker.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.stickerset.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.successfulpayment.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.telegramobject.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.update.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.user.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.userprofilephotos.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.utils.helpers.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.utils.promise.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.utils.request.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.utils.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.utils.types.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.venue.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.video.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.videonote.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.voice.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\telegram.webhookinfo.rst" />
+    <Content Include="python-telegram-bot-master\docs\source\_static\.placeholder" />
+    <Content Include="python-telegram-bot-master\examples\conversationbot.png" />
+    <Content Include="python-telegram-bot-master\examples\conversationbot2.png" />
+    <Content Include="python-telegram-bot-master\examples\LICENSE.txt" />
+    <Content Include="python-telegram-bot-master\examples\nestedconversationbot.png" />
+    <Content Include="python-telegram-bot-master\examples\passportbot.html" />
+    <Content Include="python-telegram-bot-master\examples\README.md" />
+    <Content Include="python-telegram-bot-master\LICENSE" />
+    <Content Include="python-telegram-bot-master\LICENSE.dual" />
+    <Content Include="python-telegram-bot-master\LICENSE.lesser" />
+    <Content Include="python-telegram-bot-master\Makefile" />
+    <Content Include="python-telegram-bot-master\MANIFEST.in" />
+    <Content Include="python-telegram-bot-master\pyproject.toml" />
+    <Content Include="python-telegram-bot-master\README.rst" />
+    <Content Include="python-telegram-bot-master\requirements-dev.txt" />
+    <Content Include="python-telegram-bot-master\requirements.txt" />
+    <Content Include="python-telegram-bot-master\setup.cfg" />
+    <Content Include="python-telegram-bot-master\telegram\py.typed" />
+    <Content Include="python-telegram-bot-master\tests\data\game.gif" />
+    <Content Include="python-telegram-bot-master\tests\data\game.png" />
+    <Content Include="python-telegram-bot-master\tests\data\sticker_set_thumb.png" />
+    <Content Include="python-telegram-bot-master\tests\data\telegram" />
+    <Content Include="python-telegram-bot-master\tests\data\telegram.gif" />
+    <Content Include="python-telegram-bot-master\tests\data\telegram.jpg" />
+    <Content Include="python-telegram-bot-master\tests\data\telegram.mp3" />
+    <Content Include="python-telegram-bot-master\tests\data\telegram.mp4" />
+    <Content Include="python-telegram-bot-master\tests\data\telegram.ogg" />
+    <Content Include="python-telegram-bot-master\tests\data\telegram.png" />
+    <Content Include="python-telegram-bot-master\tests\data\telegram.webp" />
+    <Content Include="python-telegram-bot-master\tests\data\telegram2.mp4" />
+    <Content Include="python-telegram-bot-master\tests\data\telegram_animated_sticker.tgs" />
+    <Content Include="python-telegram-bot-master\tests\data\telegram_no_standard_header.jpg" />
+    <Content Include="python-telegram-bot-master\tests\data\telegram_sticker.png" />
+    <Content Include="python-telegram-bot-master\tests\data\telegram_test_channel.jpg" />
+    <Content Include="python-telegram-bot-master\tests\data\thumb.jpg" />
+    <Content Include="python-telegram-bot-master\tests\data\测试.png" />
+    <Content Include="README.md">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="UI\QT_launcher_interface.ui" />
+    <Content Include="UI\readme.md">
+      <SubType>Code</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="Global|ContinuumAnalytics|Anaconda39-64" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+  <!-- Uncomment the CoreCompile target to enable the Build command in
+       Visual Studio and specify your pre- and post-build commands in
+       the BeforeBuild and AfterBuild targets below. -->
+  <!--<Target Name="CoreCompile" />-->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+</Project>

@@ -1,0 +1,118 @@
+{
+  "id": "645577b0-9ac6-4b5c-808a-a2e169985a99",
+  "version": "2.0",
+  "name": "https://doska-obyavleniy.com/",
+  "url": "https://doska-obyavleniy.com",
+  "tests": [{
+    "id": "5c038f82-63f5-4250-9fe0-dac4eecbc28e",
+    "name": "login to https://doska-obyavleniy.com/",
+    "commands": [{
+      "id": "17d5287f-19b4-435f-92dc-5413dacdf464",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "77e7c965-8d4d-41d2-95e5-45df2bca236a",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1382x744",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a10343c2-7487-4a8d-a6a1-ab30c515cdd3",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Войдите",
+      "targets": [
+        ["linkText=Войдите", "linkText"],
+        ["css=.pseudo-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Войдите')]", "xpath:link"],
+        ["xpath=//div[@id='j-header-guest-menu']/div/div/span/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://doska-obyavleniy.com/user/login')]", "xpath:href"],
+        ["xpath=//span/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Войдите')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "153920e1-1eac-4022-80ff-7cf1e0187a83",
+      "comment": "",
+      "command": "click",
+      "target": "id=j-u-login-email",
+      "targets": [
+        ["id=j-u-login-email", "id"],
+        ["name=email", "name"],
+        ["css=#j-u-login-email", "css:finder"],
+        ["xpath=//input[@id='j-u-login-email']", "xpath:attributes"],
+        ["xpath=//form[@id='j-u-login-form']/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9e37c584-0535-4c5e-9a13-b4bc6093b141",
+      "comment": "",
+      "command": "type",
+      "target": "id=j-u-login-email",
+      "targets": [
+        ["id=j-u-login-email", "id"],
+        ["name=email", "name"],
+        ["css=#j-u-login-email", "css:finder"],
+        ["xpath=//input[@id='j-u-login-email']", "xpath:attributes"],
+        ["xpath=//form[@id='j-u-login-form']/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "one.last.bit@gmail.com"
+    }, {
+      "id": "9f98382a-32d0-4b76-9beb-4b0af3f0b6e4",
+      "comment": "",
+      "command": "type",
+      "target": "id=j-u-login-pass",
+      "targets": [
+        ["id=j-u-login-pass", "id"],
+        ["name=pass", "name"],
+        ["css=#j-u-login-pass", "css:finder"],
+        ["xpath=//input[@id='j-u-login-pass']", "xpath:attributes"],
+        ["xpath=//form[@id='j-u-login-form']/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "9643766"
+    }, {
+      "id": "3fdf7272-251c-4e6f-8687-ecbfdb409807",
+      "comment": "",
+      "command": "click",
+      "target": "name=remember",
+      "targets": [
+        ["name=remember", "name"],
+        ["css=.checkbox > input", "css:finder"],
+        ["xpath=//input[@name='remember']", "xpath:attributes"],
+        ["xpath=//form[@id='j-u-login-form']/div[3]/div/label/input", "xpath:idRelative"],
+        ["xpath=//label/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "30a2ec2d-bee0-4335-a4f7-01a9d9845ac3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.j-submit",
+      "targets": [
+        ["css=.j-submit", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form[@id='j-u-login-form']/div[4]/div/button", "xpath:idRelative"],
+        ["xpath=//div[4]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Войти на сайт')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "324cf19d-8d94-4400-9634-29487571b996",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["5c038f82-63f5-4250-9fe0-dac4eecbc28e"]
+  }],
+  "urls": ["https://doska-obyavleniy.com/"],
+  "plugins": []
+}
