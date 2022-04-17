@@ -193,7 +193,7 @@ def sozdaj_spisok_tovarov_zapolini_polia_na_categorypage(self):
     #открываю страницу карегории
     self.get_url(self.current_node["url"])
 
-    #лоцаторы и селекторы чтобы вытащить блок
+    #локаторы и селекторы чтобы вытащить блок
     product_block_locator = (self.locators['product']['product_locator']['by'],
                             self.locators['product']['product_locator']['selector'])
     
@@ -230,19 +230,19 @@ def zapolni_paramerty_tovara(self):
         {self.p}
         Пропускаю ''')
         #self.screenshot(f''' проблема при сборе параметров товара . Пропускаю ''')   
-        return False
+        return self, False
 
 def insert_product_in_products_list(sel,product):
         try:
-            self.ps_list.append(product)
+            self.products_list.append(product)
             self.log(f''' ############ ТОВАР добавлен     ''')
-            return True
+            return self, True
         except TypeError as ex:
             self.log(f'''АЛЕРТ!  Возникла проблема на сайте 
             {ex} ''')
             #flush_p(self)
-            return False
-        return self.ps_list
+            return self, False
+        return self
 
 
 
@@ -414,7 +414,7 @@ def check_error_page(self) -> bool:
 @Log.logged
 def flush_p(self):
     
-    if len(self.ps_list)==0 : 
+    if len(self.products_list)==0 : 
         self.log(f''' Пустой список продуктов. Нечего записыавть ''')
         return False
 
@@ -427,6 +427,6 @@ def flush_p(self):
     self.log(f'''   скидываю товары в файл {filename}  ''')
     self.log( f''' Последний успешный сценарий: {self.current_node} ''')
    
-    execute_csv.write(self ,  self.ps_list , path_to_file)
+    execute_csv.write(self ,  self.products_list , path_to_file)
     self.log(f''' ------------- OK!-------------- ''')
     return True

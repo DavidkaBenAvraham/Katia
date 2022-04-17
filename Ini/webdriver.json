@@ -1,5 +1,5 @@
 {
-  "driver": {
+  "disabled": {
     "name": "chromedriver",
       "arguments": [
         "--headless",
@@ -8,8 +8,8 @@
       ],
       "driver_wait": 5
   },
-  "disabled": {
-    "name":"firfox",
+  "driver": {
+    "name":"firefox",
       "arguments": [ "--no-sandbox" ],
       "disabled_arguments": [ "--disable-dev-shm-usage", 
                               "--headless" ],

@@ -23,12 +23,10 @@ def pull_products_details_from_blocks(self , products_blocks):
     try:
        
         for block in products_blocks:
+            url = find_link_to_full_product_page(block)
             soup = BeautifulSoup(block, 'lxml')
-            p_fields = extract_product_fields_from_soup(self, soup)
-            # Если была ошибка в 
-            # записи полей товара пропускаю товар
-            if p_fields == False: continue
-            self.p.products_list.append(p_fields)
+            extract_product_from_soup(self, soup)
+            
         return True
     except Exception as ex:
         self.log( f''' Ошибка 
@@ -38,7 +36,11 @@ def pull_products_details_from_blocks(self , products_blocks):
         #sys.exit()
 
 
-def extract_product_fields_from_soup(self, soup)->():
+def find_link_to_full_product_page(self,block):
+    print(block)
+    pass
+
+def extract_product_from_soup(self, soup):
     try:
         div = soup.find(['div'])
         a = soup.find('a', attrs={'class':'MuiTypography-body1'})
@@ -50,6 +52,8 @@ def extract_product_fields_from_soup(self, soup)->():
         divs = soup.find_all('div')
         pp = soup.find_all('p')
         aa = soup.find_all('a')
+
+        print(aa)
 
 
         #if str(type(spans)).find("None") >-1:spans = pp
@@ -110,17 +114,14 @@ def extract_product_fields_from_soup(self, soup)->():
         self.p['img alt'] = str(f'''{self.p['brand']} {self.p['title']}''')
         self.p['koteret meta'] =  self.p['title']
         self.p['rewrie url'] = self.p['title'].strip().replace(" ","-").replace("&","_")
-        self.p['maafianim mufradim bpsik'] = str(get_product_parameters())
+        
+        #self.p['maafianim mufradim bpsik'] = str(f'{str(self.current_node["properties"])}').replace("{","").replace("}","").replace('"','')
 
-        def get_product_parameters():
-            try:
-                return self.current_node["properties"]
-            except:
-                return self
-            pass
 
-        return self
+        self.products_list.append(self.p)
 
+
+        
 
 
     except Exception as ex:
@@ -129,5 +130,5 @@ def extract_product_fields_from_soup(self, soup)->():
         #self.log( f''' Поля товара 
         #{p_fields}''')
         #sys.exit()
-        return False
-
+        return self,False
+     

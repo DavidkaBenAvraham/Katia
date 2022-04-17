@@ -475,7 +475,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="aluf.co.il\lab\" />
     <Folder Include="Facebook\" />
     <Folder Include="Facebook\.ipynb_checkpoints\" />
     <Folder Include="Facebook\ui\" />
@@ -491,7 +490,6 @@
     <Folder Include="Driver\" />
     <Folder Include="callil.co.il\" />
     <Folder Include="Messages\" />
-    <Folder Include="aluf.co.il\" />
     <Folder Include="PCPart\" />
     <Folder Include="scenaries\" />
     <Folder Include="bot\" />
@@ -630,6 +628,7 @@
     <Content Include="Ini\morlevi_categories_storage_gigabyte.json" />
     <Content Include="Ini\morlevi_categories_storage_kingston.json" />
     <Content Include="Ini\morlevi_categories_storage_intel.json" />
+    <Content Include="Ini\prestashop_product_combinations_fields.json" />
     <Content Include="Ini\prestashop_product_fields.json" />
     <Content Include="Ini\suppliers.json">
       <SubType>Code</SubType>

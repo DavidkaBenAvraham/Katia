@@ -140,7 +140,7 @@ class Supplier(Driver):
         self.price_rule = self.supplier["price_rule"]
         #сценарии
         self.scenaries = self.supplier["scenaries"]
-        self.fields = 
+        self.fields = jsn.loads(f'''{_path_to_ini}prestashop_product_fields.json''')
         #локаторы элементов страницы
         _path_to_locators_file = f'''{_path_to_ini}{self.supplier_name}_locators.json'''  
         self.locators = jsn.loads( _path_to_locators_file)

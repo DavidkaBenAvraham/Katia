@@ -20,9 +20,6 @@
   ],
   "excluded": [
 
-
-    "------------- удали работающие, чтобы не дублировались ----------------------",
-
     "ksp_categories_speakers_google.json",
     "ksp_categories_speakers_jbl.json",
 
