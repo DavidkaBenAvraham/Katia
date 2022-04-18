@@ -1,10 +1,16 @@
-'''
-        Supplier наследник от Driver, который
+''' 
+        Supplier - класс поставщика
+
+         наследник от Driver, который
         расширяет возможности Селениум до мих желаний
+
+
         Все классы поставщиков строятся на базе класса Supplier
         Каждый выполняет свой сценарий
-        для инициализации класса ему надо передать json файл с именем формата
-        <suppplier>.json
+        для инициализации класса ему надо передать json файл 
+        с именем поставщика в формате:   <suppplier>.json
+
+
 '''
 import pandas as pd
 import json
@@ -20,13 +26,16 @@ from Ini import Ini
 
 import execute_json as jsn
 import execute_scenaries
-import execute_products as product
+#import execute_products as product
 #import suppliers
 
 
 class Supplier(Driver):
     '''
-    Главный объект.
+    Объект поставщика.
+
+    Предок Driver - вебдрайвер
+    ведрайвер chromedriver,geckodriver, etc.
 
     '''
     def __init__(self,  supplier_name , **kwards):
@@ -55,9 +64,6 @@ class Supplier(Driver):
         # общий список товаров поставщика
         # напоняется по мере выполнения сценариев
         # product = исполняемый сейчас товар
-        
-        self.products_list = [] 
-        #self.df = pd.DataFrame() # датафрейм для общего списка продуктов, который потом запишется в файл
         
         #Имя текущего файла экспорта CSV
         #self.csv_export_file_name = '' 
@@ -123,11 +129,7 @@ class Supplier(Driver):
             _path_to_ini = f'''{self.root}/Ini/'''
         else:
             _path_to_ini = f'''{self.root}\\Ini\\'''
-        
 
-        print(f'''
-        _path_to_ini = {_path_to_ini}
-        ''')
         _path_to_supplier_file = f'''{_path_to_ini}{self.supplier_name}.json'''  
         
 
@@ -140,10 +142,15 @@ class Supplier(Driver):
         self.price_rule = self.supplier["price_rule"]
         #сценарии
         self.scenaries = self.supplier["scenaries"]
-        self.fields = jsn.loads(f'''{_path_to_ini}prestashop_product_fields.json''')
         #локаторы элементов страницы
         _path_to_locators_file = f'''{_path_to_ini}{self.supplier_name}_locators.json'''  
         self.locators = jsn.loads( _path_to_locators_file)
+
+        
+        '''
+                Товар. product.Product() 
+        '''
+        self.p = [] 
         
         
         self.current_node = ''
@@ -153,15 +160,8 @@ class Supplier(Driver):
         собираю товары прямо со страницы 
         категории например KSP
         Возвращает True/False
+        плохая идея
         '''
-        self.collect_products_from_categorypage = self.supplier["collect_products_from_categorypage"]
+        #self.collect_products_from_categorypage = self.supplier["collect_products_from_categorypage"]
 
-        #словарь полей товара
-        #self.fields = f'''{_path_to_ini}prestashop_product_fields.json'''  
-        #self.fields = dict(jsn.loads(f'''{_path_to_ini}prestashop_product_fields.json'''  ))
-
-        #Бренды
-        #_path_to_file = f'''{self.root}\\Ini\\brands.json'''  
-        #self.brands = jsn.loads( _path_to_file)['brand']
-        #### Зачем таскать с собой бренды из класса в класс?
-        #### Надо их вывести наружу
+       

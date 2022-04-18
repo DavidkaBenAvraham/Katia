@@ -52,6 +52,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="PCPart\__init__.py" />
+    <Compile Include="products\__init__.py" />
     <Compile Include="_regex.py" />
     <Compile Include="suppliers\ksp\__init__.py" />
     <Compile Include="__dornet\login.py" />
@@ -87,7 +88,7 @@
     <Compile Include="Ini\morlevi_categories_headsets.json">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="product_fields.py">
+    <Compile Include="products\product_fields.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Ini\cdata_categories_aio_hp.json">
@@ -132,7 +133,7 @@
     <Compile Include="price_cleaner.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="execute_products.py">
+    <Compile Include="products\execute_products.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="python-telegram-bot-master\docs\source\conf.py" />
@@ -490,8 +491,8 @@
     <Folder Include="Driver\" />
     <Folder Include="callil.co.il\" />
     <Folder Include="Messages\" />
+    <Folder Include="products\" />
     <Folder Include="PCPart\" />
-    <Folder Include="scenaries\" />
     <Folder Include="bot\" />
     <Folder Include="suppliers\ksp\" />
     <Folder Include="__dornet\" />
@@ -629,6 +630,7 @@
     <Content Include="Ini\morlevi_categories_storage_kingston.json" />
     <Content Include="Ini\morlevi_categories_storage_intel.json" />
     <Content Include="Ini\prestashop_product_combinations_fields.json" />
+    <Content Include="Ini\prestashop_db_connectionstrings.json" />
     <Content Include="Ini\prestashop_product_fields.json" />
     <Content Include="Ini\suppliers.json">
       <SubType>Code</SubType>

@@ -52,7 +52,7 @@ class Log():
 
     def screenshot(self , log = object):
         log_str = str(log)
-        filename =  str(self.random_id) + ".png"
+        filename =  str(self.current) + ".png"
         path_screenshot = f'''{self.root}/screenshots/{filename}'''
         print(f'''Saving { path_screenshot}''')
         #self.driver.get_screenshot_as_file(path)
@@ -82,7 +82,7 @@ class Log():
             return
         else:print(str(msg))
   
-    def log(self ,  log = object ):
+    def log(self ,  log = object):
         self.print(str(log))
         try:
             logfile = open(self.logfile  , mode = 'a' ,encoding = 'UTF-8')
@@ -91,7 +91,7 @@ class Log():
 
         except Exception as ex:
             try:
-                logfile = open(self.logfile  , mode = 'w' ,encoding = 'UTF-8')
+                logfile = open(self.logfile  , mode = 'а' ,encoding = 'UTF-8')
                 logfile.write(str(log))
                 logfile.close()
                 print(str({ex}))
@@ -170,7 +170,7 @@ class Log():
         Файл ЛОГ в директории 
         self.root}\\Logging\\LOGS\\
         '''
-        logfile = open(f'''{self.root}\\Logging\\LOGS\\{file}'''  , mode = 'w' ,encoding = 'UTF-8')
+        logfile = open(f'''{self.root}\\..\\LOGS\\{file}'''  , mode = 'а' ,encoding = 'UTF-8')
         return logfile.read()
 
 

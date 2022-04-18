@@ -26,12 +26,18 @@
     }
   },
   "product": {
-    "products_list_or_block": {
+    "product_block_locator": {
       "attribute": "innerHTML",
       "by": "xpath",
       "selector": "//*[contains(. , 'flex-direction: row;')]/*"
-
     },
+
+      "link_to_product_locator": {
+        "attribute": "href",
+        "by": "css selector",
+        "selector": "a[href*=\"item\"]"
+      },
+   
     "product_locator": {
       "attribute": "innerHTML",
       "by": "xpath",

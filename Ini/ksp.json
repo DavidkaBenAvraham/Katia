@@ -5,7 +5,7 @@
   "price_rule": "+100",
   "num_items_4_flush": 300,
   "required_login": false,
-  "collect_products_from_categorypage": true,
+  "collect_products_from_categorypage": false,
   "scenaries": [
     [
 
