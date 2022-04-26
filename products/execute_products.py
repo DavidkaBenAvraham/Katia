@@ -12,13 +12,13 @@ import time
 import sys
 from selenium.common.exceptions import *
 
-from Ini import Ini
+from ini_files import Ini
 import strings_cleaner as str_cleaner
 import price_cleaner
 from products import product_fields
 import execute_csv as execute_csv
 import check_and_convert_datatypes as check_type
-from Logging import Log as Log
+from logger import Log
 
 import suppliers.ksp as ksp  # <- WTH??
 

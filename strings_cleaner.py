@@ -1,4 +1,4 @@
-from Logging import Log as Log
+from logger import Log
 import re
 def remove_unnecessary_words(self,str):
     '''
@@ -80,9 +80,11 @@ def clean_string(self,str):
         str = re.sub(r'\<[^>]*\>', '', str)
         return str
     except TypeError as ex: #серьезный сбой
-        self.log(f''' сбой при очистке строки! 
+        self.print(f''' сбой при очистке строки! 
         {str}  
         ошибка {ex}
         возвращаю как есть''')
         return str
+def remove_html(self, str):
+    return re.sub('<[^<]+?>', '', str)
 

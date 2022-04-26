@@ -1,7 +1,7 @@
-from Logging import Log as Log
+from logger import Log
  
 import Facebook.db as db
-from Ini import Ini
+from ini_files import Ini
 
 
 def run(self):

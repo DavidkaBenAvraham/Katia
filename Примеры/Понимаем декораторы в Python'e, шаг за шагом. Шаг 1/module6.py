@@ -45,7 +45,7 @@ def ingredients(func):
     return wrapper
  
 def sandwich(food="--ветчина--"):
-    self.log(food)
+    self.print(food)
  
 sandwich()
 #выведет: --ветчина--
@@ -63,7 +63,7 @@ sandwich()
 @bread
 @ingredients
 def sandwich(food="--ветчина--"):
-   self.log(food
+   self.print(food
  
 sandwich()
 #выведет:
@@ -78,7 +78,7 @@ sandwich()
 @ingredients
 @bread
 def sandwich(food="--ветчина--"):
-   self.log(food
+   self.print(food
  
 sandwich()
 #выведет:

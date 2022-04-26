@@ -1,8 +1,8 @@
-from Logging import Log as Log
+from logger import Log
 import DB as db
 import datetime
 import time
-from Ini import Ini
+from ini_files import Ini
 
 
 '''

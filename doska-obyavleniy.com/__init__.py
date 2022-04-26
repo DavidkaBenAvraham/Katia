@@ -1,4 +1,4 @@
-from Logging import Log as Log
+from logger import Log
  
 
 class DoskaObjavlenij():

@@ -1,0 +1,103 @@
+{
+  "languages": {
+    "he": {
+      "attribute": "sendKeys(Keys.RETURN)",
+      "by": "xpath",
+      "selector": "//li[@data-value='he']"
+    },
+    "en": {
+      "attribute": "sendKeys(Keys.RETURN)",
+      "by": "xpath",
+      "selector": "//li[@data-value='en']"
+    },
+    "ru": {
+      "attribute": "sendKeys(Keys.RETURN)",
+      "by": "xpath",
+      "selector": "//li[@data-value='ru']"
+    }
+  },
+  "infinity_scroll": true,
+  "checkboxes_for_categories": false,
+  "category": {
+    "pages_listing_locator": {
+      "attribute": "innerHTML",
+      "by": "css selector",
+      "selector": "infinity_scroll"
+    }
+  },
+  "product": {
+
+
+    "link_to_product_locator": {
+      "attribute": "href",
+      "by": "xpath",
+      "selector": "//a[contains(@class,'MuiTypography') and contains(@href , 'web/item')]"
+    },
+
+    "product_block_locator": {
+      "attribute": "innerHTML",
+      "by": "xpath",
+      "selector": "//*[@id='product-page-root']",
+      "_selector": "//*[contains(. , 'flex-direction: row;')]/*"
+    },
+
+    "product_price_locator": {
+      "attribute": "innerText",
+      "by": "xpath",
+      "selector": "//*[@id='product-page-root']//div[@aria-label]//div[text()]"
+
+    },
+    "product_images_locator": {
+      "attribute": "src",
+      "by": "xpath",
+      "selector": "//*[@id='product-page-root']//ul[@class='slider animated']//img"
+
+    },
+    "product_images_alt_locator": {
+      "attribute": "alt",
+      "by": "xpath",
+      "selector": "//*[@id='product-page-root']//ul[@class='slider animated']//img"
+
+    },
+
+    "product_sikum_locator": {
+      "attribute": "innerHTML",
+      "by": "xpath",
+      "selector": "//*[@id='product-page-root']//div[@aria-label]/p"
+    },
+
+    "product_attributes_locator": {
+      "attribute": "innerHTML",
+      "by": "xpath",
+      "selector": "//*[@id='product-page-root']//div[@aria-label]//following-sibling::div/p[1]"
+    },
+
+    "product_description_locator": {
+      "attribute": "innerHTML",
+      "by": "xpath",
+      "selector": "//*[contains(@class , 'review')]/div/div"
+    },
+
+    "product_mkt_locator": {
+      "attribute": "innerHTML",
+      "by": "xpath",
+      "selector": "//*[contains(@data-id, 'product-')]/span"
+    },
+
+
+
+    "replaced by driver.title": {
+      "title_locator": {
+        "attribute": "innerHTML",
+        "by": "xpath",
+        "replaced by driver.title": null,
+        "selector": "//*[@id='product-page-root']//h1"
+      }
+    }
+
+
+
+  }
+}
+
+

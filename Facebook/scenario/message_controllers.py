@@ -64,7 +64,7 @@ def txt_message_write(self, msg):
         #self.driver.execute_script(f"arguments[0].insertAdjacentText('afterbegin','{str(msg)}');", element)
         element.click()
         element.send_keys(msg)
-        self.log(f'Сообщение записано ')
+        self.print(f'Сообщение записано ')
         return True
 
         try: # @Попал
@@ -72,12 +72,12 @@ def txt_message_write(self, msg):
             #self.log(script)
             #self.driver.execute_script(script)
             ##element.send_keys(msg)
-            #self.log(f'Сообщение записано ')
+            #self.print(f'Сообщение записано ')
             #return True
             
             pass
         except ElementNotInteractableException as e:
-            self.log(f'''{CSS_SELECTOR} не найден селектор для ввода сообщения! 
+            self.print(f'''{CSS_SELECTOR} не найден селектор для ввода сообщения! 
             Не нашлось поле ввода для сообщения! {e}''')
             return False
 

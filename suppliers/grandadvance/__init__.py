@@ -1,6 +1,6 @@
 
 def log_in(self):
-    self.log(f"Залогиниваюсь")
+    self.print(f"Залогиниваюсь")
     email = self.locators['login']['email']
     password = self.locators['login']['password']
 

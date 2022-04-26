@@ -9,8 +9,8 @@ import datetime
 import time
 
 from Driver import Driver 
-from Ini import Ini
-from Logging import Log as Log
+from ini_files import Ini
+from logger import Log
 import execute_json as jsn
 import execute_csv as execute_csv
 import execute_scenaries as execute_scenaries

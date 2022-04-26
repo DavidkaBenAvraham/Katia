@@ -10,8 +10,8 @@ from selenium.common.exceptions import StaleElementReferenceException
 import os
 
 
-from Logging import Log as Log
-from Ini import Ini
+from logger import Log
+from ini_files import Ini
 
 '''
 ##########################################
@@ -28,27 +28,27 @@ import datetime
 import time
 
 
-
-
+from attr import attrs, attrib, Factory
+@attrs
 class Driver(Log):
+    driver : webdriver = attrib(init = False )
+    current_url : str = attrib(init = False)
     '''
     Работа с вебдрайвером
     По умолчанию используется Firefox
     driver: имя драйвера (firefox, chrome, etc)
     wait: ожидание перед действиями селениума
     '''
-    def __init__(self, **kwards): 
-         
-        super().__init__(**kwards)
-        
-        self.set_driver(**kwards)
+    def __attrs_post_init__(self): 
+        self.set_driver()
        
-    @Log.logged 
-    def set_driver(self ,**kwards):      
-        _path_to_ini_file = f'''{self.root}\\Ini\\webdriver.json'''  
-        d = jsn.loads(_path_to_ini_file)["driver"]
+    #@Log.logged 
+    def set_driver(self):      
+        #_path_to_ini_file = f'''{self.root}\\Ini\\webdriver.json'''  
+        #d = jsn.loads(_path_to_ini_file)["driver"]
+        d = jsn.loads(self.ini_path / 'webdriver.json')["driver"]
         print(d["name"])
-        self.driver_wait = d['driver_wait']
+        #self.driver_wait = d['driver_wait']
 
         #try:
 
@@ -78,12 +78,32 @@ class Driver(Log):
         self.driver.maximize_window()
         return self
         #except Exception as ex: 
-        #    self.log(f''' Ошибка запуска драйвера {ex} ''')
+        #    self.print(f''' Ошибка запуска драйвера {ex} ''')
         #    return False
 
-    #def driver(self):
-    #    return self.driver
-    @Log.logged 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    #@Log.logged 
     def driver_implicity_wait(self , wait):
         '''
         Неявное ожидание указывает WebDriver'у опрашивать DOM определенное количество времени, 
@@ -94,7 +114,7 @@ class Driver(Log):
         '''
         self.driver.implicitly_wait(wait)
         
-    @Log.logged    
+    #@Log.logged    
     def wait(self , wait_in_seconds):
         '''
         Явное ожидание
@@ -102,125 +122,73 @@ class Driver(Log):
         '''
         WebDriverWait(self.driver, wait_in_seconds)
         time.sleep(wait_in_seconds)
-    @Log.logged 
-    def wait_to_precence_located(self, element_locator):
+
+    #@Log.logged 
+    def wait_to_precence_located(self, locator):
         '''
         locator=(By.CSS_SELECTOR , selector)
         '''
-        self.log(f''' Ждём локатор {element_locator} ''')
-        element_precence_located = EC.presence_of_element_located(element_locator)
+        self.print(f''' Ждём локатор {locator} ''')
+        element_precence_located = EC.presence_of_element_located(locator)
         return element_precence_located
         pass
 
-    @Log.logged 
-    def click(self, element_locator):
-        element = self.wait_to_be_clickable(element_locator)
+
+
+
+
+
+
+
+
+
+
+
+    #@Log.logged 
+    def click(self, locator):
+        element = self.wait_to_be_clickable(locator)
         if element == False:
-            element = self.find(element_locator)
+            element = self.find(locator)
             if element == False:
-                self.log(f''' Не нажался элемент {element_locator} ''')
+                self.print(f''' Не нажался элемент {locator} ''')
                 return False
             try: element.click()
             except : 
-                self.log(f''' Не нажался элемент {element_locator} ''')
+                self.print(f''' Не нажался элемент {locator} ''')
                 return False
-    @Log.logged 
-    def wait_to_be_clickable(self, element_locator, time_to_wait = 5):
-        element_clickable = EC.element_to_be_clickable(element_locator)
+    #@Log.logged 
+    def wait_to_be_clickable(self, locator, time_to_wait = 5):
+        element_clickable = EC.element_to_be_clickable(locator)
         try:
             return WebDriverWait(self.driver , time_to_wait).until(element_clickable)
         except TimeoutException as ex:
-            self.log(f''' не получила ответ от {element_clickable}  ''')
+            self.print(f''' не получила ответ от {element_clickable}  ''')
             self.log(ex)
             return False
+
+
 
     #@Log.logged 
-    def get_listattributes_from_allfound_elements(self , attribute , element_locator,  research = False):
-        '''
-        возвращает список значений аттрибута элементов найденных по локатору <element_locator>
-        или одно значение одного элемена, найденного по его локатору.
-        Примеры аттрибутов:
-        - href
-        - a
-        - text
-        - innerHTML
-        - innerText
-        etc.
-        '''
-        out = []
-        try:
-            elements = self.find(element_locator,  research)
-            #self.log( str(f'''Найдены элелменты {elements} '''))
-            ##self.screenshot(log_str)
-            if str(type(elements)).find("class 'list'") >-1:  # Если появилось несколько
-                '''если нашлось несколько 
-                элементов по указанному локатору '''
-                
-                for element in elements:
-                    try: out.append(str(element.get_attribute(attribute)))
-                    except StaleElementReferenceException as e:
-                        self.log(f'''ElementClickInterceptedException - \n  {e} \n
-                        потеряна связь с DOM {element_locator}''')
-                return out
-            elif str(type(elements)).find("WebElement") >-1:  # нашелся только один элемент
-                '''
-                если нашелся только один
-                '''
-                out.append(elements.get_attribute(attribute))
-                return out
-                #self.log(f'''get_listattributes_from_allfound_elements out:{out}''')
-                #return out
-        except Exception as ex:
-            self.log(f''' Упс {ex} ''')
-            self.driver.close()
-            return False
-        
-
-    @Log.logged 
-    def get_attribute_from_first_found_element(self , attribute , element_locator,  research = False):     
-        ''' по локаторы вытаскиваю из элемента атрибуты:
-        innerHTML, text, href etc. '''
-        try:
-            elements = self.find(element_locator,  research)
-            if str(type(elements)).find("class 'list'") >-1:  # Если появилось несколько
-                # беру первый
-                for element in elements:
-                    out = str(element.get_attribute(attribute))
-                    return out
-                    break
-            elif str(type(elements)).find("webelement") >-1:  # нашелся только один элемент
-                out = str(elements.get_attribute(attribute))
-                return out
-        except Exception as ex: 
-            self.log(ex)
-            self.log(f"Не нашел элемент по локатору {element_locator}")
-            return False
-
-
-
-    @Log.logged 
-    def get_url(self, url , **kwards):
+    def get_url(self, url):
         '''
         переход по указанному урл
         '''
         try:
-            try:
-                self.driver.prev_url = self.driver.current_url
-            except: pass
-            
+
+            self.driver.prev_url = self.driver.current_url
             self.driver.get(url)
             
             #WebDriverWait(driver, 10).until(lambda driver: self.driver.execute_script('return document.readyState') == 'complete')
-            self.log( f'''Страница загрузилась : {self.driver.current_url}''')
-            return True
-        except Exception as e: 
-            self.log(str(f''' 
-            Ошибка {e} 
-            по адресу {url} ''' ))
-            return False
+            #self.log( f'''Страница загрузилась : {self.driver.current_url}''')
+            return self, True
+        except Exception as eх: 
+            self.print(f''' 
+            Ошибка {eх} 
+            по адресу {url} ''' )
+            return self,  False
 
     #@Log.logged 
-    def find(self, element_locator,  research = True) -> []:
+    def find(self, locator):
 
         '''
         locator=(By.CSS_SELECTOR , selector)
@@ -232,55 +200,67 @@ class Driver(Log):
         driver.find_element_by_id()
         find_element_by_
         --------------
+
+        #if research: 
         research - опция исследования полученного элемента
+
+
+        мой локатор имеет три аргеумнта
+        'attribute': 'href', 'by': 'xpath', 'selector': ''
+
+        убираю не релевантный
         '''
         
-        #if research: self.log(f''' research включён! будет много инфо! ''')
+        
+
+
+
         try:  
-
+            driver_wait  :int = 1
             # может вернуться или один или несколько элементов списком
-            element = WebDriverWait(self.driver, int(self.driver_wait)).until(EC.presence_of_element_located((element_locator)))
-            elements = WebDriverWait(self.driver, int(self.driver_wait)).until(EC.presence_of_all_elements_located((element_locator)))
+            element = WebDriverWait(self.driver, int(driver_wait)).until(EC.presence_of_element_located((locator)))
+            elements = WebDriverWait(self.driver, int(driver_wait)).until(EC.presence_of_all_elements_located((locator)))
 
-        except NoSuchElementException as e:
-            self.log(f'''Exception NoSuchElementException:
-            {e}
-            прекращаю поиск элемента {element_locator} , отдаю False''')
+        except NoSuchElementException as eх:
+            self.print(f'''Exception NoSuchElementException:
+            {eх}
+            прекращаю поиск элемента {locator} , отдаю False''')
             return False
         except InvalidSessionIdException as e:
-            self.log(f'''  - Потряна связь с сайтом !!!
+            self.print(f'''  - Потряна связь с сайтом !!!
             EXCEPTION InvalidSessionIdException: 
             {e}
             ''')
             self.driver.close()
             return False
         except StaleElementReferenceException as e: #
-            self.log(f'''Exception StaleElementReferenceException:
+            self.print(f'''Exception StaleElementReferenceException:
             {e}
-            прекращаю поиск элемента {element_locator} , отдаю False''')
+            прекращаю поиск элемента {locator} , отдаю False''')
             return False
         except InvalidArgumentException as e: #
-            self.log(f'''Exception InvalidArgumentException:
+            self.print(f'''Exception InvalidArgumentException:
             {e}
-            прекращаю поиск элемента {element_locator} , отдаю False''')
+            прекращаю поиск элемента {locator} , отдаю False''')
             return False
         except TimeoutException as e: #
-            self.log(f'''Exception TimeoutException:
+            self.print(f'''Exception TimeoutException:
             {e}
-            прекращаю поиск элемента {element_locator} , отдаю False''')
+            прекращаю поиск элемента {locator} , отдаю False''')
             return False
         except ElementClickInterceptedException as e: 
-            self.log(f'''Exception ElementClickInterceptedException:
+            self.print(f'''Exception ElementClickInterceptedException:
             {e}
-            прекращаю поиск элемента {element_locator} , отдаю False''')
+            прекращаю поиск элемента {locator} , отдаю False''')
             return False
 
         
         except Exception as e: 
-            self.log(f''' ОБЩАЯ ОШИБКА self.find() ''')
-            self.log(f'''Exception Exception:
+            self.print(f'''  
+            ОБЩАЯ ОШИБКА self.find() 
+            Exception:
             {e}
-            прекращаю поиск элемента {element_locator} , отдаю False''')
+            прекращаю поиск элемента {locator} , отдаю False''')
             return False
 
         else:
@@ -290,38 +270,31 @@ class Driver(Log):
             '''
             
 
-            #1) Если нашлось несколько
-            if len(elements) > 1: 
-                #self.log(f'''Нашлось   {len(elements)}   элементов''')
-                if research: self.researh_elements(elements)
+            #   1) Если нашлось несколько
+            if len(elements) >= 1: 
                 return elements
-            #2) Если один из списка            
-            if len(elements) == 1: 
-                #self.log(f'''Нашлось   {len(elements)}   элементов''')
-                if research: self.researh_elements(elements)
-                return elements[0]
-            #2) Если один 
+
+            #   2) Если один строкой
             elif str(type(element)).find("webelement") >-1:
-                    #self.log(f'''Нашелся ( 1 ) элемент''')
-                    if research: self.researh_elements(element)
-                    return [element]
-            #3) ни одного
+                return [element]
+            
+            #   3) ни одного
             else: return False
     
-    @Log.logged 
+    #@Log.logged 
     def page_refresh(self):
         '''Рефреш с ожиданием поной перезагрузки страницы
         '''
         self.driver.get_url(self.driver.current_url)
         pass
     
-    @Log.logged 
+    #@Log.logged 
     def close(self):
         
         if self.driver.close(): self.log(''' DRIVER CLOSED ''')
         pass
 
-    @Log.logged 
+    #@Log.logged 
     def researh_elements(self, elements):
         '''
         Функция для исследования элемента
@@ -366,3 +339,84 @@ class Driver(Log):
             except:
                 return False
 
+
+
+
+
+
+
+    #@Log.logged
+    def get_elements_by_locator(self, locator) ->[]:
+
+        '''
+        возвращает список значений аттрибута элементов найденных по локатору <locator>
+        
+        locator содержит три элемента:
+
+                - "attribute": "sendKeys(Keys.RETURN)", 
+                    использую обработку полученного элемента
+                            Примеры аттрибутов:
+                    - href
+                    - a
+                    - text
+                    - innerHTML
+                    - innerText
+                    - sendKeys(Keys.RETURN)
+
+
+
+                - "by": "xpath",
+                    шаблон поиска
+                        Примеры шаблонов:
+                    - xpath
+                    - css selector
+
+                    
+
+
+                - "selector": "//li[@data-value='ru']"
+                    селектор элемента
+                        Примеры селекторов
+                    - //li[@data-value='en']
+                    - //a[contains(@class,'MuiTypography') and contains(@href , 'web/item')]
+                    - //*[@id='product-page-root']//div[@aria-label]/p
+                    - //*[@id='product-page-root']//div[@aria-label]//following-sibling::div/p[1]
+
+
+
+
+        etc.
+        '''
+        out = []
+
+
+        elements = self.find( (locator['by'],locator['selector']))
+
+        '''
+
+            elements 
+            может получить список элементов или один элемент или хуй
+
+            Функция  возвращает список [] или False
+
+
+        '''
+        if elements == False:return False
+
+        if str(type(elements)).find("class 'list'") >-1:
+            '''если нашлось несколько 
+            элементов по указанному локатору '''
+                
+            for element in elements:
+                try: out.append(str(element.get_attribute(locator['attribute'])))
+                except StaleElementReferenceException as e:
+                    self.print(f'''ElementClickInterceptedException - \n  {e} \n
+                    потеряна связь с DOM {locator}''')
+                    continue
+            return out
+        elif str(type(elements)).find("WebElement") >-1: 
+            '''
+            если нашелся только один
+            '''
+            out.append(elements.get_attribute(locator['attribute']))
+            return out

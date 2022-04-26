@@ -10,10 +10,10 @@ import sys
 import Facebook
 import Morlevi
 
-from Ini import Ini
+from ini_files import Ini
 import execute_json as jsn
 import ExceptionsHandler
-from Logging import Log as log
+from logger import Log
 
 
 class qt_launher(QtWidgets.QMainWindow , Ui_Launcher):

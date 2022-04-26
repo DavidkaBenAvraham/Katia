@@ -6,12 +6,12 @@ from selenium.common.exceptions import *
 import datetime
 import time
 import sys
-from Logging import Log as Log
+from logger import Log
  
 import Facebook.db as fb_db
 import Messages.db as msgs_db
 
-from Ini import Ini
+from ini_files import Ini
 import Facebook.scenario.message_controllers as controllers
 
 
@@ -39,7 +39,7 @@ def send_single_message_into_many_groups(self , msg_id = -1 , sug = '*',  from_R
         for index , row in fb_groups.iterrows():
             fbgroup_id = row['ROWID']
             fbgroup_url = row['url']
-            self.log(f"Старт рассылки {msg_id} в группу {fbgroup_id}")
+            self.print(f"Старт рассылки {msg_id} в группу {fbgroup_id}")
             status = False
             if send_single_message_into_one_group(self , msg_id , fbgroup_id, fbgroup_url): # пишу в одну группу
                 if controllers.button_send_click(self): status = True
@@ -145,14 +145,14 @@ def upload_img(self , img):
 
 def bitul_atraot_mi_daf_FB(self):
     CSS_SELECTOR = '._42ft._4jy0._p._4jy4._517h._51sy'
-    self.log(f'''CSS_SELECTOR - {CSS_SELECTOR}''')
+    self.print(f'''CSS_SELECTOR - {CSS_SELECTOR}''')
     elements =  self.find_elements_by_css_selector_return_elements(CSS_SELECTOR)
-    self.log(f"Нашлось {len(elements)} элементов")
+    self.print(f"Нашлось {len(elements)} элементов")
 
     for elem in elements:
 
         if elem.get_attribute("text") == 'התראות' : 
-            self.log(f'elem = {elem.get_attribute("text")}')
+            self.print(f'elem = {elem.get_attribute("text")}')
             elem.click()
             try: 
                 selector_1 = '._4kny._50tm'

@@ -1,16 +1,36 @@
 import math
 import re
 import strings_cleaner
+import suppliers
+
 
  # https://all-python.ru/osnovy/okruglenie.html
-def convert_to_float_price(self ,price: str) -> float:
+def convert_to_float_price(self,price: str) -> float:
     '''
     если на сайте поставщика нет цены 
     вернется False
     '''
+
+    '''
+    Эта регулярка предполагает, что для разделения разрядов числа используются запятые, 
+    а дробная часть отделена точкой
+    (\$[0-9,]+(\.[0-9]{2})?)
+   
+
+
+    как собирать цены с сайтов
+    https://stackoverflow.com/questions/22018175/regex-price-matching
+
+    ''' 
+
+
+    price = re.findall(r'(?:\d+\.)?\d+,\d+', price)[0].replace(',','.')
+
+    
+
     if price == False or price == None or price == '': return float(-1)
     else:
-        price = ___clean_price(self,str(price))
+        #price = ___clean_price(self,str(price))
         if price == '': return -1
         else:
             try:
@@ -47,7 +67,7 @@ def ___clean_price(self ,price:str) -> str:
     #            price = price[0]
     #            self.log( f''' А сейчас = {price} ''')
     #        except:
-    #            self.log(f''' Проблема с получением цены. Она выглядит так: {price} !!! Будет  ХУЙ ! 
+    #            self.print(f''' Проблема с получением цены. Она выглядит так: {price} !!! Будет  ХУЙ ! 
     #            Проверь цену {price}
     #            type {str(type(price))}''')
     #            return float(-1)

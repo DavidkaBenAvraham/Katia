@@ -45,14 +45,14 @@ class qt_messages_add_edit_delete(QtWidgets.QMainWindow , ui_Add_Edit_Delete_Mes
         options |= QFileDialog.DontUseNativeDialog
         files, _ = QFileDialog.getOpenFileNames(self,"QFileDialog.getOpenFileNames()", "","All Files (*);;Python Files (*.py)", options=options)
         if files:
-            self.log(files)
+            self.print(files)
     
     def saveFileDialog(self):
         options = QFileDialog.Options()
         options |= QFileDialog.DontUseNativeDialog
         fileName, _ = QFileDialog.getSaveFileName(self,"QFileDialog.getSaveFileName()","","All Files (*);;Text Files (*.txt)", options=options)
         if fileName:
-            self.log(fileName)
+            self.print(fileName)
 
     def load_image(self, file_name):
         pixmap = QPixmap(file_name)

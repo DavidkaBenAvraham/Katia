@@ -11,7 +11,14 @@
         с именем поставщика в формате:   <suppplier>.json
 
 
+
+
+
 '''
+''' использую   attrs '''
+from attr import attrs, attrib, Factory
+import inspect
+from pathlib import Path
 import pandas as pd
 import json
 import sys
@@ -20,148 +27,99 @@ import importlib
 import datetime
 import time
 
-from Logging import Log as Log
+
+from logger import Log
 from Driver import Driver 
-from Ini import Ini
+from ini_files import Ini
 
 import execute_json as jsn
 import execute_scenaries
-#import execute_products as product
-#import suppliers
 
-
+#@Log.logged
+@attrs(auto_attribs=True)
 class Supplier(Driver):
+    '''     
+            Объект поставщика.
+            Предок Driver - вебдрайвер
+            chromedriver,geckodriver, etc.
     '''
-    Объект поставщика.
 
-    Предок Driver - вебдрайвер
-    ведрайвер chromedriver,geckodriver, etc.
 
     '''
-    def __init__(self,  supplier_name , **kwards):
-        self.supplier_name = supplier_name
-        super().__init__(**kwards)
-        
+    Что делать, если мы хотим установить атрибут с пустой коллекцией в качестве значения по умолчанию? 
+    Обычно мы не хотим передавать [] в качестве аргумента, это одна из известных ловушек Python, 
+    которая может вызвать много неожиданных проблем. Не волнуйтесь, attrs предоставляет нам “фабричный метод”.
+    '''
 
+    #####################################################################################################################
+
+    lang : str = attrib(kw_only = True)                             #     для какого языка собирается инфо  he, en, ru        '''
+    supplier_name :str  = attrib(kw_only = True)                    #     имя поставщика                                      '''
+    supplier_prefics :str  = attrib(init = False)                   #     префикс имени                                       '''
+    price_rule :str = attrib(init = False )                         #     пересчет цены от постащика для клиента              '''
+    locators :json  =  attrib(init = False)                         #     локаторы элементов страницы                         '''
+    start_url : str =  attrib(init = False)                         #     Начальный адрес сценария
+    #required_login : bool = attrib(init=False)      <--- вынести в сценарий        #   
+
+    '''
+                        сценарий:
+                        категория берется из
+                        третьего слова в имени файла сценария
+    '''
+    scenaries :[]  =  attrib(init = False , factory = list)         #   Список сценариев
+    current_scenario :json = attrib(init = False)                   #   Текущий сценарий
+    current_scenario_category : str =  attrib(init=False)           #   Категория товаров по имени файла сценария
+    current_node  : str =  attrib(init=False)                       #   Исполняемый узел сценария
+    current_nodename  : str =  attrib(init=False)                   #   Имя испоняемого узла сценария
+    '''
+                        Товар. product.Product() 
+    '''
+    p :[] =  attrib(init = False , factory = list)                  #   Список товаров наполняемый по сценарию     
+    formatter :str = attrib(init = Formatter())                     #   Форматирование строк класс string_formatter.Formatter()
+
+
+
+    def __attrs_post_init__(self):
+
+        self.locators = jsn.loads(Path(self.ini_path/f'''{self.supplier_name}_locators.json'''))
         # параметры для поставщика из файла json
-        self.get_supplier_settings_from_json()
-        ''' 
-        ---------------------------------------------------
-        Текущий URL сидит в self.driver.current_url
-        
+        _supplier = jsn.loads(Path(self.ini_path/f'''{self.supplier_name}.json'''))
 
-        Список списков сценария
+        self.supplier_prefics = _supplier["supplier_prefics"]
+        self.start_url = _supplier["start_url"]
+        self.required_login = _supplier["required_login"]
+        self.price_rule = _supplier["price_rule"]
+        self.scenaries = _supplier["scenaries"]
 
-        можно получить список сценариев выполнения двумя способами:
-        - по умолчанию из файла JSON
-        - задать при запуске и тогда переменная 
-        self.scenaries примет передаваемое извне значение
-        ---------------------------------------------------------------------
-        '''
+        #локаторы элементов страницы
+        self.locators = jsn.loads(self.ini_path/f'''{self.supplier_name}_locators.json''') 
+
         # подгружаю релевантные функции для конкретного поствщика
-        self.supplier_settings = importlib.import_module(f'''suppliers.{self.supplier_name}''')
+        self.related_functions = importlib.import_module(f'''suppliers.{self.supplier_name}''')
         
-        # общий список товаров поставщика
-        # напоняется по мере выполнения сценариев
-        # product = исполняемый сейчас товар
-        
-        #Имя текущего файла экспорта CSV
-        #self.csv_export_file_name = '' 
 
-    @Log.logged
+    #@Log.logged
     def run(self):
-
-
-
         '''
-        Выхожу на старт !
+        Запуск кода !
         '''
-        self.get_url(self.start_url)
-        '''    
-        Выполняю логин.
-        Если логин был успешен -> self.supplier_settings.log_in() вернет TRUE
-        '''
-
-        if self.required_login:
-            '''
-            если требуется логин на сайт
-            в классе поставщика создаю сценарий 
-            log_in()
-            '''
-            if not self.supplier.log_in():
-                return False
-
+        self.set_driver()
         execute_scenaries.execute_list_of_scenaries(self)
         product.flush_p(self)
+        return True
         
-        
-
-
-
-        
-        ##############################################
-
-         #       ЛОГИН
-         
-        #if self.supplier_settings.log_in(self) == True:
-        #    '''
-        #    Начинаю выполнять сценарии
-        #    '''
-        #    execute_scenaries.execute_list_of_scenaries(self , scenaries)
-        #    product.flush_p(self)
-        #else:
-        #    self.log(f'''
-        #    Не удалось залогиниться
-        #    {self.supplier_name}
-        #    ''')
- 
-
-  
-    @Log.logged
-    def get_supplier_settings_from_json(self):
-
-
-        '''
-        Разделяю Windows / Linux
-
-        '''
-        if self.root.rfind('/')>0:
-            _path_to_ini = f'''{self.root}/Ini/'''
-        else:
-            _path_to_ini = f'''{self.root}\\Ini\\'''
-
-        _path_to_supplier_file = f'''{_path_to_ini}{self.supplier_name}.json'''  
-        
-
-        self.supplier = jsn.loads(_path_to_supplier_file)
-
-        self.supplier_prefics = self.supplier["supplier_prefics"]
-        self.start_url = self.supplier["start_url"]
-        self.required_login = self.supplier["required_login"]
-        #Построение цены
-        self.price_rule = self.supplier["price_rule"]
-        #сценарии
-        self.scenaries = self.supplier["scenaries"]
-        #локаторы элементов страницы
-        _path_to_locators_file = f'''{_path_to_ini}{self.supplier_name}_locators.json'''  
-        self.locators = jsn.loads( _path_to_locators_file)
-
-        
-        '''
-                Товар. product.Product() 
-        '''
-        self.p = [] 
-        
-        
-        self.current_node = ''
-        self.current_nodename = ''
       
-        '''
-        собираю товары прямо со страницы 
-        категории например KSP
-        Возвращает True/False
-        плохая идея
-        '''
-        #self.collect_products_from_categorypage = self.supplier["collect_products_from_categorypage"]
+    # ислючительно для печати
+    # https://habr.com/ru/post/427065/
+    def __str__(self):
+        res= '>>'
+        for a in inspect.getmembers(self):
+            if not a[0].startswith('__'): res += f'''{a[0]}={a[1]}'''
+        for a in inspect.getmembers( self.__class__):
+            if not a[0].startswith('__'): res += f'''__class__.{a[0]}={a[1]}'''
 
+        return res
+
+    def print_attr(self, *o):
+        for a in o:print(a)
        

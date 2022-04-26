@@ -5,9 +5,12 @@ import strings_cleaner as str_cleaner
 import price_cleaner
 import products 
 #import products.execute_products as product
-from Logging import Log as Log
-from Ini import Ini
+from logger import Log
+from ini_files import Ini
 import pandas as pd
+
+
+
 
 def generate_product(self) -> []:
     # return p_fields[]

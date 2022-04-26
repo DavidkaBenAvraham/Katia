@@ -1,8 +1,8 @@
 
 
 from Driver import Driver 
-from Ini import Ini
-from Logging import Log as Log
+from ini_files import Ini
+from logger import Log
 import execute_json as jsn
 import execute_scenaries as execute_scenaries
 
@@ -29,7 +29,7 @@ class Dornet(Driver):
         #Имя текущего файла экспорта CSV
         self.filename_for_export_data = ''
 
-        #self.log(f'''запустился класс dornet''')
+        #self.print(f'''запустился класс dornet''')
            
         self.ps_list = []
 

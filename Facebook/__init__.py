@@ -32,9 +32,9 @@ import Facebook.scenario.message as message
 import Facebook.scenario.message_controllers as controllers
 
 from Driver import Driver 
-from Ini import Ini
+from ini_files import Ini
 import execute_json as jsn
-from Logging import Log as Log
+from logger import Log
 
 
 from PyQt5 import QtWidgets

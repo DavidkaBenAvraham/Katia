@@ -1,42 +1,77 @@
+
+
+
+
+
+###################################################################################################################################
+#
+#                                       
+#                                          здесь собираются списки товаров от поставщиков
+#    
+#
+####################################################################################################################################
+
+
+import pandas as pd
+import datetime
+import time
+import sys
+from selenium.common.exceptions import *
+
 import products
-from Ini import Ini
+from ini_files import Ini
 import execute_json as jsn
 import check_and_convert_datatypes as check_type
-from Logging import Log as Log
+from logger import Log
+import products
+from pathlib import Path
 
-@Log.logged
-def execute_list_of_scenaries(self) ->[] :
-    
+#@Log.logged
+def execute_list_of_scenaries(self) -> bool :
     ''' по умолчанию все сценарии (имена файлов) прописаны в файе <supplier>.json 
     Каждый сценарий - файл с именем 
     <supplier_name>_categories_<category_name>_<model>_<brand>.json
     при инициализации объекта он хранится в self.scenaries
     
-    self - class Supplier (mor, cdata, visual, etc.)
+    self - class Supplier  f.e.: mor, cdata, visual, etc.
+    '''
+    ################################################################################
 
 
+    # 0. 
+    self.get_url(self.start_url)
+
+
+    # 1.
+    '''
+                        если требуется логин на сайт
+                        в классе поставщика вызываю сценарий log_in()
+                        
+    '''
+    if self.required_login: 
+        if not self.related_functions.log_in(self):return False
+
+
+    # 2.
+    '''
+                        Запускаю каждый сценарий из из списка <supplier>.json["scenaries"]
     '''
     for scenario_files in self.scenaries:
         
         for json_file in scenario_files:      
-            '''
-            загружаю файл сценария из списка <supplier>.json["scenaries"]
-            '''
-            self.scenaries = jsn.loads( f'''{self.root}\\Ini\\{json_file}''')
+
+            self.current_scenario = jsn.loads(self.ini_path/f'''{json_file}''')
+            self.current_scenario_category = json_file.split('_')[2]
             
-            #current_p = run_scenario(self)
             run_scenario(self)
-           
-            '''
-            перенесу в run_scenario(self)
-            '''
-    ''' возвращает список товаров по всему пройденому сценарию'''
+
     return True
 
-@Log.logged
-def run_scenario(self) -> []:
+
+#@Log.logged
+def run_scenario(self) -> bool:
     
-    for scenario_node in self.scenaries:
+    for scenario_node in self.current_scenario:
         '''
          -текущий сценарий исполнения состоит из узлов. Каждый узел состоит из:
         - <brand> 
@@ -46,9 +81,11 @@ def run_scenario(self) -> []:
         - <price_rule> пересчет для магазина по умолчанию установливается в self.price_rule
         - <attributes> - свойства товара: цпу, экран, гарантия итп
         '''
-        self.current_node = self.scenaries[scenario_node]
-
+        self.current_node = self.current_scenario[scenario_node]
+        self.current_nodename = str(scenario_node)
         
+        '''проверим значения всех атрибутов'''
+        self.print_attr(self)
         build_products_list_by_scenario(self)
         
     '''
@@ -58,96 +95,76 @@ def run_scenario(self) -> []:
 
 
 
-@Log.logged
-def build_products_list_by_scenario(self):
+#@Log.logged
+def build_products_list_by_scenario(self)->bool:
     '''
     все товары собираются в 
     список p[]
     каждый элемент списка это словарь с данными о товаре
     '''
 
-
     '''
-    плохая идея
-    '''
-    #if self.collect_products_from_categorypage:
-    #    sozdaj_spisok_tovarov_zapolini_polia_na_categorypage(self)
-    #    # собрал ссылки со страницы категории - 
-    #    # возвращаюсь к началу цикла
-    #    return True
-
-
-
-
-
-
-    '''
-    1. собираю ссылки на товары со страниц категории, описанной узлом сценария
+                        1. собираю ссылки на товары со страниц категории, описанной узлом сценария
     
-        ssylki = [] # ссылки на товары 
         
     '''
-        #self.log(f''' Собрал ссылки {ssylki}''')
-     
-    ssylki = soberi_ssylki_na_tovary_by_scenario_node(self)
+    list_urls_product_pages = soberi_list_urls_product_full_pages(self)
 
 
 
-
-
-
-
-
-
-    ''' Обрабатываю собранные результаты '''
+    '''                 2. Обрабатываю собранные результаты                             '''
 
 
     #а) Не получил страницу  {self.current_nodename["url"]} 
-    if ssylki == False or ssylki == None or ssylki == 'None' :
-        self.log(f''' !!!!!  Не получил страницу  
+    if list_urls_product_pages == False or list_urls_product_pages == None or list_urls_product_pages == 'None' :
+        self.print(f''' !!!!!  Не получил страницу  
         node
         {self.current_node}
         что-то пошло не так при сборе ссылок на страницы товаров 
-        ssylki = {ssylki} 
-        смотреть в сторону soberi_ssylki_na_tovary_by_scenario_node
+        list_urls_product_pages = {list_urls_product_pages} 
+        смотреть в сторону soberi_list_urls_product_full_pages_na_tovary_by_scenario_node
         ''')
         return self, False
 
-    #б) Если вернулась строка - запаковавываю ее в список (так бывает, если по сценарию нашелся всего один товар )
-    elif str(type(ssylki)).find('str') >-1 : # Строка приходит если нашлась всего одна ссылка
-        pass
-        ssylki = [ssylki]
+    #б) Если вернулась строка - запаковавываю ее в список 
+    #(так бывает, если по сценарию нашелся всего один товар )
+    #elif str(type(list_urls_product_pages)).find('str') >-1 : 
+    #    list_urls_product_pages : [] = [list_urls_product_pages]
 
     #в) Если пришел список 
-    else:
-        ssylki = list(set(ssylki)) 
+    #else:pass
+        #list_urls_product_pages = list(set(list_urls_product_pages)) 
         ''' при помощи set убираю дубликаты '''
 
 
 
+    '''
+                       3. По каждому URL строю prestashop товар
+                       Релевантные каждому из поставщиков функции находятся в
+                       suppliers.<suppler> и подлючаются через
+                       self.related_functions.build_product(self)
+
+
+    '''
+    for product_url in list_urls_product_pages:
+        self.get_url(product_url)
+        self.related_functions.build_product(self)
+        return self, True
 
 
 
-
-
-    #2 по полученным ссылкам собираю товары
-    sozdaj_spisok_tovarov_zapolini_polia(self, ssylki)
-
-
-@Log.logged
-def soberi_ssylki_na_tovary_by_scenario_node(self) ->[]:
-    
+#@Log.logged
+def soberi_list_urls_product_full_pages(self) ->[]:
+    '''  возвращает ссылки на все товары в категории 
+        по локатору self.locators['product']['link_to_product_locator']
+    '''
     try:
-        self.log(f'''  получаю ссылки на все товары в категории ''')
-
-        ssylki = []
-
         ''' нет такой страницы! Возможно, проверить категорию в файле сценария ? '''
         if self.get_url(self.current_node["url"]) == False: 
-            self.log(f'''Ошибка перехода по адресу {self.category_url} 
-            Возможно, проверить категорию в файле сценария ? 
-            {self.current_scenario}''')
-            return self, False
+            #self.print(f'''Ошибка перехода по адресу {self.category_url} 
+            #Возможно, проверить категорию в файле сценария ? 
+            #{self.current_scenario}''')
+            return False , []
    
         #''' на странице категории могут находится  чекбоксы    
         # если их нет, в сценарии JSON они прописаны checkbox = false
@@ -155,69 +172,45 @@ def soberi_ssylki_na_tovary_by_scenario_node(self) ->[]:
         json_checkboxes = self.current_node["checkbox"]
         if json_checkboxes: 
             click_checkboxes(self, json_checkboxes) 
-            self.log(f''' есть чекбоксы {json_checkboxes}''')
-        ################ if check_error_page(self) == False: return False
-    
+            self.print(f''' есть чекбоксы {json_checkboxes}''')
+       
 
 
-        # Если на сайте для показа товаров я использую прокрутку вниз
+        # Если я использую прокрутку вниз
         if self.locators['infinity_scroll'] == True: 
-            ''' на сайте вижуал есть бесконечная прокутка 
-            сдвиг по бесконечной прокрутке включается флагом 
-            json_infinity_scroll в файле сценария поставщика
-            '''
             scroller(self)
+           
+
+            list_product_urls = self.get_elements_by_locator(self.locators['product']['link_to_product_locator'])
+            return list_product_urls
 
 
-            '''
-            _sozdaj_spisok_ssylok_na_stranicy_tovarov_so_stranicy_kategorii
-            возвращаает list()
-            '''
-            ''' собираю ссылки на страницы товаров с текущей страницы категории'''
-            ssylki.appened(_sozdaj_spisok_ssylok_na_stranicy_tovarov_so_stranicy_kategorii(self))
             # переключение между страницами
         else:
+            list_product_urls :[]
             while click_to_next_page(self):
-                ssylki.appened(_sozdaj_spisok_ssylok_na_stranicy_tovarov_so_stranicy_kategorii(self))
-                #self.screenshot(str(s))
-                #if check_type.is_none_or_false(ssylki) : 
-                #    self.log(f''' ошибка перехода на след страницу категории ''')
-                #    continue
-                ##ssylki.append()
-        return self,ssylki
+                list_product_urls += self.get_elements_by_locator(self, self.locators['product']['link_to_product_locator'])
+                return list_product_urls
+
     except Exception as ex: 
-        self.log(f'''Ошибка в функции 
-        soberi_ssylki_na_tovary_by_scenario_node(self)
+        self.print(f'''Ошибка в функции 
+        soberi_list_urls_product_full_pages(self)
         {ex}''')
         #sys.exit()
       
-@Log.logged
-def _sozdaj_spisok_ssylok_na_stranicy_tovarov_so_stranicy_kategorii(self ) ->[]:
+
+
+def scroller(self, wait=1 , prokrutok=5, scroll=500):
+    '''
+    Prokruka stranicy vniz
+    '''
     try:
-        ''' когда я нахожусь на странице категории я собираю ссылки на товары со страницы.
-        Страниц может быть несколько, в таком случае я пользуюсь листалкой, чтобы собраь все
-        ссылки на вс товары со всех страниц
-        '''
-
-
-        self.log(f''' Создаю список ссылок на стрницы товаров ''')
-        link_to_product_locator = (self.locators['product']['product_locator']['by'],
-                                self.locators['product']['product_locator']['selector'])
-    
-        attribute = self.locators['product']['product_locator']['attribute']
-        log_str = str(f'''
-        <p class="info">Локаторы и селекторы <br>
-        link_to_product_locator = 
-        {link_to_product_locator} <br>
-        attribute = 
-        {attribute}</p>''')
-        #self.log(log_str)
-        '''
-        Нашел на странице категории по локаторам 
-        элементы ведущие на страницу товаров
-        и вытаскиваю их искомый аттрибуты в виде списка
-        '''
-        return self.get_listattributes_from_allfound_elements(attribute , link_to_product_locator)
-    except: return False
-
-
+        for i in range(prokrutok):
+            self.print(f'------------------------ Скроллинг вниз {i}--------------------------- ')
+            self.driver.execute_script(f"window.scrollBy(0,{scroll})") # поднял окошко
+            time.sleep(1)
+            #self.wait(1)
+        return True
+    except Exception as ex:
+        self.print(str(ex))
+        return self, False

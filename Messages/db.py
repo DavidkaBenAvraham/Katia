@@ -1,8 +1,8 @@
-from Logging import Log as Log
+
 import DB as db
 import datetime
 import time
-from Ini import Ini
+from ini_files import Ini
 
 def log_status_sent_message_2fbgroup(self , msg_id, grp_id, status):
     '''

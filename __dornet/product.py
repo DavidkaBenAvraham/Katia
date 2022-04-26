@@ -6,7 +6,7 @@ def obrabotaj_polja_tovara(self , p_fields):
 
     
     soup = BeautifulSoup(self.p['RAW_PAGE_SOURCE'],features="lxml")
-    #self.log(f'''soup.title.text =  {soup.title.text} ''')
+    #self.print(f'''soup.title.text =  {soup.title.text} ''')
     self.p['RAW_PAGE_SOURCE'] = ''
     return p_fields
 

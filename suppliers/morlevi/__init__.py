@@ -1,6 +1,6 @@
-from Logging import Log as Log
+from logger import Log
 
-@Log.logged
+#@Log.logged
 def log_in(self):
     if __login(self): return True
     else: 
@@ -31,12 +31,12 @@ def log_in(self):
                 close_popup_btn.click()
                 return __login(self)
         except Exception as ex:
-            self.log(f''' 
+            self.print(f''' 
             Не удалось залогиниться 
             {self.supplier_name}
             ''')
             return False
-@Log.logged
+#@Log.logged
 def __login(self):
     self.log( f''' Собссно, логин Морлеви''')
     self.driver.refresh()
@@ -67,7 +67,7 @@ def __login(self):
         self.log('Mor logged in')
         return True
     except Exception as ex:
-        self.log(f'''Мор логин - ошибка:
+        self.print(f'''Мор логин - ошибка:
         {ex}''')
         return False
 

@@ -3,7 +3,7 @@ import module3.py
 
 def doSomethingBefore(func):
    self.log("Я делаю что-то ещё, перед тем как вызвать функцию, которую ты мне передал"
-   self.log(func()
+   self.print(func()
  
 doSomethingBefore(scream)
 #выведет:

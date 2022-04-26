@@ -1,5 +1,5 @@
-from Logging import Log as Log
-#@Log.logged
+from logger import Log
+##@Log.logged
 def log_in(self):
     self.get_url('https://reseller.c-data.co.il/Login')
 
@@ -16,7 +16,7 @@ def log_in(self):
                                 self.locators['login']['loginbutton_locator']['selector'])
 
 
-    self.log(f''' email_locator {email_locator}
+    self.print(f''' email_locator {email_locator}
             password_locator {password_locator}
             loginbutton_locator {loginbutton_locator}''')
 

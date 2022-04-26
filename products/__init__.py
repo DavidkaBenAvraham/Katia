@@ -14,21 +14,37 @@ import importlib
 import datetime
 import time
 
-from products import product_fields 
-from products import execute_products 
-from Logging import Log as Log
-from Ini import Ini
+from logger import Log
+from ini_files import Ini
+import suppliers
+
 
 import execute_json as jsn
 
-class Product():
-    def __init__(self,**default_settings):
 
+class Product(Log):
+
+    def __init__(self,lang):
+        #super().__init__()
+        self.lang = lang
+        self.ini = Ini()
+
+        self.fields = dict(jsn.loads(self.ini.ini_path/f'''prestashop_product_fields.json'''))
+        self.combinations = dict(jsn.loads(self.ini.ini_path/f'''prestashop_product_combinations_fields.json'''))
+        self.prestashop_product_combinations_synonyms = jsn.loads(self.ini.ini_path/f'''prestashop_product_combinations_sysnonyms_{lang}.json''')
         
-        self.fields = dict(jsn.loads(f'''{_path_to_ini}prestashop_product_combination_fields.json'''))
-        self.attributes = dict(jsn.loads(f'''{_path_to_ini}prestashop_product_fields.json'''))
         pass
     pass
+
+    def skip_row(self, word):
+        '''
+        Проверка по словарю синонимов 
+        '''
+        for w in self.prestashop_product_combinations_synonyms["skip"]:
+            if str(word).rfind(w) >-1 : return False
+        return True
     
     
+    
+        
 
