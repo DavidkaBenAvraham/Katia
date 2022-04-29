@@ -1,6 +1,6 @@
 
 from selenium.common.exceptions import *
-import DB as db
+#import DB as db
 import datetime
 import time
 from ini_files import Ini

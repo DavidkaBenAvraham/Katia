@@ -9,11 +9,11 @@ from os.path import abspath
 from sqlalchemy import create_engine
 import pandas as pd
 import pandas.io.sql as psql
-import ExceptionsHandler
-from os.path import abspath
+#import ExceptionsHandler
+#from os.path import abspath заменить на Path()
 import datetime
 import time
-import json  
+#import json  
 from ini_files import Ini
 import execute_json as jsn
 

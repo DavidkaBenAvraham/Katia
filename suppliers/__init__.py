@@ -1,22 +1,139 @@
 ''' 
-        Supplier - класс поставщика
+        
+                ###################################################
+                
+                        Supplier - класс поставщика
 
-         наследник от Driver, который
-        расширяет возможности Селениум до мих желаний
+                ###################################################
+
+        
+        
+        
+        наследник от Driver, который расширяет возможности Селениум до мoих желаний
 
 
         Все классы поставщиков строятся на базе класса Supplier
-        Каждый выполняет свой сценарий
-        для инициализации класса ему надо передать json файл 
-        с именем поставщика в формате:   <suppplier>.json
+        Каждый выполняет свой сценарий из файлов suppliers.<префикс поставщика>
 
 
+        Инициализация класса конкретного поставщика товара:
+        Supplier(lang = ['he','en','ru'] , supplier_name = <имя поставщика>) 
 
 
-
+                    Ini()---------------+
+                    |                   +---    path:Path
+                    |                   |           физический адрес программы
+                    |                   |           
+                    |                   +---    path_str : str
+                    |                   |           строка path
+                    |                   |           
+                    |                   +---    path_ini  : Path
+                    |                   |           директория файлов иницилазации программы
+                    |                   |           
+                    |                   +---    path_ini_str : str
+                    |                   |           строка path_ini
+                    |                   |           
+                    |                   +---    path_path_log_dir : Path
+                    |                   |           директория файлов log
+                    |                   |           
+                    |                   +---    path_export_dir : Path
+                    |                   |           директория файлов экспорта
+                    |                   |           
+                    |                   +---    start_time  : datetime
+                    |                   +---    get_now(): datetime
+                    |
+                    |
+                Log(Ini)----------------+
+                |                       +---    header()
+                |                       |           заголовок HTML лога в котором можно
+                |                       |           прописать функции, например, jacascript
+                |                       |           сейчас записана функция скрытия свойств
+                |                       |           классов и типов в логе
+                |                       |           
+                |                       +---    screenshot(self , log = object) 
+                |                       |
+                |                       +---    print(self, log = object, prn_type="jupiter") 
+                |                       |           |
+                |                       |           \/
+                |                       +---    write_log_to_file()
+                |                       |
+                |                       +---    logged(method_to_decorate)
+                |                       +---    print_attr(self, *o):
+                |
+         Driver(Log)--------------------+
+         |                              +---    driver : webdriver 
+         |                              |
+         |                              +---    current_url : str
+         |                              |
+         |                              +---    set_driver()
+         |                              |
+         |                              +---    driver_implicity_wait(self , wait)  --?
+         |                              |
+         |                              +---    wait(self , wait)                   --?
+         |                              |
+         |                              +---    wait_to_precence_located(self, locator) 
+         |                              |
+         |                              +---    wait_to_be_clickable(self, locator, time_to_wait = 5)
+         |                              |
+         |                              +---    get_url(self, url)
+         |                              |
+         |                              +---    click(self, locator)
+         |                              |
+         |                              +---    find(self, locator)
+         |                              |
+         |                              +---    get_elements_by_locator(self, locator)
+         |                              |
+         |                              +---    researh_elements(self, elements)
+         |                              |
+         |                              +---    page_refresh(self)
+         |                              |
+         |                              +---    close()
+         |
+Supplier(Driver)------------------------+---    run(self)
+                                        |
+                                        +---    export_to_csv(self,data)
+                                        |
+                                        +---    lang : str = attrib(kw_only = True)
+                                        |           для какого языка собирается инфо  he, en, ru 
+                                        |
+                                        +---    supplier_name :str  = attrib(kw_only = True)                    
+                                        |        имя поставщика     
+                                        |
+                                        +---    supplier_prefics :str  = attrib(init = False)
+                                        |           префикс имени                             
+                                        |
+                                        +---    price_rule :str = attrib(init = False )                         
+                                        |        пересчет цены от постащика для клиента              
+                                        |
+                                        +---    locators :json  =  attrib(init = False)                              
+                                        |           локаторы элементов страницы                         
+                                        |
+                                        +---      start_url : str =  attrib(init = False)                              
+                                        |          Начальный адрес сценария
+                                        |
+                                        +---       required_login : bool = attrib(init=False)      <--- вынести в сценарий           
+                                        |
+                                        +---    scenaries : list  =  attrib(init = False , factory = list)      
+                                        |           Список сценариев
+                                        |           
+                                        +---    current_scenario :json = attrib(init = False)                   
+                                        |               Текущий сценарий
+                                        |           
+                                        +---    current_scenario_category : str =  attrib(init=False)           
+                                        |           Категория товаров по имени файла сценария
+                                        |           
+                                        +---    current_node  : str =  attrib(init=False)                       
+                                        |          Исполняемый узел сценария
+                                        |           
+                                        +---    current_nodename  : str =  attrib(init=False)                   
+                                        |           Имя испоняемого узла сценария
+                                        |
+                                        +---    required_login : bool
+        
 '''
-''' использую   attrs '''
-from attr import attrs, attrib, Factory
+
+
+
 import inspect
 from pathlib import Path
 import pandas as pd
@@ -28,20 +145,23 @@ import datetime
 import time
 
 
-from logger import Log
-from Driver import Driver 
 from ini_files import Ini
-
+from logger import Log
+from web_driver import Driver 
+from formatter import Formatter
 import execute_json as jsn
-import execute_scenaries
+import execute_csv as csv
+import suppliers.execute_scenaries as execute_scenaries
+from products import Product
+from attr import attrs, attrib, Factory
+
 
 #@Log.logged
 @attrs(auto_attribs=True)
 class Supplier(Driver):
     '''     
-            Объект поставщика.
-            Предок Driver - вебдрайвер
-            chromedriver,geckodriver, etc.
+    lang = ['he','en','ru'] , 
+    supplier_name = <имя поставщика>
     '''
 
 
@@ -59,14 +179,14 @@ class Supplier(Driver):
     price_rule :str = attrib(init = False )                         #     пересчет цены от постащика для клиента              '''
     locators :json  =  attrib(init = False)                         #     локаторы элементов страницы                         '''
     start_url : str =  attrib(init = False)                         #     Начальный адрес сценария
-    #required_login : bool = attrib(init=False)      <--- вынести в сценарий        #   
+    required_login : bool = attrib(init=False)                      #   
 
     '''
                         сценарий:
                         категория берется из
                         третьего слова в имени файла сценария
     '''
-    scenaries :[]  =  attrib(init = False , factory = list)         #   Список сценариев
+    scenaries : list  =  attrib(init = False , factory = list)      #   Список сценариев
     current_scenario :json = attrib(init = False)                   #   Текущий сценарий
     current_scenario_category : str =  attrib(init=False)           #   Категория товаров по имени файла сценария
     current_node  : str =  attrib(init=False)                       #   Исполняемый узел сценария
@@ -74,16 +194,15 @@ class Supplier(Driver):
     '''
                         Товар. product.Product() 
     '''
-    p :[] =  attrib(init = False , factory = list)                  #   Список товаров наполняемый по сценарию     
-    formatter :str = attrib(init = Formatter())                     #   Форматирование строк класс string_formatter.Formatter()
+    p : list =  attrib(init = False , factory = list)               #   Список товаров наполняемый по сценарию     
+    formatter :Formatter = attrib(init = False, default = Formatter())#   Форматирование строк класс formatter.Formatter()
 
 
 
     def __attrs_post_init__(self):
-
-        self.locators = jsn.loads(Path(self.ini_path/f'''{self.supplier_name}_locators.json'''))
+        super().__attrs_post_init__()
         # параметры для поставщика из файла json
-        _supplier = jsn.loads(Path(self.ini_path/f'''{self.supplier_name}.json'''))
+        _supplier = jsn.loads(Path(self.path_ini/f'''{self.supplier_name}.json'''))
 
         self.supplier_prefics = _supplier["supplier_prefics"]
         self.start_url = _supplier["start_url"]
@@ -92,7 +211,8 @@ class Supplier(Driver):
         self.scenaries = _supplier["scenaries"]
 
         #локаторы элементов страницы
-        self.locators = jsn.loads(self.ini_path/f'''{self.supplier_name}_locators.json''') 
+        self.locators = jsn.loads(self.path_ini/f'''{self.supplier_name}_locators.json''') 
+        
 
         # подгружаю релевантные функции для конкретного поствщика
         self.related_functions = importlib.import_module(f'''suppliers.{self.supplier_name}''')
@@ -103,23 +223,10 @@ class Supplier(Driver):
         '''
         Запуск кода !
         '''
-        self.set_driver()
+        #self.set_driver()
         execute_scenaries.execute_list_of_scenaries(self)
-        product.flush_p(self)
-        return True
+        export_file_name =  f'''{self.path_export_dir}/{self.supplier_prefics}-{self.start_time}.csv'''
+        csv.write(self,self.p , export_file_name)
+
         
-      
-    # ислючительно для печати
-    # https://habr.com/ru/post/427065/
-    def __str__(self):
-        res= '>>'
-        for a in inspect.getmembers(self):
-            if not a[0].startswith('__'): res += f'''{a[0]}={a[1]}'''
-        for a in inspect.getmembers( self.__class__):
-            if not a[0].startswith('__'): res += f'''__class__.{a[0]}={a[1]}'''
-
-        return res
-
-    def print_attr(self, *o):
-        for a in o:print(a)
-       
+     

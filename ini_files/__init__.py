@@ -41,28 +41,17 @@ https://ru.stackoverflow.com/questions/535318/%D0%A2%D0%B5%D0%BA%D1%83%D1%89%D0%
 
 from attr import attrs, attrib
 @attrs
-class Ini():
+class Ini(object):
     ''' определяю пути '''
-    
+    start_time  : datetime = attrib(init = False ,default = datetime.datetime.now().strftime('%d-%m %H%M%S'))
+
     path : Path = attrib(init = False ,default = Path.cwd())                                                         #   Текущая директория (Объект Path)
     path_str : str = attrib(init = False ,default = Path.cwd().as_posix() )                                          #   Текущая директория (str)
-    ini_path  : Path = attrib(init = False ,default = Path.cwd() /"ini_files")                                       #   ini_files директория
-    ini_path_str : str = attrib(init = False ,default = (Path.cwd() /"ini_files").as_posix() )                       #   ini_files директория (str)
-    start_time  : datetime = attrib(init = False ,default = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))   #   Время запуска скрипта
-                                                          
-    '''
+    path_ini  : Path = attrib(init = False ,default = Path.cwd() /"ini_files")                                       #   ini_files директория
+    path_ini_str : str = attrib(init = False ,default = (Path.cwd() /"ini_files").as_posix() )  
+    path_log_dir : Path = attrib(init= False , default = (Path.cwd() /'..'/'Log'))   
+    path_log_file : Path = attrib(init=False)
+    path_export_dir : Path = attrib(init= False , default = (Path.cwd() /'..'/'Export'))  
 
-
-                        @property 
-                        позволяет обратиться к функции как свойству
-                        @attrs
-                        class Myclass():
-                            @property
-                            def foo(self):
-                                retuen 2+2
-
-                        >>> Myclass.foo
-    '''
-    def get_now(self,strformat = '%Y-%m-%d %H:%M:%S') -> datetime:
-        return datetime.datetime.now().strftime(strformat)
- 
+    def __attrs_post_init__(self):
+        self.path_log_file : Path = self.path_log_dir / f'''{self.start_time}.htm'''

@@ -39,13 +39,13 @@
     <Compile Include="bot\messenger_db.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="check_and_convert_datatypes.py">
+    <Compile Include="_DEPRECATED_check_and_convert_datatypes.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Driver\driver_options.py">
+    <Compile Include="web_driver\driver_options.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="execute_dataframe.py">
+    <Compile Include="_DEPRECATED_execute_dataframe.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="execute_json.py">
@@ -53,8 +53,8 @@
     </Compile>
     <Compile Include="PCPart\__init__.py" />
     <Compile Include="products\__init__.py" />
-    <Compile Include="string_formatter.py" />
-    <Compile Include="_regex.py" />
+    <Compile Include="formatter.py" />
+    <Compile Include="_DEPRECATED_regex.py" />
     <Compile Include="suppliers\ksp\__init__.py" />
     <Compile Include="__dornet\login.py" />
     <Compile Include="__dornet\product.py" />
@@ -65,13 +65,13 @@
     <Compile Include="DoskaObjavlenij\__init__.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Driver\__init__.py">
+    <Compile Include="web_driver\__init__.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ExceptionsHandler\__init__.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="execute_scenaries.py">
+    <Compile Include="suppliers\execute_scenaries.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Facebook\db.py">
@@ -131,7 +131,7 @@
     <Compile Include="Messages\__init__.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="price_cleaner.py">
+    <Compile Include="_DEPRECATE_price_cleaner.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="python-telegram-bot-master\docs\source\conf.py" />
@@ -445,7 +445,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Mor_avoda_im_excel\аluf.py" />
-    <Compile Include="strings_cleaner.py">
+    <Compile Include="_DEPRECATED_strings_cleaner.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Примеры\QT\QT_Table-pandas.py">
@@ -479,14 +479,13 @@
     <Folder Include="Facebook\ui\" />
     <Folder Include="Facebook\scenario\" />
     <Folder Include="Facebook\__pycache__\" />
-    <Folder Include="logger\logs\" />
     <Folder Include="Messages\ui\" />
     <Folder Include="Mor_avoda_im_excel\" />
     <Folder Include="ExceptionsHandler\" />
     <Folder Include="DoskaObjavlenij\" />
     <Folder Include="logger\" />
     <Folder Include="ini_files\" />
-    <Folder Include="Driver\" />
+    <Folder Include="web_driver\" />
     <Folder Include="callil.co.il\" />
     <Folder Include="Messages\" />
     <Folder Include="products\" />

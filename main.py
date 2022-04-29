@@ -1,6 +1,6 @@
 
 
-import ExceptionsHandler
+#import ExceptionsHandler
 from pathlib import Path
 import sys
 '''
@@ -15,7 +15,7 @@ from threading import Thread
 from ini_files import Ini
 import execute_json as jsn
 
-import check_and_convert_datatypes as check_type
+#import check_and_convert_datatypes as check_type
 
 '''
 Класс поставщика 
@@ -66,7 +66,7 @@ def run(languages = ['he'] , list_supplier_names = [] , windowless = True, threa
 
     #try:
     ini = Ini()
-    _suppliers = jsn.loads(Path(ini.ini_path/'suppliers.json'))
+    _suppliers = jsn.loads(Path(ini.path_ini/'suppliers.json'))
     
     list_supplier_names :[] = _suppliers["supplier_names"]
     #log : Log = Log()

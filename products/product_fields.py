@@ -7,19 +7,12 @@ import products
 #import products.execute_products as product
 from logger import Log
 from ini_files import Ini
-import pandas as pd
+from suppliers import Supplier
 
 
 
+def generate_product(self:Supplier) -> bool:
 
-def generate_product(self) -> []:
-    # return p_fields[]
-    # возвращает словарь заполненных полей товара
-    # если что-то пойдет не так
-    # вернет False
-    # знаю, что нельзя менять тип возвращаемого значения
-
-        #Актуально для поставщиков, таких как морлеви
     #''' 
     #Проверка наличия товара 
     #'''

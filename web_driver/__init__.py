@@ -20,7 +20,8 @@ from ini_files import Ini
         прописаны в файле
         driver_options
 '''
-import Driver.driver_options as driver_options
+#import Driver.driver_options as driver_options
+
 import execute_json as jsn
 
 import pandas as pd
@@ -29,26 +30,28 @@ import time
 
 
 from attr import attrs, attrib, Factory
+#@Log.logged
 @attrs
 class Driver(Log):
-    driver : webdriver = attrib(init = False )
-    current_url : str = attrib(init = False)
     '''
     Работа с вебдрайвером
     По умолчанию используется Firefox
     driver: имя драйвера (firefox, chrome, etc)
     wait: ожидание перед действиями селениума
     '''
-    def __attrs_post_init__(self): 
+    driver : webdriver = attrib(init = False)
+    current_url : str = attrib(init = False)
+    def __attrs_post_init__(self):
+        super().__attrs_post_init__()
         self.set_driver()
+        
        
     #@Log.logged 
     def set_driver(self):      
-        #_path_to_ini_file = f'''{self.root}\\Ini\\webdriver.json'''  
-        #d = jsn.loads(_path_to_ini_file)["driver"]
-        d = jsn.loads(self.ini_path / 'webdriver.json')["driver"]
-        print(d["name"])
-        #self.driver_wait = d['driver_wait']
+        '''запускаю вебдрайвер по сценарию из webdriver.json'''
+        d = jsn.loads(self.path_ini / 'webdriver.json')["driver"]
+        self.print(d)
+
 
         #try:
 
@@ -188,7 +191,7 @@ class Driver(Log):
             return self,  False
 
     #@Log.logged 
-    def find(self, locator):
+    def find(self, locator:dict) -> []:
 
         '''
         locator=(By.CSS_SELECTOR , selector)
@@ -212,7 +215,7 @@ class Driver(Log):
         '''
         
         
-
+        res = []
 
 
         try:  
@@ -220,66 +223,72 @@ class Driver(Log):
             # может вернуться или один или несколько элементов списком
             element = WebDriverWait(self.driver, int(driver_wait)).until(EC.presence_of_element_located((locator)))
             elements = WebDriverWait(self.driver, int(driver_wait)).until(EC.presence_of_all_elements_located((locator)))
+        
+        
 
         except NoSuchElementException as eх:
-            self.print(f'''Exception NoSuchElementException:
+            self.print(f'''Не нашелся элемент {locator}:
             {eх}
-            прекращаю поиск элемента {locator} , отдаю False''')
-            return False
-        except InvalidSessionIdException as e:
+             , отдаю False''')
+            return res
+        except InvalidSessionIdException as ex:
             self.print(f'''  - Потряна связь с сайтом !!!
             EXCEPTION InvalidSessionIdException: 
-            {e}
+            {ex}
             ''')
             self.driver.close()
-            return False
-        except StaleElementReferenceException as e: #
-            self.print(f'''Exception StaleElementReferenceException:
-            {e}
-            прекращаю поиск элемента {locator} , отдаю False''')
-            return False
-        except InvalidArgumentException as e: #
+            return res
+        except StaleElementReferenceException as ex: #
+            self.print(f'''потеряна связь с DOM 
+            {ex}
+             , отдаю []''')
+            return res
+        except InvalidArgumentException as ex: #
             self.print(f'''Exception InvalidArgumentException:
-            {e}
-            прекращаю поиск элемента {locator} , отдаю False''')
-            return False
-        except TimeoutException as e: #
+            {ex}
+            прекращаю поиск элемента {locator} , отдаю []''')
+            return res
+        except TimeoutException as ex: #
             self.print(f'''Exception TimeoutException:
-            {e}
-            прекращаю поиск элемента {locator} , отдаю False''')
-            return False
-        except ElementClickInterceptedException as e: 
+            {ex}
+            прекращаю поиск элемента {locator} , отдаю []''')
+            return res
+        except ElementClickInterceptedException as ex: 
             self.print(f'''Exception ElementClickInterceptedException:
-            {e}
-            прекращаю поиск элемента {locator} , отдаю False''')
-            return False
+            {ex}
+            прекращаю поиск элемента {locator} , отдаю []''')
+            return res
 
         
-        except Exception as e: 
+        except Exception as ex: 
             self.print(f'''  
             ОБЩАЯ ОШИБКА self.find() 
             Exception:
-            {e}
-            прекращаю поиск элемента {locator} , отдаю False''')
-            return False
+            {ex}
+            прекращаю поиск элемента {locator} , отдаю []''')
+            return res
 
         else:
             '''
-            Возвращает или СПИСОК
-            элементов
+            Возвращает  СПИСОК элементов
             '''
             
 
             #   1) Если нашлось несколько
             if len(elements) >= 1: 
+                self.print(elements)
                 return elements
 
             #   2) Если один строкой
             elif str(type(element)).find("webelement") >-1:
+                self.print(element)
                 return [element]
             
             #   3) ни одного
-            else: return False
+                
+            else: 
+                self.print("ХУЙ")
+                return []
     
     #@Log.logged 
     def page_refresh(self):
@@ -290,79 +299,20 @@ class Driver(Log):
     
     #@Log.logged 
     def close(self):
-        
-        if self.driver.close(): self.log(''' DRIVER CLOSED ''')
+        if self.driver.close(): self.print(''' DRIVER CLOSED ''')
         pass
 
-    #@Log.logged 
-    def researh_elements(self, elements):
-        '''
-        Функция для исследования элемента
-        '''
-        for element in elements:
-            try:
-                '''
-                Исследование силами Селениума
-                '''
-                log_str = str(f'''
-                Список HTML аттрибутов  элемента 
-                -----------------------------------------
-                Selenium:
-                type = {element.get_attribute('type')}
-                href = {element.get_attribute('href')}
-                id = {element.get_attribute('id')}
-                name = {element.get_attribute('name')}
-                title = {element.get_attribute('title')}
-                text = {element.get_attribute('text')}
-                value = {element.get_attribute('value')}
-                innerHTML = {element.get_attribute('innerHTML')}
-                outerHTML  = {element.get_attribute('outerHTML ')}
-                ''')
-            
-                '''
-                Исследование силами жаваскрипт
-                '''
-                attrs = self.driver.execute_script('''
-                var items = {}; 
-                for (index = 0; index < arguments[0].attributes.length; ++index)  
-                { 
-                    items[arguments[0].attributes[index].name] = arguments[0].attributes[index].value 
-                }; 
-                return items;''', element)
-
-                log_str += str(f'''
-                Javascript:
-                -----------------------------------------
-                {attrs} \n
-                ''')
-                self.log(log_str)
-            except:
-                return False
-
-
-
+    
 
 
 
 
     #@Log.logged
     def get_elements_by_locator(self, locator) ->[]:
-
         '''
-        возвращает список значений аттрибута элементов найденных по локатору <locator>
+        возвращает список значений аттрибута элементов найденных по локатору <locator:dict()> 
         
-        locator содержит три элемента:
-
-                - "attribute": "sendKeys(Keys.RETURN)", 
-                    использую обработку полученного элемента
-                            Примеры аттрибутов:
-                    - href
-                    - a
-                    - text
-                    - innerHTML
-                    - innerText
-                    - sendKeys(Keys.RETURN)
-
+        Словарь locator содержит три элемента:
 
 
                 - "by": "xpath",
@@ -383,40 +333,98 @@ class Driver(Log):
                     - //*[@id='product-page-root']//div[@aria-label]//following-sibling::div/p[1]
 
 
-
+                - "attribute": "sendKeys(Keys.RETURN)",
+                    обработка полученного элемента
+                            Примеры аттрибутов:
+                    - href
+                    - a
+                    - text
+                    - innerHTML
+                    - innerText
+                    - sendKeys(Keys.RETURN)
 
         etc.
         '''
-        out = []
+        try:
+            res = []
 
 
-        elements = self.find( (locator['by'],locator['selector']))
+            elements = self.find((locator['by'],locator['selector']))
+            '''
+                может получить список элементов или один элемент или хуй
 
-        '''
-
-            elements 
-            может получить список элементов или один элемент или хуй
-
-            Функция  возвращает список [] или False
+                Функция  возвращает список [] или False
 
 
-        '''
-        if elements == False:return False
+            '''
+            if len(elements) == 0: return False
 
-        if str(type(elements)).find("class 'list'") >-1:
-            '''если нашлось несколько 
-            элементов по указанному локатору '''
+            if str(type(elements)).find("class 'list'") >-1:
+                '''если нашлось несколько 
+                элементов по указанному локатору '''
                 
-            for element in elements:
-                try: out.append(str(element.get_attribute(locator['attribute'])))
-                except StaleElementReferenceException as e:
-                    self.print(f'''ElementClickInterceptedException - \n  {e} \n
-                    потеряна связь с DOM {locator}''')
-                    continue
-            return out
-        elif str(type(elements)).find("WebElement") >-1: 
-            '''
-            если нашелся только один
-            '''
-            out.append(elements.get_attribute(locator['attribute']))
-            return out
+                for element in elements:
+                    attriute = element.get_attribute(locator['attribute'])
+                    res.append(attriute)
+                return res
+
+            elif str(type(elements)).find("WebElement") >-1: 
+                '''
+                если нашелся только один
+                '''
+                attriute = element.get_attribute(locator['attribute'])
+                res.append(attriute)
+                return res
+        except Exception as ex: 
+            self.print(f'''Ошибка в функции 
+            get_elements_by_locator(self)
+            {ex}''')
+            return []
+
+    #@Log.logged 
+    def researh_elements(self, elements)->bool:
+        '''
+        Функция для исследования элемента
+        '''
+        for element in elements:
+            try:
+                '''
+                Исследование силами Селениума
+                '''
+                log_str = f'''
+                Список HTML аттрибутов  элемента 
+                -----------------------------------------
+                Selenium:
+                type = {element.get_attribute('type')}
+                href = {element.get_attribute('href')}
+                id = {element.get_attribute('id')}
+                name = {element.get_attribute('name')}
+                title = {element.get_attribute('title')}
+                text = {element.get_attribute('text')}
+                value = {element.get_attribute('value')}
+                innerHTML = {element.get_attribute('innerHTML')}
+                outerHTML  = {element.get_attribute('outerHTML ')}
+                '''
+            
+                '''
+                Исследование силами жаваскрипт
+                '''
+                attrs = self.driver.execute_script('''
+                var items = {}; 
+                for (index = 0; index < arguments[0].attributes.length; ++index)  
+                { 
+                    items[arguments[0].attributes[index].name] = arguments[0].attributes[index].value 
+                }; 
+                return items;''', element)
+
+                log += f'''
+                Javascript:
+                -----------------------------------------
+                {attrs} \n
+                '''
+                self.print(log)
+                return True
+            except:
+                return False
+
+

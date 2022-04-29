@@ -2,17 +2,18 @@ from logger import Log
 # примеры 
 # https://python-scripts.com/beautifulsoup-html-parsing
 from bs4 import BeautifulSoup
-import price_cleaner
-import re
-import json
+#import re
+#import json
 import execute_json as jsn
-import _regex as rgf
+#import _regex as rgf
 import sys
-import price_cleaner
-import strings_cleaner
+#import price_cleaner
+#import strings_cleaner
+import execute_json as jsn
 import products
-from string_formatter import Formatter
+from formatter import Formatter
 
+formatter = Formatter() # <- Обязательно переделаю в статический метод
 
 '''
 
@@ -93,9 +94,7 @@ from string_formatter import Formatter
 
 
 
-
-
-def build_product(self):
+def get_product_fields(self):
     
     '''
     https://stackoverflow.com/questions/34301815/understand-the-find-function-in-beautiful-soup#_=_
@@ -103,7 +102,7 @@ def build_product(self):
     soup.find("span", {"class": "real number", "data-value": True})['data-value']
     '''
     p = products.Product(self.lang)
-    p.fields["Title"] = self.driver.title
+    p.fields["title"] = formatter.remove_special_characters(self.driver.title)
 
     '''
     
@@ -111,7 +110,7 @@ def build_product(self):
 
     '''
   
-    raw_product_price_supplier = ''.join(self.get_elements_by_locator(self.locators['product']['product_price_locator']))
+    raw_product_price_supplier = self.get_elements_by_locator(self.locators['product']['product_price_locator'])
     raw_product_images = ','.join(self.get_elements_by_locator(self.locators['product']['product_images_locator']))
     raw_product_images_alt = ','.join(self.get_elements_by_locator(self.locators['product']['product_images_alt_locator']))
     raw_product_sikum = ''.join(self.get_elements_by_locator(self.locators['product']['product_sikum_locator']))
@@ -121,7 +120,6 @@ def build_product(self):
     
 
     p.fields["categories"] = self.current_node["prestashop_category"]
-
     p.fields["tiur"] = raw_product_description
     p.fields["sikum"] = raw_product_sikum
 
@@ -137,7 +135,7 @@ def build_product(self):
     p.combinations["Supplier reference"] = p.fields["mkt suppl"]
     
 
-    price_supplier = price_cleaner.convert_to_float_price(self, raw_product_price_supplier)
+    price_supplier = formatter.clear_price(str(raw_product_price_supplier).strip('[]'))
 
     p.fields["mexir lifney"]=price_supplier
     p.fields["mexir olut"]=price_supplier
@@ -182,14 +180,15 @@ def build_product(self):
 
 
 
-    self.p.append(p)
+    return p.fields
 
     pass
 
 def product_attributes(self, p, element_delimeter, elements):
     i=0
     skip = False
-    c = p.combinations ''' просто сокращенная запись '''
+    c = p.combinations 
+    ''' просто сокращенная запись '''
     for e in build_list_from_html_elements(self, element_delimeter, elements):
         if i%2 == 0:
 
@@ -203,10 +202,10 @@ def product_attributes(self, p, element_delimeter, elements):
                 skip = True
                 continue
 
-            attr = Formatter.remove_HTML_tags(e)
+            attr = formatter.remove_HTML_tags(e)
             ''' первое значение '''
-            if c["Attribute (Name:Type: Position)"] == "": c["Attribute (Name:Type: Position)"] = f'''{e.next}:select:0'''
-            else: c["Attribute (Name:Type: Position)"] += f''', {e.next}:select:0'''
+            if c["Attribute (Name:Type: Position)"] == "": c["Attribute (Name:Type: Position)"] = f'''{attr}:select:0'''
+            else: c["Attribute (Name:Type: Position)"] += f''', {attr}:select:0'''
             ''' остальные значения '''
         else:
             if skip:
@@ -224,10 +223,8 @@ def product_attributes(self, p, element_delimeter, elements):
 
 
 def build_list_from_html_elements(self, element_delimeter, elements) -> []:
-
     soup : BeautifulSoup = BeautifulSoup(elements , 'html.parser')
     return soup.findAll(element_delimeter)
-    #return lst
 
 
 
