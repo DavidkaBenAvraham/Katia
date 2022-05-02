@@ -1,4 +1,46 @@
-''' 
+
+
+import inspect
+from pathlib import Path
+import pandas as pd
+import json
+import sys
+import os
+import importlib
+import datetime
+import time
+
+
+from ini_files import Ini
+from logger import Log
+from web_driver import Driver 
+from formatter import Formatter
+import execute_json as jsn
+import execute_csv as csv
+import suppliers.execute_scenaries as execute_scenaries
+from products import Product
+from attr import attrs, attrib, Factory
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#@Log.log_f
+@attrs(auto_attribs=True)
+class Supplier(Driver):
+
+
+    ''' 
         
                 ###################################################
                 
@@ -20,7 +62,16 @@
         Supplier(lang = ['he','en','ru'] , supplier_name = <имя поставщика>) 
 
 
-                    Ini()---------------+
+
+
+
+
+
+
+                        ErrorHandler()---
+                        |
+                        |
+                    Ini(ErrorHandler)---+
                     |                   +---    path:Path
                     |                   |           физический адрес программы
                     |                   |           
@@ -44,6 +95,10 @@
                     |
                     |
                 Log(Ini)----------------+
+                |                       +---    log : object = attrib(init=False)
+                |                       +---    formatter: Formatter = attrib(init = False)
+                |                       +---    prn_type :str = attrib(init = False,kw_only = True)
+                |                       |
                 |                       +---    header()
                 |                       |           заголовок HTML лога в котором можно
                 |                       |           прописать функции, например, jacascript
@@ -130,42 +185,11 @@ Supplier(Driver)------------------------+---    run(self)
                                         |
                                         +---    required_login : bool
         
-'''
 
 
 
-import inspect
-from pathlib import Path
-import pandas as pd
-import json
-import sys
-import os
-import importlib
-import datetime
-import time
 
 
-from ini_files import Ini
-from logger import Log
-from web_driver import Driver 
-from formatter import Formatter
-import execute_json as jsn
-import execute_csv as csv
-import suppliers.execute_scenaries as execute_scenaries
-from products import Product
-from attr import attrs, attrib, Factory
-
-
-#@Log.logged
-@attrs(auto_attribs=True)
-class Supplier(Driver):
-    '''     
-    lang = ['he','en','ru'] , 
-    supplier_name = <имя поставщика>
-    '''
-
-
-    '''
     Что делать, если мы хотим установить атрибут с пустой коллекцией в качестве значения по умолчанию? 
     Обычно мы не хотим передавать [] в качестве аргумента, это одна из известных ловушек Python, 
     которая может вызвать много неожиданных проблем. Не волнуйтесь, attrs предоставляет нам “фабричный метод”.
@@ -218,7 +242,7 @@ class Supplier(Driver):
         self.related_functions = importlib.import_module(f'''suppliers.{self.supplier_name}''')
         
 
-    #@Log.logged
+    #@Log.log_f
     def run(self):
         '''
         Запуск кода !

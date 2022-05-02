@@ -1,8 +1,5 @@
 
 
-
-
-
 ###################################################################################################################################
 #
 #                                       
@@ -17,15 +14,18 @@ import datetime
 import time
 import sys
 from selenium.common.exceptions import *
+from traitlets.traitlets import ObjectName
 
 from ini_files import Ini
 import execute_json as jsn
 #import check_and_convert_datatypes as check_type
 from logger import Log
 import products
-from pathlib import Path
+#from pathlib import Path
+from formatter import Formatter
+formatter = Formatter()
 
-@Log.logged
+#@Log.log_f
 def execute_list_of_scenaries(self) -> bool :
     ''' по умолчанию все сценарии (имена файлов) прописаны в файе <supplier>.json 
     Каждый сценарий - файл с именем 
@@ -38,7 +38,7 @@ def execute_list_of_scenaries(self) -> bool :
 
 
     # 0. 
-    self.get_url(self.start_url)
+    page_source = self.get_url(self.start_url)
 
 
     # 1.
@@ -61,13 +61,12 @@ def execute_list_of_scenaries(self) -> bool :
 
             self.current_scenario = jsn.loads(self.path_ini/f'''{json_file}''')
             self.current_scenario_category = json_file.split('_')[2]
-            
             run_scenario(self)
 
     return True
 
 
-#@Log.logged
+#@Log.log_f
 def run_scenario(self) -> bool:
     
     for scenario_node in self.current_scenario:
@@ -81,16 +80,18 @@ def run_scenario(self) -> bool:
         - <attributes> - свойства товара: цпу, экран, гарантия итп
         '''
         self.current_node = self.current_scenario[scenario_node]
+        ''' текущий сценарий в формате json '''
         self.current_nodename = str(scenario_node)
+        ''' имя узла сценария '''
+    
         
-        '''проверим значения всех атрибутов'''
-        
-        urls = get_list_products_urls(self)
-        if urls == False: continue
-        ''' не получил адреса страниц товара 
-            продолжаю цикл сценариев 
-        '''
+        # 1
 
+        urls = get_list_products_urls(self)
+        if urls == False: continue # не получил адреса страниц товара продолжаю цикл сценариев 
+        
+
+         # 2
         for product_url in urls :
             self.get_url(product_url)
             '''Перехожу на страницу товара '''
@@ -100,7 +101,7 @@ def run_scenario(self) -> bool:
             ''' добавляю поля в список для экспорта полей '''
         return True
 
-#@Log.logged
+#@Log.log_f
 def get_list_products_urls(self) ->[]:
     '''  возвращает ссылки на все товары в категории 
         по локатору self.locators['product']['link_to_product_locator']
@@ -110,7 +111,9 @@ def get_list_products_urls(self) ->[]:
         if self.get_url(self.current_node["url"]) == False: 
             ''' нет такой страницы! Возможно, проверить категорию в файле сценария ? '''
             return False 
-   
+
+
+
         #''' на странице категории могут находится  чекбоксы    
         # если их нет, в сценарии JSON они прописаны checkbox = false
         #'''
@@ -126,7 +129,7 @@ def get_list_products_urls(self) ->[]:
             scroller(self)
            
 
-            list_product_urls = self.get_elements_by_locator(self.locators['product']['link_to_product_locator'])
+            list_product_urls = self.find(self.locators['product']['link_to_product_locator'])
             return list_product_urls
 
 
@@ -134,7 +137,7 @@ def get_list_products_urls(self) ->[]:
         else:
             list_product_urls :[]
             while click_to_next_page(self):
-                list_product_urls += self.get_elements_by_locator(self, self.locators['product']['link_to_product_locator'])
+                list_product_urls += self.find(self.locators['product']['link_to_product_locator'])
                 return list_product_urls
 
     except Exception as ex: 
@@ -142,10 +145,10 @@ def get_list_products_urls(self) ->[]:
         get_list_products_urls(self)
         {ex}''')
         return False
-        #sys.exit()
+        sys.exit()
       
 
-#@Log.logged
+#@Log.log_f
 def scroller(self, wait=1 , prokrutok=5, scroll=500):
     '''
     Prokruka stranicy vniz

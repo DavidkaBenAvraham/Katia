@@ -39,6 +39,7 @@
     <Compile Include="bot\messenger_db.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="exceptions_handler\__init__.py" />
     <Compile Include="_DEPRECATED_check_and_convert_datatypes.py">
       <SubType>Code</SubType>
     </Compile>
@@ -51,7 +52,7 @@
     <Compile Include="execute_json.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="PCPart\__init__.py" />
+    <Compile Include="__PCPart\__init__.py" />
     <Compile Include="products\__init__.py" />
     <Compile Include="formatter.py" />
     <Compile Include="_DEPRECATED_regex.py" />
@@ -62,13 +63,10 @@
     <Compile Include="DB\__init__.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DoskaObjavlenij\__init__.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="web_driver\__init__.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ExceptionsHandler\__init__.py">
+    <Compile Include="exceptions_handler\_DEPRECATED__init__.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="suppliers\execute_scenaries.py">
@@ -107,13 +105,6 @@
     <Compile Include="ini_files\morlevi_locators.json">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Messages\db.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Messages\ui\QT_messages_editor_controller.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Messages\ui\QT_messages_editor_interface.py" />
     <Compile Include="Facebook\ui\QT_login_interface.py" />
     <Compile Include="Facebook\scenario\login.py">
       <SubType>Code</SubType>
@@ -122,13 +113,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Facebook\__init__.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Messages\ui\QT_Add_Edit_Delete_Message_controller.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Messages\ui\QT_Add_Edit_Delete_Message_interface.py" />
-    <Compile Include="Messages\__init__.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="_DEPRECATE_price_cleaner.py">
@@ -419,13 +403,6 @@
     <Compile Include="__techorezef\login.py" />
     <Compile Include="__techorezef\product.py" />
     <Compile Include="__techorezef\__init__.py" />
-    <Compile Include="SiteStockManager\__init__.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UI\QT_launcher_controller.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UI\QT_launcher_interface.py" />
     <Compile Include="ini_files\__init__.py">
       <SubType>Code</SubType>
     </Compile>
@@ -436,15 +413,12 @@
     <Compile Include="execute_csv.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mor_avoda_im_excel\aluf_data.py" />
-    <Compile Include="Orbita\__init__.py">
+    <Compile Include="__Mor_avoda_im_excel\aluf_data.py" />
+    <Compile Include="__Mor_avoda_im_excel\readwrite_exel_csv.py" />
+    <Compile Include="__Mor_avoda_im_excel\read_csv.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mor_avoda_im_excel\readwrite_exel_csv.py" />
-    <Compile Include="Mor_avoda_im_excel\read_csv.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Mor_avoda_im_excel\аluf.py" />
+    <Compile Include="__Mor_avoda_im_excel\аluf.py" />
     <Compile Include="_DEPRECATED_strings_cleaner.py">
       <SubType>Code</SubType>
     </Compile>
@@ -479,17 +453,13 @@
     <Folder Include="Facebook\ui\" />
     <Folder Include="Facebook\scenario\" />
     <Folder Include="Facebook\__pycache__\" />
-    <Folder Include="Messages\ui\" />
-    <Folder Include="Mor_avoda_im_excel\" />
-    <Folder Include="ExceptionsHandler\" />
-    <Folder Include="DoskaObjavlenij\" />
+    <Folder Include="__Mor_avoda_im_excel\" />
+    <Folder Include="exceptions_handler\" />
     <Folder Include="logger\" />
     <Folder Include="ini_files\" />
     <Folder Include="web_driver\" />
-    <Folder Include="callil.co.il\" />
-    <Folder Include="Messages\" />
     <Folder Include="products\" />
-    <Folder Include="PCPart\" />
+    <Folder Include="__PCPart\" />
     <Folder Include="bot\" />
     <Folder Include="suppliers\ksp\" />
     <Folder Include="__dornet\" />
@@ -522,9 +492,6 @@
     <Folder Include="python-telegram-bot-master\telegram\vendor\ptb_urllib3\" />
     <Folder Include="python-telegram-bot-master\tests\" />
     <Folder Include="python-telegram-bot-master\tests\data\" />
-    <Folder Include="SiteStockManager\" />
-    <Folder Include="UI\" />
-    <Folder Include="Orbita\" />
     <Folder Include="Примеры\" />
     <Folder Include="DB\" />
     <Folder Include="Примеры\QT\" />
@@ -630,6 +597,7 @@
     <Content Include="ini_files\prestashop_product_combinations_fields.json" />
     <Content Include="ini_files\prestashop_db_connectionstrings.json" />
     <Content Include="ini_files\prestashop_product_fields.json" />
+    <Content Include="ini_files\string_formatter_categories.json" />
     <Content Include="ini_files\suppliers.json">
       <SubType>Code</SubType>
     </Content>
@@ -740,7 +708,6 @@
     <Content Include="logger\readme.md">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="Messages\ui\QT_messages_editor_interface.ui" />
     <Content Include="Facebook\ui\readme.md">
       <SubType>Code</SubType>
     </Content>
@@ -765,7 +732,6 @@
     <Content Include="ini_files\webdriver.json">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="Messages\ui\QT_Add_Edit_Delete_Message_interface.ui" />
     <Content Include="python-telegram-bot-master\.github\CONTRIBUTING.rst" />
     <Content Include="python-telegram-bot-master\.github\ISSUE_TEMPLATE\bug_report.md" />
     <Content Include="python-telegram-bot-master\.github\ISSUE_TEMPLATE\config.yml" />
@@ -980,10 +946,6 @@
     <Content Include="python-telegram-bot-master\tests\data\thumb.jpg" />
     <Content Include="python-telegram-bot-master\tests\data\测试.png" />
     <Content Include="README.md">
-      <SubType>Code</SubType>
-    </Content>
-    <Content Include="UI\QT_launcher_interface.ui" />
-    <Content Include="UI\readme.md">
       <SubType>Code</SubType>
     </Content>
   </ItemGroup>

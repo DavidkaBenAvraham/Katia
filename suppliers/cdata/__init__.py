@@ -1,5 +1,5 @@
 from logger import Log
-##@Log.logged
+##@Log.log_f
 def log_in(self):
     self.get_url('https://reseller.c-data.co.il/Login')
 

@@ -1,6 +1,6 @@
 from logger import Log
 
-#@Log.logged
+#@Log.log_f
 def log_in(self):
     if __login(self): return True
     else: 
@@ -36,7 +36,7 @@ def log_in(self):
             {self.supplier_name}
             ''')
             return False
-#@Log.logged
+#@Log.log_f
 def __login(self):
     self.log( f''' Собссно, логин Морлеви''')
     self.driver.refresh()

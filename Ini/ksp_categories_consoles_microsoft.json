@@ -1,0 +1,20 @@
+{
+  "Xbox Series S 512MB": {
+    "brand": "MICROSOFT",
+    "url": "https://ksp.co.il/web/cat/219..255..15734..685",
+    "checkbox": false,
+    "prestashop_category": "2043,390,18,1,2,429,43,2046,2047"
+  },
+  "Xbox Series X 1TB": {
+    "brand": "MICROSOFT",
+    "url": "https://ksp.co.il/web/cat/219..255..15733",
+    "checkbox": false,
+    "prestashop_category": "2044,390,18,1,2,429,43,2046,2048"
+  },
+  "Xbox ONE": {
+    "brand": "MICROSOFT",
+    "url": "-----------------",
+    "checkbox": false,
+    "prestashop_category": "2043,390,18,1,2,429,43,2046,2047"
+  }
+}

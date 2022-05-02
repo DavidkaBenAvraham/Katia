@@ -1,0 +1,44 @@
+{
+  "Iphone 11": {
+    "brand": "APPLE",
+    "url": "https://ksp.co.il/web/cat/573..9580",
+    "checkbox": false,
+    "prestashop_category": "37,4,3,1,2,429,718,829,834"
+  },
+  "Iphone 12": {
+    "brand": "APPLE",
+    "url": "https://ksp.co.il/web/cat/573..19213",
+    "checkbox": false,
+    "prestashop_category": "29,4,3,1,2,429,718,829,832"
+  },
+  "iPhone 13 Mini": {
+    "brand": "APPLE",
+    "url": "https://ksp.co.il/web/cat/573..28917",
+    "checkbox": false,
+    "prestashop_category": "13,4,3,1,2,429,718,829,831"
+  },
+  "iPhone 13": {
+    "brand": "APPLE",
+    "url": "https://ksp.co.il/web/cat/573..28963",
+    "checkbox": false,
+    "prestashop_category": "13,4,3,1,2,429,718,829,831"
+  },
+  "iPhone 13 Pro": {
+    "brand": "APPLE",
+    "url": "https://ksp.co.il/web/cat/573..28976",
+    "checkbox": false,
+    "prestashop_category": "13,4,3,1,2,429,718,829,831"
+  },
+  "iPhone 13 Pro Max": {
+    "brand": "APPLE",
+    "url": "https://ksp.co.il/web/cat/573..29011",
+    "checkbox": false,
+    "prestashop_category": "13,4,3,1,2,429,718,829,831"
+  },
+  "iPhone SE 2022": {
+    "brand": "APPLE",
+    "url": "https://ksp.co.il/web/cat/573..29011",
+    "checkbox": false,
+    "prestashop_category": "679,4,3,1,2,429,718,829,834"
+  }
+}
