@@ -1,0 +1,38 @@
+{
+  "Oppo A74": {
+    "brand": "OPPO",
+    "url": "https://ksp.co.il/web/cat/573..21448..28472",
+    "checkbox": false,
+    "prestashop_category": "723,722,212,1,2,429,718,852,853"
+  },
+  "Oppo A93": {
+    "brand": "OPPO",
+    "url": "https://ksp.co.il/web/cat/573..21448..21447",
+    "checkbox": false,
+    "prestashop_category": "724,722,212,1,2,429,718,852,854"
+  },
+  "Oppo A94": {
+    "brand": "OPPO",
+    "url": "https://ksp.co.il/web/cat/573..21448..25412",
+    "checkbox": false,
+    "prestashop_category": "725,722,212,1,2,429,718,852,855"
+  },
+  "Oppo Reno 5": {
+    "brand": "OPPO",
+    "url": "https://ksp.co.il/web/cat/573..21448..25491",
+    "checkbox": false,
+    "prestashop_category": "726,722,212,1,2,429,718,852,856"
+  },
+  "Oppo Reno 5 Pro": {
+    "brand": "OPPO",
+    "url": "https://ksp.co.il/web/cat/573..21448..25800",
+    "checkbox": false,
+    "prestashop_category": "727,722,212,1,2,429,718,852,853"
+  },
+  "Oppo Reno 6": {
+    "brand": "OPPO",
+    "url": "https://ksp.co.il/web/cat/573..21448..28099",
+    "checkbox": false,
+    "prestashop_category": "728,722,212,1,2,429,718,852,853"
+  }
+}

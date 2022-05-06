@@ -24,7 +24,7 @@ import suppliers.ksp as ksp  # <- WTH??
 
 
 
-@Log.logged
+@Log.log_f
 def sozdaj_spisok_tovarov_zapolini_polia(self, urls_tovarov):
     ''' по урл собираю с каждой страницы товара его параметры '''
     try:
@@ -48,7 +48,7 @@ def sozdaj_spisok_tovarov_zapolini_polia(self, urls_tovarov):
 
 
 
-@Log.logged
+@Log.log_f
 def zapolni_paramerty_tovara(self):
     ''' заполняю поля товара '''
     self.p = product_fields.fill_product_fields(self)
@@ -62,6 +62,7 @@ def zapolni_paramerty_tovara(self):
         #self.screenshot(f''' проблема при сборе параметров товара . Пропускаю ''')   
         return self, False
 
+@Log.log_f
 def insert_product_in_products_list(sel,product):
         try:
             self.products_list.append(product)
@@ -87,7 +88,7 @@ def insert_product_in_products_list(sel,product):
 #################################################
 
 
-@Log.logged
+@Log.log_f
 def click_to_next_page(self) -> bool:
     '''     Нажималка на след. страницу в  категории    
    Листалка может быть как по страница так по инфинитискролл
@@ -121,6 +122,7 @@ def click_to_next_page(self) -> bool:
         return False
     pass
 
+@Log.log_f
 def scroller(self, wait=1 , prokrutok=5, scroll=500):
     '''
     Prokruka stranicy vniz
@@ -136,7 +138,7 @@ def scroller(self, wait=1 , prokrutok=5, scroll=500):
         self.log(str(ex))
         return False
 
-@Log.logged
+@Log.log_f
 def click_checkboxes(self, json_checkboxes):
 
 
@@ -197,7 +199,7 @@ def click_checkboxes(self, json_checkboxes):
     self.log(f''' screensizechecked {screensizechecked} ''')
     return True
 
-@Log.logged
+@Log.log_f
 def chekbox_click_on_group(self , json_group_checkboxes ):
     checked = False
 
@@ -222,7 +224,7 @@ def chekbox_click_on_group(self , json_group_checkboxes ):
                 checked = True
     
     return checked
-@Log.logged
+@Log.log_f
 def check_error_page(self) -> bool:
     self.log( f''' Проверяю страницу на наличие error page ''')
     errors_pages_titles =['Error','עבור לדף המבוקש']
@@ -241,7 +243,7 @@ def check_error_page(self) -> bool:
 
 
 # сбрасываю список товаров полученных от одного сценария
-@Log.logged
+@Log.log_f
 def flush_p(self):
     
     if len(self.products_list)==0 : 

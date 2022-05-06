@@ -51,7 +51,7 @@ import techorezef.login as login
 
 #    def run(self):
 #        self.get_url('https://www.techorezef.co.il/')
-#        if login.logged_in(self): return True
+#        if login.log_f_in(self): return True
     
 #    def fill_df_products_by_scenaries(self , scenario_files ='' ):
 #      return execute_scenaries.execute_list_of_scenaries(self , scenario_files)

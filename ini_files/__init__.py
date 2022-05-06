@@ -30,17 +30,12 @@ __file__. Это работает даже, если ваш пакет упак�
 
 
 https://ru.stackoverflow.com/questions/535318/%D0%A2%D0%B5%D0%BA%D1%83%D1%89%D0%B0%D1%8F-%D0%B4%D0%B8%D1%80%D0%B5%D0%BA%D1%82%D0%BE%D1%80%D0%B8%D1%8F-%D0%B2-python
-
-
 '''
 
-from exceptions_handler import ExceptionsHandler
 
-from attr import attrib, attrs
-
-
+from attr import attrs, attrib
 @attrs
-class Ini(ExceptionsHandler):
+class Ini(object):
     ''' определяю пути '''
     start_time  : datetime = attrib(init = False ,default = datetime.datetime.now().strftime('%d-%m %H%M%S'))
 

@@ -37,7 +37,7 @@ class Dornet(Driver):
 
     def run(self):
         self.get_url('https://www.cable.co.il/')
-        if login.logged_in(self): return self
+        if login.log_f_in(self): return self
         else: return False
     
     def fill_df_products_by_scenaries(self , scenario_files ='' ):

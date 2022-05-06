@@ -1,0 +1,44 @@
+{
+  "languages": {
+    "he": {
+      "attribute": "sendKeys(Keys.RETURN)",
+      "by": "xpath",
+      "selector": "//li[@data-value='he']"
+    },
+    "en": {
+      "attribute": "sendKeys(Keys.RETURN)",
+      "by": "xpath",
+      "selector": "//li[@data-value='en']"
+    },
+    "ru": {
+      "attribute": "sendKeys(Keys.RETURN)",
+      "by": "xpath",
+      "selector": "//li[@data-value='ru']"
+    }
+  },
+  "infinity_scroll": true,
+  "checkboxes_for_categories": false,
+  "category": {
+    "pages_listing_locator": {
+      "attribute": "innerHTML",
+      "by": "css selector",
+      "selector": "infinity_scroll"
+    }
+  },
+  "product": {
+    "products_list_or_block": {
+      "attribute": "innerHTML",
+      "by": "xpath",
+      "selector": "//*[contains(. , 'flex-direction: row;')]/*"
+
+    },
+    "product_locator": {
+      "attribute": "innerHTML",
+      "by": "xpath",
+      "selector": "//div[@data-pid ]/../div/../../*"
+    }
+
+  }
+}
+
+

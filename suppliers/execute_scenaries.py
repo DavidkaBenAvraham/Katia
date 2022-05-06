@@ -1,8 +1,5 @@
 
 
-
-
-
 ###################################################################################################################################
 #
 #                                       
@@ -28,7 +25,7 @@ import products
 from formatter import Formatter
 formatter = Formatter()
 
-@Log.logged
+#@Log.log_f
 def execute_list_of_scenaries(self) -> bool :
     ''' по умолчанию все сценарии (имена файлов) прописаны в файе <supplier>.json 
     Каждый сценарий - файл с именем 
@@ -69,7 +66,7 @@ def execute_list_of_scenaries(self) -> bool :
     return True
 
 
-#@Log.logged
+#@Log.log_f
 def run_scenario(self) -> bool:
     
     for scenario_node in self.current_scenario:
@@ -85,14 +82,14 @@ def run_scenario(self) -> bool:
         self.current_node = self.current_scenario[scenario_node]
         ''' текущий сценарий в формате json '''
         self.current_nodename = str(scenario_node)
-        ''' имя узла сценария '''
-    
         
-        # 1
-
+        '''проверим значения всех атрибутов'''
+        
         urls = get_list_products_urls(self)
-        if urls == False or urls == None : continue # не получил адреса страниц товара продолжаю цикл сценариев 
-        
+        if urls == False: continue
+        ''' не получил адреса страниц товара 
+            продолжаю цикл сценариев 
+        '''
 
          # 2
         for product_url in urls :
@@ -104,7 +101,7 @@ def run_scenario(self) -> bool:
             ''' добавляю поля в список для экспорта полей '''
         return True
 
-@Log.logged
+#@Log.logged
 def get_list_products_urls(self) ->[]:
     '''  возвращает ссылки на все товары в категории 
         по локатору self.locators['product']['link_to_product_locator']
@@ -151,7 +148,7 @@ def get_list_products_urls(self) ->[]:
         sys.exit()
       
 
-#@Log.logged
+#@Log.log_f
 def scroller(self, wait=1 , prokrutok=5, scroll=500):
     '''
     Prokruka stranicy vniz

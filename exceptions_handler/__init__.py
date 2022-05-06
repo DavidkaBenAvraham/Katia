@@ -61,57 +61,35 @@ class ExceptionsHandler():
         pass
 
 
-
-
     '''
     
+                                Декоратор обработчика ошибок
+
+
                                 Декоратор
 
     '''
 
     def handler(fn):
 
-        def wrapped(self, *args, **kwards):
-
-
-            def msg(ex , fn):
-                self.print(f'''
-                
-                Функция
-                
-                {fn}
-
-
-                Ошибка
-
-
                 {eх}
                 '''
                 )
-                
+        
 
 
-            try:
-                return fn(self, *args, **kwards)
-            except NoSuchElementException as eх:msg(ex,fn)
+            
 
-            except InvalidSessionIdException as ex:msg(ex,fn)
 
-            except StaleElementReferenceException as ex:msg(ex,fn)
 
-            except InvalidArgumentException as ex:msg(ex,fn)
 
-            except TimeoutException as ex:msg(ex,fn)
 
-            except ElementClickInterceptedException as ex: msg(ex,fn)
 
-            except Exception as ex:msg(ex,fn)
+
+        #    #except Exception as ex:msg(ex,fn)
            
-            finally:
-                pass
+        #    #finally:
+        #    #    pass
 
-
-
-        return wrapped
 
    
