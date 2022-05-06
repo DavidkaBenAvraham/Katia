@@ -1,3 +1,4 @@
+from selenium import webdriver
 from logger import Log
 # примеры 
 # https://python-scripts.com/beautifulsoup-html-parsing
@@ -110,38 +111,47 @@ def get_product_fields(self):
 
     '''
   
-    raw_product_price_supplier = self.get_elements_by_locator(self.locators['product']['product_price_locator'])
-    raw_product_images = ','.join(self.get_elements_by_locator(self.locators['product']['product_images_locator']))
-    raw_product_images_alt = ','.join(self.get_elements_by_locator(self.locators['product']['product_images_alt_locator']))
-    raw_product_sikum = ''.join(self.get_elements_by_locator(self.locators['product']['product_sikum_locator']))
-    combinations = ''.join(self.get_elements_by_locator(self.locators['product']['product_attributes_locator']))
-    raw_product_description = ''.join(self.get_elements_by_locator(self.locators['product']['product_description_locator']))
-    raw_product_mkt_locator = ''.join(self.get_elements_by_locator(self.locators['product']['product_mkt_locator']))
+
     
+
+    raw_product_price_supplier = self.find(self.locators['product']['product_price_locator'])
+
+    raw_product_images = ','.join(self.find(self.locators['product']['product_images_locator']))
+    raw_product_images_alt = ','.join(self.find(self.locators['product']['product_images_alt_locator']))
+    raw_product_sikum = ''.join(self.find(self.locators['product']['product_sikum_locator']))
+    combinations = ''.join(self.find(self.locators['product']['product_attributes_locator']))
+    raw_product_description = ''.join(self.find(self.locators['product']['product_description_locator']))
+    raw_product_mkt_locator = ''.join(self.find(self.locators['product']['product_mkt_locator']))
+    
+
+
+
 
     p.fields["categories"] = self.current_node["prestashop_category"]
-    p.fields["tiur"] = raw_product_description
-    p.fields["sikum"] = raw_product_sikum
+
+    tiur = formatter.remove_special_characters(f'''{raw_product_description}''')
+
+    p.fields["tiur"] = tiur
+    p.fields["sikum"] = formatter.remove_special_characters(f'''{raw_product_sikum}''')
 
     
 
-    p.fields["img url"] = raw_product_images
-    p.fields["img alt"] = raw_product_images_alt
+    p.fields["img url"] = f'''{raw_product_images}'''
+    p.fields["img alt"] = f'''{raw_product_images_alt}'''
 
-    p.fields["mkt"] = raw_product_mkt_locator
-    p.fields["mkt suppl"] = raw_product_mkt_locator
-    
-    p.combinations["Reference"] = p.fields["mkt"]
-    p.combinations["Supplier reference"] = p.fields["mkt suppl"]
-    
-
-    price_supplier = formatter.clear_price(str(raw_product_price_supplier).strip('[]'))
+    p.fields["mkt"] = f'''{raw_product_mkt_locator}'''
+    p.fields["mkt suppl"] = f'''{raw_product_mkt_locator}'''
+   
+   
+    price_supplier = formatter.clear_price(f'''{raw_product_price_supplier}''').strip('[]')
 
     p.fields["mexir lifney"]=price_supplier
     p.fields["mexir olut"]=price_supplier
     p.fields["mexir le yexida"]=price_supplier
 
     '''
+                    Аттрибуты товара
+
 
     =================================================================================================
 
@@ -184,12 +194,12 @@ def get_product_fields(self):
 
     pass
 
-def product_attributes(self, p, element_delimeter, elements):
+def product_attributes(self, p, delimeter, elements):
     i=0
     skip = False
     c = p.combinations 
     ''' просто сокращенная запись '''
-    for e in build_list_from_html_elements(self, element_delimeter, elements):
+    for e in build_list_from_html_elements(self, delimeter, elements):
         if i%2 == 0:
 
             if not p.skip_row(e):
@@ -222,9 +232,16 @@ def product_attributes(self, p, element_delimeter, elements):
 
 
 
-def build_list_from_html_elements(self, element_delimeter, elements) -> []:
+def build_list_from_html_elements(self, delimeter:str, element) -> []:
+    '''
+    '''
     soup : BeautifulSoup = BeautifulSoup(elements , 'html.parser')
-    return soup.findAll(element_delimeter)
+    elements_list = soup.findAll(element_delimeter)
+    el :[]
+    for raw_element in elements_list:
+        element = formatter.remove_htms_suppliers_and_special_chars(raw_element)
+        el.append()
+        
 
 
 

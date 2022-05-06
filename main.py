@@ -2,18 +2,16 @@
 
 #import ExceptionsHandler
 from pathlib import Path
-import sys
+
 '''
 Работа с потоками описана в https://python-scripts.com/threading
 
 '''
 #
-import threading
 from threading import Thread
 
-
-from ini_files import Ini
 import execute_json as jsn
+from ini_files import Ini
 
 #import check_and_convert_datatypes as check_type
 

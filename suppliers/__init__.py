@@ -19,9 +19,11 @@
         Инициализация класса конкретного поставщика товара:
         Supplier(lang = ['he','en','ru'] , supplier_name = <имя поставщика>) 
 
-
-                    Ini()---------------+
-                    |                   +---    path:Path
+                        ErrorHandler()
+                        |
+                        |
+                    Ini(ErrorHandler)---------------+
+                    |                               +---    path:Path
                     |                   |           физический адрес программы
                     |                   |           
                     |                   +---    path_str : str
@@ -199,8 +201,8 @@ class Supplier(Driver):
 
 
 
-    def __attrs_post_init__(self):
-        super().__attrs_post_init__()
+    def __attrs_post_init__(self , *args, **kwards):
+        super().__attrs_post_init__( *args, **kwards)
         # параметры для поставщика из файла json
         _supplier = jsn.loads(Path(self.path_ini/f'''{self.supplier_name}.json'''))
 

@@ -39,6 +39,7 @@
     <Compile Include="bot\messenger_db.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="exceptions_handler\__init__.py" />
     <Compile Include="_DEPRECATED_check_and_convert_datatypes.py">
       <SubType>Code</SubType>
     </Compile>
@@ -68,7 +69,7 @@
     <Compile Include="web_driver\__init__.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ExceptionsHandler\__init__.py">
+    <Compile Include="exceptions_handler\_DEPRECATED__init__.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="suppliers\execute_scenaries.py">
@@ -481,7 +482,7 @@
     <Folder Include="Facebook\__pycache__\" />
     <Folder Include="Messages\ui\" />
     <Folder Include="Mor_avoda_im_excel\" />
-    <Folder Include="ExceptionsHandler\" />
+    <Folder Include="exceptions_handler\" />
     <Folder Include="DoskaObjavlenij\" />
     <Folder Include="logger\" />
     <Folder Include="ini_files\" />
@@ -630,6 +631,7 @@
     <Content Include="ini_files\prestashop_product_combinations_fields.json" />
     <Content Include="ini_files\prestashop_db_connectionstrings.json" />
     <Content Include="ini_files\prestashop_product_fields.json" />
+    <Content Include="ini_files\string_formatter_categories.json" />
     <Content Include="ini_files\suppliers.json">
       <SubType>Code</SubType>
     </Content>

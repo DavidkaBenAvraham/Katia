@@ -92,8 +92,8 @@ class Product(Log):
     
     
     
-    def export_to_csv(self:[]):
-        df = pd.DataFrame(self)
-        pass
+    #def export_to_csv(self:[]):
+    #    df = pd.DataFrame(self)
+    #    pass
 
 

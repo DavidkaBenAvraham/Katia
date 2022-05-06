@@ -6,8 +6,44 @@ import os
 import importlib
 import datetime
 import time
+import json
+'''
+https://github.com/chuanconggao/html2json/blob/master/README.md
+
+'''
+
+
+
 
 class Formatter():
+    ''' Обработчик строк '''
+
+
+
+
+    ''' 
+    
+                Декораторы
+                
+                
+    '''
+
+
+
+    def remove_suppliers_and_special_chars(method_to_decorate:object)->object:
+        
+        def remover(self , str:str)->str:
+            str = self.pattern_remove_suppliers_from_string.sub(r'',str)
+            str = self.pattern_remove_special_characters.sub(r'',str)
+            method_to_decorate(self,str)
+        return str
+
+
+
+
+
+
+
     '''
             $a = '1,5,';
             if(!preg_match('/^(?:\d\,)+$/', $a)) {
@@ -27,32 +63,71 @@ class Formatter():
             Если через запятую будут указаны большие числа (132,564,234324):
             /^(?:\d+\,)+\d?$/
 
+
+
+
+
+            наиболее важные методы регулярного выражения модуля Python Re:
+
+Re.findall (шаблон, строка) : Проверяет, соответствует ли строка шаблон и возвращает Все вхождения 
+                            сопоставленного шаблона как список строк.
+Re.Search (шаблон, строка) : Проверяет, соответствует ли строка шаблона Regex и возвращает только Первый матч 
+                            как объект матча. Объект Match – это просто: объект, который хранит мета информацию о матче, такой как соответствующая позиция и соответствующая подстрока.
+Re.match (шаблон, строка) : Проверяет, если кто-нибудь Струнный префикс 
+                            Соответствует шаблону Regex и возвращает объект совпадения.
+Re.fullmatch (шаблон, строка) : Проверяет, если целая строка Соответствует шаблону Regex и 
+                            возвращает объект совпадения.
+Re.compile (Pattern) : Создает объект регулярного выражения из шаблона для ускорения совпадения, 
+                            если вы хотите использовать шаблон Regex несколько раз.
+Re.Split (шаблон, строка) : Разбивает строку, где бы закономерность регенсирует и возвращает список строк. 
+                                Например, вы можете разделить строку в список слов, используя пробельные символы в качестве сепараторов.
+Re.sub (шаблон, репрект, строка) : Заменяет ( sub stitutes) Первое возникновение рисунка Regex с заменой 
+                                String Repland и вернуть новую строку.
+
+чтобы проверить, содержит ли строка шестнадцатеричные цифры (от 0 до 9 и от A до F), следует использовать 
+такой диапазон:
+
+[A-Fa-f0-9]
+Чтобы проверить обратное, используйте отрицательный диапазон, который в нашем случае подходит под любой символ, 
+кроме цифр от 0 до 9 и букв от A до F:
+[^A-Fa-f0-9]
+
+
     '''
     pattern_remove_HTML :re = re.compile ('<[^<]+?>')
     pattern_remove_non_latin_characters : re = re.compile('^[A-Za-z0-9]*')
     pattern_remove_line_breaks : re = re.compile('^\s+|\n|\r|\s+$')
     pattern_clear_price : re = re.compile('[^0-9.]')
-    pattern_remove_special_characters :re = re.compile('^[\|,ksp,KSP,\#]+$')
-    pattern_remove_suppliers_from_string :re = re.compile('[^KSP,ksp]+$')
+    pattern_remove_special_characters :re = re.compile('[#|]')                 
+    '''pattern_remove_special_characters.sub('', str)'''
+    pattern_remove_suppliers_from_string :re = re.compile('[KSP,ksp]')
 #  
-    @Formatter.remove_suppliers
+    
     def get_now(self,strformat = '%YY-%MM-%d %H:%M:%S') -> datetime:
         return datetime.datetime.now().strftime(strformat)
 
     def remove_line_breaks(self,str:str)->str:
         return self.pattern_remove_line_breaks.sub(r' ', str)
 
-    def remove_HTML_tags(self,string_HTML:str)->str:
+    @remove_suppliers_and_special_chars
+    def remove_HTML_tags(self,str:str)->str:
         ''' Удаляю HTML из строки'''
-        return self.pattern_remove_HTML.sub(r' ', str(string_HTML))
+        return self.pattern_remove_HTML.sub(r' ', str(str))
 
-    def remove_special_characters.sub(str:str)->str:
-        return self.pattern_remove_special_characters(r' ', str)
+    @remove_suppliers_and_special_chars
+    def remove_htms_suppliers_and_special_chars(str:str)->str:
+        return self.pattern_remove_HTML.sub(r' ', str(str))
 
 
-    
-    def clear_price(self, str:str)->str:
-        return self.pattern_clear_price.sub(r'',str)
+    @remove_suppliers_and_special_chars
+    def remove_special_characters(self,str:str)->str:
+        return str
+
+
+
+
+    def clear_price(self, input_str:str)->str:
+        return self.pattern_clear_price.sub(r'',input_str)
 
     def check_int(self, data) -> bool:
         if isinstance(data, int) : return True
@@ -68,52 +143,4 @@ class Formatter():
         else: return True
 
 
-
-#import re
-
-##https://docs.python.org/3/library/re.html
-##https://ru.stackoverflow.com/questions/169472/%D0%A0%D0%B5%D0%B3%D1%83%D0%BB%D1%8F%D1%80%D0%BD%D0%BE%D0%B5-%D0%B2%D1%8B%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%D1%82%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE-%D0%BB%D0%B0%D1%82%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B5-%D0%B1%D1%83%D0%BA%D0%B2%D1%8B-%D0%B8-%D1%86%D0%B8%D1%84%D1%80%D1%8B
-
-#pattern_remove_non_latin_characters = re.compile('^[A-Za-z0-9]*')
-
-#'''
-#https://ru.stackoverflow.com/questions/575862/%D0%A0%D0%B5%D0%B3%D1%83%D0%BB%D1%8F%D1%80%D0%BD%D0%BE%D0%B5-%D0%B2%D1%8B%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B4%D0%BB%D1%8F-%D1%87%D0%B8%D1%81%D0%B5%D0%BB-%D1%81-%D0%BF%D0%BB%D0%B0%D0%B2%D0%B0%D1%8E%D1%89%D0%B5%D0%B9-%D1%82%D0%BE%D1%87%D0%BA%D0%BE%D0%B9
-
-#^[0-9]*[.,]?[0-9]+$
-#           ^
-#См. демо
-
-#^ - начало строки
-#[0-9]* - 0 и более цифр
-#[.,] - точка или запятая ([,.]? - одна или ноль запятых или точек)
-#[0-9]+ - 1 и более цифр
-#$ - конец строки.
-
-#'''
-#pattern_price = re.compile('^[0-9]*[.,]?[0-9]+$')
-
-
-#def clean_string_retun_only_latin_and_numbers(str):
-#    str = remove_non_latin_charcters(str)
-#    #str = remove_line_breaks(str)
-#    #str = remove_html_tags(str)
-#    return str
-
-#def clean_price(str):
-#    m =  pattern_price.search(str)
-#    return m.group().replace(",",".").replace(".","")
-
-## Удаляю все, кроме латиницы
-#def remove_non_latin_charcters(str):
-#    #m = pattern_remove_non_latin_characters.findall(str)
-
-#    #outs = ''.join(re.findall('[A-Za-z0-9 ~!@$%^&*()-=+]', str))
-#    return ''.join(re.findall('[A-Za-z0-9 ~!@$%^&*()-=+#]', str)).replace('#',' ').strip()
-
-#def remove_line_breaks(str):
-#    return re.sub("^\s+|\n|\r|\s+$", '', str)
- 
-#def remove_html_tags(str):
-#    #https://stackoverflow.com/questions/11229831/regular-expression-to-remove-html-tags-from-a-string
-#    return re.sub('<[^>]*>' , str)
 
