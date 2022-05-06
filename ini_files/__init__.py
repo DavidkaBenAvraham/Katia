@@ -33,10 +33,28 @@ https://ru.stackoverflow.com/questions/535318/%D0%A2%D0%B5%D0%BA%D1%83%D1%89%D0%
 '''
 
 
-from attr import attrs, attrib
+from exceptions_handler import ExceptionsHandler
+
+from attr import attrib, attrs
+
+@ExceptionsHandler.handler
 @attrs
-class Ini(object):
-    ''' определяю пути '''
+class Ini(ExceptionsHandler):
+    ''' Начальные установки для запуска программы:
+   пути -
+    path : Path         Текущая директория (Объект Path)
+    path_str : str      Текущая директория (str)
+    path_ini  : Path    Директория файлов ini в формате json
+    path_ini_str : str 
+    path_log_dir : Path 
+    path_log_file : Path 
+    path_export_dir : Path 
+
+   время старта программы - 
+    start_time  : datetime
+   '''
+    
+    
     start_time  : datetime = attrib(init = False ,default = datetime.datetime.now().strftime('%d-%m %H%M%S'))
 
     path : Path = attrib(init = False ,default = Path.cwd())                                                         #   Текущая директория (Объект Path)

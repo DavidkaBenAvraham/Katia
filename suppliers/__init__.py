@@ -62,7 +62,16 @@ class Supplier(Driver):
         Supplier(lang = ['he','en','ru'] , supplier_name = <имя поставщика>) 
 
 
-                    Ini()---------------+
+
+
+
+
+
+
+                        ErrorHandler()---
+                        |
+                        |
+                    Ini(ErrorHandler)---+
                     |                   +---    path:Path
                     |                   |           физический адрес программы
                     |                   |           

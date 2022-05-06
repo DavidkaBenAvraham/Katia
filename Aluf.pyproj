@@ -463,8 +463,7 @@
     <Folder Include="ini_files\" />
     <Folder Include="web_driver\" />
     <Folder Include="products\" />
-    <Folder Include="__Mor_avoda_im_excel\" />
-    <Folder Include="__PCPart\" />
+    <Folder Include="PCPart\" />
     <Folder Include="bot\" />
     <Folder Include="suppliers\ksp\" />
     <Folder Include="__dornet\" />
@@ -473,6 +472,8 @@
     <Folder Include="suppliers\morlevi\" />
     <Folder Include="suppliers\grandadvance\" />
     <Folder Include="suppliers\visualdg\" />
+    <Folder Include="__Mor_avoda_im_excel\" />
+    <Folder Include="__PCPart\" />
     <Folder Include="__techorezef\" />
     <Folder Include="python-telegram-bot-master\" />
     <Folder Include="python-telegram-bot-master\.github\" />

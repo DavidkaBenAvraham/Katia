@@ -7,22 +7,16 @@ from selenium.webdriver.common.keys import Keys
 from urllib.request import urlopen
 import urllib
 
-import os
+from exceptions_handler import ExceptionsHandler
 
 ''' ################################################################################
-
-from logger import Log
-from ini_files import Ini
-
-
-##########################################
-        опции запуска драйверов 
-        Google, Mozilla
-        прописаны в файле
-        webdriver.json
+                      опции запуска драйверов 
+                            Google, Mozilla
+                            прописаны в файле
+                            webdriver.json
+      
 
 '''
-#import Driver.driver_options as driver_options
 import os
 import pandas as pd
 import datetime
@@ -33,20 +27,10 @@ from ini_files import Ini
 import execute_json as jsn
 import json
 
-
-'''
-https://ask-dev.ru/info/12747/how-do-i-parse-xml-in-python
-
-'''
-from xml.etree import ElementTree
-import xml.etree.ElementTree as ET
-
-
-
-
 from attr import attrs, attrib, Factory
 
 @attrs
+#@ExceptionsHandler.handler
 class Driver(Log):
     ''' webriver 
     По умолчанию используется Firefox
@@ -61,24 +45,15 @@ class Driver(Log):
         super().__attrs_post_init__()
         self.set_driver()
         
+    
        
-    #@Log.logged 
+    @Log.log_f
     def set_driver(self):      
         '''запускаю вебдрайвер по сценарию из webdriver.json'''
+
         d = jsn.loads(self.path_ini / 'webdriver.json')["driver"]
-        self.print(d)
+      
 
-
-        #try:
-
-
-
-        #прячу браузер
-        #os.environ['MOZ_HEADLESS'] = '1'
-
-        '''
-        новая версия создания драйвера
-        '''
         if d['name'] == 'chromedriver': 
             options = webdriver.ChromeOptions()
             for argument in d["arguments"]:
@@ -96,11 +71,18 @@ class Driver(Log):
         if d['name'] == 'edge': self.driver = webdriver.Edge(options = driver_options.edge_options(self))
         self.driver.maximize_window()
         return self
-        #except Exception as ex: 
-        #    self.print(f''' Ошибка запуска драйвера {ex} ''')
-        #    return False
 
 
+    @Log.log_f
+    def html2json(self , html : str = '')->json:
+        ''' конвертирую  html в json объект
+       по умолчанию html хранится в
+       self.driver.page_source
+        '''
+        if html == '': html = self.driver.page_source
+        _json = xmltojson.parse(html)
+        return _json
+    '''
 
     @Log.log_f
     def html2json(self , html : str = '')->json:
@@ -123,7 +105,7 @@ class Driver(Log):
                                     Ожидания драйвера
 
 
-                            
+
 
 
 
@@ -131,7 +113,6 @@ class Driver(Log):
 
 
     '''
-
 
 
 
@@ -165,30 +146,7 @@ class Driver(Log):
         return element_precence_located
         pass
 
-
-
-
-
-
-
-
-
-
-
-
-    #@Log.logged 
-    def click(self, locator):
-        element = self.wait_to_be_clickable(locator)
-        if element == False:
-            element = self.find(locator)
-            if element == False:
-                self.print(f''' Не нажался элемент {locator} ''')
-                return False
-            try: element.click()
-            except : 
-                self.print(f''' Не нажался элемент {locator} ''')
-                return False
-    #@Log.logged 
+    #@Log.log_f 
     def wait_to_be_clickable(self, locator, time_to_wait = 5):
         element_clickable = EC.element_to_be_clickable(locator)
         try:
@@ -198,107 +156,92 @@ class Driver(Log):
             self.log(ex)
             return False
 
+
+
+
+
+
+
+
+
+
+
+
     '''             Переход по адресу           '''
+
 
     #@Log.logged 
     def get_url(self, url):
         '''
-        переход по указанному урл
-        '''
-        try:
 
             self.driver.prev_url = self.driver.current_url
             self.driver.get(url)
             
             #WebDriverWait(driver, 10).until(lambda driver: self.driver.execute_script('return document.readyState') == 'complete')
             #self.log( f'''Страница загрузилась : {self.driver.current_url}''')
-            return True
+            return self, True
         except Exception as eх: 
             self.print(f''' 
             Ошибка {eх} 
             по адресу {url} ''' )
-            return False
+            return self,  False
 
-    #@Log.logged 
-    def find(self, locator:dict) -> []:
 
+
+
+
+
+
+
+    
+
+    '''                     
+    
+    
+                                Поиск элементов         
+                                Поиск элементов по локатору на странице HTML 
+                        Локаторы заданы в файле <префикс поставщика>.json
+
+                                locator=(By.CSS_SELECTOR , selector)
+                                функция поиска элементов заменяющая
+                                driver.find_element_by_
+                                                        css_selector
+                                                        id
+                                                        xpath
+                                                        ...
+
+
+
+
+        
+                                мой локатор имеет три аргеумнта
+                                'attribute': 'href', 
+                                'by': 'xpath', 
+                                'selector': ''
+                                --------------
+
+                                #if research: 
+
+
+                                           research - опция исследования полученного элемента
+ 
+                                            
+'''
+    @Log.log_f
+    def find(self, locator:dict ) -> []:
+
+
+        _driver_wait  :int = 1
+        # может вернуться или один или несколько элементов списком
+        element = WebDriverWait(self.driver, int(_driver_wait)).until(EC.presence_of_element_located((locator)))
+        elements = WebDriverWait(self.driver, int(_driver_wait)).until(EC.presence_of_all_elements_located((locator)))
+      
+            
+            
+            
         '''
-        locator=(By.CSS_SELECTOR , selector)
-
-        функция поиска элементов заменяющая
-        driver.find_elements_by_css_selector()
-        driver.find_element_by_css_selector()
-        driver.find_elements_by_id()
-        driver.find_element_by_id()
-        find_element_by_
-        --------------
-
-
-
-        мой локатор имеет три аргеумнта
-        'attribute': 'href', 'by': 'xpath', 'selector': ''
-
-        убираю не релевантный
+                                        Возвращает  СПИСОК элементов
         '''
-        
-        
-        res = []
-
-
-        try:  
-            driver_wait  :int = 1
-            # может вернуться или один или несколько элементов списком
-            element = WebDriverWait(self.driver, int(driver_wait)).until(EC.presence_of_element_located((locator)))
-            elements = WebDriverWait(self.driver, int(driver_wait)).until(EC.presence_of_all_elements_located((locator)))
-        
-        
-
-        except NoSuchElementException as eх:
-            self.print(f'''Не нашелся элемент {locator}:
-            {eх}
-             , отдаю False''')
-            return res
-        except InvalidSessionIdException as ex:
-            self.print(f'''  - Потряна связь с сайтом !!!
-            EXCEPTION InvalidSessionIdException: 
-            {ex}
-            ''')
-            self.driver.close()
-            return res
-        except StaleElementReferenceException as ex: #
-            self.print(f'''потеряна связь с DOM 
-            {ex}
-             , отдаю []''')
-            return res
-        except InvalidArgumentException as ex: #
-            self.print(f'''Exception InvalidArgumentException:
-            {ex}
-            прекращаю поиск элемента {locator} , отдаю []''')
-            return res
-        except TimeoutException as ex: #
-            self.print(f'''Exception TimeoutException:
-            {ex}
-            прекращаю поиск элемента {locator} , отдаю []''')
-            return res
-        except ElementClickInterceptedException as ex: 
-            self.print(f'''Exception ElementClickInterceptedException:
-            {ex}
-            прекращаю поиск элемента {locator} , отдаю []''')
-            return res
-
-        
-        except Exception as ex: 
-            self.print(f'''  
-            ОБЩАЯ ОШИБКА self.find() 
-            Exception:
-            {ex}
-            прекращаю поиск элемента {locator} , отдаю []''')
-            return res
-
-        else:
-            '''
-            Возвращает  СПИСОК элементов
-            '''
             
 
         #   1) Если нашлось несколько
@@ -316,7 +259,21 @@ class Driver(Log):
             self.print("ХУЙ")
             return []
     
-    #@Log.logged 
+    @Log.log_f 
+    def click(self, locator):
+        element = self.wait_to_be_clickable(locator)
+        if element == False:
+            element = self.find(locator)
+            if element == False:
+                self.print(f''' Не нажался элемент {locator} ''')
+                return False
+            try: element.click()
+            except : 
+                self.print(f''' Не нажался элемент {locator} ''')
+                return False
+
+
+    @Log.log_f 
     def page_refresh(self):
         '''Рефреш с ожиданием поной перезагрузки страницы
         '''
@@ -331,7 +288,83 @@ class Driver(Log):
     
 
 
-    @Log.log_f 
+
+
+    #@Log.logged
+    def get_elements_by_locator(self, locator) ->[]:
+        '''
+        возвращает список значений аттрибута элементов найденных по локатору <locator:dict()> 
+        
+        Словарь locator содержит три элемента:
+
+
+                - "by": "xpath",
+                    шаблон поиска
+                        Примеры шаблонов:
+                    - xpath
+                    - css selector
+
+                    
+
+
+                - "selector": "//li[@data-value='ru']"
+                    селектор элемента
+                        Примеры селекторов
+                    - //li[@data-value='en']
+                    - //a[contains(@class,'MuiTypography') and contains(@href , 'web/item')]
+                    - //*[@id='product-page-root']//div[@aria-label]/p
+                    - //*[@id='product-page-root']//div[@aria-label]//following-sibling::div/p[1]
+
+
+                - "attribute": "sendKeys(Keys.RETURN)",
+                    обработка полученного элемента
+                            Примеры аттрибутов:
+                    - href
+                    - a
+                    - text
+                    - innerHTML
+                    - innerText
+                    - sendKeys(Keys.RETURN)
+
+        etc.
+        '''
+        try:
+            res = []
+
+
+            elements = self.find((locator['by'],locator['selector']))
+            '''
+                может получить список элементов или один элемент или хуй
+
+                Функция  возвращает список [] или False
+
+
+            '''
+            if len(elements) == 0: return False
+
+            if str(type(elements)).find("class 'list'") >-1:
+                '''если нашлось несколько 
+                элементов по указанному локатору '''
+                
+                for element in elements:
+                    attriute = element.get_attribute(locator['attribute'])
+                    res.append(attriute)
+                return res
+
+            elif str(type(elements)).find("WebElement") >-1: 
+                '''
+                если нашелся только один
+                '''
+                attriute = element.get_attribute(locator['attribute'])
+                res.append(attriute)
+                return res
+        except Exception as ex: 
+            self.print(f'''Ошибка в функции 
+            get_elements_by_locator(self)
+            {ex}''')
+            return []
+
+    #@Log.logged 
     def researh_elements(self, elements)->bool:
         '''
         Функция для исследования элемента

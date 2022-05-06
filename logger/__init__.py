@@ -40,7 +40,143 @@ class Log(Ini):
         return random.randint(0, 99999999)
     
 
-    def HTML_header(self , css_styles : str = "" , javascript_functions : str = "", header : str = "")->str:
+
+
+    @ExceptionsHandler.handler
+    def print_attr(self, *o):
+        print(f'''
+        Object {o}
+        doc: {o.__doc__}
+        ''')
+        for a in o:self.print(f'''
+        {a}
+        {a.__doc__}
+        ''')
+
+
+    '''
+
+
+                                    Декораторы
+
+
+
+                                    #This is the decorator
+            def print_args(func):
+                def inner_func(*args, **kwargs):
+                    print(args)
+                    print(kwargs)
+                    return func(*args, **kwargs) #Call the original function with its arguments.
+                return inner_func
+
+            @print_args
+            def multiply(num_a, num_b):
+                return num_a * num_b
+
+
+                                
+
+    '''
+    @ExceptionsHandler.handler
+    def log_f(fn):
+        ''' логирую задействованные в коде функции 
+        через декоратор @Log.log_f'''
+        Log().print_attr(fn)
+        return fn
+
+        def wrapper(*args , **kwargs):
+            '''  таблица ключей и аргументов 
+            
+            '''
+            try:self.print_attr(fn)
+            except Exception as ex:pass
+
+            try:self.print_attr(args)
+            except Exception as ex:pass
+
+            try:self.print_attr(kwargs)
+            except Exception as ex:pass
+
+            try:return fn( *args , **kwargs)
+            except Exception as ex:pass
+
+            return fn( *args , **kwargs)
+        #return wrapper
+
+
+
+
+    def print_driver_response_code(self):
+        '''  Статус HTML запроса 100,200,300,400,500'''
+        try:
+
+            log_types = ['browser','driver','client','server']
+
+            for log_type in log_types: 
+                ''' driver.get_log('browser')
+                    driver.get_log('driver')
+                    driver.get_log('client')
+                    driver.get_log('server')
+                    '''
+                for entry in self.driver.get_log(log_type):
+                    for k, v in entry.items():
+                        if k == 'message' and 'status' in v:
+                            msg = json.loads(v)['message']['params']
+                            for mk, mv in msg.items():
+                                self.print_attr(mk)
+                                self.print_attr(mv)
+                                if mk == 'response':
+                                    response_url = mv['url']
+                                    response_status = mv['status']
+                                    if response_url == url:
+                                        #super().print_response_status_code = response_status
+                                        self.print(f'''
+                                        response_status {response_status}
+                                        ''')
+
+                
+
+        except Exception as ex:
+            self.print(f''' 
+            какая - то хуйня в print_response_status_code()
+            {ex}
+            ''')
+        
+        
+
+       
+      
+    # ислючительно для печати
+    # https://habr.com/ru/post/427065/
+
+    def __str__(self):
+
+        table = f'''<table>'''
+        for a in inspect.getmembers(self):
+            if not a[0].startswith('__'): table += f'''<tr><td>{a[0]}</td><td>{a[1]}</td></tr>'''
+        table += "</table><table>"
+        for a in inspect.getmembers( self.__class__):
+            if not a[0].startswith('__'): table  += f'''<tr><td>{__class__}.{a[0]}</td><td>{a[1]}</td></tr>'''
+        table +=  f'''</table>'''
+        id = self.random_id
+        res = f'''
+
+            <p>
+                <a href="#hidden_{id}" onclick="view('hidden_{id}'); return false"
+                style="color:green;text-decoration: none;">
+                          (+ attr)  -------------->
+                </a>
+            </p>  
+
+            <div id="hidden_{id}" style="display: none;">
+                            <p>{table}</p>
+            </div>
+'''
+        return res
+
+
+
+    def _log_html_header(self , css_styles : str = "" , javascript_functions : str = "", header : str = "")->str:
         ''' загоовк лог файла в формате HTML '''
 
 
@@ -109,8 +245,8 @@ class Log(Ini):
         '''  Вывод в консоль
         prn_type:"normal"|"simple"|"jupiter"
         '''
-        
-        self.prn_type = prn_type
+        if prn_type != '':self.prn_type = prn_type
+
         if self.prn_type=="simple":
             print(re.sub(r'\<[^>]*\>', '', str(log))) 
             return

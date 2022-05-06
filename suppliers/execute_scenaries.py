@@ -82,14 +82,14 @@ def run_scenario(self) -> bool:
         self.current_node = self.current_scenario[scenario_node]
         ''' текущий сценарий в формате json '''
         self.current_nodename = str(scenario_node)
+        ''' имя узла сценария '''
+    
         
-        '''проверим значения всех атрибутов'''
-        
+        # 1
+
         urls = get_list_products_urls(self)
-        if urls == False: continue
-        ''' не получил адреса страниц товара 
-            продолжаю цикл сценариев 
-        '''
+        if urls == False: continue # не получил адреса страниц товара продолжаю цикл сценариев 
+        
 
          # 2
         for product_url in urls :
@@ -101,7 +101,7 @@ def run_scenario(self) -> bool:
             ''' добавляю поля в список для экспорта полей '''
         return True
 
-#@Log.logged
+#@Log.log_f
 def get_list_products_urls(self) ->[]:
     '''  возвращает ссылки на все товары в категории 
         по локатору self.locators['product']['link_to_product_locator']
