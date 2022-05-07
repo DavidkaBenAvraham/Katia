@@ -65,12 +65,19 @@ class ExceptionsHandler():
     
                                 Декоратор обработчика ошибок
 
+                                все события try:, except:, finally: обрабатываются здесь
 
                                 Декоратор
 
     '''
 
     def handler(fn):
+        ''' декоратор - перехватчик исключений  '''
+        try: 
+            return fn
+        except Exception as ex:
+            print(f'''{ex}''')
+            return false #fn(*args , **kwargs)
 
                 {eх}
                 '''
@@ -78,18 +85,28 @@ class ExceptionsHandler():
         
 
 
+        #def wrapped(self):
             
+        #    #try:
+        #    #    return fn
 
+        #    #except NoSuchElementException as eх:msg(ex,fn)
 
+        #    #except InvalidSessionIdException as ex:msg(ex,fn)
 
+        #    #except StaleElementReferenceException as ex:msg(ex,fn)
 
+        #    #except InvalidArgumentException as ex:msg(ex,fn)
 
+        #    #except TimeoutException as ex:msg(ex,fn)
 
+        #    #except ElementClickInterceptedException as ex: msg(ex,fn)
 
         #    #except Exception as ex:msg(ex,fn)
            
         #    #finally:
         #    #    pass
 
+        #return wrapped
 
    

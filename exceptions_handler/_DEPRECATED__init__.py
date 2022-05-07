@@ -1,11 +1,8 @@
 
 from selenium.common.exceptions import *
-import DB as db
 import datetime
 import time
-from Ini import Ini
 
-#from Logging import Log as Log
 
 
 class SeleniumException:
