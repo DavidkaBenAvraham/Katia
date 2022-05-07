@@ -72,8 +72,7 @@ def run(languages = ['he'] , list_supplier_names = [] , windowless = True, threa
     for lang in languages:
 
         if len(list_supplier_names) ==0 :
-            '''
-            загрузка имен поставщиков для сбора сценариев
+            '''список запуска 
             по умолчанию находится в suppliers.json
             '''
         for supplier_name in list_supplier_names: 
@@ -92,4 +91,4 @@ def run(languages = ['he'] , list_supplier_names = [] , windowless = True, threa
 
 if __name__ == "__main__":
     if run(languages = ['he'] , list_supplier_names = [] , windowless = True, threads = False):
-        print('Hello, word!')
+        print('Какой - нибудь осмысленный вывод окончания программы!')

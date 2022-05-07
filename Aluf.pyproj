@@ -14,6 +14,9 @@
     <InterpreterId>Global|ContinuumAnalytics|Anaconda39-64</InterpreterId>
     <IsWindowsApplication>False</IsWindowsApplication>
     <SuppressConfigureTestFrameworkPrompt>true</SuppressConfigureTestFrameworkPrompt>
+    <TestFramework>unittest</TestFramework>
+    <UnitTestPattern>test*.py</UnitTestPattern>
+    <UnitTestRootDirectory>.</UnitTestRootDirectory>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,26 +43,26 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="exceptions_handler\__init__.py" />
-    <Compile Include="_DEPRECATED_check_and_convert_datatypes.py">
+    <Compile Include="__DEPRECATED\_DEPRECATED_check_and_convert_datatypes.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="web_driver\driver_options.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="_DEPRECATED_execute_dataframe.py">
+    <Compile Include="__DEPRECATED\_DEPRECATED_execute_dataframe.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="execute_json.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="__PCPart\__init__.py" />
+    <Compile Include="__DEPRECATED\__PCPart\__init__.py" />
     <Compile Include="products\__init__.py" />
     <Compile Include="formatter.py" />
-    <Compile Include="_DEPRECATED_regex.py" />
+    <Compile Include="__DEPRECATED\_DEPRECATED_regex.py" />
     <Compile Include="suppliers\ksp\__init__.py" />
-    <Compile Include="__dornet\login.py" />
-    <Compile Include="__dornet\product.py" />
-    <Compile Include="__dornet\__init__.py" />
+    <Compile Include="__DEPRECATED\__dornet\login.py" />
+    <Compile Include="__DEPRECATED\__dornet\product.py" />
+    <Compile Include="__DEPRECATED\__dornet\__init__.py" />
     <Compile Include="DB\__init__.py">
       <SubType>Code</SubType>
     </Compile>
@@ -81,7 +84,7 @@
     <Compile Include="Facebook\ui\QT_login_controller.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="_DEPRECATED_filemanager.py">
+    <Compile Include="__DEPRECATED\_DEPRECATED_filemanager.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ini_files\morlevi_categories_headsets.json">
@@ -115,7 +118,7 @@
     <Compile Include="Facebook\__init__.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="_DEPRECATE_price_cleaner.py">
+    <Compile Include="__DEPRECATED\_DEPRECATE_price_cleaner.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="python-telegram-bot-master\docs\source\conf.py" />
@@ -400,9 +403,9 @@
     <Compile Include="suppliers\__init__.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="__techorezef\login.py" />
-    <Compile Include="__techorezef\product.py" />
-    <Compile Include="__techorezef\__init__.py" />
+    <Compile Include="__DEPRECATED\__techorezef\login.py" />
+    <Compile Include="__DEPRECATED\__techorezef\product.py" />
+    <Compile Include="__DEPRECATED\__techorezef\__init__.py" />
     <Compile Include="ini_files\__init__.py">
       <SubType>Code</SubType>
     </Compile>
@@ -413,13 +416,13 @@
     <Compile Include="execute_csv.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="__Mor_avoda_im_excel\aluf_data.py" />
-    <Compile Include="__Mor_avoda_im_excel\readwrite_exel_csv.py" />
-    <Compile Include="__Mor_avoda_im_excel\read_csv.py">
+    <Compile Include="__DEPRECATED\__Mor_avoda_im_excel\aluf_data.py" />
+    <Compile Include="__DEPRECATED\__Mor_avoda_im_excel\readwrite_exel_csv.py" />
+    <Compile Include="__DEPRECATED\__Mor_avoda_im_excel\read_csv.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="__Mor_avoda_im_excel\аluf.py" />
-    <Compile Include="_DEPRECATED_strings_cleaner.py">
+    <Compile Include="__DEPRECATED\__Mor_avoda_im_excel\аluf.py" />
+    <Compile Include="__DEPRECATED\_DEPRECATED_strings_cleaner.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Примеры\QT\QT_Table-pandas.py">
@@ -456,25 +459,25 @@
     <Folder Include="Facebook\__pycache__\" />
     <Folder Include="Messages\" />
     <Folder Include="Messages\ui\" />
-    <Folder Include="Mor_avoda_im_excel\" />
-    <Folder Include="ExceptionsHandler\" />
+    <Folder Include="__DEPRECATED\Mor_avoda_im_excel\" />
     <Folder Include="DoskaObjavlenij\" />
     <Folder Include="logger\" />
     <Folder Include="ini_files\" />
+    <Folder Include="__DEPRECATED\" />
     <Folder Include="web_driver\" />
     <Folder Include="products\" />
     <Folder Include="PCPart\" />
     <Folder Include="bot\" />
     <Folder Include="suppliers\ksp\" />
-    <Folder Include="__dornet\" />
+    <Folder Include="__DEPRECATED\__dornet\" />
     <Folder Include="suppliers\" />
     <Folder Include="suppliers\cdata\" />
     <Folder Include="suppliers\morlevi\" />
     <Folder Include="suppliers\grandadvance\" />
     <Folder Include="suppliers\visualdg\" />
-    <Folder Include="__Mor_avoda_im_excel\" />
-    <Folder Include="__PCPart\" />
-    <Folder Include="__techorezef\" />
+    <Folder Include="__DEPRECATED\__Mor_avoda_im_excel\" />
+    <Folder Include="__DEPRECATED\__PCPart\" />
+    <Folder Include="__DEPRECATED\__techorezef\" />
     <Folder Include="python-telegram-bot-master\" />
     <Folder Include="python-telegram-bot-master\.github\" />
     <Folder Include="python-telegram-bot-master\.github\ISSUE_TEMPLATE\" />

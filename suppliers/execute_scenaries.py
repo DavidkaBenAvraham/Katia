@@ -13,15 +13,12 @@ import pandas as pd
 import datetime
 import time
 import sys
-from selenium.common.exceptions import *
-from traitlets.traitlets import ObjectName
+
 
 from ini_files import Ini
 import execute_json as jsn
-#import check_and_convert_datatypes as check_type
 from logger import Log
 import products
-#from pathlib import Path
 from formatter import Formatter
 formatter = Formatter()
 
@@ -39,6 +36,7 @@ def execute_list_of_scenaries(self) -> bool :
 
     # 0. 
     page_source = self.get_url(self.start_url)
+
 
 
     # 1.

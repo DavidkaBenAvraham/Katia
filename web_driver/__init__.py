@@ -1,11 +1,21 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.firefox.webdriver import WebDriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
-from urllib.request import urlopen
-import urllib
+
+
+from kora.selenium import wd
+#from kora.selenium.wd.common.by import By
+#from kora.selenium.wd.support.ui import WebDriverWait
+#from kora.selenium.wd.support import expected_conditions as EC
+#from kora.selenium.wd.common.keys import Keys
+
+import kora as kora
+
+
+#from urllib.request import urlopen
+#import urllib
 
 from exceptions_handler import ExceptionsHandler
 
@@ -22,6 +32,13 @@ import pandas as pd
 import datetime
 import time
 
+import html5lib
+from urllib.request import urlopen
+
+#import xml.etree.ElementTree as ET
+#from lxml import etree 
+#from xml.etree import ElementTree as ET
+
 from logger import Log
 from ini_files import Ini
 import execute_json as jsn
@@ -29,8 +46,8 @@ import json
 
 from attr import attrs, attrib, Factory
 
+
 @attrs
-#@ExceptionsHandler.handler
 class Driver(Log):
     ''' webriver 
     По умолчанию используется Firefox
@@ -40,19 +57,24 @@ class Driver(Log):
     driver : webdriver = attrib(init = False)
     current_url : str = attrib(init = False)
     print_response_status_code : str = attrib(init = False)
+    kora_driver : kora.selenium.wd = attrib(init=False)
 
     def __attrs_post_init__(self):
         super().__attrs_post_init__()
         self.set_driver()
         
-    
+
        
     @Log.log_f
-    def set_driver(self):      
+    def set_driver(self , kora  = True):      
         '''запускаю вебдрайвер по сценарию из webdriver.json'''
 
+        if kora : 
+            self.driver = wd
+            return self
+
         d = jsn.loads(self.path_ini / 'webdriver.json')["driver"]
-      
+
 
         if d['name'] == 'chromedriver': 
             options = webdriver.ChromeOptions()
@@ -60,7 +82,7 @@ class Driver(Log):
                     options.add_argument(argument)
             self.driver = webdriver.Chrome(options = options)
 
-            if d['name'] == 'firefox': 
+        if d['name'] == 'firefox': 
                 options = webdriver.FirefoxOptions()
                 for argument in d["arguments"]:
                         options.add_argument(argument)
@@ -73,26 +95,23 @@ class Driver(Log):
         return self
 
 
-    @Log.log_f
-    def html2json(self , html : str = '')->json:
-        ''' конвертирую  html в json объект
-       по умолчанию html хранится в
-       self.driver.page_source
-        '''
-        if html == '': html = self.driver.page_source
-        _json = xmltojson.parse(html)
-        return _json
-    '''
 
-    @Log.log_f
-    def html2json(self , html : str = '')->json:
-        ''' конвертирую  html в json объект
-       по умолчанию html хранится в
-       self.driver.page_source
-        '''
-        tree = ET.parse(html)
-        root = tree.getroot()
-        return root
+
+
+
+
+    #@Log.log_f
+    #def html2json(self , html : str = '')->json:
+    #    ''' конвертирую  html в json объект
+    #   по умолчанию html хранится в
+    #   self.driver.page_source
+    #    '''
+    #    if html == '': html = self.driver.page_source
+    #    _json = xmltojson.parse(html)
+    #    return _json
+
+
+
     '''
 
 
@@ -161,7 +180,15 @@ class Driver(Log):
 
 
 
-
+    #@Log.log_f
+    #def normalize_dom(self , raw_html : str = '')->json:
+    #    ''' конвертирую  html в json объект
+    #   по умолчанию html хранится в
+    #   self.driver.page_source
+    #    '''
+    #    html  =  html5lib.parse(raw_html, treebuilder="lxml")
+    #    #tree = etree.parse(StringIO(html))
+    #    return xml
 
 
 
@@ -172,19 +199,24 @@ class Driver(Log):
 
     #@Log.logged 
     def get_url(self, url):
-        '''
+
+        try:
+
 
             self.driver.prev_url = self.driver.current_url
-            self.driver.get(url)
+            #self.driver.get(f'''view-source:{url}''')
+            self.driver.get(f'''{url}''')
+            #self.normalize_dom(self.driver.page_source)
             
             #WebDriverWait(driver, 10).until(lambda driver: self.driver.execute_script('return document.readyState') == 'complete')
             #self.log( f'''Страница загрузилась : {self.driver.current_url}''')
-            return self, True
+
+            return True
         except Exception as eх: 
             self.print(f''' 
             Ошибка {eх} 
             по адресу {url} ''' )
-            return self,  False
+            return False
 
 
 
@@ -231,7 +263,7 @@ class Driver(Log):
     def find(self, locator:dict ) -> []:
 
 
-        _driver_wait  :int = 1
+        #_driver_wait  :int = 1
         # может вернуться или один или несколько элементов списком
         element = WebDriverWait(self.driver, int(_driver_wait)).until(EC.presence_of_element_located((locator)))
         elements = WebDriverWait(self.driver, int(_driver_wait)).until(EC.presence_of_all_elements_located((locator)))
@@ -363,6 +395,97 @@ class Driver(Log):
             get_elements_by_locator(self)
             {ex}''')
             return []
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     #@Log.logged 
     def researh_elements(self, elements)->bool:

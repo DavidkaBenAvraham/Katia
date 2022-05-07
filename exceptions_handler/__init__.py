@@ -77,11 +77,7 @@ class ExceptionsHandler():
             return fn
         except Exception as ex:
             print(f'''{ex}''')
-            return false #fn(*args , **kwargs)
-
-                {eх}
-                '''
-                )
+            return False
         
 
 

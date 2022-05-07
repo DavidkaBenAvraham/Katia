@@ -21,7 +21,7 @@ import suppliers.execute_scenaries as execute_scenaries
 from products import Product
 from attr import attrs, attrib, Factory
 
-
+import xml.etree.ElementTree as ET
 
 
 
