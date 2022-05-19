@@ -2,14 +2,12 @@ import pandas as pd
 import csv
 # как работать с csv https://python-scripts.com/import-csv-python
 
-from ini_files import Ini
+from ini_files_dir import Ini
 import os
 import sys
 
-def write(self , data , path_to_file):
+def write(self , data  , path_to_file) ->bool:
 
-    #self.df.drop_duplicates()
-    
     try:
        # self.df.to_csv(path_to_file, sep=';', encoding='utf-8' ,index=False)
        # self.print(f''' Данные экспортированы в файл
@@ -18,12 +16,8 @@ def write(self , data , path_to_file):
        return True
     
     except Exception as ex:
-        #path_to_file = path_to_file + '_'
-        self.print(f'''Файл открыт или занят другим процессом! 
-        {ex}
-        {data}''')
-        sys.exit()
-        return True
+       
+        return False
 
 
 def csv_files_combination_by_suppliers():

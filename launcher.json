@@ -1,0 +1,86 @@
+{
+
+
+
+
+
+  "languages": [ "he" ],
+  "languages_excluded": [ "en", "ru" ],
+
+  "mode": "debug",
+  "modes": [ "debug", "production" ],
+  "threads": true,
+
+  "start_time": "",
+  "about start_time": "задается при запуске программы",
+
+  "log_format": "'%(asctime)s : [%(levelname)s] : %(message)s'",
+
+  "print_type": "jupiter",
+  "print_types": [ "jupiter", "html", "simple" ],
+
+  "program_paths": {
+    "ini_files_dir": "ini_files_dir",
+    "export_dir": "export",
+    "log_files_dir": "log'"
+  },
+
+
+
+  "webdriver": {
+    "name": "firefox",
+    "arguments": [ "--no-sandbox" ],
+    "disabled_arguments": [
+      "--disable-dev-shm-usage",
+      "--headless"
+    ],
+    "wait": 5
+  },
+
+
+  "webdrivers": {
+    "webdriver chromedriver": {
+      "name": "chromedriver",
+      "arguments": [
+        "--headless",
+        "--no-sandbox",
+        "--disable-dev-shm-usage"
+      ],
+      "wait": 5
+    },
+
+
+
+    "webdriver kora ": {
+      "name": "kora",
+      "arguments": [
+        "--headless",
+        "--no-sandbox",
+        "--disable-dev-shm-usage"
+      ],
+      "wait": 5,
+      "about wait": "явное ожидание браузера в сек"
+    },
+    "about kora": "kora обертка для запуска вебдрайвера в google.research взята из https://github.com/korakot/kora"
+
+
+  },
+
+
+
+
+
+
+  "suppliers": [
+
+    "ksp"
+  ],
+  "suppliers_excluded": [ "morlevi", "grandadvance" ]
+
+
+
+
+
+
+
+}

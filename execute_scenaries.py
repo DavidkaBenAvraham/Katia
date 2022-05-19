@@ -1,7 +1,7 @@
 import execute_products as product
 from Ini import Ini
-#import execute_json as jsn
-import execute_json as jsn
+#import execute_json as json
+import execute_json as json
 import check_and_convert_datatypes as check_type
 from Logging import Log as Log
 
@@ -30,7 +30,7 @@ def execute_list_of_scenaries(self) ->[] :
         
         for json_file in scenario_files:      
             
-            self.json_scenario = jsn.loads( f'''{self.path_root}Ini/{json_file}''')
+            self.json_scenario = json.loads( f'''{self.path_root}Ini/{json_file}''')
 
             # заполняемый сейчас список товаров
             current_p = run_scenario(self)

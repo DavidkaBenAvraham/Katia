@@ -32,8 +32,8 @@ import Facebook.scenario.message as message
 import Facebook.scenario.message_controllers as controllers
 
 from Driver import Driver 
-from ini_files import Ini
-import execute_json as jsn
+from ini_files_dir import Ini
+import execute_json as json
 from logger import Log
 
 
@@ -53,7 +53,7 @@ class FB(Driver):
 
     def __init__(self, **kwards): 
         super().__init__(**kwards)
-        self.fb_ini = jsn.load('facebook.json')
+        self.fb_ini = json.load('facebook.json')
         self.log('запустился класс FB')
         self.controllers = controllers
 

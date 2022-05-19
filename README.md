@@ -31,7 +31,7 @@
 
 
         Инициализация класса конкретного поставщика товара:
-        Supplier(lang = ['he','en','ru'] , supplier_name = <имя поставщика>) 
+        Supplier(lang = ['he','en','ru'] , supplier = <имя поставщика>) 
 
 
                     Ini()---------------+
@@ -81,7 +81,7 @@
          |                              |
          |                              +---    set_driver()
          |                              |
-         |                              +---    driver_implicity_wait(self , wait)  --?
+         |                              +---    implicity_wait(self , wait)  --?
          |                              |
          |                              +---    wait(self , wait)                   --?
          |                              |
@@ -110,7 +110,7 @@ Supplier(Driver)------------------------+---    run(self)
                                         +---    lang : str = attrib(kw_only = True)
                                         |           для какого языка собирается инфо  he, en, ru 
                                         |
-                                        +---    supplier_name :str  = attrib(kw_only = True)                    
+                                        +---    supplier :str  = attrib(kw_only = True)                    
                                         |        имя поставщика     
                                         |
                                         +---    supplier_prefics :str  = attrib(init = False)
@@ -125,7 +125,7 @@ Supplier(Driver)------------------------+---    run(self)
                                         +---      start_url : str =  attrib(init = False)                              
                                         |          Начальный адрес сценария
                                         |
-                                        +---       required_login : bool = attrib(init=False)      <--- вынести в сценарий           
+                                        +---       if_login : bool = attrib(init=False)      <--- вынести в сценарий           
                                         |
                                         +---    scenaries : list  =  attrib(init = False , factory = list)      
                                         |           Список сценариев
@@ -142,7 +142,7 @@ Supplier(Driver)------------------------+---    run(self)
                                         +---    current_nodename  : str =  attrib(init=False)                   
                                         |           Имя испоняемого узла сценария
                                         |
-                                        +---    required_login : bool
+                                        +---    if_login : bool
         
 
                             #################################################################################

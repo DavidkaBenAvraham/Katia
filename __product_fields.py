@@ -3,16 +3,19 @@
 '''
 import strings_cleaner as str_cleaner
 import price_cleaner
-import products 
-#import products.execute_products as product
-from logger import Log
-from ini_files_dir import Ini
-from suppliers import Supplier
+import execute_products as product
+from Logging import Log as Log
+from Ini import Ini
+import pandas as pd
 
+def fill_product_fields(self) -> []:
+    # return p_fields[]
+    # возвращает словарь заполненных полей товара
+    # если что-то пойдет не так
+    # вернет False
+    # знаю, что нельзя менять тип возвращаемого значения
 
-
-def generate_product(self:Supplier) -> bool:
-
+        #Актуально для поставщиков, таких как морлеви
     #''' 
     #Проверка наличия товара 
     #'''
@@ -51,58 +54,56 @@ def generate_product(self:Supplier) -> bool:
     #       url: {self.driver.current_url}''')
     #        return False
     
-    p = Product()
-
-    #self.p = dict(self.fields)
+    p_fields = dict()
     
     try:
-        p.fields['Title'] = get_title(self)
-        p.fields['category'] = str(f'{str(self.current_node["prestashop_category"])}')
-        p.fields['Supplier Reference'] = p.fields['Title']
-        p.fields['Reference'] =  p.fields['Title']
-        #p.fields['manufacrurer reference'] = get_brand_sku(self)
-        #p.fields['manufacrurer reference'] = ''
+        p_fields['Title'] = get_title(self)
+        p_fields['category'] = str(f'{str(self.currentscenario_node["prestashop_category"])}')
+        p_fields['Supplier Reference'] = p_fields['Title']
+        p_fields['Reference'] =  p_fields['Title']
+        #p_fields['manufacrurer reference'] = get_brand_sku(self)
+        #p_fields['manufacrurer reference'] = ''
 
-        p.fields['Available for Order'] = '1'
-        p.fields['Condition'] = 'new'
-        p.fields['show_price'] = '1'
+        p_fields['Available for Order'] = '1'
+        p_fields['Condition'] = 'new'
+        p_fields['show_price'] = '1'
         
-        p.fields['Tax rules ID'] = '53'
-        #p.fields['Supplier'] = self.supplier
-        p.fields['Supplier'] = ''
-        p.fields['Visibility'] = 'both'
+        p_fields['Tax rules ID'] = '53'
+        #p_fields['Supplier'] = self.supplier
+        p_fields['Supplier'] = ''
+        p_fields['Visibility'] = 'both'
 
 
-        p.fields['Price'] = get_price(self)
-        #self.log( f''' цена на сайте {p.fields['Price']}''')
-        #p.fields['Supplier Price (Tax Excl.)'] = str(supplier_price)
-        #self.log( f''' цена поставщика до маам {p.fields['Supplier Price (Tax Excl.)']}''')
+        p_fields['Price'] = get_price(self)
+        #self.log( f''' цена на сайте {p_fields['Price']}''')
+        #p_fields['Supplier Price (Tax Excl.)'] = str(supplier_price)
+        #self.log( f''' цена поставщика до маам {p_fields['Supplier Price (Tax Excl.)']}''')
 
-        p.fields['brand'] = self.current_node["brand"]
-        #p.fields['Short Description'] = p.fields['Product Name']
-        #p.fields['Short Description'] = get_short_description(self)
-        #p.fields['Short Description'] = str_cleaner.cut_field_to_size(self, p.fields['Short Description'], 1800)
-        p.fields['Short Description'] = str_cleaner.cut_field_to_size(self, get_short_description(self), 1800)
-        p.fields['Description'] = p.fields['Short Description']
-        #p.fields['Description'] = str_cleaner.remove_unnecessary_words(self,str(get_description(self)))
-        #p.fields['Description'] = str_cleaner.cut_field_to_size(self, p.fields['Description'], 9000)
+        p_fields['brand'] = self.currentscenario_node["brand"]
+        #p_fields['Short Description'] = p_fields['Product Name']
+        #p_fields['Short Description'] = get_short_description(self)
+        #p_fields['Short Description'] = str_cleaner.cut_field_to_size(self, p_fields['Short Description'], 1800)
+        p_fields['Short Description'] = str_cleaner.cut_field_to_size(self, get_short_description(self), 1800)
+        p_fields['Description'] = p_fields['Short Description']
+        #p_fields['Description'] = str_cleaner.remove_unnecessary_words(self,str(get_description(self)))
+        #p_fields['Description'] = str_cleaner.cut_field_to_size(self, p_fields['Description'], 9000)
         
-        #p.fields['Description'] = str_cleaner.cut_field_to_size(self, str(get_description(self), 9000))
-        p.fields['Product Images'] = get_images(self)
-        p.fields['Product Image Alt.'] = f'''{p.fields['brand']} {p.fields['Title']}'''
+        #p_fields['Description'] = str_cleaner.cut_field_to_size(self, str(get_description(self), 9000))
+        p_fields['Product Images'] = get_images(self)
+        p_fields['Product Image Alt.'] = f'''{p_fields['brand']} {p_fields['Title']}'''
 
 
-        #self.log(f''' p.fields['Supplier Reference'] = {p.fields['Supplier Reference']}  ''')
+        #self.log(f''' p_fields['Supplier Reference'] = {p_fields['Supplier Reference']}  ''')
 
-        p.fields['meta descrition'] =  p.fields['Title']
+        p_fields['meta descrition'] =  p_fields['Title']
 
     
     
-        p.fields['delete old images'] = '1'
-        p.fields['meta_words'] = str(get_meta(self,p_fields))
-        p.fields['Active'] = 1
-        #p.fields['RAW_PAGE_SOURCE'] = self.driver.page_source
-        p.fields['QTY'] = '10'
+        p_fields['delete old images'] = '1'
+        p_fields['meta_words'] = str(get_meta(self,p_fields))
+        p_fields['Active'] = 1
+        #p_fields['RAW_PAGE_SOURCE'] = self.driver.page_source
+        p_fields['QTY'] = '10'
 
 
         #check_for_videochipset(p_fields)
@@ -113,12 +114,11 @@ def generate_product(self:Supplier) -> bool:
         и вызывается через __init__.obrabotaj_polja_tovara(p_fields)
         '''
         #self.log( f''' Поля товара {p_fields}''')
-        self.p.append(p)
-        return self, True
+        return p_fields
     except Exception as e:
         self.log( f''' Ошибка при напонении полей словаря товаров {e}''')
         self.log( f''' Поля товара {p_fields}''')
-        return self, False
+        return False
 
 
 
@@ -249,11 +249,11 @@ def get_images(self) -> []:
 def get_meta(self,p_fields):
     meta_words = ''
     if p_fields.__contains__('brand'):
-        meta_words += p.fields['brand'] + ' '
+        meta_words += p_fields['brand'] + ' '
     if p_fields.__contains__('Title'):
-        meta_words += str( p.fields['Title']) + ' '
+        meta_words += str( p_fields['Title']) + ' '
     #if p.__contains__('Product Name'):
-    #    meta_words += p.fields['Product Name'] + ' '
+    #    meta_words += p_fields['Product Name'] + ' '
    
     return meta_words
 
@@ -286,52 +286,52 @@ def nalihie_segodnja(self) -> bool:
 def check_for_videochipset(p_fields:[]) -> None:
     """ вытаскиваю модели видеочипов из названия товара """
 
-    product_title = p.fields['Product Name']
-    if str(p.fields['category']).find('108')<0: return True
+    product_title = p_fields['Product Name']
+    if str(p_fields['category']).find('108')<0: return True
     ''' если не категория видео - ухожу '''
 
-    if str(product_title).find('210')>0  :p.fields['category'] += ',583'
-    if str(product_title).find('710')>0  :p.fields['category'] += ',584'
-    if str(product_title).find('730')>0  :p.fields['category'] += ',585'
-    if str(product_title).find('1030')>0  :p.fields['category'] += ',586'
+    if str(product_title).find('210')>0  :p_fields['category'] += ',583'
+    if str(product_title).find('710')>0  :p_fields['category'] += ',584'
+    if str(product_title).find('730')>0  :p_fields['category'] += ',585'
+    if str(product_title).find('1030')>0  :p_fields['category'] += ',586'
     if str(product_title).find('1050')>0  :
-        if str(product_title).find('TI')>0:p.fields['category'] += ',588'
-        else:p.fields['category'] += ',587'
+        if str(product_title).find('TI')>0:p_fields['category'] += ',588'
+        else:p_fields['category'] += ',587'
 
     if str(product_title).find('1080')>0  :
-        if str(product_title).find('TI')>0:p.fields['category'] += ',590'
-        else:p.fields['category'] += ',589'
+        if str(product_title).find('TI')>0:p_fields['category'] += ',590'
+        else:p_fields['category'] += ',589'
 
     if str(product_title).find('1650')>0  :
-        if str(product_title).find('TI')>0:p.fields['category'] += ',592'
-        elif str(product_title).find('SUPER')>0 or str(product_title).find('1650S')>0 :p.fields['category'] += ',593'
-        else:p.fields['category'] += ',501'
+        if str(product_title).find('TI')>0:p_fields['category'] += ',592'
+        elif str(product_title).find('SUPER')>0 or str(product_title).find('1650S')>0 :p_fields['category'] += ',593'
+        else:p_fields['category'] += ',501'
 
     if str(product_title).find('1660')>0  :
-        if str(product_title).find('SUPER')>0 or str(product_title).find('1660S')>0 :p.fields['category'] += ',595'
-        else:p.fields['category'] += ',594'
+        if str(product_title).find('SUPER')>0 or str(product_title).find('1660S')>0 :p_fields['category'] += ',595'
+        else:p_fields['category'] += ',594'
 
     if str(product_title).find('2060')>0  :
-        if str(product_title).find('SUPER')>0 or str(product_title).find('2060S')>0 :p.fields['category'] += ',597'
-        else:p.fields['category'] += ',596'
+        if str(product_title).find('SUPER')>0 or str(product_title).find('2060S')>0 :p_fields['category'] += ',597'
+        else:p_fields['category'] += ',596'
 
     if str(product_title).find('2070')>0  :
-        if str(product_title).find('SUPER')>0 or str(product_title).find('2060S')>0 :p.fields['category'] += ',599'
-        else:p.fields['category'] += ',598'
+        if str(product_title).find('SUPER')>0 or str(product_title).find('2060S')>0 :p_fields['category'] += ',599'
+        else:p_fields['category'] += ',598'
 
     if str(product_title).find('2080')>0  :
-        if str(product_title).find('TI')>0:p.fields['category'] += ',601'
-        elif str(product_title).find('SUPER')>0 or str(product_title).find('1650S')>0 :p.fields['category'] += ',602'
-        else:p.fields['category'] += ',600'
+        if str(product_title).find('TI')>0:p_fields['category'] += ',601'
+        elif str(product_title).find('SUPER')>0 or str(product_title).find('1650S')>0 :p_fields['category'] += ',602'
+        else:p_fields['category'] += ',600'
 
-    if str(product_title).find('3070')>0 :p.fields['category'] += ',603'
-    if str(product_title).find('3080')>0 :p.fields['category'] += ',604'
-    if str(product_title).find('3090')>0 :p.fields['category'] += ',605'
+    if str(product_title).find('3070')>0 :p_fields['category'] += ',603'
+    if str(product_title).find('3080')>0 :p_fields['category'] += ',604'
+    if str(product_title).find('3090')>0 :p_fields['category'] += ',605'
 
 def obrabotaj_polja_tovara(p_fields):
     ''' здесь находится логика постобработки '''
-    if str(p.fields['Product Name']).find("#") >-1 : p.fields['Product Name'] = str(p.fields['Product Name'])[0:-12]
-    p.fields['Product Name'] = str(p.fields['Product Name']).replace("#", '')
-    p.fields['RAW_PAGE_SOURCE'] = ''
+    if str(p_fields['Product Name']).find("#") >-1 : p_fields['Product Name'] = str(p_fields['Product Name'])[0:-12]
+    p_fields['Product Name'] = str(p_fields['Product Name']).replace("#", '')
+    p_fields['RAW_PAGE_SOURCE'] = ''
 
     return p_fields

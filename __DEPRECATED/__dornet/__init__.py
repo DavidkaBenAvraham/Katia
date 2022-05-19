@@ -1,30 +1,30 @@
 
 
 from Driver import Driver 
-from ini_files import Ini
+from ini_files_dir import Ini
 from logger import Log
-import execute_json as jsn
+import execute_json as json
 import execute_scenaries as execute_scenaries
 
 
 class Dornet(Driver):
     def __init__(self, **kwards): 
-        self.supplier_name = 'dornet'
-        self.log = Log(self.supplier_name)
+        self.supplier = 'dornet'
+        self.log = Log(self.supplier)
         super().__init__(**kwards)
-        self.self.supplier = jsn.load('dornet.json')
-        self.supplier_prefics = self.self.supplier["supplier_prefics"]
-        self.supplier_name = self.self.supplier["supplier_name"]
+        self.self.supplier = json.load('dornet.json')
+        self.supplier = self.self.supplier["supplier_prefics"]
+        self.supplier = self.self.supplier["supplier"]
         self.price_rule = self.self.supplier["price_rule"]
         #self.num_items_4_flush = self.self.supplier["num_items_4_flush"]
         self.scenaries = self.self.supplier["scenaries"]
         #локаторы логин
-        self.locators['login'] = jsn.load('dornet_login.json')
+        self.locators['login'] = json.load('dornet_login.json')
         #локаторы элементов страницы
-        self.locators = jsn.load('dornet_locators.json')
+        self.locators = json.load('dornet_locators.json')
         self.json_infinity_scroll = self.self.supplier["infinity_scroll"]
         #Бренды
-        self.brands = jsn.load('brands.json')['brand']
+        self.brands = json.load('brands.json')['brand']
         
         #Имя текущего файла экспорта CSV
         self.filename_for_export_data = ''

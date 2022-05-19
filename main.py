@@ -9,86 +9,107 @@ from pathlib import Path
 '''
 #
 from threading import Thread
+import execute_json as json
+from ini_files_dir import Ini
+from suppliers import Supplier
+from exceptions_handler import ExceptionsHandler as EH
+from logger import Log
 
-import execute_json as jsn
-from ini_files import Ini
-
-#import check_and_convert_datatypes as check_type
+''' параметры запуска из файла launcher.json 
 
 '''
-Класс поставщика 
-'''
-import suppliers
-
+threads : list = []
 
 class Thread_for_supplier(Thread):
-    '''    
-     
-                    получаю имя постащика - открываю для его класса поток
+    '''       получаю имя постащика - открываю для его класса поток
                     идея в том, чтобы открывать  приложения в новом потоке.
-
     '''
-    def __init__(self, lang  , supplier_name , scenaries = [], windowless = True):
-        Thread.__init__(self)
 
-        self.supplier : suppliers.Supplier = suppliers.Supplier(lang =lang ,supplier_name=supplier_name)
+
+    supplier : Supplier = None
+
+    def __init__(self, supplier_prefics:str , lang:list , ini : Ini):
+        ''' 
+        supplier : str - поставщик из ini.suppliers, 
+        lang : list - язык/и из ini.lang
+        '''
+        Thread.__init__(self)
+        ''' в классе ini происходит раскрытие launcher.json '''
+
+
+        self.supplier  = Supplier(supplier_prefics = supplier_prefics, lang = lang , ini = ini)
+        ''' определяю класс поставщика'''
 
 
     def run(self):
-        '''
-                                Начало
-        '''
+
+        threads.append(self.supplier)
+        '''  Старт программы  в потоке'''
         self.supplier.run()
+        #self.supplier.run()
+        ''' try - except ОБЯЗАТЕЛЬНО '''    
+        self.supplier.driver.close()
+        ''' Финиш '''
 
-        try: self.driver.close()
-        except : pass
 
+def start_script() -> bool:  
+    '''     
+                    
+                Отсюда я запускаю всю программу 
 
-
-def run(languages = ['he'] , list_supplier_names = [] , windowless = True, threads = False) -> bool:  
-    ''' 
-            Отсюда я запускаю класс Supplier 
-
-            languages - языки сценариев: ['he', 'en', 'ru']
-
-            можно запускaть в двух опциях:
-            Многопоточаная threads = True
-            Однопоточная threads = False
-
-            с окнами windowless = False
-
-            Если не переданы имена suppliers - собираю
-            из файла suppliers.json
 
     '''
 
-    #try:
-    ini = Ini()
-    _suppliers = jsn.loads(Path(ini.path_ini/'suppliers.json'))
+
+    ini : Ini = Ini()
+    ''' 
+    Класс инициализации приложения 
+    строится на основе файла launch.json 
+    --------------------------
+    Определяет:
+            - пути для файлов сценариев, экспорта и логгирования
+
+    '''
     
-    list_supplier_names :[] = _suppliers["supplier_names"]
-    #log : Log = Log()
+    for lang in ini.languages:
+        ''' выбор языка/ов исполнения сценариев '''
 
-    for lang in languages:
+        for supplier_prefics in ini.suppliers: 
+            
+            
+            #kwards : dict = {'supplier_prefics' : supplier_prefics , 'lang' : lang  , 'ini':ini}
+            ''' Словарь стартовых значений запуска класса Supplier(**kwards) не использую никак'''
+            
+            if ini.if_threads:
+                ''' с потоками -> '''
 
-        if len(list_supplier_names) ==0 :
-            '''список запуска 
-            по умолчанию находится в suppliers.json
-            '''
-        for supplier_name in list_supplier_names: 
+                if ini.mode == "prod":
+                    ''' 
+                    ini.mode = 'prod' <- с конструкцией try: except: 
+                    ini.mode = 'debug' со всеми крешами :
+                    -----------------------------------
+                    Пока криво реализовано, вернее не реализовано никак
+                    '''
 
-            # с потоками -> 
-            if threads:
-                thread  = Thread_for_supplier(lang =lang ,supplier_name=supplier_name)
-                thread.start()
-            # Без потоков ->
+                    
+                    thread = Thread_for_supplier(supplier_prefics , lang , ini)
+                    thread.start()
+                else:
+                    '''ini.mode = 'debug' '''
+                    thread  = Thread_for_supplier(supplier_prefics , lang , ini)
+                    thread.start()
+
             else:
-                supplier = suppliers.Supplier(lang =lang ,supplier_name=supplier_name)
-                supplier.run()
-    #    return True
-    #except Exception as ex:
-    #    pass
+                ''' Без потоков -> '''
+
+                if ini.mode == "prod":
+                    supplier = Supplier(supplier_prefics , lang , ini)
+                    supplier.run()
+                else:
+                    supplier = Supplier(supplier_prefics , lang)
+                    supplier.run()
+
 
 if __name__ == "__main__":
-    if run(languages = ['he'] , list_supplier_names = [] , windowless = True, threads = False):
-        print('Какой - нибудь осмысленный вывод окончания программы!')
+    start_script()
+    

@@ -1,10 +1,10 @@
 import bot.config as config
-import bot.jsn as jsn
+import bot.json as json
 from bot import *
 
 def send_all(bot , chat_id):
     print(f''' start sending ''')
-    json_messages = jsn.get_json_from_file('messages.json')
+    json_messages = json.get_json_from_file('messages.json')
     for json_msg in json_messages:
         print(json_messages[json_msg]['file'])
 

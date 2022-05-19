@@ -2,7 +2,7 @@ from logger import Log
 import DB as db
 import datetime
 import time
-from ini_files import Ini
+from ini_files_dir import Ini
 
 
 '''

@@ -7,6 +7,10 @@ import importlib
 import datetime
 import time
 import json
+
+from attr import attrs, attrib, Factory
+
+
 '''
 https://github.com/chuanconggao/html2json/blob/master/README.md
 
@@ -14,29 +18,21 @@ https://github.com/chuanconggao/html2json/blob/master/README.md
 
 
 
-
+@attrs
 class Formatter():
     ''' Обработчик строк '''
 
-
-
-
-    ''' 
-    
-                Декораторы
-                
-                
-    '''
-
-
-
-    def remove_suppliers_and_special_chars(method_to_decorate:object)->object:
-        
+    def remove_suppliers_and_special_chars(method_to_decorate:object)->object: 
+        ''' Декоратор для внутренних функций форматера.
+        Убираю имя поставщика и значки не удовлетворяющие условиям хранения строк в базе данных
+        моего каталога
+        '''
         def remover(self , str:str)->str:
             str = self.pattern_remove_suppliers_from_string.sub(r'',str)
             str = self.pattern_remove_special_characters.sub(r'',str)
             method_to_decorate(self,str)
         return str
+
 
 
 
@@ -71,40 +67,46 @@ class Formatter():
 
 Re.findall (шаблон, строка) : Проверяет, соответствует ли строка шаблон и возвращает Все вхождения 
                             сопоставленного шаблона как список строк.
+
 Re.Search (шаблон, строка) : Проверяет, соответствует ли строка шаблона Regex и возвращает только Первый матч 
-                            как объект матча. Объект Match – это просто: объект, который хранит мета информацию о матче, такой как соответствующая позиция и соответствующая подстрока.
+                            как объект матча. Объект Match – это просто: объект, который хранит мета информацию о матче, 
+                            такой как соответствующая позиция и соответствующая подстрока.
+
 Re.match (шаблон, строка) : Проверяет, если кто-нибудь Струнный префикс 
                             Соответствует шаблону Regex и возвращает объект совпадения.
+
 Re.fullmatch (шаблон, строка) : Проверяет, если целая строка Соответствует шаблону Regex и 
                             возвращает объект совпадения.
+
 Re.compile (Pattern) : Создает объект регулярного выражения из шаблона для ускорения совпадения, 
                             если вы хотите использовать шаблон Regex несколько раз.
+
 Re.Split (шаблон, строка) : Разбивает строку, где бы закономерность регенсирует и возвращает список строк. 
                                 Например, вы можете разделить строку в список слов, используя пробельные символы в качестве сепараторов.
+
 Re.sub (шаблон, репрект, строка) : Заменяет ( sub stitutes) Первое возникновение рисунка Regex с заменой 
                                 String Repland и вернуть новую строку.
 
 чтобы проверить, содержит ли строка шестнадцатеричные цифры (от 0 до 9 и от A до F), следует использовать 
 такой диапазон:
-
 [A-Fa-f0-9]
+
 Чтобы проверить обратное, используйте отрицательный диапазон, который в нашем случае подходит под любой символ, 
 кроме цифр от 0 до 9 и букв от A до F:
 [^A-Fa-f0-9]
 
 
     '''
-    pattern_remove_HTML :re = re.compile ('<[^<]+?>')
-    pattern_remove_non_latin_characters : re = re.compile('^[A-Za-z0-9]*')
-    pattern_remove_line_breaks : re = re.compile('^\s+|\n|\r|\s+$')
-    pattern_clear_price : re = re.compile('[^0-9.]')
-    pattern_remove_special_characters :re = re.compile('[#|]')                 
-    '''pattern_remove_special_characters.sub('', str)'''
-    pattern_remove_suppliers_from_string :re = re.compile('[KSP,ksp]')
+
+    pattern_remove_HTML :re = attrib(init = False , default = re.compile ('<[^<]+?>'))
+    pattern_remove_non_latin_characters : re = attrib(init = False , default = re.compile ('^[A-Za-z0-9]*'))
+    pattern_remove_line_breaks : re = attrib(init = False , default = re.compile ('^\s+|\n|\r|\s+$'))
+    pattern_clear_price : re = attrib(init = False , default =  re.compile ('[^0-9.]'))
+    pattern_remove_special_characters :re = attrib(init = False , default = re.compile ('[#|]')     )                 
+    pattern_remove_suppliers_from_string :re = attrib(init = False , default = re.compile ('[KSP,ksp]'))
 #  
-    
-    def get_now(self,strformat = '%YY-%MM-%d %H:%M:%S') -> datetime:
-        return datetime.datetime.now().strftime(strformat)
+    def __attrs_post_init__(self , *srgs, **kwrads):
+        pass
 
     def remove_line_breaks(self,str:str)->str:
         return self.pattern_remove_line_breaks.sub(r' ', str)

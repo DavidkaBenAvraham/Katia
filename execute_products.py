@@ -21,7 +21,7 @@ import check_and_convert_datatypes as check_type
 from Logging import Log as Log
 import suppliers.ksp as ksp
 
-@Log.log_f
+@Log.log
 def build_produscts_list_by_scenario(self):
     '''
     все товары собираются в 
@@ -87,7 +87,7 @@ def build_produscts_list_by_scenario(self):
         #flush_p(self)
     return self.products_list
 
-@Log.log_f
+@Log.log
 def sozdaj_ssylki_na_tovary_by_scenario_node(self):
     
     try:
@@ -146,7 +146,7 @@ def sozdaj_ssylki_na_tovary_by_scenario_node(self):
         self.log(f'''{ex}''')
         sys.exit()
       
-@Log.log_f
+@Log.log
 def sozdaj_spisok_ssylok_na_stranicy_tovarov_so_stranicy_kategorii(self ):
     try:
         ''' когда я нахожусь на странице категории я собираю ссылки на товары со страницы.
@@ -174,7 +174,7 @@ def sozdaj_spisok_ssylok_na_stranicy_tovarov_so_stranicy_kategorii(self ):
         '''
         return self.get_listattributes_from_allfound_elements(attribute , link_to_product_locator)
     except: return False
-@Log.log_f
+@Log.log
 def sozdaj_spisok_tovarov_zapolini_polia(self, urls_tovarov):
     ''' по урл собираю с каждой страницы товара его параметры '''
     try:
@@ -209,7 +209,7 @@ def sozdaj_spisok_tovarov_zapolini_polia_na_categorypage(self):
     {product_block_locator} <br>
     attribute = 
     {attribute}</p>''')
-    if self.supplier_name.find('ksp')>-1:
+    if self.supplier.find('ksp')>-1:
         try:
             scroller(self)
         except: pass
@@ -283,6 +283,7 @@ def click_to_next_page(self) -> bool:
 
             ''' Если не было перехода на след страницу -
             значит сскорее всего она последняя   '''
+            self.driver.prev_url = self.driver.current_url
             return True
         #except ElementNotInteractableException , ElementClickInterceptedException as e:
         except Exception as ex: 
@@ -301,6 +302,7 @@ def scroller(self, wait=1 , prokrutok=3, scroll=800):
             self.log(f'------------------------ Скроллинг вниз {i}--------------------------- ')
             self.driver.execute_script(f"window.scrollBy(0,{scroll})") # поднял окошко
             time.sleep(1)
+            print(f'''{self.ini.get_now()}''')
             #self.wait(1)
         return True
     except Exception as ex:
@@ -393,7 +395,7 @@ def chekbox_click_on_group(self , json_group_checkboxes ):
                 checked = True
     
     return checked
-@Log.log_f
+@Log.log
 def check_error_page(self) -> bool:
     self.log( f''' Проверяю страницу на наличие error page ''')
     errors_pages_titles =['Error','עבור לדף המבוקש']
@@ -423,7 +425,7 @@ def flush_p(self):
     # есть в файле записи csv
     ''' при помощи set убираю дубликаты '''
     dt = Ini.get_now('%d%m%y_%H-%M-%S')
-    filename = str(f'{self.supplier_prefics}-{dt}.csv')
+    filename = str(f'{self.supplier}-{dt}.csv')
     path_to_file = str(f'..\\export\\{filename}')
     self.log(f'''   скидываю товары в файл {filename}  ''')
     self.log( f''' Последний успешный сценарий: {self.currentscenario_node} ''')

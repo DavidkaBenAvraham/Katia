@@ -11,7 +11,7 @@ from logger import Log
 import Facebook.db as fb_db
 import Messages.db as msgs_db
 
-from ini_files import Ini
+from ini_files_dir import Ini
 import Facebook.scenario.message_controllers as controllers
 
 
@@ -121,7 +121,7 @@ def upload_img(self , img):
 
         inp.send_keys(kartinka)
         #time.sleep(5)
-        #self.driver_implicity_wait(5)
+        #self.implicity_wait(5)
         log_msg = str(f'ЗАГРУЗИЛАСЬ картинка {kartinka}')
         self.log(log_msg)
         return True
@@ -134,7 +134,7 @@ def upload_img(self , img):
 
         #self.find(upload_input_class).send_keys(kartinka)
         ##time.sleep(5)
-        ##self.driver_implicity_wait(5)
+        ##self.implicity_wait(5)
         #log_msg = str(f'ЗАГРУЗИЛАСЬ картинка {kartinka}')
         #self.log(log_msg)
         #return True

@@ -14,9 +14,11 @@
     <InterpreterId>Global|ContinuumAnalytics|Anaconda39-64</InterpreterId>
     <IsWindowsApplication>False</IsWindowsApplication>
     <SuppressConfigureTestFrameworkPrompt>true</SuppressConfigureTestFrameworkPrompt>
-    <TestFramework>unittest</TestFramework>
+    <TestFramework>none</TestFramework>
     <UnitTestPattern>test*.py</UnitTestPattern>
     <UnitTestRootDirectory>.</UnitTestRootDirectory>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,6 +45,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="exceptions_handler\__init__.py" />
+    <Compile Include="web_driver\__init__.py" />
     <Compile Include="__DEPRECATED\_DEPRECATED_check_and_convert_datatypes.py">
       <SubType>Code</SubType>
     </Compile>
@@ -66,9 +69,6 @@
     <Compile Include="DB\__init__.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="web_driver\__init__.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="exceptions_handler\_DEPRECATED__init__.py">
       <SubType>Code</SubType>
     </Compile>
@@ -87,25 +87,25 @@
     <Compile Include="__DEPRECATED\_DEPRECATED_filemanager.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ini_files\morlevi_categories_headsets.json">
+    <Compile Include="ini_files_dir\morlevi_categories_headsets.json">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="products\product_fields.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ini_files\cdata_categories_aio_hp.json">
+    <Compile Include="ini_files_dir\cdata_categories_aio_hp.json">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ini_files\morlevi_categories_mb_gigabyte.json">
+    <Compile Include="ini_files_dir\morlevi_categories_mb_gigabyte.json">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ini_files\morlevi_categories_psu_antec.json">
+    <Compile Include="ini_files_dir\morlevi_categories_psu_antec.json">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ini_files\morlevi_categories_video.json">
+    <Compile Include="ini_files_dir\morlevi_categories_video.json">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ini_files\morlevi_locators.json">
+    <Compile Include="ini_files_dir\morlevi_locators.json">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Facebook\ui\QT_login_interface.py" />
@@ -406,7 +406,7 @@
     <Compile Include="__DEPRECATED\__techorezef\login.py" />
     <Compile Include="__DEPRECATED\__techorezef\product.py" />
     <Compile Include="__DEPRECATED\__techorezef\__init__.py" />
-    <Compile Include="ini_files\__init__.py">
+    <Compile Include="ini_files_dir\__init__.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="logger\__init__.py">
@@ -462,7 +462,7 @@
     <Folder Include="__DEPRECATED\Mor_avoda_im_excel\" />
     <Folder Include="DoskaObjavlenij\" />
     <Folder Include="logger\" />
-    <Folder Include="ini_files\" />
+    <Folder Include="ini_files_dir\" />
     <Folder Include="__DEPRECATED\" />
     <Folder Include="web_driver\" />
     <Folder Include="products\" />
@@ -515,203 +515,198 @@
     <Content Include="Facebook\scenario\JavaScript.js" />
     <Content Include="Facebook\ui\login.ui" />
     <Content Include="Facebook\ui\messages.ui" />
-    <Content Include="ini_files\brands.json">
+    <Content Include="ini_files_dir\brands.json">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="ini_files\bug.json" />
-    <Content Include="ini_files\bug_categories_apple.json" />
-    <Content Include="ini_files\cdata.json" />
-    <Content Include="ini_files\dornet_categories_kvm_aten.json">
+    <Content Include="ini_files_dir\bug.json" />
+    <Content Include="ini_files_dir\bug_categories_apple.json" />
+    <Content Include="ini_files_dir\cdata.json" />
+    <Content Include="ini_files_dir\dornet_categories_kvm_aten.json">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="ini_files\dornet_locators.json" />
-    <Content Include="ini_files\dornet.json" />
-    <Content Include="ini_files\cdata_categories_aio_asus.json" />
-    <Content Include="ini_files\cdata_categories_aio_dell.json" />
-    <Content Include="ini_files\cdata_categories_webcams.json" />
-    <Content Include="ini_files\dornet_login.json" />
-    <Content Include="ini_files\facebook_groups.json">
+    <Content Include="ini_files_dir\dornet_locators.json" />
+    <Content Include="ini_files_dir\dornet.json" />
+    <Content Include="ini_files_dir\cdata_categories_aio_asus.json" />
+    <Content Include="ini_files_dir\cdata_categories_aio_dell.json" />
+    <Content Include="ini_files_dir\cdata_categories_webcams.json" />
+    <Content Include="ini_files_dir\dornet_login.json" />
+    <Content Include="ini_files_dir\facebook_groups.json">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="ini_files\grandadvance_categories_keyboards_hp.json" />
-    <Content Include="ini_files\grandadvance_categories_keyboards_microsoft.json" />
-    <Content Include="ini_files\grandadvance_categories_laptops_acer.json" />
-    <Content Include="ini_files\grandadvance_categories_laptops_dell.json" />
-    <Content Include="ini_files\grandadvance_categories_laptops_hp.json" />
-    <Content Include="ini_files\grandadvance_categories_video_nvidia.json" />
-    <Content Include="ini_files\grandadvance_categories_laptops_lenovo.json" />
-    <Content Include="ini_files\grandadvance_categories_keyboards_logitech.json" />
-    <Content Include="ini_files\grandadvance_categories_mb_msi.json" />
-    <Content Include="ini_files\ksp.json" />
-    <Content Include="ini_files\ksp_categories_wathces_apple.json" />
-    <Content Include="ini_files\ksp_categories_consoles_nintendo.json" />
-    <Content Include="ini_files\ksp_categories_consoles_sony.json" />
-    <Content Include="ini_files\ksp_categories_headphones_bang_olufsen.json" />
-    <Content Include="ini_files\ksp_categories_headphones_razer.json" />
-    <Content Include="ini_files\ksp_categories_headphones_hyperx.json" />
-    <Content Include="ini_files\ksp_categories_headphones_sony.json" />
-    <Content Include="ini_files\ksp_categories_consoles_microsoft.json" />
-    <Content Include="ini_files\ksp_categories_headphones_jbl.json" />
-    <Content Include="ini_files\ksp_categories_imacs.json" />
-    <Content Include="ini_files\ksp_categories_monitors_lg.json" />
-    <Content Include="ini_files\ksp_categories_monitors_samsung.json" />
-    <Content Include="ini_files\ksp_categories_headphones_xiaomi.json" />
-    <Content Include="ini_files\ksp_categories_notebooks_hp_by_model.json" />
-    <Content Include="ini_files\ksp_categories_notebooks_dell_by_model.json" />
-    <Content Include="ini_files\ksp_categories_notebooks_lenovo_by_model.json" />
-    <Content Include="ini_files\ksp_categories_notebooks_huawei_by_model.json" />
-    <Content Include="ini_files\ksp_categories_notebooks_asus_by_model.json" />
-    <Content Include="ini_files\ksp_categories_phones_nokia.json" />
-    <Content Include="ini_files\ksp_categories_phones_philips.json" />
-    <Content Include="ini_files\ksp_categories_tablets_xiaomi.json" />
-    <Content Include="ini_files\ksp_categories_speakers_jbl.json" />
-    <Content Include="ini_files\ksp_categories_speakers_google.json" />
-    <Content Include="ini_files\ksp_categories_phones_oneplus.json" />
-    <Content Include="ini_files\ksp_categories_phones_oppo.json" />
-    <Content Include="ini_files\ksp_categories_phones_asus.json" />
-    <Content Include="ini_files\ksp_categories_phones_google.json" />
-    <Content Include="ini_files\ksp_categories_streamers_google.json" />
-    <Content Include="ini_files\ksp_categories_tablets_amazon.json" />
-    <Content Include="ini_files\ksp_categories_tablets_lenovo.json" />
-    <Content Include="ini_files\ksp_categories_watches_lenovo.json" />
-    <Content Include="ini_files\ksp_categories_watches_amazfit.json" />
-    <Content Include="ini_files\ksp_categories_watches_honor.json" />
-    <Content Include="ini_files\ksp_categories_watches_xiaomi.json" />
-    <Content Include="ini_files\ksp_categories_phones_xiaomi.json" />
-    <Content Include="ini_files\ksp_categories_watches_garmin.json" />
-    <Content Include="ini_files\ksp_categories_tablets_samsung.json" />
-    <Content Include="ini_files\ksp_categories_watches_samsung.json" />
-    <Content Include="ini_files\ksp_categories_phones_samsung.json" />
-    <Content Include="ini_files\ksp_categories_macbook.json" />
-    <Content Include="ini_files\ksp_categories_ipads.json" />
-    <Content Include="ini_files\ksp_categories_ipods.json" />
-    <Content Include="ini_files\ksp_categories_iphones.json" />
-    <Content Include="ini_files\ksp_locators.json" />
-    <Content Include="ini_files\morlevi_categories_mb_gigabyte - Copy.json" />
-    <Content Include="ini_files\morlevi_categories_memory_sodimm_ddr4.json" />
-    <Content Include="ini_files\morlevi_categories_monitors_coolermaster.json" />
-    <Content Include="ini_files\morlevi_categories_monitors_gigabyte.json" />
-    <Content Include="ini_files\morlevi_categories_monitors_mag.json" />
-    <Content Include="ini_files\morlevi_categories_monitors_samsung.json" />
-    <Content Include="ini_files\morlevi_categories_psu_corsair.json" />
-    <Content Include="ini_files\morlevi_categories_psu_gigabyte.json" />
-    <Content Include="ini_files\morlevi_categories_psu_cooler_maser.json" />
-    <Content Include="ini_files\morlevi_categories_storage_toshiba.json" />
-    <Content Include="ini_files\morlevi_categories_storage_wd.json" />
-    <Content Include="ini_files\morlevi_categories_storage_crucial.json" />
-    <Content Include="ini_files\morlevi_categories_storage_gigabyte.json" />
-    <Content Include="ini_files\morlevi_categories_storage_kingston.json" />
-    <Content Include="ini_files\morlevi_categories_storage_intel.json" />
-    <Content Include="ini_files\prestashop_product_combinations_sysnonyms_he.json" />
-    <Content Include="ini_files\prestashop_product_combinations_fields.json" />
-    <Content Include="ini_files\prestashop_db_connectionstrings.json" />
-    <Content Include="ini_files\prestashop_product_fields.json" />
-    <Content Include="ini_files\string_formatter_categories.json" />
-    <Content Include="ini_files\suppliers.json">
+    <Content Include="ini_files_dir\grandadvance_categories_keyboards_hp.json" />
+    <Content Include="ini_files_dir\grandadvance_categories_keyboards_microsoft.json" />
+    <Content Include="ini_files_dir\grandadvance_categories_laptops_acer.json" />
+    <Content Include="ini_files_dir\grandadvance_categories_laptops_dell.json" />
+    <Content Include="ini_files_dir\grandadvance_categories_laptops_hp.json" />
+    <Content Include="ini_files_dir\grandadvance_categories_video_nvidia.json" />
+    <Content Include="ini_files_dir\grandadvance_categories_laptops_lenovo.json" />
+    <Content Include="ini_files_dir\grandadvance_categories_keyboards_logitech.json" />
+    <Content Include="ini_files_dir\grandadvance_categories_mb_msi.json" />
+    <Content Include="ini_files_dir\ksp.json" />
+    <Content Include="ini_files_dir\ksp_categories_wathces_apple.json" />
+    <Content Include="ini_files_dir\ksp_categories_consoles_nintendo.json" />
+    <Content Include="ini_files_dir\ksp_categories_consoles_sony.json" />
+    <Content Include="ini_files_dir\ksp_categories_headphones_bang_olufsen.json" />
+    <Content Include="ini_files_dir\ksp_categories_headphones_razer.json" />
+    <Content Include="ini_files_dir\ksp_categories_headphones_hyperx.json" />
+    <Content Include="ini_files_dir\ksp_categories_headphones_sony.json" />
+    <Content Include="ini_files_dir\ksp_categories_consoles_microsoft.json" />
+    <Content Include="ini_files_dir\ksp_categories_headphones_jbl.json" />
+    <Content Include="ini_files_dir\ksp_categories_imacs.json" />
+    <Content Include="ini_files_dir\ksp_categories_monitors_lg.json" />
+    <Content Include="ini_files_dir\ksp_categories_monitors_samsung.json" />
+    <Content Include="ini_files_dir\ksp_categories_headphones_xiaomi.json" />
+    <Content Include="ini_files_dir\ksp_categories_notebooks_hp_by_model.json" />
+    <Content Include="ini_files_dir\ksp_categories_notebooks_dell_by_model.json" />
+    <Content Include="ini_files_dir\ksp_categories_notebooks_lenovo_by_model.json" />
+    <Content Include="ini_files_dir\ksp_categories_notebooks_huawei_by_model.json" />
+    <Content Include="ini_files_dir\ksp_categories_notebooks_asus_by_model.json" />
+    <Content Include="ini_files_dir\ksp_categories_phones_nokia.json" />
+    <Content Include="ini_files_dir\ksp_categories_phones_philips.json" />
+    <Content Include="ini_files_dir\ksp_categories_tablets_xiaomi.json" />
+    <Content Include="ini_files_dir\ksp_categories_speakers_jbl.json" />
+    <Content Include="ini_files_dir\ksp_categories_speakers_google.json" />
+    <Content Include="ini_files_dir\ksp_categories_phones_oneplus.json" />
+    <Content Include="ini_files_dir\ksp_categories_phones_oppo.json" />
+    <Content Include="ini_files_dir\ksp_categories_phones_asus.json" />
+    <Content Include="ini_files_dir\ksp_categories_phones_google.json" />
+    <Content Include="ini_files_dir\ksp_categories_streamers_google.json" />
+    <Content Include="ini_files_dir\ksp_categories_tablets_amazon.json" />
+    <Content Include="ini_files_dir\ksp_categories_tablets_lenovo.json" />
+    <Content Include="ini_files_dir\ksp_categories_watches_lenovo.json" />
+    <Content Include="ini_files_dir\ksp_categories_watches_amazfit.json" />
+    <Content Include="ini_files_dir\ksp_categories_watches_honor.json" />
+    <Content Include="ini_files_dir\ksp_categories_watches_xiaomi.json" />
+    <Content Include="ini_files_dir\ksp_categories_phones_xiaomi.json" />
+    <Content Include="ini_files_dir\ksp_categories_watches_garmin.json" />
+    <Content Include="ini_files_dir\ksp_categories_tablets_samsung.json" />
+    <Content Include="ini_files_dir\ksp_categories_watches_samsung.json" />
+    <Content Include="ini_files_dir\ksp_categories_phones_samsung.json" />
+    <Content Include="ini_files_dir\ksp_categories_macbook.json" />
+    <Content Include="ini_files_dir\ksp_categories_ipads.json" />
+    <Content Include="ini_files_dir\ksp_categories_ipods.json" />
+    <Content Include="ini_files_dir\ksp_categories_iphones.json" />
+    <Content Include="ini_files_dir\ksp_locators.json" />
+    <Content Include="launcher.json" />
+    <Content Include="ini_files_dir\morlevi_categories_mb_gigabyte - Copy.json" />
+    <Content Include="ini_files_dir\morlevi_categories_memory_sodimm_ddr4.json" />
+    <Content Include="ini_files_dir\morlevi_categories_monitors_coolermaster.json" />
+    <Content Include="ini_files_dir\morlevi_categories_monitors_gigabyte.json" />
+    <Content Include="ini_files_dir\morlevi_categories_monitors_mag.json" />
+    <Content Include="ini_files_dir\morlevi_categories_monitors_samsung.json" />
+    <Content Include="ini_files_dir\morlevi_categories_psu_corsair.json" />
+    <Content Include="ini_files_dir\morlevi_categories_psu_gigabyte.json" />
+    <Content Include="ini_files_dir\morlevi_categories_psu_cooler_maser.json" />
+    <Content Include="ini_files_dir\morlevi_categories_storage_toshiba.json" />
+    <Content Include="ini_files_dir\morlevi_categories_storage_wd.json" />
+    <Content Include="ini_files_dir\morlevi_categories_storage_crucial.json" />
+    <Content Include="ini_files_dir\morlevi_categories_storage_gigabyte.json" />
+    <Content Include="ini_files_dir\morlevi_categories_storage_kingston.json" />
+    <Content Include="ini_files_dir\morlevi_categories_storage_intel.json" />
+    <Content Include="ini_files_dir\prestashop_product_combinations_sysnonyms_he.json" />
+    <Content Include="ini_files_dir\prestashop_product_combinations_fields.json" />
+    <Content Include="ini_files_dir\prestashop_db_connectionstrings.json" />
+    <Content Include="ini_files_dir\prestashop_product_fields.json" />
+    <Content Include="ini_files_dir\string_formatter_categories.json" />
+    <Content Include="ini_files_dir\techorezef.json" />
+    <Content Include="ini_files_dir\visualdg_categories_monitors_asus.json" />
+    <Content Include="ini_files_dir\visualdg_categories_cases_asus.json" />
+    <Content Include="ini_files_dir\morlevi_categories_keyboards_hp.json" />
+    <Content Include="ini_files_dir\morlevi_categories_minipc_gigabyte.json" />
+    <Content Include="ini_files_dir\morlevi_categories_monitors_aoc.json" />
+    <Content Include="ini_files_dir\morlevi_categories_monitors_dell.json" />
+    <Content Include="ini_files_dir\morlevi_categories_monitors_lenovo.json" />
+    <Content Include="ini_files_dir\morlevi_categories_storage_sandisk.json" />
+    <Content Include="ini_files_dir\morlevi_categories_minipc_intel.json" />
+    <Content Include="ini_files_dir\cdata_categories_video.json" />
+    <Content Include="ini_files_dir\cdata_categories_ups.json" />
+    <Content Include="ini_files_dir\visualdg_categories_minipc_asus.json">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="ini_files\techorezef.json" />
-    <Content Include="ini_files\visualdg_categories_monitors_asus.json" />
-    <Content Include="ini_files\visualdg_categories_cases_asus.json" />
-    <Content Include="ini_files\morlevi_categories_keyboards_hp.json" />
-    <Content Include="ini_files\morlevi_categories_minipc_gigabyte.json" />
-    <Content Include="ini_files\morlevi_categories_monitors_aoc.json" />
-    <Content Include="ini_files\morlevi_categories_monitors_dell.json" />
-    <Content Include="ini_files\morlevi_categories_monitors_lenovo.json" />
-    <Content Include="ini_files\morlevi_categories_storage_sandisk.json" />
-    <Content Include="ini_files\morlevi_categories_minipc_intel.json" />
-    <Content Include="ini_files\cdata_categories_video.json" />
-    <Content Include="ini_files\cdata_categories_ups.json" />
-    <Content Include="ini_files\visualdg_categories_minipc_asus.json">
+    <Content Include="ini_files_dir\visualdg_categories_video_asus.json" />
+    <Content Include="ini_files_dir\visualdg_categories_mb_asus.json" />
+    <Content Include="ini_files_dir\visualdg_categories_desktops_lenovo_workstation_p.json" />
+    <Content Include="ini_files_dir\cdata_categories_gaming_laptops_hp.json" />
+    <Content Include="ini_files_dir\cdata_categories_gaming_laptops_dell.json" />
+    <Content Include="ini_files_dir\cdata_categories_keyboards.json" />
+    <Content Include="ini_files_dir\visualdg_categories_laptops_asus.json">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="ini_files\visualdg_categories_video_asus.json" />
-    <Content Include="ini_files\visualdg_categories_mb_asus.json" />
-    <Content Include="ini_files\visualdg_categories_desktops_lenovo_workstation_p.json" />
-    <Content Include="ini_files\cdata_categories_gaming_laptops_hp.json" />
-    <Content Include="ini_files\cdata_categories_gaming_laptops_dell.json" />
-    <Content Include="ini_files\cdata_categories_keyboards.json" />
-    <Content Include="ini_files\visualdg_categories_laptops_asus.json">
+    <Content Include="ini_files_dir\visualdg_categories_laptops_lenovo_v_essentials.json" />
+    <Content Include="ini_files_dir\visualdg_categories_laptops_lenovo_thinkbook.json" />
+    <Content Include="ini_files_dir\visualdg_categories_laptops_lenovo_yoga.json" />
+    <Content Include="ini_files_dir\visualdg_categories_laptops_lenovo_thinkpad_e.json" />
+    <Content Include="ini_files_dir\visualdg_categories_laptops_lenovo_thinkpad_t.json" />
+    <Content Include="ini_files_dir\visualdg_categories_laptops_lenovo_thinkpad_l.json" />
+    <Content Include="ini_files_dir\visualdg_categories_laptops_lenovo_thinkpad_x.json" />
+    <Content Include="ini_files_dir\visualdg_categories_laptops_lenovo_thinkpad_p.json" />
+    <Content Include="ini_files_dir\cdata_categories_laptops_asus.json" />
+    <Content Include="ini_files_dir\cdata_categories_laptops_dell.json" />
+    <Content Include="ini_files_dir\cdata_categories_monitors_dell.json" />
+    <Content Include="ini_files_dir\cdata_categories_monitors_apple.json" />
+    <Content Include="ini_files_dir\cdata_categories_printers.json" />
+    <Content Include="ini_files_dir\cdata_categories_gaming_laptops_asus.json" />
+    <Content Include="ini_files_dir\cdata_categories_gaming_desktops.json" />
+    <Content Include="ini_files_dir\cdata_categories_workstatios.json" />
+    <Content Include="ini_files_dir\cdata_categories_monitors_hp.json" />
+    <Content Include="ini_files_dir\cdata_categories_desktops.json">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="ini_files\visualdg_categories_laptops_lenovo_v_essentials.json" />
-    <Content Include="ini_files\visualdg_categories_laptops_lenovo_thinkbook.json" />
-    <Content Include="ini_files\visualdg_categories_laptops_lenovo_yoga.json" />
-    <Content Include="ini_files\visualdg_categories_laptops_lenovo_thinkpad_e.json" />
-    <Content Include="ini_files\visualdg_categories_laptops_lenovo_thinkpad_t.json" />
-    <Content Include="ini_files\visualdg_categories_laptops_lenovo_thinkpad_l.json" />
-    <Content Include="ini_files\visualdg_categories_laptops_lenovo_thinkpad_x.json" />
-    <Content Include="ini_files\visualdg_categories_laptops_lenovo_thinkpad_p.json" />
-    <Content Include="ini_files\cdata_categories_laptops_asus.json" />
-    <Content Include="ini_files\cdata_categories_laptops_dell.json" />
-    <Content Include="ini_files\cdata_categories_monitors_dell.json" />
-    <Content Include="ini_files\cdata_categories_monitors_apple.json" />
-    <Content Include="ini_files\cdata_categories_printers.json" />
-    <Content Include="ini_files\cdata_categories_gaming_laptops_asus.json" />
-    <Content Include="ini_files\cdata_categories_gaming_desktops.json" />
-    <Content Include="ini_files\cdata_categories_workstatios.json" />
-    <Content Include="ini_files\cdata_categories_monitors_hp.json" />
-    <Content Include="ini_files\cdata_categories_desktops.json">
+    <Content Include="ini_files_dir\cdata_categories_laptops_hp.json" />
+    <Content Include="ini_files_dir\techorezef_locators.json" />
+    <Content Include="ini_files_dir\visualdg_locators.json">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="ini_files\cdata_categories_laptops_hp.json" />
-    <Content Include="ini_files\techorezef_locators.json" />
-    <Content Include="ini_files\visualdg_locators.json">
+    <Content Include="ini_files_dir\techorezef_login.json" />
+    <Content Include="ini_files_dir\visualdg_login.json" />
+    <Content Include="ini_files_dir\visualdg.json" />
+    <Content Include="ini_files_dir\grandadvance_locators.json" />
+    <Content Include="ini_files_dir\cdata_locators.json">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="ini_files\techorezef_login.json" />
-    <Content Include="ini_files\visualdg_login.json" />
-    <Content Include="ini_files\visualdg.json" />
-    <Content Include="ini_files\grandadvance_locators.json" />
-    <Content Include="ini_files\cdata_locators.json">
+    <Content Include="ini_files_dir\grandadvance_login.json" />
+    <Content Include="ini_files_dir\cdata_login.json">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="ini_files\grandadvance_login.json" />
-    <Content Include="ini_files\cdata_login.json">
+    <Content Include="ini_files_dir\grandadvance.json">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="ini_files\grandadvance.json">
+    <Content Include="ini_files_dir\morlevi.json">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="ini_files\messages.json">
+    <Content Include="ini_files_dir\morlevi_categories_cases_coolermaster.json" />
+    <Content Include="ini_files_dir\morlevi_categories_cases_antec.json" />
+    <Content Include="ini_files_dir\morlevi_categories_cases_corsair.json" />
+    <Content Include="ini_files_dir\morlevi_categories_cases_generic.json" />
+    <Content Include="ini_files_dir\morlevi_categories_cases_gigabyte.json" />
+    <Content Include="ini_files_dir\morlevi_categories_cases_zalman.json">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="ini_files\morlevi.json">
+    <Content Include="ini_files_dir\morlevi_categories_keyboards_genius.json" />
+    <Content Include="ini_files_dir\morlevi_categories_keyboards_coolermaster.json" />
+    <Content Include="ini_files_dir\morlevi_categories_keyboards_logitech.json" />
+    <Content Include="ini_files_dir\morlevi_categories_laptops_dell.json" />
+    <Content Include="ini_files_dir\morlevi_categories_laptops_hp.json" />
+    <Content Include="ini_files_dir\morlevi_categories_laptops_asus.json" />
+    <Content Include="ini_files_dir\morlevi_categories_memory_sodimm_ddr3.json" />
+    <Content Include="ini_files_dir\morlevi_categories_memory_dimm_ddr4.json" />
+    <Content Include="ini_files_dir\morlevi_categories_sound.json" />
+    <Content Include="ini_files_dir\morlevi_categories_ups.json" />
+    <Content Include="ini_files_dir\morlevi_categories_network.json" />
+    <Content Include="ini_files_dir\morlevi_categories_printers.json" />
+    <Content Include="ini_files_dir\morlevi_categories_keyboards_microsoft.json" />
+    <Content Include="ini_files_dir\morlevi_categories_cpu.json">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="ini_files\morlevi_categories_cases_coolermaster.json" />
-    <Content Include="ini_files\morlevi_categories_cases_antec.json" />
-    <Content Include="ini_files\morlevi_categories_cases_corsair.json" />
-    <Content Include="ini_files\morlevi_categories_cases_generic.json" />
-    <Content Include="ini_files\morlevi_categories_cases_gigabyte.json" />
-    <Content Include="ini_files\morlevi_categories_cases_zalman.json">
+    <Content Include="ini_files_dir\morlevi_categories_laptops_lenovo.json">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="ini_files\morlevi_categories_keyboards_genius.json" />
-    <Content Include="ini_files\morlevi_categories_keyboards_coolermaster.json" />
-    <Content Include="ini_files\morlevi_categories_keyboards_logitech.json" />
-    <Content Include="ini_files\morlevi_categories_laptops_dell.json" />
-    <Content Include="ini_files\morlevi_categories_laptops_hp.json" />
-    <Content Include="ini_files\morlevi_categories_laptops_asus.json" />
-    <Content Include="ini_files\morlevi_categories_memory_sodimm_ddr3.json" />
-    <Content Include="ini_files\morlevi_categories_memory_dimm_ddr4.json" />
-    <Content Include="ini_files\morlevi_categories_sound.json" />
-    <Content Include="ini_files\morlevi_categories_ups.json" />
-    <Content Include="ini_files\morlevi_categories_network.json" />
-    <Content Include="ini_files\morlevi_categories_printers.json" />
-    <Content Include="ini_files\morlevi_categories_keyboards_microsoft.json" />
-    <Content Include="ini_files\morlevi_categories_cpu.json">
+    <Content Include="ini_files_dir\morlevi_categories_monitors_philips.json" />
+    <Content Include="ini_files_dir\morlevi_categories_storage_samsung.json">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="ini_files\morlevi_categories_laptops_lenovo.json">
-      <SubType>Code</SubType>
-    </Content>
-    <Content Include="ini_files\morlevi_categories_monitors_philips.json" />
-    <Content Include="ini_files\morlevi_categories_storage_samsung.json">
-      <SubType>Code</SubType>
-    </Content>
-    <Content Include="ini_files\morlevi_categories_memory_dimm_ddr3.json" />
-    <Content Include="ini_files\readme.md">
+    <Content Include="ini_files_dir\morlevi_categories_memory_dimm_ddr3.json" />
+    <Content Include="ini_files_dir\readme.md">
       <SubType>Code</SubType>
     </Content>
     <Content Include="logger\readme.md">
@@ -729,16 +724,13 @@
     <Content Include="Facebook\__pycache__\send_messages.cpython-37.pyc" />
     <Content Include="Facebook\__pycache__\send_messages_to.cpython-37.pyc" />
     <Content Include="Facebook\__pycache__\send_to.cpython-37.pyc" />
-    <Content Include="ini_files\facebook_locators.json">
+    <Content Include="ini_files_dir\facebook_locators.json">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="ini_files\morlevi_login.json">
+    <Content Include="ini_files_dir\morlevi_login.json">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="ini_files\db_connectors_strings.json">
-      <SubType>Code</SubType>
-    </Content>
-    <Content Include="ini_files\webdriver.json">
+    <Content Include="ini_files_dir\db_connectors_strings.json">
       <SubType>Code</SubType>
     </Content>
     <Content Include="python-telegram-bot-master\.github\CONTRIBUTING.rst" />

@@ -21,7 +21,7 @@ from Ini import Ini
         driver_options
 '''
 import Driver.driver_options as driver_options
-import execute_json as jsn
+import execute_json as json
 
 import pandas as pd
 import datetime
@@ -46,8 +46,8 @@ class Driver(Log):
     @Log.log_f 
     def set_driver(self ,**kwards):      
         _path_to_ini_file = f'''{self.path_root}/Ini/webdriver.json'''  
-        _driver_name = jsn.loads(_path_to_ini_file)["driver"]
-        self.driver_wait = jsn.loads(_path_to_ini_file)["driver_wait"]
+        _driver_name = json.loads(_path_to_ini_file)["driver"]
+        self.driver_wait = json.loads(_path_to_ini_file)["driver_wait"]
 
         #try:
 
@@ -61,7 +61,7 @@ class Driver(Log):
         '''
         if _driver_name == 'chromedriver': 
             chrome_options = webdriver.ChromeOptions()
-            for argument in jsn.loads(_path_to_ini_file)["arguments"]:
+            for argument in json.loads(_path_to_ini_file)["arguments"]:
                     chrome_options.add_argument(argument)
             self.driver = webdriver.Chrome(options = chrome_options)
             
@@ -78,7 +78,7 @@ class Driver(Log):
     #def driver(self):
     #    return self.driver
     @Log.log_f 
-    def driver_implicity_wait(self , wait):
+    def implicity_wait(self , wait):
         '''
         Неявное ожидание указывает WebDriver'у опрашивать DOM определенное количество времени, 
         когда пытается найти элемент или элементы, которые недоступны в тот момент. 

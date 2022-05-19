@@ -1,99 +1,18 @@
-from selenium import webdriver
+'''
+            Функции, присущие поставщику  KSP, которыми я дополняю класс supplier
+
+'''
 from logger import Log
-# примеры 
-# https://python-scripts.com/beautifulsoup-html-parsing
+
 from bs4 import BeautifulSoup
-#import re
-#import json
-import execute_json as jsn
-#import _regex as rgf
+import execute_json as json
+
 import sys
-#import price_cleaner
-#import strings_cleaner
-import execute_json as jsn
+
 import products
 from formatter import Formatter
 
 formatter = Formatter() # <- Обязательно переделаю в статический метод
-
-'''
-
-
-
-                      "id": "",
-                      "pail": 1,
-                      "title": "",
-                      "categories": "",
-                      "mexir lifney": "",
-                      "mezhe mas": 53,
-                      "mexir olut": "",
-                      "onsale": "1",
-                      "gova or kamut anaha": "",
-                      "anaxa axuzim": "",
-                      "anaxa mtaarix  (yyyy-mm-dd)": "",
-                      "anaxa ad taarix (yyyy-mm-dd)": "",
-                      "mkt": "",
-                      "mkt suppl": "",
-                      "supplier": "",
-                      "brand": "",
-                      "EAN-13": "",
-                      "UPC": "",
-                      "MPN": "",
-                      "green тах": "",
-                      "roxav": "",
-                      "gova": "",
-                      "omek": "",
-                      "mishkal": "",
-                      "zman aspaka": "",
-                      "Delivery time of out-of-stock products": "",
-                      "qty": "10",
-                      "min qty": "1",
-                      "ramat mlay nemuha": "",
-                      "doar mlay": "",
-                      "visible": "both",
-                      "alut mishloh": "50",
-                      "yehida avur mexir yaxida": "",
-                      "mexir le yexida": "",
-                      "sikum": "",
-                      "tiur": "",
-                      "tagiot": "",
-                      "koteret meta": "",
-                      "milot mafeah": "",
-                      "tiur meta": "",
-                      "rewrie url": "",
-                      "tavit im bemlay": "",
-                      "back-order": "",
-                      "zamin-azmana": "1",
-                      "taarix zminut": "",
-                      "shnat yatzur": "",
-                      "price visible": "1",
-                      "img url": "",
-                      "img alt": "",
-                      "mexika tmuna kodemet": "1",
-                      "maafianim mufradim bpsik": "",
-                      "zamin rak breshet": "0",
-                      "matzav": "",
-                      "nitan leatama": "",
-                      "kvatzim": "",
-                      "sadot text": "1",
-                      "peula im azal": "",
-                      "virtuali": "",
-                      "url file": "",
-                      "mispar hudaot": "",
-                      "taarix tfuga": "",
-                      "mispar yamim": "",
-                      "id xanut": "1,2,3,4",
-                      "nihul mlai mitkadem": 0,
-                      "taluj bmalay": 0,
-                      "maxsan": "",
-                      "avizarim": ""
-
-
-
-'''
-
-
-
 
 def get_product_fields(self):
     
@@ -102,7 +21,8 @@ def get_product_fields(self):
     Here we are also checking for presence of data-value attribute.
     soup.find("span", {"class": "real number", "data-value": True})['data-value']
     '''
-    p = products.Product(self.lang)
+    p = products.Product()
+
     p.fields["title"] = formatter.remove_special_characters(self.driver.title)
 
     '''
@@ -235,14 +155,13 @@ def product_attributes(self, p, delimeter, elements):
 def build_list_from_html_elements(self, delimeter:str, element) -> []:
     '''
     '''
-    soup : BeautifulSoup = BeautifulSoup(elements , 'html.parser')
-    elements_list = soup.findAll(element_delimeter)
-    el :[]
+    soup : BeautifulSoup = BeautifulSoup(element , 'html.parser')
+    elements_list = soup.findAll(delimeter)
+    els :[] = []
     for raw_element in elements_list:
-        element = formatter.remove_htms_suppliers_and_special_chars(raw_element)
-        el.append()
+        els.append(formatter.remove_htms_suppliers_and_special_chars(raw_element))
         
-
+    return els
 
 
 

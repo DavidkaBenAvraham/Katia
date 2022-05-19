@@ -12,7 +12,7 @@ import time
 import sys
 from selenium.common.exceptions import *
 
-from ini_files import Ini
+from ini_files_dir import Ini
 import strings_cleaner as str_cleaner
 import price_cleaner
 from products import product_fields
@@ -254,7 +254,7 @@ def flush_p(self):
     # есть в файле записи csv
     ''' при помощи set убираю дубликаты '''
     dt = Ini.get_now('%d%m%y_%H-%M-%S')
-    filename = str(f'{self.supplier_prefics}-{dt}.csv')
+    filename = str(f'{self.supplier}-{dt}.csv')
     path_to_file = str(f'..\\export\\{filename}')
     self.log(f'''   скидываю товары в файл {filename}  ''')
     self.log( f''' Последний успешный сценарий: {self.current_node} ''')
@@ -319,7 +319,7 @@ def sozdaj_spisok_tovarov_zapolini_polia_na_categorypage(self):
     {product_block_locator} <br>
     attribute = 
     {attribute}</p>''')
-    if self.supplier_name.find('ksp')>-1:
+    if self.supplier.find('ksp')>-1:
         scroller(self)
         product_blocks = self.get_listattributes_from_allfound_elements(attribute , product_block_locator)
         # Вытаскиваю из супа поля продуктов

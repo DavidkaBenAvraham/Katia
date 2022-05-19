@@ -1,19 +1,24 @@
 ﻿from pathlib import Path
-import json
+import json as json
 from logger import Log
-log = Log()
-from exceptions_handler import ExceptionsHandler
 
-@ExceptionsHandler.handler
-def loads(path:Path )->json:
+from exceptions_handler import ExceptionsHandler as EH
+
+
+#@Log.log
+def loads(path:Path )-> dict :
     ''' получаю объект Path - не str! '''
-    with path.open(encoding='utf-8') as f:
+    with path.absolute().open(encoding='utf-8') as f:
             data = json.loads(f.read())
     return data
 
-@ExceptionsHandler.handler
+
 def html2json(html:str)->json:
     pass
+
+
+
+    
 
 
 

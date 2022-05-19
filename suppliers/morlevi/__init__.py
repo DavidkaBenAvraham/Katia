@@ -33,7 +33,7 @@ def log_in(self):
         except Exception as ex:
             self.print(f''' 
             Не удалось залогиниться 
-            {self.supplier_name}
+            {self.supplier}
             ''')
             return False
 #@Log.log_f

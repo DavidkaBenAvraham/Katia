@@ -1,8 +1,8 @@
 import os
 import shutil
 
-from ini_files import Ini
-import execute_json as jsn
+from ini_files_dir import Ini
+import execute_json as json
 
 
 ##https://vivazzi.pro/it/remove-file/
@@ -25,7 +25,7 @@ import execute_json as jsn
 
 
 def clear_product_images_folder():
-    path  = jsn.load('filemanager.json')['prestashop']['local_productimages_directory']
+    path  = json.load('filemanager.json')['prestashop']['local_productimages_directory']
 
     files = os.listdir(path)
     for f in files:

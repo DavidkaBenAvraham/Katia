@@ -14,8 +14,8 @@ import pandas.io.sql as psql
 import datetime
 import time
 #import json  
-from ini_files import Ini
-import execute_json as jsn
+from ini_files_dir import Ini
+import execute_json as json
 
  
 
