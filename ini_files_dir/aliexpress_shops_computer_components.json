@@ -3,28 +3,35 @@
     "description": "память по скидке",
     "about": "====",
     "store_id": 2843040,
-    "shop_url": "https://aliexpress.ru/store/2843040",
-    "all-wholesale-products": "https://aliexpress.ru/store/all-wholesale-products/2843040.html"
+    "shop_url": "https://aliexpress.com/store/2843040",
+    "all-wholesale-products": "https://aliexpress.com/store/all-wholesale-products/2843040.html"
   },
   "LAMB Store": {
     "description": "запчасти для ноутбуков",
     "about": "====",
     "store_id": 2928019,
-    "shop_url": "https://aliexpress.ru/store/2928019",
-    "all-wholesale-products": "https://aliexpress.ru/store/all-wholesale-products/2928019.html"
+    "shop_url": "https://aliexpress.com/store/2928019",
+    "all-wholesale-products": "https://aliexpress.com/store/all-wholesale-products/2928019.html"
   },
   "KONYA Store": {
     "description": "запчасти для ноутбуков",
     "about": "====",
     "store_id": 4376089,
-    "shop_url": "https://aliexpress.ru/store/4376089",
-    "all-wholesale-products": "https://aliexpress.ru/store/all-wholesale-products/4376089.html"
+    "shop_url": "https://aliexpress.com/store/4376089",
+    "all-wholesale-products": "https://aliexpress.com/store/all-wholesale-products/4376089.html"
   },
   "Professional Accessories Store": {
     "description": "запчасти для ноутбуков",
     "about": "====",
     "store_id": 4376089,
-    "shop_url": "https://aliexpress.ru/store/4376089",
-    "all-wholesale-products": "https://aliexpress.ru/store/all-wholesale-products/4376089.html"
+    "shop_url": "https://aliexpress.com/store/4376089",
+    "all-wholesale-products": "https://aliexpress.com/store/all-wholesale-products/4376089.html"
+  },
+  "Kllisre Official Store": {
+    "description": "запчасти для ноутбуков",
+    "about": "====",
+    "store_id": 604710,
+    "shop_url": "https://aliexpress.com/store/604710",
+    "all-wholesale-products": "https://aliexpress.com/store/all-wholesale-products/604710.html"
   }
 }

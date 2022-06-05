@@ -96,7 +96,7 @@ class Driver():
             options = webdriver.ChromeOptions()
             for argument in webdriver_settings["arguments"]:
                     options.add_argument(argument)
-                    options.set_capability('intl.accept_languages'", "'en-GB')
+                    options.set_capability('intl.accept_languages', 'en-GB')
             self.driver = webdriver.Chrome(options = options)
 
         if webdriver_settings['name'] == 'firefox': 
@@ -196,10 +196,15 @@ class Driver():
         '''переход по заданному адресу 
         view_html_source = True : возвращает код страницы'''
 
+
+        def check_if_not_login():
+
+            pass
+
         try:
             #self.driver.get(f'''view-source:{url}''') if view_html_source else 
             self.driver.get(f'''{url}''')
-        
+            check_if_not_login()
             return True 
         except Exception as ex:
             return False , print(f''' Ошибка в _get_url() :

@@ -1,33 +1,35 @@
-﻿{
+{
   "ASUS-Global store": {
+    "description": "ASUS GLOBAL STORE",
+    "about": "====",
     "store_id": 911943321,
-    "shop_url": "https://aliexpress.ru/store/911943321",
-    "all-wholesale-products": "https://aliexpress.ru/store/all-wholesale-products/911943321.html"
+    "shop_url": "https://aliexpress.com/store/911943321",
+    "all-wholesale-products": "https://aliexpress.com/store/all-wholesale-products/911943321.html"
   },
   "ATOMSTACK Official Store": {
     "description": "PC Cooles Store",
     "about": "====",
     "store_id": 912690782,
-    "shop_url": "https://aliexpress.ru/store/912690782",
-    "all-wholesale-products": "https://aliexpress.ru/store/all-wholesale-products/912690782.html"
+    "shop_url": "https://aliexpress.com/store/912690782",
+    "all-wholesale-products": "https://aliexpress.com/store/all-wholesale-products/912690782.html"
   },
   "DECKO official store": {
     "store_id": 1854241,
-    "shop_url": "https://aliexpress.ru/store/1854241",
-    "all-wholesale-products": "https://aliexpress.ru/store/all-wholesale-products/1854241.html"
+    "shop_url": "https://aliexpress.com/store/1854241",
+    "all-wholesale-products": "https://aliexpress.com/store/all-wholesale-products/1854241.html"
   },
   "Lenovo Online Store": {
     "description": "компьютерные комплектующие",
     "about": "====",
     "store_id": 114342,
-    "shop_url": "https://aliexpress.ru/store/114342",
-    "all-wholesale-products": "https://aliexpress.ru/store/all-wholesale-products/114342.html"
+    "shop_url": "https://aliexpress.com/store/114342",
+    "all-wholesale-products": "https://aliexpress.com/store/all-wholesale-products/114342.html"
   },
   "Xiaomi": {
     "description": "компьютерные комплектующие",
     "about": "====",
     "store_id": 2800188,
-    "shop_url": "https://aliexpress.ru/store/2800188",
-    "all-wholesale-products": "https://aliexpress.ru/store/all-wholesale-products/2800188.html"
+    "shop_url": "https://aliexpress.com/store/2800188",
+    "all-wholesale-products": "https://aliexpress.com/store/all-wholesale-products/2800188.html"
   }
 }  

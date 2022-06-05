@@ -27,7 +27,6 @@
     "apis_file": "apis.json"
   },
 
-
   "webdriver": {
     "name": "firefox",
     "arguments": [ "--no-sandbox" ],
@@ -43,6 +42,18 @@
   "about kora": "kora обертка для запуска вебдрайвера в google.research взята из https://github.com/korakot/kora",
   "excluded webdrivers": {
 
+
+
+    "webdriver": {
+      "name": "firefox",
+      "arguments": [ "--no-sandbox" ],
+      "disabled_arguments": [
+        "--disable-dev-shm-usage",
+        "--headless"
+      ],
+      "wait": 5,
+      "maximize_window": true
+    },
 
     "webdriver": {
       "name": "kora",

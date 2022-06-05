@@ -57,9 +57,6 @@ class Supplier:
     ''' локаторы элементов категорий. Сейчас я нахожусь в 
         раздумывании вынести категории в отдельный объект'''
 
-    if_login            : bool = attrib(init=False , default = None)                      
-    '''  требуется ли процедура логина. Лишняя информация. Есть смысл вынести ее в сценарий '''
-    
     current_scenario    : dict = attrib(init = False , default = None) 
     '''Исполняемый в данный момент сценарий в формате dict{}'''
     
@@ -76,14 +73,7 @@ class Supplier:
     current_nodename    : str =  attrib(init=False, default = None) 
     ''' Имя испоняемого узла сценария'''
      
-    P       : pd =  attrib(init = False , default = None)
-    ''' Датафрейм товаров, собираемых по сценарию '''
-
-    C       : categories = attrib(init = False , default = None)
-
-    SHOP    : shop = attrib(init = False , default = None)
-    
-    shops   : Factory(list) = attrib(init = False, default = [])
+  
 
     driver  : Driver = attrib(init = False , default = None)
     ''' вебдрайвер - мотор всей системы '''
@@ -111,10 +101,10 @@ class Supplier:
         self.related_functions = importlib.import_module(f'''suppliers.{self.supplier_prefics}''')
         ''' подгружаю релевантные функции для конкретного поствщика '''
 
-
+        self.driver.get_url(self.supplier_settings_from_json['start_url'])
         
-        self.C = self.related_functions.categories()
-        self.SHOP = self.related_functions.shop()
+        
+        if self.supplier_settings_from_json['if_login']:self.related_functions.login(self)
 
 
     ''' ------------------ КОНЕЦ  -------------------------- '''
@@ -125,11 +115,11 @@ class Supplier:
     def run(self):
         ''' Запуск кода сценариев   '''
         #execute_scenaries.execute_list_of_scenaries(self)
-        self.related_functions.build_shops_list_from_scenaries(self.supplier_settings_from_json['scenaries'])
+        self.related_functions.get_shops_from_json(self)
 
-        self.C.build_ALIEXPRESS_categories_table()
-        ''' собираю дерево каталогов'''
-        self.SHOP.build_SHOP_categories_table()
+        #self.C.build_ALIEXPRESS_categories_table()
+        #''' собираю дерево каталогов'''
+        #self.SHOP.build_SHOP_categories_table()
 
         #self.run()
         ''' собираю товары по сценариям'''

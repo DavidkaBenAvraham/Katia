@@ -1187,6 +1187,7 @@
     <Content Include="ini_files_dir\ksp_categories_ipods.json" />
     <Content Include="ini_files_dir\ksp_categories_iphones.json" />
     <Content Include="ini_files_dir\ksp_locators.json" />
+    <Content Include="ini_files_dir\logins.json" />
     <Content Include="ini_files_dir\manufacturers.json" />
     <Content Include="launcher.json" />
     <Content Include="ini_files_dir\morlevi_categories_mb_gigabyte - Copy.json" />
@@ -1326,9 +1327,6 @@
     <Content Include="Facebook\__pycache__\send_messages_to.cpython-37.pyc" />
     <Content Include="Facebook\__pycache__\send_to.cpython-37.pyc" />
     <Content Include="ini_files_dir\facebook_locators.json">
-      <SubType>Code</SubType>
-    </Content>
-    <Content Include="ini_files_dir\morlevi_login.json">
       <SubType>Code</SubType>
     </Content>
     <Content Include="ini_files_dir\db_connectors_strings.json">

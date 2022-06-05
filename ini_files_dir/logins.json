@@ -1,0 +1,24 @@
+{
+  "aliexpress": {
+    "url": "https://login.aliexpress.com/",
+
+    "user": "one.last.bit@gmail.com",
+    "user_locator": {
+      "attribute": "text",
+      "by": "xpath",
+      "selector": "//input[@id='fm-login-id']"
+    },
+    "password": "dav1969",
+    "password_locator": {
+      "attribute": "text",
+      "by": "xpath",
+      "selector": "//input[@id='fm-login-password']"
+    },
+    "send_locator": {
+      "attribute": "click",
+      "by": "xpath",
+      "selector": "//button[@type='submit']"
+    }
+
+  }
+}

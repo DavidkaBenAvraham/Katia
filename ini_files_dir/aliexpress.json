@@ -6,15 +6,15 @@
   "root_category": 3,
   "catalog_wholesale-products": {
     "HE": "https://he.aliexpress.com/all-wholesale-products.html",
-    "RU": "https://aliexpress.ru/all-wholesale-products.html",
+    "RU": "https://aliexpress.com/all-wholesale-products.html",
     "EN": "https://aliexpress.com/all-wholesale-products.html",
     "FR": "https://fr.aliexpress.com/all-wholesale-products.html"
   },
   "price_rule": "+0",
   "num_items_4_flush": 300,
-  "if_login": false,
+  "if_login": true,
   "collect_products_from_categorypage": false,
-  "scenaries": [
+  "shops": [
     "aliexpress_shops_brands.json",
     "aliexpress_shops_computer_components.json",
     "aliexpress_shops_electronics.json",

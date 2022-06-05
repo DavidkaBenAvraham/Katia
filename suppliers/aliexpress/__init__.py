@@ -4,6 +4,38 @@ from pathlib import Path
 import pandas as pd
 from attr import attrib, attrs, Factory
 
+shops : list = []
+
+def login(s):
+    locators =  json.loads(Path(s.ini.paths.ini_files_dir , f'''logins.json'''))['aliexpress']
+    s.driver.get_url(locators['url'])
+
+    user_locator = (locators['user_locator']['by'], 
+                     locators['user_locator']['selector'])
+    s.driver.find(locators['user_locator'])[0].send_keys( locators['user'])
+    
+    password_locator = ( locators['password_locator']['by'],
+                         locators['password_locator']['selector'])
+    s.driver.find(locators['password_locator'])[0].send_keys( locators['password'])
+
+    send_locator = ( locators['send_locator']['by'],
+                         locators['send_locator']['selector'])
+
+    s.driver.find(locators['send_locator'])[0].click()
+
+
+def get_shops_from_json(s):
+    shops_groups_files_dict = json.loads(Path(s.ini.paths.ini_files_dir , f'''aliexpress.json'''))['shops']
+    for shop_group_file in shops_groups_files_dict:
+        shops_dict = json.loads(Path(s.ini.paths.ini_files_dir , f'''{shop_group_file}'''))
+        for item in shops_dict.items() : build_shop_categories(s , item)
+    pass 
+
+def build_shop_categories(s , shop_dict : dict) -> dict:
+    s.driver.get_url(shop_dict[1]['all-wholesale-products'])
+    categoties_group_dict = s.driver.find(s.locators['block_main_items'])[0]
+
+    pass
 
 @attrs
 class categories:
@@ -15,7 +47,7 @@ class categories:
 
     def __attrs_post_init__(self, *args, **kwards):
         self._aliexpress_root_category : int = attrib(init = False , default = 3)
-        self._category_url = 'https://aliexpress.ru/all-wholesale-products.html'
+        self._category_url = 'https://aliexpress.com/all-wholesale-products.html'
         self.t = []
         self.t.append(
                         {'category ID': 3 ,
@@ -23,7 +55,7 @@ class categories:
                     'category name': 'ALIEXPRESS',
                     'parent category': 2,
                     'root': 0 ,
-                    'category_url' : 'https://aliexpress.ru/all-wholesale-products.html'}
+                    'category_url' : 'https://aliexpress.com/all-wholesale-products.html'}
                               )
         ''' первая строка таблицы '''
 
@@ -70,38 +102,39 @@ class categories:
         categories.fill_categories_table(self , s, _dict  , _parent_category) 
         counter +=1
 
-    ''' ------------------ НАЧАЛО -------------------------- '''        
-    def ____build_categories_table(self ,
-                               locator : dict = None, 
-                               category_url : str = None , 
-                               parent_category : int = 3,
-                               )->bool:
 
-            '''parent_category : откуда строится дерево 
-            s : объект supplier
-            locator : 
-            category_url : чаще всего берется из <shop>/all-wholesale-products/
-            или из parent_category : корень сбора =3 для алиэкспресс в мое каталоге
-            3 root для алиэкспресс в моем (e-cat.me) дереве категорий
-            ---------------------
-            вытаскиваю дерево категорий по локатору
-            если локатор не задан - начинаю от корня
-            на самом али и в алишных магазинах могут быть разные локаторы
-            '''
+    #''' ------------------ НАЧАЛО -------------------------- '''        
+    #def ____build_categories_table(self ,
+    #                           locator : dict = None, 
+    #                           category_url : str = None , 
+    #                           parent_category : int = 3,
+    #                           )->bool:
 
-            while tbl_item in self.t:
+    #        '''parent_category : откуда строится дерево 
+    #        s : объект supplier
+    #        locator : 
+    #        category_url : чаще всего берется из <shop>/all-wholesale-products/
+    #        или из parent_category : корень сбора =3 для алиэкспресс в мое каталоге
+    #        3 root для алиэкспресс в моем (e-cat.me) дереве категорий
+    #        ---------------------
+    #        вытаскиваю дерево категорий по локатору
+    #        если локатор не задан - начинаю от корня
+    #        на самом али и в алишных магазинах могут быть разные локаторы
+    #        '''
 
-                category_url = tbl_item['category_url']
-                s.driver.get_url(category_url)
+    #        while tbl_item in self.t:
 
-                if len(locator.items())==0: locator = s.locators['main_categories_locator_HTMLBLOCK']
-                ''' нет локатора - беру дефолтный '''
-                categories.build_sub_categories(self ,s, locator  , tbl_item['category_id'])
+    #            category_url = tbl_item['category_url']
+    #            s.driver.get_url(category_url)
+
+    #            if len(locator.items())==0: locator = s.locators['main_categories_locator_HTMLBLOCK']
+    #            ''' нет локатора - беру дефолтный '''
+    #            categories.build_sub_categories(self ,s, locator  , tbl_item['category_id'])
 
             
-            s.export(data = self.t , format = ['csv'] )
+    #        s.export(data = self.t , format = ['csv'] )
         
-    ''' ------------------ КОНЕЦ -------------------------- '''
+    #''' ------------------ КОНЕЦ -------------------------- '''
 
 @attrs
 class shop:
@@ -120,6 +153,4 @@ class products:
     pass
 
 
-def build_shops_list_from_scenaries_files(s , scenaries_files : list = []) -> dict:
 
-    print(scenaries)
