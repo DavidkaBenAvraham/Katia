@@ -22,7 +22,7 @@ import execute_json as json
 
 @attrs
 class Product():
-    ''' Всё, что относится к товару
+    ''' Всё, что относится к товару csv_json_executers
     '''
     
     fields : pd.DataFrame = attrib(init = False, default = None)

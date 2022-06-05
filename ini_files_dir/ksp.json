@@ -1,24 +1,18 @@
 {
   "supplier": "ksp",
-  "supplier_prefics": "KSP-",
+  "supplier_prefics": "ksp",
   "start_url": "https://www.ksp.co.il/",
   "price_rule": "+100",
   "num_items_4_flush": 300,
   "if_login": false,
   "collect_products_from_categorypage": false,
-  "scenaries": [
-    [
-
-
-
+  "scenaries": 
+  [
       "ksp_categories_consoles_microsoft.json",
       "ksp_categories_wathces_apple.json"
-
-
-
-    ]
   ],
-  "excluded": [
+  "excluded": 
+  [
 
     "ksp_categories_speakers_google.json",
     "ksp_categories_speakers_jbl.json",

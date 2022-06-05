@@ -9,6 +9,7 @@
 ####################################################################################################################################
 
 
+from logging import log
 import pandas as pd
 import datetime
 import time
@@ -19,59 +20,67 @@ from ini_files_dir import Ini
 import execute_json as json
 from logger import Log
 import products
-from formatter import Formatter
-formatter = Formatter()
+from strings_formatter import StringFormatter as SF
 
-@Log.log
-def execute_list_of_scenaries(self) -> bool :
+''' @print '''
+def execute_list_of_scenaries(Supplier) -> bool :
     ''' по умолчанию все сценарии (имена файлов) прописаны в файе <supplier>.json 
     Каждый сценарий - файл с именем 
     <supplier>_categories_<category_name>_<model>_<brand>.json
     при инициализации объекта он хранится в self.scenaries
     
-    self - class Supplier  f.e.: mor, cdata, visual, etc.
+    supplier - class Supplier  f.e.: mor, cdata, visual, etc.
+
     '''
     ################################################################################
 
+    s = Supplier
+    #^^^^^^^^^^^^
+    '''
+       s - значит Supplier
+
+    '''
+
 
     # 0. 
-    page_source = self.get_url(self.supplier_settings_dict['start_url'])
+    if not s.driver.get_url(s.supplier_settings_from_json['start_url']):
+        print(f''' supplier not started in url:
+       {s.supplier_settings_from_json['start_url']}''')
+        return False
 
 
 
     # 1.
     '''
                         если требуется логин на сайт
-                        в классе поставщика вызываю сценарий log_in()
-                        
+                        в классе поставщика вызываю сценарий log_in()            
     '''
-    if self.if_login: 
-        if not self.related_functions.log_in(self):return False
+    if s.if_login: 
+        if not s.related_functions.log_in():
+            return False ,  print(f''' 
+            supplier not logged in on: 
+            {s.driver.current_url}''')
 
 
     # 2.
     '''
 
    
-                        Запускаю каждый сценарий из из списка <supplier>.json["scenaries"]
-
-
+         Запускаю каждый сценарий из из списка <supplier>.json["scenaries"]
     '''
-    for scenario_files in self.scenaries:
+    for scenario_files in s.supplier_settings_from_json["scenaries"]:
         
         for json_file in scenario_files:      
 
-            self.current_scenario = json.loads(Path(self.ini.paths.ini_files_dir , f'''{json_file}'''))
-            self.current_scenario_category = json_file.split('_')[2]
-            run_scenario(self)
+            s.current_scenario = json.loads(Path(s.ini.paths.ini_files_dir , f'''{json_file}'''))
+            s.current_scenario_category = json_file.split('_')[2]
+            run_scenario(s)
 
     return True
 
-
-@Log.log
-def run_scenario(self) -> bool:
-    
-    for scenario_node in self.current_scenario:
+''' @print '''
+def run_scenario(s) -> bool:
+    for scenario_node in s.current_scenario:
         '''
          -текущий сценарий исполнения состоит из узлов. Каждый узел состоит из:
         - <brand> 
@@ -83,64 +92,61 @@ def run_scenario(self) -> bool:
         '''
 
 
-        self.current_node = self.current_scenario[scenario_node]
+        s.current_node = s.current_scenario[scenario_node]
         ''' текущий сценарий в формате dict '''
-        self.current_nodename = str(scenario_node)
+        s.current_nodename = str(scenario_node)
         ''' имя узла сценария '''
         
 
         '''
         '''      #########           1        ############# 
-        urls = get_list_products_urls(self)
+        list_products_urls : list = get_list_products_urls(s)
         ''' получаю список url на страницы товаров '''
-
-
         
-        
-        if urls == None : continue 
-        ''' в категории может не оказаться товаров.
-            Если не получил  url страниц товара перехожу 
-           в следующую по сценарию категорию
+        if len(list_products_urls) == 0 : continue 
+        ''' в исполняемом узле может не оказаться товаров.
+            В таком случае перехожу к следующему узлу выполнения
         '''
 
         
         '''
          #       #########           2        ############# 
         '''
-        for product_url in urls :
+        for product_url in list_products_urls :
             ''' перебираю адреса товаров '''
-
-            self.get_url(product_url)
+            s.driver.get_url(product_url)
             '''Перехожу на страницу товара '''
 
-            p_fields = self.related_functions.get_product_fields(self)
+            p_fields = s.related_functions.get_product_fields_from_product_page(s)
             ''' получаю поля товара '''
 
-            self.p.append(p_fields)
-            ''' добавляю поля в список для экспорта полей '''
+            s.p.append(p_fields)
+            ''' добавляю поля в список supplier.p[] '''
 
         return True
 
-@Log.log
-def get_list_products_urls(self) ->[]:
+#@print
+def get_list_products_urls(s) ->list:
     '''  возвращает ссылки на все товары в категории 
         по локатору self.locators['product']['link_to_product_locator']
     '''
-
+    
         
-    if self.get_url(self.current_node["url"]) == False : 
-        ''' нет такой страницы! Возможно, проверить категорию в файле сценария ? '''
-        return False 
+    if not s.driver.get_url(s.current_node["url"]): 
+        return [] , log.print(f'''нет такой страницы! 
+                {s.current_node["url"]}
+                Возможно, 
+                проверить категорию в файле сценария ? ''')
 
 
 
     #''' на странице категории могут находится  чекбоксы    
     # если их нет, в сценарии JSON они прописаны checkbox = false
     #'''
-    json_checkboxes = self.current_node["checkbox"]
+    json_checkboxes = s.current_node["checkbox"]
     if json_checkboxes: 
-        click_checkboxes(self, json_checkboxes) 
-        self.print(f''' есть чекбоксы {json_checkboxes}''')
+        s.driver.click_checkboxes(s, json_checkboxes) 
+        log.print(f''' есть чекбоксы {json_checkboxes}''')
        
 
     
@@ -149,36 +155,17 @@ def get_list_products_urls(self) ->[]:
     
     '''
 
-    if self.locators['infinity_scroll'] == True: 
+    if s.locators['infinity_scroll'] == True: 
         ''' бесконечная прокрука '''
-        scroller(self)
-           
-        list_product_urls = self.find(self.locators['product']['link_to_product_locator'])
-        ''' self.find() = .find_by(by, selector) 
-            by = XPATH | ID | CSS_SELECTOR etc.
-            см. webdrivers.__init__.py
-        '''
+        s.driver.scroll()
+        list_product_urls : list = s.driver.find(s.locators['product']['link_to_product_locator'])
         return list_product_urls
     
     else:
         '''переключение между страницами'''
         list_product_urls : list
-        while click_to_next_page(self):
-            list_product_urls += self.find(self.locators['product']['link_to_product_locator'])
+        while click_to_next_page(s):
+            list_product_urls += s.driver.find(s.locators['product']['link_to_product_locator'])
             return list_product_urls
 
-@Log.log
-def scroller(self, wait=1 , prokrutok=5, scroll=500):
-    '''
-    Prokruka stranicy vniz
-    '''
-    try:
-        for i in range(prokrutok):
-            #self.print(f'------------------------ Скроллинг вниз {i}--------------------------- ')
-            self.driver.execute_script(f"window.scrollBy(0,{scroll})") # поднял окошко
-            time.sleep(1)
-            #self.wait(1)
-        return True
-    except Exception as ex:
-        self.print(str(ex))
-        return self, False
+

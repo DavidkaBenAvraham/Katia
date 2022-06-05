@@ -5,7 +5,7 @@ import execute_json as json
 import check_and_convert_datatypes as check_type
 from Logging import Log as Log
 
-@Log.log_f
+@print_f
 def execute_list_of_scenaries(self) ->[] :
     
     ''' по умолчанию все сценарии прописаны в файе <supplier>.json 
@@ -42,7 +42,7 @@ def execute_list_of_scenaries(self) ->[] :
     ''' возвращает список товаров по всему пройденому сценарию'''
     return p
 
-@Log.log_f
+@print_f
 def run_scenario(self):
    
     product.build_produscts_list_by_scenario(self)

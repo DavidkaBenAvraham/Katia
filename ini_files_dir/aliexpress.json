@@ -1,0 +1,29 @@
+{
+  "supplier": "aliexpress",
+  "supplier_prefics": "aliexpress",
+  "start_url": "https://www.aliexpress.com/",
+  "wholesale_products_url": "https://aliexpress.com/all-wholesale-products.html",
+  "root_category": 3,
+  "catalog_wholesale-products": {
+    "HE": "https://he.aliexpress.com/all-wholesale-products.html",
+    "RU": "https://aliexpress.ru/all-wholesale-products.html",
+    "EN": "https://aliexpress.com/all-wholesale-products.html",
+    "FR": "https://fr.aliexpress.com/all-wholesale-products.html"
+  },
+  "price_rule": "+0",
+  "num_items_4_flush": 300,
+  "if_login": false,
+  "collect_products_from_categorypage": false,
+  "scenaries": [
+    "aliexpress_shops_brands.json",
+    "aliexpress_shops_computer_components.json",
+    "aliexpress_shops_electronics.json",
+    "aliexpress_shops_fans.json",
+    "aliexpress_shops_lighting.json",
+    "aliexpress_shops_malls.json",
+    "aliexpress_shops_memory.json",
+    "aliexpress_shops_lighting.json",
+    "aliexpress_shops_toys.json"
+  ]
+
+}

@@ -1,5 +1,6 @@
 import datetime , time
 from pathlib import Path
+#from strings_formatter import StringFormatter as SF
 #import os
 #from os.path import abspath
  
@@ -35,58 +36,58 @@ https://ru.stackoverflow.com/questions/535318/%D0%A2%D0%B5%D0%BA%D1%83%D1%89%D0%
 '''
 
 '''  мои модули '''
-#from exceptions_handler import ExceptionsHandler as EH
-#from logger import Log
-import execute_json as json
 
+import execute_json as json
+import random as rnd
 
 from attr import attrib, attrs, Factory
 @attrs
 class Ini():
     ''' Начальные установки для запуска программы  '''
     
-    start_time  : datetime = attrib(init = False ,default = datetime.datetime.now().strftime('%d-%m %H%M%S'))
-
-    webdriver_settings : dict = attrib(init = False)
-
-    print_type : str = attrib(init = False)
+    start_time          : datetime = attrib(init = False ,default = datetime.datetime.now().strftime('%d-%m_%H.%M.%S'))
+    webdriver_settings  : dict = attrib(init = False)
+    print_type      : str = attrib(init = False)
     ''' Вывод в стиле HTML, JUPITER, simple'''
 
-    suppliers : Factory(list) = attrib(init = False)
-    languages : Factory(list) = attrib(init = False)
-    if_threads : bool = attrib(init = False)
-    mode : str = attrib(init = False)
-    paths : paths = attrib(init = False )
-    
-
+    suppliers       : Factory(list) = attrib(init = False,default = None)
+    languages       : Factory(list) = attrib(init = False,default = None)
+    if_threads      : bool = attrib(init = False,default = None)
+    mode            : str = attrib(init = False,default = None)
+    paths           : paths = attrib(init = False ,default = None)
+    _range          : range = attrib(init = False , default = range(5))
+    ''' randomizer range settings '''
+    aliexpress      : aliexpress = attrib(init = False ,default = None)
 
     @attrs
     class paths():
-        ''' Все пути я объединил в классе path '''
+        '''В классе path я собираю все пути'''
         
-        launcher_dict : dict = attrib(kw_only=True)
+        launcher_dict   : dict = attrib(kw_only=True)
         ''' Словарь стартовых значений '''
+        root            : Path = attrib(init=False , default = Path.cwd().absolute())
+        ini_files_dir   : Path  = attrib(init = False, default = False)
+        export_dir      : Path = attrib(init = False, default = False)
+        log_file        : Path = attrib(init = False, default = False)
+        apis_file       : Path = attrib(init = False, default = False)
+        aliexpress_shops: dict = attrib(init = False, default = False)
 
-        root : Path = attrib(init=False , default = Path.cwd().absolute())
-        
-        ini_files_dir : Path  = attrib(init = False)
-
-        export_dir : Path = attrib(init = False)
-
-        logfile : Path = attrib(init = False)
-
-        def __attrs_post_init__(self, *args, **kwards):
+        def __attrs_post_init__(self,  *args, **kwards):
+            
             _paths_dict   : dict = self.launcher_dict['program_paths']
-
-
-            self.export_dir = Path(self.root.parent , _paths_dict['export_dir']).absolute()
-
+            
             self.ini_files_dir = Path(self.root ,  _paths_dict['ini_files_dir']).absolute()
             
+            
+            self.export_dir = Path(self.root.parent , _paths_dict['export_dir']).absolute()
+
+
             self.logfile  = Path(self.root.parent , _paths_dict['log_files_dir'] , f'''{self.launcher_dict['start_time']}.htm''').absolute()
             
-            
 
+            self.apis_file = Path(self.ini_files_dir ,  _paths_dict['apis_file']).absolute()
+  
+    
 
     def __attrs_post_init__(self , *args, **kwards):
         launcher_dict : dict = json.loads(Path('launcher.json'))
@@ -99,12 +100,19 @@ class Ini():
         self.if_threads = launcher_dict['threads']
         self.mode = launcher_dict['mode']
         self.log_format = launcher_dict['log_format']
-
-        launcher_dict['start_time'] = self.start_time
-        ''' время запуска скриота '''
-
+        self._range = launcher_dict['rnd_range']
+       
+        launcher_dict['start_time'] = self.start_time 
         self.paths = self.paths(launcher_dict = launcher_dict)
         ''' определяю пути для скрипта '''
 
-  
-    def get_now(self,strformat : str = '%YY-%MM-%d %H:%M:%S') : datetime =  datetime.datetime.now().strftime(strformat)
+    @staticmethod
+    def get_now(strformat : str = '%Y-%m-%d %H:%M:%S') -> datetime :
+        return  datetime.datetime.now().strftime(strformat)
+    
+    
+    @staticmethod
+    def get_randint(r:range = None ) -> int:
+        r = r if  not r is None else self._range
+        ''' прописываются для каждого драйвера '''
+        return rnd.randint(r)

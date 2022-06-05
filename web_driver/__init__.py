@@ -1,3 +1,5 @@
+from strings_formatter import StringFormatter as SF
+from logging import Formatter
 import selenium
 
 from selenium.webdriver.common.by import By
@@ -8,12 +10,19 @@ from selenium.webdriver.common.keys import Keys
 import selenium.webdriver as webdriver
 
 import kora as kora
-from kora.selenium import wd as wd
-
+from kora.selenium import wd as kora_webdriver
+from web_driver.google_search import GoogleHtmlParser as GoogleHtmlParser
 
 from exceptions_handler import ExceptionsHandler as EH
 
-''' ################################################################################
+''' 
+
+################################################################################
+
+
+                    НАЧАЛО
+
+
                       опции запуска драйверов 
                             Google, Mozilla
                             прописаны в файле
@@ -21,11 +30,6 @@ from exceptions_handler import ExceptionsHandler as EH
       
 
 '''
-import os
-import pandas as pd
-import datetime
-import time
-
 #import html5lib
 #from urllib.request import urlopen
 
@@ -33,8 +37,15 @@ import time
 #from lxml import etree 
 #from xml.etree import ElementTree as ET
 
-from logger import Log
-from ini_files_dir import Ini
+
+
+import os
+import pandas as pd
+import datetime
+import time
+
+from logger import Log as log
+from ini_files_dir import Ini as ini
 import execute_json as json
 from attr import attrs, attrib, Factory
 
@@ -47,17 +58,17 @@ class Driver():
     wait: ожидание перед действиями селениума (нахуй не нужно)
     '''
     
-    kora : kora = attrib(init = False , default = kora)
-    #ini : ini = attrib(kw_only = True , default = None)
+   
     current_url : str = attrib(init = False , default = None)
-    #print_response_status_code : str = attrib(init = False)
-    driver : kora_webdriver = attrib(init=False , default = kora_webdriver)
-    #kora_driver.common : selenium.webdriver.common = attrib(init= False)
-    wait : int = attrib(init = False, default = None)
-    webdriver_settings : json = attrib(init = False , default = None)
 
-    def __attrs_post_init__(self , *srgs, **kwrads):
-        self.set_driver(self.ini.webdriver_settings)
+    webdriver_settings : dict = attrib(init = False , default = None)
+    driver : webdriver = attrib(init = False , default = None)
+    
+    get_parsed_google_search_result : GoogleHtmlParser = attrib(init = False, default = None)
+    
+    def __attrs_post_init__(self , *args, **kwrads):
+        #self.set_driver(self.ini.webdriver_settings)
+        pass
 
     def set_driver(self , webdriver_settings : dict) -> driver:      
         '''   webdriver_settings - установки драйвера не из файла, а из своего json
@@ -69,41 +80,30 @@ class Driver():
                
         и догружаю в kora нужные мне элементы из пакета selenium
         '''
-
-        #_driver_settings = webdriver_settings
-        ''' устанавливается в файле launcher '''       
+        
        
         if webdriver_settings['name'] == 'kora':
-            ''' устанавливается в файле launcher '''
+            ''' kora - обёртка вебдрайвера для запуска в colab
+            устанавливается в файле launcher '''
 
             self.driver = kora.selenium.wd
             self.driver.common = selenium.webdriver.common
             self.driver.support = selenium.webdriver.support
-
-            #self.driver.support.ui.WebDriverWait = selenium.webdriver.support.ui.WebDriverWait
-            #self.driver.support.expected_conditions = selenium.webdriver.support.expected_conditions
-            #self.driver.common.keys = selenium.webdriver.common.keys
-            #self.driver.common.by =  selenium.webdriver.common.by
-            return self.driver
-
-
-
-
-        ''' все остальное касается запуска драйвера selenium с моими установками '''
-
-
-
+            
+         
 
         if webdriver_settings['name'] == 'chromedriver': 
             options = webdriver.ChromeOptions()
             for argument in webdriver_settings["arguments"]:
                     options.add_argument(argument)
+                    options.set_capability('intl.accept_languages'", "'en-GB')
             self.driver = webdriver.Chrome(options = options)
 
         if webdriver_settings['name'] == 'firefox': 
                 options = webdriver.FirefoxOptions()
                 for argument in webdriver_settings["arguments"]:
                         options.add_argument(argument)
+                        options.set_capability('intl.accept_languages', 'en-GB')
                 self.driver = webdriver.Firefox(options = options)  
 
 
@@ -113,35 +113,43 @@ class Driver():
         if webdriver_settings['name'] == 'edge': 
             self.driver = webdriver.Edge(options = driver_options.edge_options(self))
 
-        #self.driver.maximize_window()
+        if webdriver_settings['maximize_window'] : self.driver.maximize_window()
+
+        self._wait = webdriver_settings['wait']
+
+        self._add_extra_functions()
+
         return self.driver
 
-
-
-    
-
-
+    def _add_extra_functions(self):
+        
+        self.driver.wait = self._wait
+        self.driver.implicity_wait = self._implicity_wait
+        self.driver.wait_to_precence_located = self._wait_to_precence_located
+        self.driver.wait_to_be_clickable = self._wait_to_be_clickable
+        self.driver.get_url = self._get_url
+        self.driver.find = self._find
+        self.driver.parce_html_block = self._parce_html_block
+        self.driver.click = self._click
+        self.driver.page_refresh = self._page_refresh
+        self.driver.close = self._close  
+        self.driver.scroll = self._scroller
+        self.driver.find_in_webelements =  self._find_in_webelements
+        self.driver.get_parsed_google_search_result = GoogleHtmlParser
+        
     '''
-
-
-
-
-
-
-
-
                                     Ожидания драйвера
 
 
 
-
-
+        Явное ожидание лучше чем time.sleep() ,  Но это не точно :)
     '''
 
 
 
-    #@Log.log
-    def implicity_wait(self , wait :int = 0):
+    ''' ------------------ НАЧАЛО -------------------------- '''
+    #@print
+    def _implicity_wait(self , wait :int = 0):
         '''
         Неявное ожидание указывает WebDriver'у опрашивать DOM определенное количество времени, 
         когда пытается найти элемент или элементы, которые недоступны в тот момент. 
@@ -149,329 +157,254 @@ class Driver():
         для жизни экземпляра WebDriver объекта.
         #self.wait = WebDriverWait(self.driver, kwargs.get('wait')) if 'wait' in kwargs else WebDriverWait(self.driver, 20)
         '''
-        if wait == 0 : wait = self.wait
         self.driver.implicitly_wait(wait)
-        
-    #@Log.log   
-    def wait(self , wait : int = 0):
-        '''
-        Явное ожидание
-        лучше чем time.sleep()
-        '''
-        WebDriverWait(self.driver, wait if not wait == 0 else self.wait)
-        #time.sleep(wait_in_seconds)
 
-    #@Log.log
-    def wait_to_precence_located(self, locator):
+    ''' ------------------ КОНЕЦ  -------------------------- '''
+
+
+
+
+    ''' ------------------ НАЧАЛО -------------------------- '''
+    #@print
+    def _wait_to_precence_located(self, locator) -> object :
         '''
         ожидание 100% загрузки элемента
         locator=(By.CSS_SELECTOR , selector)
         '''
-        self.print(f''' Ждём локатор {locator} ''')
-        element_precence_located = EC.presence_of_element_located(locator)
-        return element_precence_located
-        pass
+        return EC.presence_of_element_located(locator)
+        
+    ''' ------------------ КОНЕЦ  -------------------------- '''
 
-    #@Log.log
-    def wait_to_be_clickable(self, locator, wait : int = 0):
+
+
+    ''' ------------------ НАЧАЛО -------------------------- '''
+    #@print
+    def _wait_to_be_clickable(self, locator) :
         '''
         ождание кликабельности элемента '''
         element_clickable = EC.element_to_be_clickable(locator)
-        return WebDriverWait(self.driver , wait).until(element_clickable)
+        webelement =  WebDriverWait(self.driver , wait).until(element_clickable)
+        return webelement
+    ''' ------------------ КОНЕЦ  -------------------------- '''
 
 
 
-    '''             
-    
-      
-    
-                                        Переход по адресу           
-                                        функция get_url()
-                                        
-                                        
-                                        '''
+    ''' ------------------ НАЧАЛО -------------------------- '''
 
-    
-    #@Log.log 
-    def get_url(self, url)->bool:
-        '''умный? переход по заданному адресу '''
+    #@print
+    def _get_url(self, url:str , view_html_source: bool = False)->bool:
+        '''переход по заданному адресу 
+        view_html_source = True : возвращает код страницы'''
 
-        self.driver.prev_url = self.driver.current_url
-        self.driver.get(f'''{url}''')
-        #self.driver.get(f'''view-source:{url}''') <--- можно и так
+        try:
+            #self.driver.get(f'''view-source:{url}''') if view_html_source else 
+            self.driver.get(f'''{url}''')
         
-        
-
-
+            return True 
+        except Exception as ex:
+            return False , print(f''' Ошибка в _get_url() :
+            {ex}
+            -------------------------------------
+            url = {url}''')
+    
 
         #WebDriverWait(driver, 10).until(lambda driver: self.driver.execute_script('return document.readyState') == 'complete')
-        ''' ожидание полной загрузки
-        реализoвано на javascript
-        self.driver.execute_script('return document.readyState') == 'complete'
-        '''
+        #self.driver.execute_script('return document.readyState') == 'complete'
+        ''' ожидание полной загрузки реализoваное на javascript'''
+    ''' ------------------ КОНЕЦ  -------------------------- '''
 
 
 
-        return True
+    ''' ------------------ НАЧАЛО -------------------------- '''
+    #@print
+    def _scroller(self, wait : int =0 , prokrutok : int = 5, scroll_frame : int = 500) -> bool:
+        ''' скроллинг '''
+        try:
+            for i in range(prokrutok):
+                self.driver.execute_script(f'''window.scrollBy(0,{scroll_frame})''') # поднял окошко
+                #time.sleep(wait)
+                #self.wait(1)
+            return True
+        except Exception as ex: return  False , print(f''' ошибка скроллинга {ex}''')
+    ''' ------------------ КОНЕЦ  -------------------------- '''
 
 
 
+    ''' ------------------ НАЧАЛО -------------------------- '''   
+    def _parce_html_block(self , html_block , locator):
+        _elements = html_block.find_elements(locator['by'] , locator['selector'])
+        return self._find_in_webelements(_elements , locator)
+
+    ''' ------------------ КОНЕЦ  -------------------------- '''
 
 
 
+    ''' ------------------ НАЧАЛО -------------------------- '''
+    def _find_in_webelements(self , elements , locator): 
+        '''аттрибуты в locator['attribute'] могут быть строкой  словарем или списком '''
+        _е : list = [] 
 
+        # 1) если аттрибуты в словаре 
+        if str(type(locator['attribute'])).find('dict') >-1:
+            _d  : dict = {}
+            for k,v in dict(locator['attribute']).items():
+                if str(type(elements)).find('list') >-1:
+                    for el in list(elements): _d.update({el.get_attribute(k):el.get_attribute(v)})
+                else: _d.update({elements.get_attribute(k):elements.get_attribute(v)})
+            _е.append(_d)
+            return _е
+
+        #2) аттрибуты списоком
+        if str(type(locator['attribute'])).find('list') >-1:
+            for el in elements:
+                for attr in locator['attribute']:_е.append(el.get_attribute(attr))
+            return _е
+
+        #3) один
+        if str(type(locator['attribute'])).find('str') >-1:
+            return elements
+
+        pass
+    ''' ------------------ КОНЕЦ  -------------------------- '''
+
+
+
+    ''' ------------------ НАЧАЛО -------------------------- ''' 
+    #@print
+    def _find(self, locator:dict):
+        ''' поиск элементов на странице '''
+
+        #1) выуживаю элементы со страницы
+        elements = self._get_webelments_from_page(locator)
+        return self._find_in_webelements(elements , locator)
+    ''' ------------------ КОНЕЦ  -------------------------- '''
+
+
+
+    ''' ------------------ НАЧАЛО -------------------------- '''   
+
+    def _get_webelments_from_page(self, locator) ->list:
+        try: elements = self.driver.find_elements(locator['by'] , locator['selector'])
+        except Exception as ex: return [] , print(f''' ex: {ex} ''')
+        return elements
+    ''' ------------------ КОНЕЦ  -------------------------- '''
+
+
+
+    ''' ------------------ НАЧАЛО -------------------------- '''   
     
-
-    '''                     
-    
-    
-                                Поиск элементов         
-                                Поиск элементов по локатору на странице HTML 
-                        Локаторы заданы в файле <префикс поставщика>.json
-
-                                locator=(By.CSS_SELECTOR , selector)
-                                функция поиска элементов заменяющая
-                                driver.find_element_by_
-                                                        css_selector
-                                                        id
-                                                        xpath
-                                                        ...
-
-
-
-
-        
-                                мой локатор имеет три аргеумнта
-                                'attribute': 'href', 
-                                'by': 'xpath', 
-                                'selector': ''
-                                --------------
-
-                                #if research: 
-
-
-                                            research - опция исследования полученного элемента
- 
-                                            
-    '''
-        #@Log.log
-        #@EH.exeptions_handler
-    def find(self, locator:dict ) -> []:
-
-
-            '''
-            By ->
-                    CLASS_NAME	'class name'	str
-		            CSS_SELECTOR	'css selector'	str
-		            ID	'id'	str
-		            LINK_TEXT	'link text'	str
-		            NAME	'name'	str
-		            PARTIAL_LINK_TEXT	'partial link text'	str
-		            TAG_NAME	'tag name'	str
-		            XPATH	'xpath'	str
-            '''
-
-            #by = By = self.driver.common.by.By
-            #EC = self.driver.support.expected_conditions
-
-
-            # element = self.driver.find_element(locator['by'] , locator['selector'])
-            elements = self.driver.find_elements(locator['by'] , locator['selector'])
-
-
-            def with_wait():
-                _driver_wait  :int = self.ini.webdriver_settings["wait"] # вообще-то задается в файле webdriver.json
-                try:elements = WebDriverWait(self.driver, int(_driver_wait)).until(EC.presence_of_all_elements_located((locator['by'], locator['selector'])))    
-                except:elements = element = WebDriverWait(self.driver, int(_driver_wait)).until(EC.presence_of_element_located((locator['by'], locator['selector'])))
-                
-            '''
-
-                                        
-        
-                                        Неважно, сколько нашел вебдравер
-                                        я Всегда возвращаю  СПИСОК элементов
-
-
-
-            '''
+    def _click(self, locator) ->bool:
+        '''  Обработчик события click()  '''
             
+        #element = self.wait_to_be_clickable(locator)
+        #if element == False:
 
-            #   1) Если нашлось несколько
-            if len(elements) >= 0: 
-                attrs : [] = []
-                for el in elements: attrs.append(el.get_attribute(locator['attribute']))
-                return attrs
+        try:element = self._find(self._wait_to_be_clickable(locator))
+        except Exception as ex: return False , print(f''' Возникла ошибка поиска элемента {locator} ''')
+        
+        if element == False: return False , print(f''' Не Не нажался элемент {locator} ''')
+        
+        try: element.click() 
+        except Exception as ex: return False , print(f''' Возникла ошибка - Не нажался элемент {locator} ''')
 
-            #   2) Если один строкой
-            elif str(type(element)).find("webelement") >-1:
-                #self.print(element)
-                return [element.get_attribute(locator['attribute'])]
-            
-            #   3) ни одного
-            else: 
-                self.print("ХУЙ")
-                return []
-    
-        #@Log.log
-    def click(self, locator):
-            '''
-            Обработчик события click()
-            '''
-            element = self.wait_to_be_clickable(locator)
-            if element == False:
-                element = self.find(locator)
-                if element == False:
-                    self.print(f''' Не нашёлся элемент {locator} ''')
-                    return False
-                try: element.click()
-                except : 
-                    self.print(f''' Не нажался элемент {locator} ''')
-                    return False
+        return True ,  print(f''' Кликнул на {locator} ''')
+
+        #if element == False:
+        #    print(f''' Не нашёлся элемент {locator} ''')
+        #    return False
+        #try: element.click()
+        #    return True
+        #except : 
+        #    print(f''' Не нажался элемент {locator} ''')
+        #    return False
+    ''' ------------------ КОНЕЦ  -------------------------- '''
 
 
-        #@Log.log 
-    def page_refresh(self):
+
+    ''' ------------------ НАЧАЛО -------------------------- '''       
+    def _page_refresh(self):
             '''
             Рефреш с ожиданием поной перезагрузки страницы
             '''
             self.driver.get_url(self.driver.current_url)
             pass
-    
-        #@Log.log 
-    def close(self):
+    ''' ------------------ КОНЕЦ  -------------------------- '''
+
+
+
+    ''' ------------------ НАЧАЛО -------------------------- '''      
+    def _close(self):
             if self.driver.close(): self.print(''' DRIVER CLOSED ''')
             pass
 
+
+
+    ########################################  КОНЕЦ  #######################################
     
 
 
 
 
-    #@Log.log
-    def get_elements_by_locator(self, locator) ->[]:
-            '''
-            возвращает список значений аттрибута элементов найденных по локатору <locator:dict()> 
-        
-            Словарь locator содержит три элемента:
-
-
-                    - "by": "xpath",
-                        шаблон поиска
-                            Примеры шаблонов:
-                        - xpath
-                        - css selector
-
-                    
-
-
-                    - "selector": "//li[@data-value='ru']"
-                        селектор элемента
-                            Примеры селекторов
-                        - //li[@data-value='en']
-                        - //a[contains(@class,'MuiTypography') and contains(@href , 'web/item')]
-                        - //*[@id='product-page-root']//div[@aria-label]/p
-                        - //*[@id='product-page-root']//div[@aria-label]//following-sibling::div/p[1]
-
-
-                    - "attribute": "sendKeys(Keys.RETURN)",
-                        обработка полученного элемента
-                                Примеры аттрибутов:
-                        - href
-                        - a
-                        - text
-                        - innerHTML
-                        - innerText
-                        - sendKeys(Keys.RETURN)
-
-            etc.
-            '''
-
-            res = []
-
-            elements = self.find((locator['by'],locator['selector']))
-            '''
-                может получить список элементов или один элемент или хуй
-
-                Функция  возвращает список [] или False
-
-
-            '''
-            if len(elements) == 0: return []
-
-            if str(type(elements)).find("class 'list'") >-1:
-                '''если нашлось несколько 
-                элементов по указанному локатору '''
-                
-                for element in elements:
-                    attribute = element.get_attribute(locator['attribute'])
-                    res.append(attribute)
-                return res
-
-            elif str(type(elements)).find("WebElement") >-1: 
-                '''
-                если нашелся только один
-                '''
-                attribute = element.get_attribute(locator['attribute'])
-                res.append(attribute)
-                return res
-
-
-
-
-
-    #@Log.log 
-    def researh_webelements(self, elements)->bool:
-        '''
-        Функция для исследования элемента
-        '''
-        for element in elements:
+    ##@print 
+    #def researh_webelements(self, elements)->bool:
+    #    '''
+    #    Функция для исследования элемента
+    #    '''
+    #    for element in elements:
          
-            '''
-            Исследование силами Селениума
-            '''
+    #        '''
+    #        Исследование силами Селениума
+    #        '''
 
-            for attribute in element.get_attribute:
-                self.print(f''' {attribute}  -  {element.get_attribute(attribute)}''')
-
-
+    #        for attribute in element.get_attribute:
+    #            self.print(f''' {attribute}  -  {element.get_attribute(attribute)}''')
 
 
-            #log_str = f'''
-            #Список HTML аттрибутов  элемента 
-            #-----------------------------------------
-            #Selenium:
-            #type = {element.get_attribute('type')}
-            #href = {element.get_attribute('href')}
-            #id = {element.get_attribute('id')}
-            #name = {element.get_attribute('name')}
-            #title = {element.get_attribute('title')}
-            #text = {element.get_attribute('text')}
-            #value = {element.get_attribute('value')}
-            #innerHTML = {element.get_attribute('innerHTML')}
-            #outerHTML  = {element.get_attribute('outerHTML ')}
-            #'''
+
+
+    #        #log_str = f'''
+    #        #Список HTML аттрибутов  элемента 
+    #        #-----------------------------------------
+    #        #Selenium:
+    #        #type = {element.get_attribute('type')}
+    #        #href = {element.get_attribute('href')}
+    #        #id = {element.get_attribute('id')}
+    #        #name = {element.get_attribute('name')}
+    #        #title = {element.get_attribute('title')}
+    #        #text = {element.get_attribute('text')}
+    #        #value = {element.get_attribute('value')}
+    #        #innerHTML = {element.get_attribute('innerHTML')}
+    #        #outerHTML  = {element.get_attribute('outerHTML ')}
+    #        #'''
             
 
 
-            '''
-            Исследование силами жаваскрипт
-            '''
+    #        '''
+    #        Исследование силами жаваскрипт
+    #        '''
 
+    #        attrs = self.driver.execute_script(f'''
+    #        var items = {{}}; 
+    #        for (index = 0; index < arguments[0].attributes.length; ++index)  
+    #        {{ 
+    #            items[arguments[0].attributes[index].name] = arguments[0].attributes[index].value 
+    #        }}; 
+    #        return items;''', element)
 
-            attrs = self.driver.execute_script('''
-            var items = {}; 
-            for (index = 0; index < arguments[0].attributes.length; ++index)  
-            { 
-                items[arguments[0].attributes[index].name] = arguments[0].attributes[index].value 
-            }; 
-            return items;''', element)
+    #        #attrs = self.driver.execute_script(f'''
+    #        #var items = {}; 
+    #        #for (index = 0; index < arguments[0].attributes.length; ++index)  
+    #        #{ 
+    #        #    items[arguments[0].attributes[index].name] = arguments[0].attributes[index].value 
+    #        #}; 
+    #        #return items;''', element)
 
-            log += f'''
-            Javascript:
-            -----------------------------------------
-            {attrs} \n
-            '''
-            self.print(log)
+    #        log += f'''
+    #        Javascript:
+    #        -----------------------------------------
+    #        {attrs} \n
+    #        '''
+    #        self.print(log)
 
 
     

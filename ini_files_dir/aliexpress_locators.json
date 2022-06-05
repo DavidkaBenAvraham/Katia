@@ -1,0 +1,87 @@
+{
+  "about": "подробное описание структуры файлов JSON смотри READMY.MD в корне этой папки  ",
+
+  "main_categories_locator_HTMLBLOCK": {
+    "DESCRITION": "корневые категории алиэкспресс (Оранжевые)",
+    "attribute": { "text": "href" },
+    "by": "xpath",
+    "selector": "//*[@class='item util-clearfix']//h3//a"
+  },
+
+
+  "block_main_items": {
+    "DESCRIPTION": " блок подкатегорий",
+    "attribute": "innerHTML",
+    "by": "xpath",
+    "selector": "//*[@class='sub-item-cont-wrapper']//ul",
+    "inner level a": {
+      "DESCRIPTION": " элемент <a> из которого я вытаскиваю значения {'text':'href'} в словарь",
+      "attribute": { "text": "href" },
+      "by": "tag name",
+      "selector": "a"
+    },
+
+    "block_sub_items": {
+      "DESCRIPTION": " блок подкатегорий следующего вхождения",
+      "attribute": "innerHTML",
+      "by": "xpath",
+      "selector": "//ul[contains(@class,'SearchSideFilter_SearchCategories__category')]//ul",
+      "inner level a": {
+        "attribute": { "text": "href" },
+        "by": "tag name",
+        "selector": "a"
+      }
+    }
+  },
+
+
+
+
+
+  "ЛОКАТОРЫ МАГАЗИНА ПРОДАВЦА": 
+        "КАТЕГОРИИ, БАННЕРЫ, ТОВАРЫ И ВСЕ ОСТАЛЬНОЕ, ЧТО МНЕ НАДО НА СТРАНИЦЕ ПОСТАВЩИКА",
+
+
+
+  "store": {
+    "all_store_categories_locator_HTMLBLOCK": {
+      "DESCRIPTION": " блок катагероий магазина",
+      "attribute": "innerHTML",
+      "by": "xpath",
+      "selector": "//ul[@class='groups-list groups-default']",
+      
+
+      "categories_sub_bloks": {
+        "attribute": "innerHTML",
+        "by": "xpath",
+        "selector": "//ul[@class='groups-list groups-default']/li",
+        
+
+
+        "sub_blok_main_item": {
+          "attribute": { "text": "href" },
+          "by": "tag name",
+          "selector": "//li[@class='group-item']/a"
+        },
+        "sub_blok_sub_items": {
+          "attribute": { "text": "href" },
+          "by": "tag name",
+          "selector": "//li[@class='sub-group-item']/a"
+        }
+
+      }
+    }
+
+
+  },
+  "rollover_banners_locator": {
+    "attribute": "innerHTML",
+    "by": "xpath",
+    "selector": "//*[contains(@style, 'cubic-bezier')]//a"
+  },
+  "product_locator": {
+    "attribute": "inneHTML",
+    "by": "xpath",
+    "selector": "//*[contains(@ae_button_type ,'productList_click')]"
+  }
+}

@@ -22,7 +22,7 @@ https://dev-gang.ru/article/modul-logging-v-python-sugk5e4d8u/
 import execute_json as json
 from ini_files_dir import Ini
 from exceptions_handler import ExceptionsHandler as EH 
-from formatter import Formatter
+from strings_formatter import StringFormatter as SF
 
 from IPython.display import display, HTML
 ''' Вывод лога оформленного в HTML для Jypiter notebook '''
@@ -30,10 +30,10 @@ from IPython.display import display, HTML
 
 from attr import attrs, attrib, Factory
 @attrs
-class Log(Ini): 
+class Log(logging.Logger):
     ''' Логгирование событий  
     подключается к логгируемому событие через декоратор
-    @Log.logging 
+    @printging 
     '''
 
 
@@ -72,21 +72,25 @@ class Log(Ini):
         '''
        
         def wrapper(self , *args , **kwargs):
-            self.logger.log(method_to_decorate)
-            method_to_decorate(self, *args , **kwargs)
+            #self.logger.log(method_to_decorate)
             
-
-            print(f'''method: {method_to_decorate.__name__} -- ''')
+            method_to_decorate(self, *args , **kwargs)
             print(f''' ----------------------------------- ''')
-            print(f'''doc:  {method_to_decorate.__doc__} -- ''')
+            try: print(f''' class: {method_to_decorate.__class__} ''')
+                #for key , value in method_to_decorate.__class__:
+                #    print(f'''key:{key}\t\t value:{value}''')
+            except: pass
+            try:print(f'''method: {method_to_decorate.__name__}''')
+            except: pass
+            try:print(f'''doc:  {method_to_decorate.__doc__}''') 
+            except: pass
+            try: print(f''' __dataclass_fields__: {method_to_decorate.__dataclass_fields__} ''')
+            except: pass
+            
             print(f''' ----------------------------------- ''')
 
-            try:
-                for key , value in method_to_decorate.__class__:
-                    print(f'''key:{key}\t\t value:{value}''')
 
-            except Exception as ex: 
-                print(f'''{ex}''')
+
           
         return wrapper
 
@@ -141,6 +145,13 @@ class Log(Ini):
             #''')
 
             #return res
+
+    staticmethod
+    def print(o):
+        '''
+        планирую запустить обработку o
+        '''
+        print(o)
 
         
     #@EH.exeptions_handler

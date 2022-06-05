@@ -11,7 +11,7 @@ import datetime
 import time
 
 import execute_json as json
-from formatter import Formatter
+from strings_formatter import StringFormatter as SF
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By

@@ -1,11 +1,16 @@
-﻿объект log надо сделать статическим 
- 
- 
+
+main() -> 
+        start_script()
+            |
+            +-  параметры запуска 
+                находятся в файле launcher.json 
+
+
  Создание /htaccess
      если надо перегенерировать нужно ввыключить/включить Friendly URL
      
      
-Запуск XAMPP с наивысшим приоритетом
+Запуск скрипта с наивысшим приоритетом
     https://remontka.pro/uac-disable-windows-10/
 
     Нет. Но есть такой способ обхода: создаем задание в планировщике заданий для выполнения этой программы с наивысшими правами, а потом создаем ярлык для запуска этого задания по имени:
@@ -34,76 +39,76 @@
         Supplier(lang = ['he','en','ru'] , supplier = <имя поставщика>) 
 
 
-                    Ini()---------------+
-                    |                   +---    path:Path
-                    |                   |           физический адрес программы
-                    |                   |           
-                    |                   +---    path_str : str
-                    |                   |           строка path
-                    |                   |           
-                    |                   +---    path_ini  : Path
-                    |                   |           директория файлов иницилазации программы
-                    |                   |           
-                    |                   +---    path_ini_str : str
-                    |                   |           строка path_ini
-                    |                   |           
-                    |                   +---    path_path_log_dir : Path
-                    |                   |           директория файлов log
-                    |                   |           
-                    |                   +---    path_export_dir : Path
-                    |                   |           директория файлов экспорта
-                    |                   |           
-                    |                   +---    start_time  : datetime
-                    |                   +---    get_now(): datetime
+Ini()---------------+
+                    +---    path:Path
+                    |           физический адрес программы
+                    |           
+                    +---    path_str : str
+                    |           строка path
+                    |           
+                    +---    path_ini  : Path
+                    |           директория файлов иницилазации программы
+                    |           
+                    +---    path_ini_str : str
+                    |           строка path_ini
+                    |           
+                    +---    path_path_log_dir : Path
+                    |           директория файлов log
+                    |           
+                    +---    path_export_dir : Path
+                    |           директория файлов экспорта
+                    |           
+                    +---    start_time  : datetime
+                    +---    get_now(): datetime
+                    
+                    
+Log()----------------+
+                    +---    header()
+                    |           заголовок HTML лога в котором можно
+                    |           прописать функции, например, jacascript
+                    |           сейчас записана функция скрытия свойств
+                    |           классов и типов в логе
+                    |           
+                    +---    screenshot(self , log = object) 
                     |
+                    +---    print(self, log = object, prn_type="jupiter") 
+                    |           |
+                    |           \/
+                    +---    write_log_to_file()
                     |
-                Log(Ini)----------------+
-                |                       +---    header()
-                |                       |           заголовок HTML лога в котором можно
-                |                       |           прописать функции, например, jacascript
-                |                       |           сейчас записана функция скрытия свойств
-                |                       |           классов и типов в логе
-                |                       |           
-                |                       +---    screenshot(self , log = object) 
-                |                       |
-                |                       +---    print(self, log = object, prn_type="jupiter") 
-                |                       |           |
-                |                       |           \/
-                |                       +---    write_log_to_file()
-                |                       |
-                |                       +---    logged(method_to_decorate)
-                |                       +---    print_attr(self, *o):
-                |
-         Driver(Log)--------------------+
-         |                              +---    driver : webdriver 
-         |                              |
-         |                              +---    current_url : str
-         |                              |
-         |                              +---    set_driver()
-         |                              |
-         |                              +---    implicity_wait(self , wait)  --?
-         |                              |
-         |                              +---    wait(self , wait)                   --?
-         |                              |
-         |                              +---    wait_to_precence_located(self, locator) 
-         |                              |
-         |                              +---    wait_to_be_clickable(self, locator, time_to_wait = 5)
-         |                              |
-         |                              +---    get_url(self, url)
-         |                              |
-         |                              +---    click(self, locator)
-         |                              |
-         |                              +---    find(self, locator)
-         |                              |
-         |                              +---    get_elements_by_locator(self, locator)
-         |                              |
-         |                              +---    researh_elements(self, elements)
-         |                              |
-         |                              +---    page_refresh(self)
-         |                              |
-         |                              +---    close()
-         |
-Supplier(Driver)------------------------+---    run(self)
+                    +---    logged(method_to_decorate)
+                    +---    print_attr(self, *o):
+                
+Driver()--------------------+
+                    +---    driver : webdriver 
+                    |
+                    +---    current_url : str
+                    |
+                    +---    set_driver()
+                    |
+                    +---    implicity_wait(self , wait)  --?
+                    |
+                    +---    wait(self , wait)                   --?
+                    |
+                    +---    wait_to_precence_located(self, locator) 
+                    |
+                    +---    wait_to_be_clickable(self, locator, time_to_wait = 5)
+                    |
+                    +---    get_url(self, url)
+                    |
+                    +---    click(self, locator)
+                    |
+                    +---    find(self, locator)
+                    |
+                    +---    get_elements_by_locator(self, locator)
+                    |
+                    +---    researh_elements(self, elements)
+                    |
+                    +---    page_refresh(self)
+                    |
+                    +---    close()
+         
+Supplier()------------------------+---    run(self)
                                         |
                                         +---    export_to_csv(self,data)
                                         |
@@ -151,48 +156,10 @@ Supplier(Driver)------------------------+---    run(self)
    
                             #################################################################################
 
-                    Ini()---------------+
-                    |                   |
-                    |                   +---    path:Path
-                    |                   |           физический адрес программы
-                    |                   |           
-                    |                   +---    path_str : str
-                    |                   |           строка path
-                    |                   |           
-                    |                   +---    path_ini  : Path
-                    |                   |           директория файлов иницилазации программы
-                    |                   |           
-                    |                   +---    path_ini_str : str
-                    |                   |           строка path_ini
-                    |                   |           
-                    |                   +---    path_path_log_dir : Path
-                    |                   |           директория файлов log
-                    |                   |           
-                    |                   +---    path_export_dir : Path
-                    |                   |           директория файлов экспорта
-                    |                   |           
-                    |                   +---    start_time  : datetime
-                    |                   +---    get_now(): datetime
-                    |
-                    |
-                Log(Ini)----------------+
-                |                       |
-                |                       +---    header()
-                |                       |           заголовок HTML лога в котором можно
-                |                       |           прописать функции, например, jacascript
-                |                       |           сейчас записана функция скрытия свойств
-                |                       |           классов и типов в логе
-                |                       |           
-                |                       +---    screenshot(self , log = object) 
-                |                       |
-                |                       +---    print(self, log = object, prn_type="jupiter") 
-                |                       |       |
-                |                       |       \/  
-                |                       +---    write_log_to_file(self, log:object)
-                |                       |
-                |                       +---    logged(method_to_decorate)
-                |                       +---    print_attr(self, *o):
-                |
-        Product(Log)--------------------+
-                                        |
-                                        +---
+            
+Product(Log)--------------------+
+                                |
+                                +---
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTEzMzQxOTgwNDEsMTY5ODYxNTU0OV19
+-->

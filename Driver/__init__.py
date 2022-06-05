@@ -43,7 +43,7 @@ class Driver(Log):
         
         self.set_driver(**kwards)
        
-    @Log.log_f 
+    @print_f 
     def set_driver(self ,**kwards):      
         _path_to_ini_file = f'''{self.path_root}/Ini/webdriver.json'''  
         _driver_name = json.loads(_path_to_ini_file)["driver"]
@@ -77,7 +77,7 @@ class Driver(Log):
 
     #def driver(self):
     #    return self.driver
-    @Log.log_f 
+    @print_f 
     def implicity_wait(self , wait):
         '''
         Неявное ожидание указывает WebDriver'у опрашивать DOM определенное количество времени, 
@@ -88,7 +88,7 @@ class Driver(Log):
         '''
         self.driver.implicitly_wait(wait)
         
-    @Log.log_f    
+    @print_f    
     def wait(self , wait_in_seconds):
         '''
         Явное ожидание
@@ -96,7 +96,7 @@ class Driver(Log):
         '''
         WebDriverWait(self.driver, wait_in_seconds)
         time.sleep(wait_in_seconds)
-    @Log.log_f 
+    @print_f 
     def wait_to_precence_located(self, element_locator):
         '''
         locator=(By.CSS_SELECTOR , selector)
@@ -106,7 +106,7 @@ class Driver(Log):
         return element_precence_located
         pass
 
-    @Log.log_f 
+    @print_f 
     def click(self, element_locator):
         element = self.wait_to_be_clickable(element_locator)
         if element == Falsex:
@@ -118,7 +118,7 @@ class Driver(Log):
             except : 
                 self.log(f''' Не нажался элемент {element_locator} ''')
                 return False
-    @Log.log_f 
+    @print_f 
     def wait_to_be_clickable(self, element_locator, time_to_wait = 5):
         element_clickable = EC.element_to_be_clickable(element_locator)
         try:
@@ -128,7 +128,7 @@ class Driver(Log):
             self.log(ex)
             return False
 
-    #@Log.log_f 
+    #@print_f 
     def get_listattributes_from_allfound_elements(self , attribute , element_locator,  research = False):
         '''
         возвращает список значений аттрибута элементов найденных по локатору <element_locator>
@@ -170,7 +170,7 @@ class Driver(Log):
             return False
         
 
-    @Log.log_f 
+    @print_f 
     def get_attribute_from_first_found_element(self , attribute , element_locator,  research = False):     
         ''' по локаторы вытаскиваю из элемента атрибуты:
         innerHTML, text, href etc. '''
@@ -192,7 +192,7 @@ class Driver(Log):
 
 
 
-    @Log.log_f 
+    @print_f 
     def get_url(self, url , **kwards):
         '''
         переход по указанному урл
@@ -213,7 +213,7 @@ class Driver(Log):
             по адресу {url} ''' ))
             return False
 
-    #@Log.log_f 
+    #@print_f 
     def find(self, element_locator,  research = True) -> []:
 
         '''
@@ -302,20 +302,20 @@ class Driver(Log):
             #3) ни одного
             else: return False
     
-    @Log.log_f 
+    @print_f 
     def page_refresh(self):
         '''Рефреш с ожиданием поной перезагрузки страницы
         '''
         self.driver.get_url(self.driver.current_url)
         pass
     
-    @Log.log_f 
+    @print_f 
     def close(self):
         
         if self.driver.close(): self.log(''' DRIVER CLOSED ''')
         pass
 
-    @Log.log_f 
+    @print_f 
     def researh_elements(self, elements):
         '''
         Функция для исследования элемента

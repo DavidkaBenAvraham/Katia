@@ -1,24 +1,39 @@
+# -*- coding: utf-8 -*-
+#!pip install conda
+#!pip install selenium
+#!pip install google
+#!pip install kora
+#!pip install aliyun-python-sdk-core-v3
+#!pip install aliexpress-sdk
+#!pip install scrapyd
+#!conda install -c conda-forge scrapy
 
 
-#import ExceptionsHandler
+#!pip install python-aliexpress-api
+''' отсюда https://github.com/sergioteula/python-aliexpress-api/  '''
+
+
+ 
 from pathlib import Path
 
-'''
-Работа с потоками описана в https://python-scripts.com/threading
-
-'''
-#
 from threading import Thread
+''' Работа с потоками описана в https://python-scripts.com/threading '''
+
 import execute_json as json
 from ini_files_dir import Ini
 from suppliers import Supplier
 from exceptions_handler import ExceptionsHandler as EH
 from logger import Log
+from apis import ALIEXPRESS as aliex
+from aliexpress_api import AliexpressApi , models 
+from web_driver.aliexpScraperClassBased import AliScraper
 
-''' параметры запуска из файла launcher.json 
 
-'''
+ini = Ini()
+''' инициализация '''
+
 threads : list = []
+''' потоки '''
 
 class Thread_for_supplier(Thread):
     '''       получаю имя постащика - открываю для его класса поток
@@ -27,20 +42,17 @@ class Thread_for_supplier(Thread):
 
 
     supplier : Supplier = None
+    ''' здесь рождается класс поставщика в собственном потоке '''
 
     def __init__(self, supplier_prefics:str , lang:list , ini : Ini):
-        ''' 
-        supplier : str - поставщик из ini.suppliers, 
-        lang : list - язык/и из ini.lang
+        ''' в классе Ini() происходит раскрытие launcher.json
+        supplier_prefics : str - поставщик из класса ini.suppliers, 
+        lang : list - язык/и  из класса ini.lang
         '''
         Thread.__init__(self)
-        ''' в классе ini происходит раскрытие launcher.json '''
-
-
+     
         self.supplier  = Supplier(supplier_prefics = supplier_prefics, lang = lang , ini = ini)
-        ''' определяю класс поставщика'''
-
-
+        
     def run(self):
 
         threads.append(self.supplier)
@@ -54,15 +66,10 @@ class Thread_for_supplier(Thread):
 
 def start_script() -> bool:  
     '''     
-                    
+
                 Отсюда я запускаю всю программу 
-
-
-    '''
-
-
+   
     ini : Ini = Ini()
-    ''' 
     Класс инициализации приложения 
     строится на основе файла launch.json 
     --------------------------
@@ -75,10 +82,6 @@ def start_script() -> bool:
         ''' выбор языка/ов исполнения сценариев '''
 
         for supplier_prefics in ini.suppliers: 
-            
-            
-            #kwards : dict = {'supplier_prefics' : supplier_prefics , 'lang' : lang  , 'ini':ini}
-            ''' Словарь стартовых значений запуска класса Supplier(**kwards) не использую никак'''
             
             if ini.if_threads:
                 ''' с потоками -> '''
@@ -106,10 +109,10 @@ def start_script() -> bool:
                     supplier = Supplier(supplier_prefics , lang , ini)
                     supplier.run()
                 else:
-                    supplier = Supplier(supplier_prefics , lang)
+                    supplier = Supplier(supplier_prefics , lang, ini)
                     supplier.run()
+
 
 
 if __name__ == "__main__":
     start_script()
-    

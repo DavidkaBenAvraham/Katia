@@ -21,7 +21,7 @@ import check_and_convert_datatypes as check_type
 from Logging import Log as Log
 import suppliers.ksp as ksp
 
-@Log.log
+@print
 def build_produscts_list_by_scenario(self):
     '''
     все товары собираются в 
@@ -87,7 +87,7 @@ def build_produscts_list_by_scenario(self):
         #flush_p(self)
     return self.products_list
 
-@Log.log
+@print
 def sozdaj_ssylki_na_tovary_by_scenario_node(self):
     
     try:
@@ -146,7 +146,7 @@ def sozdaj_ssylki_na_tovary_by_scenario_node(self):
         self.log(f'''{ex}''')
         sys.exit()
       
-@Log.log
+@print
 def sozdaj_spisok_ssylok_na_stranicy_tovarov_so_stranicy_kategorii(self ):
     try:
         ''' когда я нахожусь на странице категории я собираю ссылки на товары со страницы.
@@ -174,7 +174,7 @@ def sozdaj_spisok_ssylok_na_stranicy_tovarov_so_stranicy_kategorii(self ):
         '''
         return self.get_listattributes_from_allfound_elements(attribute , link_to_product_locator)
     except: return False
-@Log.log
+@print
 def sozdaj_spisok_tovarov_zapolini_polia(self, urls_tovarov):
     ''' по урл собираю с каждой страницы товара его параметры '''
     try:
@@ -225,7 +225,7 @@ def sozdaj_spisok_tovarov_zapolini_polia_na_categorypage(self):
     #flush_p(self)
     return True
 
-@Log.log_f
+@print_f
 def zapolni_paramerty_tovara(self):
     ''' заполняю поля товара '''
     product_data = product_fields.fill_product_fields(self)
@@ -258,7 +258,7 @@ def zapolni_paramerty_tovara(self):
 #################################################
 
 
-@Log.log_f
+@print_f
 def click_to_next_page(self) -> bool:
     '''     Нажималка на след. страницу в  категории    
    Листалка может быть как по страница так по инфинитискролл
@@ -309,7 +309,7 @@ def scroller(self, wait=1 , prokrutok=3, scroll=800):
         self.log(str(ex))
         return False,ex
 
-@Log.log_f
+@print_f
 def click_checkboxes(self, json_checkboxes):
 
 
@@ -370,7 +370,7 @@ def click_checkboxes(self, json_checkboxes):
     self.log(f''' screensizechecked {screensizechecked} ''')
     return True
 
-@Log.log_f
+@print_f
 def chekbox_click_on_group(self , json_group_checkboxes ):
     checked = False
 
@@ -395,7 +395,7 @@ def chekbox_click_on_group(self , json_group_checkboxes ):
                 checked = True
     
     return checked
-@Log.log
+@print
 def check_error_page(self) -> bool:
     self.log( f''' Проверяю страницу на наличие error page ''')
     errors_pages_titles =['Error','עבור לדף המבוקש']
@@ -414,7 +414,7 @@ def check_error_page(self) -> bool:
 
 
 # сбрасываю список товаров полученных от одного сценария
-@Log.log_f
+@print_f
 def flush_p(self):
     
     if len(self.products_list)==0 : 

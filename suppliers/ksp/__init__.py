@@ -10,11 +10,10 @@ import execute_json as json
 import sys
 
 import products
-from formatter import Formatter
+from strings_formatter import StringFormatter as SF
 
-formatter = Formatter() # <- Обязательно переделаю в статический метод
 
-def get_product_fields(self):
+def get_product_fields_from_product_page(s):
     
     '''
     https://stackoverflow.com/questions/34301815/understand-the-find-function-in-beautiful-soup#_=_
@@ -23,7 +22,7 @@ def get_product_fields(self):
     '''
     p = products.Product()
 
-    p.fields["title"] = formatter.remove_special_characters(self.driver.title)
+    p.fields["title"] = formatter.remove_special_characters(s.driver.title)
 
     '''
     
@@ -34,18 +33,13 @@ def get_product_fields(self):
 
     
 
-    raw_product_price_supplier = self.find(self.locators['product']['product_price_locator'])
-
-    raw_product_images = ','.join(self.find(self.locators['product']['product_images_locator']))
-    raw_product_images_alt = ','.join(self.find(self.locators['product']['product_images_alt_locator']))
-    raw_product_sikum = ''.join(self.find(self.locators['product']['product_sikum_locator']))
-    combinations = ''.join(self.find(self.locators['product']['product_attributes_locator']))
-    raw_product_description = ''.join(self.find(self.locators['product']['product_description_locator']))
-    raw_product_mkt_locator = ''.join(self.find(self.locators['product']['product_mkt_locator']))
-    
-
-
-
+    raw_product_price_supplier = s.driver.find(s.locators['product']['product_price_locator'])
+    raw_product_images = ','.join(s.driver.find(s.locators['product']['product_images_locator']))
+    raw_product_images_alt = ','.join(s.driver.find(s.locators['product']['product_images_alt_locator']))
+    raw_product_sikum = ''.join(self.find(s.locators['product']['product_sikum_locator']))
+    combinations = ''.join(self.find(s.locators['product']['product_attributes_locator']))
+    raw_product_description = ''.join(s.driver.find(s.locators['product']['product_description_locator']))
+    raw_product_mkt_locator = ''.join(s.driver.find(s.locators['product']['product_mkt_locator']))
 
     p.fields["categories"] = self.current_node["prestashop_category"]
 
@@ -99,9 +93,6 @@ def get_product_fields(self):
                               "Advanced Stock Mangment": 0,
                               "Depends On Stock": 0,
                               "Warehouse": 0
-
-
-    
 
 
 
