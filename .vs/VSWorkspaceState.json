@@ -1,6 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Aluf",
+    "\\Aluf\\suppliers",
+    "\\Aluf\\suppliers\\aliexpress"
   ],
+  "SelectedNode": "\\Aluf\\Aluf.sln",
   "PreviewInSolutionExplorer": false
 }
