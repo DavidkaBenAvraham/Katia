@@ -7,8 +7,17 @@ from attr import attrib, attrs, Factory
 shops : list = []
 
 def login(s):
+
+    pass
     locators =  json.loads(Path(s.ini.paths.ini_files_dir , f'''logins.json'''))['aliexpress']
-    s.driver.get_url(locators['url'])
+
+
+    s.driver.find(locators['close banner'])[0].click()
+ 
+    s.driver.find(locators['open_login_popup_button'])[0].click()
+    s.driver.find(locators['open_login_popup_button']['open_login_popup_button 2lvl'])[0].click()
+
+    #s.driver.get_url(locators['url'])
 
     user_locator = (locators['user_locator']['by'], 
                      locators['user_locator']['selector'])
@@ -32,6 +41,7 @@ def get_shops_from_json(s):
     pass 
 
 def build_shop_categories(s , shop_dict : dict) -> dict:
+    s.driver.get_url(f'''https://www.aliexpress.com''')
     s.driver.get_url(shop_dict[1]['all-wholesale-products'])
     categoties_group_dict = s.driver.find(s.locators['block_main_items'])[0]
 
@@ -47,7 +57,7 @@ class categories:
 
     def __attrs_post_init__(self, *args, **kwards):
         self._aliexpress_root_category : int = attrib(init = False , default = 3)
-        self._category_url = 'https://aliexpress.com/all-wholesale-products.html'
+        self._category_url = 'https://www.aliexpress.com/all-wholesale-products.html'
         self.t = []
         self.t.append(
                         {'category ID': 3 ,
@@ -55,7 +65,7 @@ class categories:
                     'category name': 'ALIEXPRESS',
                     'parent category': 2,
                     'root': 0 ,
-                    'category_url' : 'https://aliexpress.com/all-wholesale-products.html'}
+                    'category_url' : 'https://www.aliexpress.com/all-wholesale-products.html'}
                               )
         ''' первая строка таблицы '''
 

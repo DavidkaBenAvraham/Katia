@@ -104,7 +104,7 @@ class Supplier:
         self.driver.get_url(self.supplier_settings_from_json['start_url'])
         
         
-        if self.supplier_settings_from_json['if_login']:self.related_functions.login(self)
+        #if self.supplier_settings_from_json['if_login']:self.related_functions.login(self)
 
 
     ''' ------------------ КОНЕЦ  -------------------------- '''

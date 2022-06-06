@@ -1,6 +1,9 @@
 {
   "about": "подробное описание структуры файлов JSON смотри READMY.MD в корне этой папки  ",
 
+  "login_url": "https://login.aliexpress.com",
+
+
   "main_categories_locator_HTMLBLOCK": {
     "DESCRITION": "корневые категории алиэкспресс (Оранжевые)",
     "attribute": { "text": "href" },
@@ -38,8 +41,7 @@
 
 
 
-  "ЛОКАТОРЫ МАГАЗИНА ПРОДАВЦА": 
-        "КАТЕГОРИИ, БАННЕРЫ, ТОВАРЫ И ВСЕ ОСТАЛЬНОЕ, ЧТО МНЕ НАДО НА СТРАНИЦЕ ПОСТАВЩИКА",
+  "ЛОКАТОРЫ МАГАЗИНА ПРОДАВЦА": "КАТЕГОРИИ, БАННЕРЫ, ТОВАРЫ И ВСЕ ОСТАЛЬНОЕ, ЧТО МНЕ НАДО НА СТРАНИЦЕ ПОСТАВЩИКА",
 
 
 
@@ -49,13 +51,13 @@
       "attribute": "innerHTML",
       "by": "xpath",
       "selector": "//ul[@class='groups-list groups-default']",
-      
+
 
       "categories_sub_bloks": {
         "attribute": "innerHTML",
         "by": "xpath",
         "selector": "//ul[@class='groups-list groups-default']/li",
-        
+
 
 
         "sub_blok_main_item": {

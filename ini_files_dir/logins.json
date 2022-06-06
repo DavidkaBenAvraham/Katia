@@ -1,6 +1,31 @@
 {
   "aliexpress": {
-    "url": "https://login.aliexpress.com/",
+    "login_url": "https://login.aliexpress.com",
+
+
+    "goto global site": {
+      "attribute": "href",
+      "by": "xpath",
+      "selector": "//a[@data-role = 'goto-globalsite']"
+    },
+
+    "close banner": {
+      "attribute": "text",
+      "by": "xpath",
+      "selector": "//div[contains(text(), 'אפשר')]"
+    },
+
+    "open_login_popup_button": {
+      "attribute": "href",
+      "by": "xpath",
+      "selector": "//a[@data-role='myaliexpress-link']",
+      "open_login_popup_button 2lvl": {
+        "attribute": "href",
+        "by": "xpath",
+        "selector": "//a[@class='sign-btn']"
+      }
+    },
+
 
     "user": "one.last.bit@gmail.com",
     "user_locator": {

@@ -242,8 +242,6 @@ class Driver():
 
     ''' ------------------ КОНЕЦ  -------------------------- '''
 
-
-
     ''' ------------------ НАЧАЛО -------------------------- '''
     def _find_in_webelements(self , elements , locator): 
         '''аттрибуты в locator['attribute'] могут быть строкой  словарем или списком '''
@@ -280,6 +278,7 @@ class Driver():
         ''' поиск элементов на странице '''
 
         #1) выуживаю элементы со страницы
+
         elements = self._get_webelments_from_page(locator)
         return self._find_in_webelements(elements , locator)
     ''' ------------------ КОНЕЦ  -------------------------- '''
