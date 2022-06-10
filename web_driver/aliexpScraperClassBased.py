@@ -207,8 +207,8 @@ def main() -> None:
     Driver code.
     '''
     store_url = 'https://wavgat.aliexpress.com/store/all-wholesale-products/1962508.html?spm=a2g0o.store_home.pcShopHead_12386176.99'
-    log_in_id = 'your_login_id'
-    log_in_pass = 'your_login_password'
+    log_in_id = 'one.last.bit@gmail.com'
+    log_in_pass = 'dav1969'
     ffx_driver = AliScraper()
     ffx_driver.request_url(store_url)
 

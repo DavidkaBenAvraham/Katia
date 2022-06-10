@@ -1,0 +1,31 @@
+category ID;pail;category name;parent category;root;category_url;aliexpress_url
+3;1;ALIEXPRESS;2;0;https://www.aliexpress.com/all-wholesale-products.html;
+2;1;Food;3;0;;https://www.aliexpress.com/category/2/food.html
+6;1;Home Appliances;3;0;;https://www.aliexpress.com/category/6/home-appliances.html
+7;1;Computer & Office;3;0;;https://www.aliexpress.com/category/7/computer-office.html
+13;1;Home Improvement;3;0;;https://www.aliexpress.com/category/13/home-improvement.html
+15;1;Home & Garden;3;0;;https://www.aliexpress.com/category/15/home-garden.html
+18;1;Sports & Entertainment;3;0;;https://www.aliexpress.com/category/18/sports-entertainment.html
+21;1;Education & Office Supplies;3;0;;https://www.aliexpress.com/category/21/education-office-supplies.html
+26;1;Toys & Hobbies;3;0;;https://www.aliexpress.com/category/26/toys-hobbies.html
+30;1;Security & Protection;3;0;;https://www.aliexpress.com/category/30/security-protection.html
+34;1;Automobiles & Motorcycles;3;0;;https://www.aliexpress.com/category/34/automobiles-motorcycles.html
+39;1;Lights & Lighting;3;0;;https://www.aliexpress.com/category/39/lights-lighting.html
+44;1;Consumer Electronics;3;0;;https://www.aliexpress.com/category/44/consumer-electronics.html
+66;1;Beauty & Health;3;0;;https://www.aliexpress.com/category/66/beauty-health.html
+322;1;Shoes;3;0;;https://www.aliexpress.com/category/322/shoes.html
+502;1;Electronic Components & Supplies;3;0;;https://www.aliexpress.com/category/502/electronic-components-supplies.html
+509;1;Cellphones & Telecommunications;3;0;;https://www.aliexpress.com/category/509/cellphones-telecommunications.html
+1420;1;Tools;3;0;;https://www.aliexpress.com/category/1420/tools.html
+1501;1;Mother & Kids;3;0;;https://www.aliexpress.com/category/1501/mother-kids.html
+1503;1;Furniture;3;0;;https://www.aliexpress.com/category/1503/furniture.html
+1509;1;Jewelry & Accessories;3;0;;https://www.aliexpress.com/category/1509/jewelry-accessories.html
+1511;1;Watches;3;0;;https://www.aliexpress.com/category/1511/watches.html
+1524;1;Luggage & Bags;3;0;;https://www.aliexpress.com/category/1524/luggage-bags.html
+200002489;1;Hair Extensions & Wigs;3;0;;https://www.aliexpress.com/category/200002489/hair-extensions-wigs.html
+200000875;1;Novelty & Special Use;3;0;;https://www.aliexpress.com/category/200000875/novelty-special-use.html
+100003235;1;Weddings & Events;3;0;;https://www.aliexpress.com/category/100003235/weddings-events.html
+100003109;1;Women's Clothing;3;0;;https://www.aliexpress.com/category/100003109/women-clothing.html
+100003070;1;Men's Clothing;3;0;;https://www.aliexpress.com/category/100003070/men-clothing.html
+205776616;1;Apparel Accessories;3;0;;https://www.aliexpress.com/category/205776616/apparel-accessories.html
+205779615;1;Underwear & Sleepwears;3;0;;https://www.aliexpress.com/category/205779615/underwear-sleepwears.html

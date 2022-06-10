@@ -3,7 +3,7 @@ import inspect
 import pandas as pd
 import importlib
 from pathlib import Path
-from suppliers.aliexpress import categories , shop
+from suppliers.aliexpress import categories , shop , page
 from web_driver import Driver 
 from strings_formatter import StringFormatter as SF
 import csv_json_executers as json
@@ -38,10 +38,10 @@ class Supplier:
     lang                : str = attrib( kw_only = True , default = None)                           
     ''' Обязательные ключи запуска -  язык сценария EN|RU|HE'''
 
-    supplier_settings_from_json :dict  = attrib(init = False, default = None)
-
     ini                 : ini = attrib(kw_only = True, default = None)
     ''' Параметры из лончера '''
+
+    supplier_settings_from_json :dict  = attrib(init = False, default = None)
     
     paths               : paths  = attrib(init = False, default = None)
     ''' класс с путями всяких разных директорий '''
@@ -73,7 +73,8 @@ class Supplier:
     current_nodename    : str =  attrib(init=False, default = None) 
     ''' Имя испоняемого узла сценария'''
      
-  
+    related_functions = attrib(init = False , default = None)
+    
 
     driver  : Driver = attrib(init = False , default = None)
     ''' вебдрайвер - мотор всей системы '''
@@ -104,8 +105,7 @@ class Supplier:
         self.driver.get_url(self.supplier_settings_from_json['start_url'])
         
         
-        #if self.supplier_settings_from_json['if_login']:self.related_functions.login(self)
-
+        if self.supplier_settings_from_json['if_login']:self.related_functions.login(self)
 
     ''' ------------------ КОНЕЦ  -------------------------- '''
 
@@ -113,11 +113,16 @@ class Supplier:
 
     ''' ------------------ НАЧАЛО -------------------------- '''   
     def run(self):
+        #self.driver.get_url(f'''https://www.aliexpress.com''')
         ''' Запуск кода сценариев   '''
-        #execute_scenaries.execute_list_of_scenaries(self)
-        self.related_functions.get_shops_from_json(self)
+        execute_scenaries.execute_list_of_scenaries(self)
+        
+        
+        #self.related_functions.run_shops(self)
 
-        #self.C.build_ALIEXPRESS_categories_table()
+        C = self.related_functions.categories()
+
+        C.build_ALIEXPRESS_categories_table(self)
         #''' собираю дерево каталогов'''
         #self.SHOP.build_SHOP_categories_table()
 
@@ -139,9 +144,9 @@ class Supplier:
        
         for frmt in format:
             if frmt == 'json':
-                export_file_path =  Path(f'''{self.supplier_prefics}-{self.ini.start_time}.{frmt}''')
+                export_file_path =  Path(f'''{self.supplier_prefics}-{self.ini.get_now()}.{frmt}''')
                 json.dump(data, export_file_path)
             if frmt == 'csv':
-                export_file_path =  Path(f'''{self.supplier_prefics}-{self.ini.start_time}.{frmt}''')
+                export_file_path =  Path(f'''{self.supplier_prefics}-{self.ini.get_now()}.{frmt}''')
                 json.write(self, data , export_file_path)
         #

@@ -87,7 +87,9 @@ class Ini():
 
             self.apis_file = Path(self.ini_files_dir ,  _paths_dict['apis_file']).absolute()
   
-    
+    @attrs
+    class driver():
+        pass
 
     def __attrs_post_init__(self , *args, **kwards):
         launcher_dict : dict = json.loads(Path('launcher.json'))
@@ -107,7 +109,7 @@ class Ini():
         ''' определяю пути для скрипта '''
 
     @staticmethod
-    def get_now(strformat : str = '%Y-%m-%d %H:%M:%S') -> datetime :
+    def get_now(strformat : str = '%m%d%H%M%S') -> datetime :
         return  datetime.datetime.now().strftime(strformat)
     
     

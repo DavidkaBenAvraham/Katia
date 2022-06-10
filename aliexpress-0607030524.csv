@@ -1,0 +1,195 @@
+category ID;pail;category name;parent category;root;aliexpress_url
+911943321;1;ASUS GLOBAL STORE;3;0;https://www.aliexpress.com/store/911943321
+10000001245374;1;WorkStation-WS;911943321;0;https://www.aliexpress.com/store/group/WorkStation-WS/911943321_10000001245374.html
+40000000228410;1;Graphics Card;911943321;0;https://www.aliexpress.com/store/group/Graphics-Card/911943321_40000000228410.html
+10000002283402;1;RAM;911943321;0;https://www.aliexpress.com/store/group/RAM/911943321_10000002283402.html
+10000001253297;1;CSM-Corporate Stable...;911943321;0;https://www.aliexpress.com/store/group/CSM-Corporate-Stable-Model/911943321_10000001253297.html
+10000001062374;1;ASUS-PRIME;911943321;0;https://www.aliexpress.com/store/group/ASUS-PRIME/911943321_10000001062374.html
+10000001143328;1;ROG-Republic of Games;911943321;0;https://www.aliexpress.com/store/group/ROG-Republic-of-Games/911943321_10000001143328.html
+10000001143334;1;AMD B550;10000001143328;0;https://www.aliexpress.com/store/group/AMD-B550/911943321_10000001143334.html
+10000001143335;1;AMD B560;10000001143328;0;https://www.aliexpress.com/store/group/AMD-B560/911943321_10000001143335.html
+10000001261120;1;AMD X570;10000001143328;0;https://www.aliexpress.com/store/group/AMD-X570/911943321_10000001261120.html
+10000001257302;1;INTEL Z490;10000001143328;0;https://www.aliexpress.com/store/group/INTEL-Z490/911943321_10000001257302.html
+10000001070181;1;AMD B450;10000001143328;0;https://www.aliexpress.com/store/group/AMD-B450/911943321_10000001070181.html
+10000003396495;1;INTEL Z690;10000001143328;0;https://www.aliexpress.com/store/group/INTEL-Z690/911943321_10000003396495.html
+10000001104326;1;INTEL Z590;10000001143328;0;https://www.aliexpress.com/store/group/INTEL-Z590/911943321_10000001104326.html
+10000001104327;1;INTEL Z390;10000001143328;0;https://www.aliexpress.com/store/group/INTEL-Z390/911943321_10000001104327.html
+10000001108265;1;TUF GAMING;911943321;0;https://www.aliexpress.com/store/group/TUF-GAMING/911943321_10000001108265.html
+10000001155136;1;AMD X570;10000001108265;0;https://www.aliexpress.com/store/group/AMD-X570/911943321_10000001155136.html
+10000001257303;1;AMD B550;10000001108265;0;https://www.aliexpress.com/store/group/AMD-B550/911943321_10000001257303.html
+10000001058438;1;INTEL Z490;10000001108265;0;https://www.aliexpress.com/store/group/INTEL-Z490/911943321_10000001058438.html
+10000001253291;1;AMD B450;10000001108265;0;https://www.aliexpress.com/store/group/AMD-B450/911943321_10000001253291.html
+10000001104329;1;INTEL Z390;10000001108265;0;https://www.aliexpress.com/store/group/INTEL-Z390/911943321_10000001104329.html
+10000001982551;1;Motherboard;911943321;0;https://www.aliexpress.com/store/group/Motherboard/911943321_10000001982551.html
+10000002177125;1;AMD;10000001982551;0;https://www.aliexpress.com/store/group/AMD/911943321_10000002177125.html
+10000002173108;1;INTEL;10000001982551;0;https://www.aliexpress.com/store/group/INTEL/911943321_10000002173108.html
+10000002113642;1;Motherboard And CPU;911943321;0;https://www.aliexpress.com/store/group/Motherboard-And-CPU/911943321_10000002113642.html
+10000002189118;1;AMD;10000002113642;0;https://www.aliexpress.com/store/group/AMD/911943321_10000002189118.html
+10000002173109;1;INTEL;10000002113642;0;https://www.aliexpress.com/store/group/INTEL/911943321_10000002173109.html
+10000002119270;1;Accessories;911943321;0;https://www.aliexpress.com/store/group/Accessories/911943321_10000002119270.html
+10000002148167;1;SATA3 Cale;10000002119270;0;https://www.aliexpress.com/store/group/SATA3-Cale/911943321_10000002148167.html
+10000002119273;1;Wireless Wifi;10000002119270;0;https://www.aliexpress.com/store/group/Wireless-Wifi/911943321_10000002119273.html
+10000003387789;1;Power Supply;911943321;0;https://www.aliexpress.com/store/group/Power-Supply/911943321_10000003387789.html
+912690782;1;PC Cooles Store;3;0;https://www.aliexpress.com/store/912690782
+50000000047049;1;Large Area Frame...;912690782;0;https://atomstackonline.aliexpress.com/store/group/Large-Area-Frame-Laser-Engraver/912690782_50000000047049.html
+50000000041060;1;50W Engraver;50000000047049;0;https://atomstackonline.aliexpress.com/store/group/50W-Engraver/912690782_50000000041060.html
+50000000065041;1;40W Engraver;50000000047049;0;https://atomstackonline.aliexpress.com/store/group/40W-Engraver/912690782_50000000065041.html
+50000000028045;1;30W Engraver;50000000047049;0;https://atomstackonline.aliexpress.com/store/group/30W-Engraver/912690782_50000000028045.html
+50000000045058;1;20W Engraver;50000000047049;0;https://atomstackonline.aliexpress.com/store/group/20W-Engraver/912690782_50000000045058.html
+50000000069051;1;A5 Series;50000000047049;0;https://atomstackonline.aliexpress.com/store/group/A5-Series/912690782_50000000069051.html
+50000000043060;1;A10 Series;50000000047049;0;https://atomstackonline.aliexpress.com/store/group/A10-Series/912690782_50000000043060.html
+50000000136059;1;S10 Series;50000000047049;0;https://atomstackonline.aliexpress.com/store/group/S10-Series/912690782_50000000136059.html
+50000000040058;1;X Series;50000000047049;0;https://atomstackonline.aliexpress.com/store/group/X-Series/912690782_50000000040058.html
+50000000136060;1;50W Dual-Laser;912690782;0;https://atomstackonline.aliexpress.com/store/group/50W-Dual-Laser/912690782_50000000136060.html
+50000000110054;1;40W Hot Sale;912690782;0;https://atomstackonline.aliexpress.com/store/group/40W-Hot-Sale/912690782_50000000110054.html
+50000000051052;1;Portable Laser...;912690782;0;https://atomstackonline.aliexpress.com/store/group/Portable-Laser-Engraver/912690782_50000000051052.html
+50000000022048;1;Single Arm Laser...;912690782;0;https://atomstackonline.aliexpress.com/store/group/Single-Arm-Laser-Engraver/912690782_50000000022048.html
+50000000061056;1;P9 Series;50000000022048;0;https://atomstackonline.aliexpress.com/store/group/P9-Series/912690782_50000000061056.html
+50000000043061;1;P7 Series;50000000022048;0;https://atomstackonline.aliexpress.com/store/group/P7-Series/912690782_50000000043061.html
+50000000050036;1;Laser Accessories;912690782;0;https://atomstackonline.aliexpress.com/store/group/Laser-Accessories/912690782_50000000050036.html
+50000000052048;1;Laser Replacement...;912690782;0;https://atomstackonline.aliexpress.com/store/group/Laser-Replacement-Parts/912690782_50000000052048.html
+50000000030037;1;3D Printer;912690782;0;https://atomstackonline.aliexpress.com/store/group/3D-Printer/912690782_50000000030037.html
+50000000047050;1;Print Material;912690782;0;https://atomstackonline.aliexpress.com/store/group/Print-Material/912690782_50000000047050.html
+50000000120069;1;TPR;50000000047050;0;https://atomstackonline.aliexpress.com/store/group/TPR/912690782_50000000120069.html
+50000000116069;1;PLA;50000000047050;0;https://atomstackonline.aliexpress.com/store/group/PLA/912690782_50000000116069.html
+1854241;1;PC Cooles Store;3;0;https://www.aliexpress.com/store/1854241
+505754777;1;Power Tools;1854241;0;https://deko.aliexpress.com/store/group/Power-Tools/1854241_505754777.html
+10000003102208;1;Cordless Drills;505754777;0;https://deko.aliexpress.com/store/group/Cordless-Drills/1854241_10000003102208.html
+10000003169286;1;Reciprocating Saws;505754777;0;https://deko.aliexpress.com/store/group/Reciprocating-Saws/1854241_10000003169286.html
+10000003169302;1;Grinders;505754777;0;https://deko.aliexpress.com/store/group/Grinders/1854241_10000003169302.html
+10000003102236;1;Cordless Screwdrivers;505754777;0;https://deko.aliexpress.com/store/group/Cordless-Screwdrivers/1854241_10000003102236.html
+10000003102273;1;Saws;505754777;0;https://deko.aliexpress.com/store/group/Saws/1854241_10000003102273.html
+10000002987330;1;Circular Saws;505754777;0;https://deko.aliexpress.com/store/group/Circular-Saws/1854241_10000002987330.html
+10000002995268;1;Corded Drills;505754777;0;https://deko.aliexpress.com/store/group/Corded-Drills/1854241_10000002995268.html
+10000002983513;1;Planers;505754777;0;https://deko.aliexpress.com/store/group/Planers/1854241_10000002983513.html
+10000003169416;1;Hammers;505754777;0;https://deko.aliexpress.com/store/group/Hammers/1854241_10000003169416.html
+10000003169421;1;Wrenches;505754777;0;https://deko.aliexpress.com/store/group/Wrenches/1854241_10000003169421.html
+10000003153587;1;Spray Guns;505754777;0;https://deko.aliexpress.com/store/group/Spray-Guns/1854241_10000003153587.html
+10000003161269;1;Sanders;505754777;0;https://deko.aliexpress.com/store/group/Sanders/1854241_10000003161269.html
+10000003153631;1;Polishers;505754777;0;https://deko.aliexpress.com/store/group/Polishers/1854241_10000003153631.html
+10000003161312;1;Jig Saws;505754777;0;https://deko.aliexpress.com/store/group/Jig-Saws/1854241_10000003161312.html
+10000002975461;1;Brushless Cordless...;505754777;0;https://deko.aliexpress.com/store/group/Brushless-Cordless-Drills/1854241_10000002975461.html
+10000003056360;1;Oscillating...;505754777;0;https://deko.aliexpress.com/store/group/Oscillating-Multi-Tools/1854241_10000003056360.html
+10000002979563;1;Heat Guns;505754777;0;https://deko.aliexpress.com/store/group/Heat-Guns/1854241_10000002979563.html
+511608811;1;Glue Guns;505754777;0;https://deko.aliexpress.com/store/group/Glue-Guns/1854241_511608811.html
+10000003165436;1;Nail Guns;505754777;0;https://deko.aliexpress.com/store/group/Nail-Guns/1854241_10000003165436.html
+507807082;1;MEASURING & LAYOUT...;1854241;0;https://deko.aliexpress.com/store/group/MEASURING-LAYOUT-TOOLS/1854241_507807082.html
+511491416;1;LASER LEVELS;507807082;0;https://deko.aliexpress.com/store/group/LASER-LEVELS/1854241_511491416.html
+511226437;1;Laser Rangefinders;507807082;0;https://deko.aliexpress.com/store/group/Laser-Rangefinders/1854241_511226437.html
+511226439;1;Calipers;507807082;0;https://deko.aliexpress.com/store/group/Calipers/1854241_511226439.html
+511281753;1;Electronic Scales;507807082;0;https://deko.aliexpress.com/store/group/Electronic-Scales/1854241_511281753.html
+511483752;1;Electrical...;507807082;0;https://deko.aliexpress.com/store/group/Electrical-Instruments/1854241_511483752.html
+511305359;1;Temperature...;507807082;0;https://deko.aliexpress.com/store/group/Temperature-Instruments/1854241_511305359.html
+511620576;1;Levelling Instruments;507807082;0;https://deko.aliexpress.com/store/group/Levelling-Instruments/1854241_511620576.html
+505770091;1;Welding Tools;1854241;0;https://deko.aliexpress.com/store/group/Welding-Tools/1854241_505770091.html
+511234365;1;Welders;505770091;0;https://deko.aliexpress.com/store/group/Welders/1854241_511234365.html
+511491411;1;Welding Mask;505770091;0;https://deko.aliexpress.com/store/group/Welding-Mask/1854241_511491411.html
+511218778;1;Soldering Iron;505770091;0;https://deko.aliexpress.com/store/group/Soldering-Iron/1854241_511218778.html
+505778062;1;Tool Kit;1854241;0;https://deko.aliexpress.com/store/group/Tool-Kit/1854241_505778062.html
+505774066;1;Tool Kit;505778062;0;https://deko.aliexpress.com/store/group/Tool-Kit/1854241_505774066.html
+505754788;1;Hand Tools;1854241;0;https://deko.aliexpress.com/store/group/Hand-Tools/1854241_505754788.html
+505790022;1;Pliers;505754788;0;https://deko.aliexpress.com/store/group/Pliers/1854241_505790022.html
+511281748;1;Files;505754788;0;https://deko.aliexpress.com/store/group/Files/1854241_511281748.html
+506272087;1;Knife;505754788;0;https://deko.aliexpress.com/store/group/Knife/1854241_506272087.html
+10000003098768;1;Screwdriver;505754788;0;https://deko.aliexpress.com/store/group/Screwdriver/1854241_10000003098768.html
+511628435;1;Scissors;505754788;0;https://deko.aliexpress.com/store/group/Scissors/1854241_511628435.html
+507949162;1;Garden Tools;1854241;0;https://deko.aliexpress.com/store/group/Garden-Tools/1854241_507949162.html
+10000002987778;1;Weeders;507949162;0;https://deko.aliexpress.com/store/group/Weeders/1854241_10000002987778.html
+511293532;1;Pruning Tools;507949162;0;https://deko.aliexpress.com/store/group/Pruning-Tools/1854241_511293532.html
+511238341;1;Leaf Blowers;507949162;0;https://deko.aliexpress.com/store/group/Leaf-Blowers/1854241_511238341.html
+511491406;1;Accessories;1854241;0;https://deko.aliexpress.com/store/group/Accessories/1854241_511491406.html
+513217553;1;Sandpaper;511491406;0;https://deko.aliexpress.com/store/group/Sandpaper/1854241_513217553.html
+511242258;1;Tool Box;511491406;0;https://deko.aliexpress.com/store/group/Tool-Box/1854241_511242258.html
+511222547;1;Rivet Gun Heads;511491406;0;https://deko.aliexpress.com/store/group/Rivet-Gun-Heads/1854241_511222547.html
+511242260;1;Oscillating...;511491406;0;https://deko.aliexpress.com/store/group/Oscillating-Multi-Tools-Accessories/1854241_511242260.html
+10000003181088;1;Jig Saw Blade;511491406;0;https://deko.aliexpress.com/store/group/Jig-Saw-Blade/1854241_10000003181088.html
+10000003153956;1;Reciprocating Saw...;511491406;0;https://deko.aliexpress.com/store/group/Reciprocating-Saw-Blades/1854241_10000003153956.html
+10000003153957;1;Circular Saw Blades;511491406;0;https://deko.aliexpress.com/store/group/Circular-Saw-Blades/1854241_10000003153957.html
+511616562;1;Bits;511491406;0;https://deko.aliexpress.com/store/group/Bits/1854241_511616562.html
+10000002979898;1;Tool Bags;511491406;0;https://deko.aliexpress.com/store/group/Tool-Bags/1854241_10000002979898.html
+10000003102788;1;Tripods;511491406;0;https://deko.aliexpress.com/store/group/Tripods/1854241_10000003102788.html
+10000003068787;1;Grinding Disc;511491406;0;https://deko.aliexpress.com/store/group/Grinding-Disc/1854241_10000003068787.html
+10000003056502;1;Hot Melt Glue Sticks;511491406;0;https://deko.aliexpress.com/store/group/Hot-Melt-Glue-Sticks/1854241_10000003056502.html
+511238334;1;Batteries & Chargers;511491406;0;https://deko.aliexpress.com/store/group/Batteries-Chargers/1854241_511238334.html
+513233099;1;Screwdriver...;511491406;0;https://deko.aliexpress.com/store/group/Screwdriver-Accessories/1854241_513233099.html
+10000001079517;1;Staples;511491406;0;https://deko.aliexpress.com/store/group/Staples/1854241_10000001079517.html
+10000003344222;1;AC CORDED SYSTEM;1854241;0;https://deko.aliexpress.com/store/group/AC-CORDED-SYSTEM/1854241_10000003344222.html
+511414613;1;Moscow Offline...;1854241;0;https://deko.aliexpress.com/store/group/Moscow-Offline-Pavilion/1854241_511414613.html
+10000003348200;1;DXBL MOTOR SYSTEM;1854241;0;https://deko.aliexpress.com/store/group/DXBL-MOTOR-SYSTEM/1854241_10000003348200.html
+114342;1;компьютерные комплектующие;3;0;https://www.aliexpress.com/store/114342
+40000000151340;1;Lenovo XiaoXin Pad;114342;0;https://lenovonline.aliexpress.com/store/group/Lenovo-XiaoXin-Pad/114342_40000000151340.html
+40000001660973;1;Xiaoxin Pad 2022;40000000151340;0;https://lenovonline.aliexpress.com/store/group/Xiaoxin-Pad-2022/114342_40000001660973.html
+40000000173262;1;P11 Tablet 11 inch;40000000151340;0;https://lenovonline.aliexpress.com/store/group/P11-Tablet-11-inch/114342_40000000173262.html
+40000000143822;1;P11 Plus Tablet 11...;40000000151340;0;https://lenovonline.aliexpress.com/store/group/P11-Plus-Tablet-11-inch/114342_40000000143822.html
+40000000159178;1;P11 Pro Tablet 11.5...;40000000151340;0;https://lenovonline.aliexpress.com/store/group/P11-Pro-Tablet-11-5-inch/114342_40000000159178.html
+40000000210335;1;P12 Pro tablet 12.6...;40000000151340;0;https://lenovonline.aliexpress.com/store/group/P12-Pro-tablet-12-6-inch/114342_40000000210335.html
+40000000163170;1;Yoga Pad Pro 13 inch ;40000000151340;0;https://lenovonline.aliexpress.com/store/group/Yoga-Pad-Pro-13-inch/114342_40000000163170.html
+40000000169000;1;XiaoXin Keyboard Pen...;40000000151340;0;https://lenovonline.aliexpress.com/store/group/XiaoXin-Keyboard-Pen-Mouse/114342_40000000169000.html
+40000000599700;1;Lenovo Laptop;114342;0;https://lenovonline.aliexpress.com/store/group/Lenovo-Laptop/114342_40000000599700.html
+212279579;1;Lenovo Tablet PC;114342;0;https://lenovonline.aliexpress.com/store/group/Lenovo-Tablet-PC/114342_212279579.html
+518618149;1;Yoga Tablet;212279579;0;https://lenovonline.aliexpress.com/store/group/Yoga-Tablet/114342_518618149.html
+518573060;1;Lenovo tab;212279579;0;https://lenovonline.aliexpress.com/store/group/Lenovo-tab/114342_518573060.html
+40000000168925;1;Lenovo Mobil Phone;114342;0;https://lenovonline.aliexpress.com/store/group/Lenovo-Mobil-Phone/114342_40000000168925.html
+211975458;1;Lenovo Earphone;114342;0;https://lenovonline.aliexpress.com/store/group/Lenovo-Earphone/114342_211975458.html
+518618162;1;Other Earphone;211975458;0;https://lenovonline.aliexpress.com/store/group/Other-Earphone/114342_518618162.html
+518606456;1;Sport Earphone;211975458;0;https://lenovonline.aliexpress.com/store/group/Sport-Earphone/114342_518606456.html
+518924427;1;TWS Earphone;211975458;0;https://lenovonline.aliexpress.com/store/group/TWS-Earphone/114342_518924427.html
+10000001093005;1;Lenovo Mouse&Keyboard;114342;0;https://lenovonline.aliexpress.com/store/group/Lenovo-Mouse-Keyboard/114342_10000001093005.html
+2800188;1;компьютерные комплектующие;3;0;https://www.aliexpress.com/store/2800188
+40000000983522;1;Xiaomi 12 Series;2800188;0;https://xiaomistore.aliexpress.com/store/group/Xiaomi-12-Series/2800188_40000000983522.html
+40000000366936;1;Redmi Note 11 Series;2800188;0;https://xiaomistore.aliexpress.com/store/group/Redmi-Note-11-Series/2800188_40000000366936.html
+40000000537155;1;Redmi Note 11 Pro;40000000366936;0;https://xiaomistore.aliexpress.com/store/group/Redmi-Note-11-Pro/2800188_40000000537155.html
+40000000555876;1;Redmi Note 11 Pro 5G;40000000366936;0;https://xiaomistore.aliexpress.com/store/group/Redmi-Note-11-Pro-5G/2800188_40000000555876.html
+40000000559646;1;Redmi Note 11;40000000366936;0;https://xiaomistore.aliexpress.com/store/group/Redmi-Note-11/2800188_40000000559646.html
+40000000586290;1;Redmi Note 11S;40000000366936;0;https://xiaomistore.aliexpress.com/store/group/Redmi-Note-11S/2800188_40000000586290.html
+518985554;1;POCO Series;2800188;0;https://xiaomistore.aliexpress.com/store/group/POCO-Series/2800188_518985554.html
+10000000790501;1;POCO F3;518985554;0;https://xiaomistore.aliexpress.com/store/group/POCO-F3/2800188_10000000790501.html
+40000000948305;1;POCO M4 Pro 4G;518985554;0;https://xiaomistore.aliexpress.com/store/group/POCO-M4-Pro-4G/2800188_40000000948305.html
+40000000944292;1;POCO X4 Pro;518985554;0;https://xiaomistore.aliexpress.com/store/group/POCO-X4-Pro/2800188_40000000944292.html
+10000003496009;1;POCO M4 Pro 5G;518985554;0;https://xiaomistore.aliexpress.com/store/group/POCO-M4-Pro-5G/2800188_10000003496009.html
+10000001461399;1;POCO M3 Pro;518985554;0;https://xiaomistore.aliexpress.com/store/group/POCO-M3-Pro/2800188_10000001461399.html
+10000002608361;1;POCO X3 GT;518985554;0;https://xiaomistore.aliexpress.com/store/group/POCO-X3-GT/2800188_10000002608361.html
+10000000839842;1;POCO X3 Pro;518985554;0;https://xiaomistore.aliexpress.com/store/group/POCO-X3-Pro/2800188_10000000839842.html
+510523906;1;Redmi Phones;2800188;0;https://xiaomistore.aliexpress.com/store/group/Redmi-Phones/2800188_510523906.html
+40000000450629;1;Redmi Note 10S;510523906;0;https://xiaomistore.aliexpress.com/store/group/Redmi-Note-10S/2800188_40000000450629.html
+40000000450632;1;Redmi Note 10 Pro;510523906;0;https://xiaomistore.aliexpress.com/store/group/Redmi-Note-10-Pro/2800188_40000000450632.html
+10000002729999;1;Redmi 10;510523906;0;https://xiaomistore.aliexpress.com/store/group/Redmi-10/2800188_10000002729999.html
+10000001203172;1;Redmi 9C;510523906;0;https://xiaomistore.aliexpress.com/store/group/Redmi-9C/2800188_10000001203172.html
+10000001195912;1;Redmi 9A;510523906;0;https://xiaomistore.aliexpress.com/store/group/Redmi-9A/2800188_10000001195912.html
+517478463;1;Xiaomi 11 Lite 5G NE;2800188;0;https://xiaomistore.aliexpress.com/store/group/Xiaomi-11-Lite-5G-NE/2800188_517478463.html
+10000003378502;1;Xiaomi 11 Lite 5G NE;517478463;0;https://xiaomistore.aliexpress.com/store/group/Xiaomi-11-Lite-5G-NE/2800188_10000003378502.html
+40000000175289;1;Mi 11 Lite 5G;517478463;0;https://xiaomistore.aliexpress.com/store/group/Mi-11-Lite-5G/2800188_40000000175289.html
+10000002516354;1;Xiaomi 11T series;2800188;0;https://xiaomistore.aliexpress.com/store/group/Xiaomi-11T-series/2800188_10000002516354.html
+518236234;1;RU Warehouse;2800188;0;https://xiaomistore.aliexpress.com/store/group/RU-Warehouse/2800188_518236234.html
+519283153;1;EU Warehouse;2800188;0;https://xiaomistore.aliexpress.com/store/group/EU-Warehouse/2800188_519283153.html
+518896327;1;Xiaomi Eco-chain;2800188;0;https://xiaomistore.aliexpress.com/store/group/Xiaomi-Eco-chain/2800188_518896327.html
+40000000167355;1;Xiaomi Tablet;2800188;0;https://xiaomistore.aliexpress.com/store/group/Xiaomi-Tablet/2800188_40000000167355.html
+2843040;1;память по скидке;3;0;https://aliexpress.com/store/2843040
+513750068;1;Samsung;2843040;0;https://www.aliexpress.com/store/group/Samsung/2843040_513750068.html
+513999037;1;Samsung Memory Card;513750068;0;https://www.aliexpress.com/store/group/Samsung-Memory-Card/2843040_513999037.html
+513813728;1;Samsung USB Flash...;513750068;0;https://www.aliexpress.com/store/group/Samsung-USB-Flash-Drive/2843040_513813728.html
+515153569;1;Samsung SSD;513750068;0;https://www.aliexpress.com/store/group/Samsung-SSD/2843040_515153569.html
+513793474;1;SanDisk;2843040;0;https://www.aliexpress.com/store/group/SanDisk/2843040_513793474.html
+513943844;1;SanDisk Memory Card;513793474;0;https://www.aliexpress.com/store/group/SanDisk-Memory-Card/2843040_513943844.html
+513947693;1;SanDisk USB Flash...;513793474;0;https://www.aliexpress.com/store/group/SanDisk-USB-Flash-Drive/2843040_513947693.html
+517951223;1;SanDisk SSD;513793474;0;https://www.aliexpress.com/store/group/SanDisk-SSD/2843040_517951223.html
+515171942;1;Lexar;2843040;0;https://www.aliexpress.com/store/group/Lexar/2843040_515171942.html
+40000001623305;1;Lexar Cable;515171942;0;https://www.aliexpress.com/store/group/Lexar-Cable/2843040_40000001623305.html
+515164888;1;Lexar Memory Card;515171942;0;https://www.aliexpress.com/store/group/Lexar-Memory-Card/2843040_515164888.html
+515175492;1;Lexar USB Flash Drive;515171942;0;https://www.aliexpress.com/store/group/Lexar-USB-Flash-Drive/2843040_515175492.html
+515553650;1;Lexar SSD;515171942;0;https://www.aliexpress.com/store/group/Lexar-SSD/2843040_515553650.html
+515423588;1;Lexar Card Reader;515171942;0;https://www.aliexpress.com/store/group/Lexar-Card-Reader/2843040_515423588.html
+518532777;1;Lexar Ram;515171942;0;https://www.aliexpress.com/store/group/Lexar-Ram/2843040_518532777.html
+517473136;1;ADATA;2843040;0;https://www.aliexpress.com/store/group/ADATA/2843040_517473136.html
+40000001114492;1;ADATA Ram;517473136;0;https://www.aliexpress.com/store/group/ADATA-Ram/2843040_40000001114492.html
+517382880;1;ADATA Memory Card;517473136;0;https://www.aliexpress.com/store/group/ADATA-Memory-Card/2843040_517382880.html
+10000001090852;1;ADATA USB Flash Drive;517473136;0;https://www.aliexpress.com/store/group/ADATA-USB-Flash-Drive/2843040_10000001090852.html
+10000001812440;1;ADATA SSD;517473136;0;https://www.aliexpress.com/store/group/ADATA-SSD/2843040_10000001812440.html
+10000001820363;1;ADATA HDD;517473136;0;https://www.aliexpress.com/store/group/ADATA-HDD/2843040_10000001820363.html
+10000002042862;1;KLEVV;2843040;0;https://www.aliexpress.com/store/group/KLEVV/2843040_10000002042862.html
+10000002034808;1;KLEVV SSD;10000002042862;0;https://www.aliexpress.com/store/group/KLEVV-SSD/2843040_10000002034808.html
+517206124;1;Lemiwei;2843040;0;https://www.aliexpress.com/store/group/Lemiwei/2843040_517206124.html
+517206125;1;Lemiwei Memory Card;517206124;0;https://www.aliexpress.com/store/group/Lemiwei-Memory-Card/2843040_517206125.html
+518043705;1;Lemiwei USB Flash...;517206124;0;https://www.aliexpress.com/store/group/Lemiwei-USB-Flash-Drive/2843040_518043705.html
+511411456;1;XGEGXE;2843040;0;https://www.aliexpress.com/store/group/XGEGXE/2843040_511411456.html
+517479316;1;XGEGXE Memory Card;511411456;0;https://www.aliexpress.com/store/group/XGEGXE-Memory-Card/2843040_517479316.html

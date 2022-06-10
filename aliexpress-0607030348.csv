@@ -1,0 +1,54 @@
+category ID;pail;category name;parent category;root;aliexpress_url
+911943321;1;ASUS GLOBAL STORE;3;0;https://www.aliexpress.com/store/911943321
+10000001245374;1;WorkStation-WS;911943321;0;https://www.aliexpress.com/store/group/WorkStation-WS/911943321_10000001245374.html
+40000000228410;1;Graphics Card;911943321;0;https://www.aliexpress.com/store/group/Graphics-Card/911943321_40000000228410.html
+10000002283402;1;RAM;911943321;0;https://www.aliexpress.com/store/group/RAM/911943321_10000002283402.html
+10000001253297;1;CSM-Corporate Stable...;911943321;0;https://www.aliexpress.com/store/group/CSM-Corporate-Stable-Model/911943321_10000001253297.html
+10000001062374;1;ASUS-PRIME;911943321;0;https://www.aliexpress.com/store/group/ASUS-PRIME/911943321_10000001062374.html
+10000001143328;1;ROG-Republic of Games;911943321;0;https://www.aliexpress.com/store/group/ROG-Republic-of-Games/911943321_10000001143328.html
+10000001143334;1;AMD B550;10000001143328;0;https://www.aliexpress.com/store/group/AMD-B550/911943321_10000001143334.html
+10000001143335;1;AMD B560;10000001143328;0;https://www.aliexpress.com/store/group/AMD-B560/911943321_10000001143335.html
+10000001261120;1;AMD X570;10000001143328;0;https://www.aliexpress.com/store/group/AMD-X570/911943321_10000001261120.html
+10000001257302;1;INTEL Z490;10000001143328;0;https://www.aliexpress.com/store/group/INTEL-Z490/911943321_10000001257302.html
+10000001070181;1;AMD B450;10000001143328;0;https://www.aliexpress.com/store/group/AMD-B450/911943321_10000001070181.html
+10000003396495;1;INTEL Z690;10000001143328;0;https://www.aliexpress.com/store/group/INTEL-Z690/911943321_10000003396495.html
+10000001104326;1;INTEL Z590;10000001143328;0;https://www.aliexpress.com/store/group/INTEL-Z590/911943321_10000001104326.html
+10000001104327;1;INTEL Z390;10000001143328;0;https://www.aliexpress.com/store/group/INTEL-Z390/911943321_10000001104327.html
+10000001108265;1;TUF GAMING;911943321;0;https://www.aliexpress.com/store/group/TUF-GAMING/911943321_10000001108265.html
+10000001155136;1;AMD X570;10000001108265;0;https://www.aliexpress.com/store/group/AMD-X570/911943321_10000001155136.html
+10000001257303;1;AMD B550;10000001108265;0;https://www.aliexpress.com/store/group/AMD-B550/911943321_10000001257303.html
+10000001058438;1;INTEL Z490;10000001108265;0;https://www.aliexpress.com/store/group/INTEL-Z490/911943321_10000001058438.html
+10000001253291;1;AMD B450;10000001108265;0;https://www.aliexpress.com/store/group/AMD-B450/911943321_10000001253291.html
+10000001104329;1;INTEL Z390;10000001108265;0;https://www.aliexpress.com/store/group/INTEL-Z390/911943321_10000001104329.html
+10000001982551;1;Motherboard;911943321;0;https://www.aliexpress.com/store/group/Motherboard/911943321_10000001982551.html
+10000002177125;1;AMD;10000001982551;0;https://www.aliexpress.com/store/group/AMD/911943321_10000002177125.html
+10000002173108;1;INTEL;10000001982551;0;https://www.aliexpress.com/store/group/INTEL/911943321_10000002173108.html
+10000002113642;1;Motherboard And CPU;911943321;0;https://www.aliexpress.com/store/group/Motherboard-And-CPU/911943321_10000002113642.html
+10000002189118;1;AMD;10000002113642;0;https://www.aliexpress.com/store/group/AMD/911943321_10000002189118.html
+10000002173109;1;INTEL;10000002113642;0;https://www.aliexpress.com/store/group/INTEL/911943321_10000002173109.html
+10000002119270;1;Accessories;911943321;0;https://www.aliexpress.com/store/group/Accessories/911943321_10000002119270.html
+10000002148167;1;SATA3 Cale;10000002119270;0;https://www.aliexpress.com/store/group/SATA3-Cale/911943321_10000002148167.html
+10000002119273;1;Wireless Wifi;10000002119270;0;https://www.aliexpress.com/store/group/Wireless-Wifi/911943321_10000002119273.html
+10000003387789;1;Power Supply;911943321;0;https://www.aliexpress.com/store/group/Power-Supply/911943321_10000003387789.html
+912690782;1;PC Cooles Store;3;0;https://www.aliexpress.com/store/912690782
+50000000047049;1;Large Area Frame...;912690782;0;https://atomstackonline.aliexpress.com/store/group/Large-Area-Frame-Laser-Engraver/912690782_50000000047049.html
+50000000041060;1;50W Engraver;50000000047049;0;https://atomstackonline.aliexpress.com/store/group/50W-Engraver/912690782_50000000041060.html
+50000000065041;1;40W Engraver;50000000047049;0;https://atomstackonline.aliexpress.com/store/group/40W-Engraver/912690782_50000000065041.html
+50000000028045;1;30W Engraver;50000000047049;0;https://atomstackonline.aliexpress.com/store/group/30W-Engraver/912690782_50000000028045.html
+50000000045058;1;20W Engraver;50000000047049;0;https://atomstackonline.aliexpress.com/store/group/20W-Engraver/912690782_50000000045058.html
+50000000069051;1;A5 Series;50000000047049;0;https://atomstackonline.aliexpress.com/store/group/A5-Series/912690782_50000000069051.html
+50000000043060;1;A10 Series;50000000047049;0;https://atomstackonline.aliexpress.com/store/group/A10-Series/912690782_50000000043060.html
+50000000136059;1;S10 Series;50000000047049;0;https://atomstackonline.aliexpress.com/store/group/S10-Series/912690782_50000000136059.html
+50000000040058;1;X Series;50000000047049;0;https://atomstackonline.aliexpress.com/store/group/X-Series/912690782_50000000040058.html
+50000000136060;1;50W Dual-Laser;912690782;0;https://atomstackonline.aliexpress.com/store/group/50W-Dual-Laser/912690782_50000000136060.html
+50000000110054;1;40W Hot Sale;912690782;0;https://atomstackonline.aliexpress.com/store/group/40W-Hot-Sale/912690782_50000000110054.html
+50000000051052;1;Portable Laser...;912690782;0;https://atomstackonline.aliexpress.com/store/group/Portable-Laser-Engraver/912690782_50000000051052.html
+50000000022048;1;Single Arm Laser...;912690782;0;https://atomstackonline.aliexpress.com/store/group/Single-Arm-Laser-Engraver/912690782_50000000022048.html
+50000000061056;1;P9 Series;50000000022048;0;https://atomstackonline.aliexpress.com/store/group/P9-Series/912690782_50000000061056.html
+50000000043061;1;P7 Series;50000000022048;0;https://atomstackonline.aliexpress.com/store/group/P7-Series/912690782_50000000043061.html
+50000000050036;1;Laser Accessories;912690782;0;https://atomstackonline.aliexpress.com/store/group/Laser-Accessories/912690782_50000000050036.html
+50000000052048;1;Laser Replacement...;912690782;0;https://atomstackonline.aliexpress.com/store/group/Laser-Replacement-Parts/912690782_50000000052048.html
+50000000030037;1;3D Printer;912690782;0;https://atomstackonline.aliexpress.com/store/group/3D-Printer/912690782_50000000030037.html
+50000000047050;1;Print Material;912690782;0;https://atomstackonline.aliexpress.com/store/group/Print-Material/912690782_50000000047050.html
+50000000120069;1;TPR;50000000047050;0;https://atomstackonline.aliexpress.com/store/group/TPR/912690782_50000000120069.html
+50000000116069;1;PLA;50000000047050;0;https://atomstackonline.aliexpress.com/store/group/PLA/912690782_50000000116069.html

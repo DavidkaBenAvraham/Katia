@@ -106,10 +106,10 @@ def start_script() -> bool:
                 ''' Без потоков -> '''
 
                 if ini.mode == "prod":
-                    supplier = Supplier(supplier_prefics , lang , ini)
+                    supplier  = Supplier(supplier_prefics = supplier_prefics, lang = lang , ini = ini)
                     supplier.run()
                 else:
-                    supplier = Supplier(supplier_prefics , lang, ini)
+                    supplier =  Supplier(supplier_prefics = supplier_prefics, lang = lang , ini = ini)
                     supplier.run()
 
 

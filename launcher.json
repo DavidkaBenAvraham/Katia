@@ -7,7 +7,7 @@
   "modes": [ "debug", "production" ],
 
 
-  "threads": true,
+  "threads": false,
   "about threads": "многопоточность программы",
 
 
@@ -28,59 +28,61 @@
   },
 
   "webdriver": {
-    "name": "firefox",
-    "arguments": [ "--no-sandbox" ],
-    "disabled_arguments": [
-      "--disable-dev-shm-usage",
-      "--headless"
-    ],
-    "wait": 5,
-    "maximize_window": true
-  },
 
-
-  "about kora": "kora обертка для запуска вебдрайвера в google.research взята из https://github.com/korakot/kora",
-  "excluded webdrivers": {
-
-
-
-    "webdriver": {
-      "name": "firefox",
-      "arguments": [ "--no-sandbox" ],
-      "disabled_arguments": [
-        "--disable-dev-shm-usage",
-        "--headless"
-      ],
-      "wait": 5,
-      "maximize_window": true
-    },
-
-    "webdriver": {
-      "name": "kora",
-      "arguments": [
-        "--headless",
-        "--no-sandbox",
-        "--disable-dev-shm-usage"
-      ],
-      "wait": 5,
-      "about wait": "явное ожидание браузера в сек",
-      "random": [ 0, 5 ]
-    },
-
-    "chromedriver": {
       "name": "chromedriver",
       "arguments": [
-        "--headless",
         "--no-sandbox",
         "--disable-dev-shm-usage"
       ],
-      "wait": 5
-    }
+      "wait": 5,
+      "maximize_window": true,
+      "view_html_source_mode": false
+    
   },
 
-  "suppliers": [
-    "aliexpress"
-  ],
-  "suppliers_excluded": [ "morlevi", "grandadvance", "ksp" ]
 
-}
+    "about kora": "kora обертка для запуска вебдрайвера в google.research взята из https://github.com/korakot/kora",
+    "excluded webdrivers": {
+
+
+
+      "webdriver": {
+        "name": "firefox",
+        "arguments": [ "--no-sandbox" ],
+        "disabled_arguments": [
+          "--disable-dev-shm-usage",
+          "--headless"
+        ],
+        "wait": 5,
+        "maximize_window": true
+      },
+
+      "webdriver": {
+        "name": "kora",
+        "arguments": [
+          "--headless",
+          "--no-sandbox",
+          "--disable-dev-shm-usage"
+        ],
+        "wait": 5,
+        "about wait": "явное ожидание браузера в сек",
+        "random": [ 0, 5 ]
+      },
+
+      "chromedriver": {
+        "name": "chromedriver",
+        "arguments": [
+          "--headless",
+          "--no-sandbox",
+          "--disable-dev-shm-usage"
+        ],
+        "wait": 5
+      }
+    },
+
+    "suppliers": [
+      "aliexpress"
+    ],
+    "suppliers_excluded": [ "morlevi", "grandadvance", "ksp" ]
+
+  }

@@ -61,25 +61,24 @@ class Driver():
    
     current_url : str = attrib(init = False , default = None)
 
-    webdriver_settings : dict = attrib(init = False , default = None)
-    driver : webdriver = attrib(init = False , default = None)
+    driver      : webdriver = attrib(init = False , default = None)
     
     get_parsed_google_search_result : GoogleHtmlParser = attrib(init = False, default = None)
-    
+
     def __attrs_post_init__(self , *args, **kwrads):
         #self.set_driver(self.ini.webdriver_settings)
         pass
 
     def set_driver(self , webdriver_settings : dict) -> driver:      
-        '''   webdriver_settings - установки драйвера не из файла, а из своего json
-            или запускаю вебдрайвер по сценарию из launcher.json["webdriver"]
-
+        '''   webdriver_settings -  из своего launcher.json["webdriver"]
+          
         kora = обертка для запуска в google.research
         взята из https://github.com/korakot/kora
         там также есть ИИ!
                
         и догружаю в kora нужные мне элементы из пакета selenium
         '''
+        
         
        
         if webdriver_settings['name'] == 'kora':
@@ -117,25 +116,27 @@ class Driver():
 
         self._wait = webdriver_settings['wait']
 
-        self._add_extra_functions()
+        self._add_extra_functions(webdriver_settings)
 
         return self.driver
 
-    def _add_extra_functions(self):
+    def _add_extra_functions(self ,webdriver_settings):
         
-        self.driver.wait = self._wait
-        self.driver.implicity_wait = self._implicity_wait
-        self.driver.wait_to_precence_located = self._wait_to_precence_located
-        self.driver.wait_to_be_clickable = self._wait_to_be_clickable
-        self.driver.get_url = self._get_url
-        self.driver.find = self._find
-        self.driver.parce_html_block = self._parce_html_block
-        self.driver.click = self._click
-        self.driver.page_refresh = self._page_refresh
-        self.driver.close = self._close  
-        self.driver.scroll = self._scroller
-        self.driver.find_in_webelements =  self._find_in_webelements
-        self.driver.get_parsed_google_search_result = GoogleHtmlParser
+        self.driver.wait =                              self._wait
+        self.driver.implicity_wait =                    self._implicity_wait
+        self.driver.wait_to_precence_located =          self._wait_to_precence_located
+        self.driver.wait_to_be_clickable =              self._wait_to_be_clickable
+        self.driver.get_url =                           self._get_url
+        self.driver.find =                              self._find
+        self.driver.find_attributes_in_webelements =    self._find_attributes_in_webelements
+        self.driver.parce_html_block =                  self._parce_html_block
+        self.driver.click =                             self._click
+        self.driver.page_refresh =                      self._page_refresh
+        self.driver.close =                             self._close  
+        self.driver.scroll =                            self._scroller
+        
+        self.driver.get_parsed_google_search_result =   GoogleHtmlParser
+        self.driver.view_html_source_mode : bool =      webdriver_settings['view_html_source_mode']
         
     '''
                                     Ожидания драйвера
@@ -192,19 +193,39 @@ class Driver():
     ''' ------------------ НАЧАЛО -------------------------- '''
 
     #@print
-    def _get_url(self, url:str , view_html_source: bool = False)->bool:
+    def _get_url(self, url:str )->bool:
         '''переход по заданному адресу 
-        view_html_source = True : возвращает код страницы'''
+        view_html_source = True : возвращает код страницы
+        кроме того она проверяет что сайт не выпал в страницу логина
+        '''
 
 
         def check_if_not_login():
-
+            ''' проверяюм что не упал на логин 
+            плохое решение. Драйверу нечего знать о поставщиках'''
+            if str(self.driver.current_url).find(self.supplier_settings_from_json['login_url'])>0:
+                self.related_functions.login(self)
             pass
 
         try:
-            #self.driver.get(f'''view-source:{url}''') if view_html_source else 
-            self.driver.get(f'''{url}''')
-            check_if_not_login()
+
+
+            self.driver.get(f'''view-source:{url}''') if self.driver.view_html_source_mode else self.driver.get(f'''{url}''')
+           
+            self.driver._wait_to_precence_located(self, self.lolators['body'])
+
+
+            #check_if_not_login()
+            ''' везде есть баги здесь проверка, что не выпала страница логина '''
+            #self.driver._wait_to_precence_located(self, locator)
+
+            if self.driver.current_url == 'about:blank':
+                ''' если тормозит на пустой странице '''
+                #self.driver.wait()
+                self._get_url(url)
+                pass
+                ''' плохо реализовано - это костыль'''
+
             return True 
         except Exception as ex:
             return False , print(f''' Ошибка в _get_url() :
@@ -238,16 +259,16 @@ class Driver():
     ''' ------------------ НАЧАЛО -------------------------- '''   
     def _parce_html_block(self , html_block , locator):
         _elements = html_block.find_elements(locator['by'] , locator['selector'])
-        return self._find_in_webelements(_elements , locator)
+        return self._find_attributes_in_webelements(_elements , locator)
 
     ''' ------------------ КОНЕЦ  -------------------------- '''
 
     ''' ------------------ НАЧАЛО -------------------------- '''
-    def _find_in_webelements(self , elements , locator): 
+    def _find_attributes_in_webelements(self , elements , locator): 
         '''аттрибуты в locator['attribute'] могут быть строкой  словарем или списком '''
         _е : list = [] 
 
-        # 1) если аттрибуты в словаре 
+        # 1) если аттрибуты в словаре {'href','text'}
         if str(type(locator['attribute'])).find('dict') >-1:
             _d  : dict = {}
             for k,v in dict(locator['attribute']).items():
@@ -257,15 +278,17 @@ class Driver():
             _е.append(_d)
             return _е
 
-        #2) аттрибуты списоком
+        #2) аттрибуты списоком ['href','text']
         if str(type(locator['attribute'])).find('list') >-1:
             for el in elements:
                 for attr in locator['attribute']:_е.append(el.get_attribute(attr))
             return _е
 
-        #3) один
+        #3) один 'innerHTML'
         if str(type(locator['attribute'])).find('str') >-1:
-            return elements
+            for el in elements:
+                _е.append(el.get_attribute(locator['attribute']))
+            return _е
 
         pass
     ''' ------------------ КОНЕЦ  -------------------------- '''
@@ -278,9 +301,10 @@ class Driver():
         ''' поиск элементов на странице '''
 
         #1) выуживаю элементы со страницы
-
         elements = self._get_webelments_from_page(locator)
-        return self._find_in_webelements(elements , locator)
+
+        #2) вытаскиваю аттрибуты по локатору
+        return elements
     ''' ------------------ КОНЕЦ  -------------------------- '''
 
 

@@ -3,6 +3,8 @@
 ###############################
 from selenium.webdriver.firefox.options import Options
 
+
+
 def chrome_options(self):
     options = Options()
     options.add_argument("--start-maximized")

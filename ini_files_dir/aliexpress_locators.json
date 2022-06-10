@@ -1,7 +1,67 @@
 {
   "about": "подробное описание структуры файлов JSON смотри READMY.MD в корне этой папки  ",
 
-  "login_url": "https://login.aliexpress.com",
+  "infinity_scroll": false,
+
+  "body_locator": {
+    "attribute": "innerHTML",
+    "by": "tag name",
+    "selector": "body"
+  },
+
+  "pagination_block": {
+    "attribute": "{text,href}",
+    "by": "xpath",
+    "selector": "//*[@class = 'ui-pagination-navi util-left']/a"
+  },
+
+  "login": {
+    "login_url": "https://login.aliexpress.com",
+
+
+    "goto global site": {
+      "attribute": "href",
+      "by": "xpath",
+      "selector": "//a[@data-role = 'goto-globalsite']"
+    },
+
+    "close banner": {
+      "attribute": "text",
+      "by": "xpath",
+      "selector": "//div[contains(text(), 'אפשר')]"
+    },
+
+    "open_login_popup_button": {
+      "attribute": "href",
+      "by": "xpath",
+      "selector": "//a[@data-role='myaliexpress-link']",
+      "open_login_popup_button 2lvl": {
+        "attribute": "href",
+        "by": "xpath",
+        "selector": "//a[@class='sign-btn']"
+      }
+    },
+
+
+    "user": "one.last.bit@gmail.com",
+    "user_locator": {
+      "attribute": "text",
+      "by": "xpath",
+      "selector": "//input[@id='fm-login-id']"
+    },
+    "password": "dav1969",
+    "password_locator": {
+      "attribute": "text",
+      "by": "xpath",
+      "selector": "//input[@id='fm-login-password']"
+    },
+    "send_locator": {
+      "attribute": "click",
+      "by": "xpath",
+      "selector": "//button[@type='submit']"
+    }
+
+  },
 
 
   "main_categories_locator_HTMLBLOCK": {
@@ -39,51 +99,138 @@
 
 
 
-
-
   "ЛОКАТОРЫ МАГАЗИНА ПРОДАВЦА": "КАТЕГОРИИ, БАННЕРЫ, ТОВАРЫ И ВСЕ ОСТАЛЬНОЕ, ЧТО МНЕ НАДО НА СТРАНИЦЕ ПОСТАВЩИКА",
 
-
-
   "store": {
-    "all_store_categories_locator_HTMLBLOCK": {
+
+
+    "all_store_categories_HTMLBLOCK": {
       "DESCRIPTION": " блок катагероий магазина",
       "attribute": "innerHTML",
       "by": "xpath",
-      "selector": "//ul[@class='groups-list groups-default']",
+      "selector": "//ul[@class='groups-list groups-default']"
+    },
 
 
-      "categories_sub_bloks": {
-        "attribute": "innerHTML",
+    "categories_sub_blocks": {
+      "attribute": "innerHTML",
+      "by": "xpath",
+      "selector": "//ul[@class='groups-list groups-default']"
+    },
+
+
+    "sub_block_main_item": {
+      "attribute": "innerHTML",
+      "by": "xpath",
+      "selector": "//*[@class='group-item']",
+      "inner level a": {
+        "DESCRIPTION": " элемент <a> из которого я вытаскиваю значения {'text':'href'} в словарь",
+        "attribute": { "text": "href" },
         "by": "xpath",
-        "selector": "//ul[@class='groups-list groups-default']/li",
-
-
-
-        "sub_blok_main_item": {
-          "attribute": { "text": "href" },
-          "by": "tag name",
-          "selector": "//li[@class='group-item']/a"
-        },
-        "sub_blok_sub_items": {
-          "attribute": { "text": "href" },
-          "by": "tag name",
-          "selector": "//li[@class='sub-group-item']/a"
-        }
-
+        "selector": "//*[@class='group-item']/a"
       }
+    },
+
+    "sub_blok_sub_items": {
+      "attribute": "innerHTML",
+      "by": "xpath",
+      "selector": "//li[@class='sub-group-item']",
+      "inner level a": {
+        "DESCRIPTION": " элемент <a> из которого я вытаскиваю значения {'text':'href'} в словарь",
+        "attribute": { "text": "href" },
+        "by": "xpath",
+        "selector": "//*[@class='sub-group-item']/a"
+      }
+    },
+
+
+    "rollover_banners_locator": {
+      "attribute": "innerHTML",
+      "by": "xpath",
+      "selector": "//*[contains(@style, 'cubic-bezier')]//a"
+    },
+
+    "product_locator": {
+      "attribute": "inneHTML",
+      "by": "xpath",
+      "selector": "//*[contains(@ae_button_type ,'productList_click')]"
     }
 
-
   },
-  "rollover_banners_locator": {
+
+
+
+
+  "cookies accept": {
     "attribute": "innerHTML",
     "by": "xpath",
-    "selector": "//*[contains(@style, 'cubic-bezier')]//a"
+    "selector": "//*button[@class ='btn-accept']"
   },
-  "product_locator": {
-    "attribute": "inneHTML",
+
+  "eng version": {
+    "attribute": "href",
     "by": "xpath",
-    "selector": "//*[contains(@ae_button_type ,'productList_click')]"
+    "selector": "//*a[@class ='link-goto-globalsite']"
+  },
+
+
+  "product": {
+
+
+    "link_to_product_locator": {
+      "attribute": "href",
+      "by": "xpath",
+      "selector": "//a[contains(@class,'MuiTypography') and contains(@href , 'web/item')]"
+    },
+
+    "product_block_locator": {
+      "attribute": "innerHTML",
+      "by": "xpath",
+      "selector": "//*[@id='product-page-root']",
+      "_selector": "//*[contains(. , 'flex-direction: row;')]/*"
+    },
+
+    "product_price_locator": {
+      "attribute": "innerText",
+      "by": "xpath",
+      "selector": "//*[@id='product-page-root']//div[@aria-label]//div[text()]"
+
+    },
+    "product_images_locator": {
+      "attribute": "src",
+      "by": "xpath",
+      "selector": "//*[@id='product-page-root']//ul[@class='slider animated']//img"
+
+    },
+    "product_images_alt_locator": {
+      "attribute": "alt",
+      "by": "xpath",
+      "selector": "//*[@id='product-page-root']//ul[@class='slider animated']//img"
+
+    },
+
+    "product_sikum_locator": {
+      "attribute": "innerHTML",
+      "by": "xpath",
+      "selector": "//*[@id='product-page-root']//div[@aria-label]/p"
+    },
+
+    "product_attributes_locator": {
+      "attribute": "innerHTML",
+      "by": "xpath",
+      "selector": "//*[@id='product-page-root']//div[@aria-label]//following-sibling::div/p[1]"
+    },
+
+    "product_description_locator": {
+      "attribute": "innerHTML",
+      "by": "xpath",
+      "selector": "//*[contains(@class , 'review')]/div/div"
+    },
+
+    "product_mkt_locator": {
+      "attribute": "innerHTML",
+      "by": "xpath",
+      "selector": "//*[contains(@data-id, 'product-')]/span"
+    }
   }
 }
