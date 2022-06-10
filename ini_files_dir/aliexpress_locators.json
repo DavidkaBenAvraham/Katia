@@ -178,9 +178,9 @@
 
 
     "link_to_product_locator": {
-      "attribute": "href",
+      "attribute": "{text,href}",
       "by": "xpath",
-      "selector": "//a[contains(@class,'MuiTypography') and contains(@href , 'web/item')]"
+      "selector": "//div[@class ='detail']//a"
     },
 
     "product_block_locator": {

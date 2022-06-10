@@ -72,3 +72,94 @@ class Product():
         return True , self.print(f'''{w} не найдено''')
     
     
+    def get_product_fields_from_product_page(s):
+    
+        '''
+        https://stackoverflow.com/questions/34301815/understand-the-find-function-in-beautiful-soup#_=_
+        Here we are also checking for presence of data-value attribute.
+        soup.find("span", {"class": "real number", "data-value": True})['data-value']
+        '''
+        p = products.Product()
+
+        p.fields["title"] = formatter.remove_special_characters(s.driver.title)
+
+        '''
+    
+             Получаю сырые данные со страницы
+
+        '''
+  
+
+    
+
+        raw_product_price_supplier = s.driver.find(s.locators['product']['product_price_locator'])
+        raw_product_images = ','.join(s.driver.find(s.locators['product']['product_images_locator']))
+        raw_product_images_alt = ','.join(s.driver.find(s.locators['product']['product_images_alt_locator']))
+        raw_product_sikum = ''.join(self.find(s.locators['product']['product_sikum_locator']))
+        combinations = ''.join(self.find(s.locators['product']['product_attributes_locator']))
+        raw_product_description = ''.join(s.driver.find(s.locators['product']['product_description_locator']))
+        raw_product_mkt_locator = ''.join(s.driver.find(s.locators['product']['product_mkt_locator']))
+
+        p.fields["categories"] = self.current_node["prestashop_category"]
+
+        tiur = formatter.remove_special_characters(f'''{raw_product_description}''')
+
+        p.fields["tiur"] = tiur
+        p.fields["sikum"] = formatter.remove_special_characters(f'''{raw_product_sikum}''')
+
+    
+
+        p.fields["img url"] = f'''{raw_product_images}'''
+        p.fields["img alt"] = f'''{raw_product_images_alt}'''
+
+        p.fields["mkt"] = f'''{raw_product_mkt_locator}'''
+        p.fields["mkt suppl"] = f'''{raw_product_mkt_locator}'''
+   
+   
+        price_supplier = formatter.clear_price(f'''{raw_product_price_supplier}''').strip('[]')
+
+        p.fields["mexir lifney"]=price_supplier
+        p.fields["mexir olut"]=price_supplier
+        p.fields["mexir le yexida"]=price_supplier
+
+        '''
+                        Аттрибуты товара
+
+
+        =================================================================================================
+
+
+                                  "Product ID": "",
+                                  "Attribute (Name:Type: Position)": "",
+                                  "value (Name:Type: Position)": "",
+                                  "Supplier reference": "",
+                                  "Reference": "",
+                                  "EAN13": "",
+                                  "UPC": "",
+                                  "Wholesale price": "",
+                                  "Impact on price": "",
+                                  "Ecotax": "",
+                                  "Quantity": "",
+                                  "Minimal quantity": "",
+                                  "Low stock level": "",
+                                  "Impact on weight": "",
+                                  "Default (0/1)": "",
+                                  "Combination available date": "",
+                                  "Image position": "",
+                                  "Image URLs(x,y,z)": "",
+                                  "Image Alt Text(x,y,z)": "",
+                                  "shop": "1,2,3,4",
+                                  "Advanced Stock Mangment": 0,
+                                  "Depends On Stock": 0,
+                                  "Warehouse": 0
+
+
+
+        '''
+        product_attributes(self,p,'div',raw_product_description)
+
+
+
+        return p
+
+    pass

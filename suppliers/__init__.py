@@ -3,7 +3,7 @@ import inspect
 import pandas as pd
 import importlib
 from pathlib import Path
-from suppliers.aliexpress import categories , shop , page
+from suppliers.aliexpress import  *
 from web_driver import Driver 
 from strings_formatter import StringFormatter as SF
 import csv_json_executers as json
@@ -79,7 +79,7 @@ class Supplier:
     driver  : Driver = attrib(init = False , default = None)
     ''' вебдрайвер - мотор всей системы '''
     
-
+    p : list = attrib(init = False , default = None)
 
 
     ''' ------------------ ИНИЦИАЛИЗАЦИЯ -------------------------- '''

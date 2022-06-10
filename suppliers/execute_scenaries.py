@@ -114,11 +114,11 @@ def run_scenario(s) -> bool:
                 '''Перехожу на страницу товара '''
 
                 #   b)
-                p_fields = s.related_functions.get_product_fields_from_product_page(s)
+                #p_fields = s.related_functions.get_product_fields_from_product_page(s)
                 ''' получаю поля товара '''
 
                 #   c)
-                s.p.append(p_fields)
+                s.p.append(products.Product().get_product_fields_from_product_page(s))
                 ''' добавляю поля в список supplier.p[] '''
 
 
@@ -187,7 +187,7 @@ def get_list_products_urls(s) ->list:
         list_product_urls : list = s.driver.find(s.locators['product']['link_to_product_locator'])
         ''' беру линки с певой страницы '''
 
-        while page.click_to_next_page(s):
+        while page.click_to_next_page():
             ''' функция реализуется для каждого поставщика в зависимости от страницы '''
             list_product_urls += s.driver.find(s.locators['product']['link_to_product_locator'])
             ''' продолжаю собирать со след страниц '''

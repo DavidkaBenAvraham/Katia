@@ -212,7 +212,7 @@ class Driver():
 
             self.driver.get(f'''view-source:{url}''') if self.driver.view_html_source_mode else self.driver.get(f'''{url}''')
            
-            self.driver._wait_to_precence_located(self, self.lolators['body'])
+            self.driver.wait_to_precence_located(self, self.locators['body'])
 
 
             #check_if_not_login()
