@@ -13,6 +13,7 @@ import sys
 import os 
 import datetime
 import time
+from strings_formatter import StringFormatter as SF
 
 from ini_files_dir import Ini
 from logger import Log
@@ -41,25 +42,15 @@ class Product():
         ''' считываю поля товара в датафреймы для дальнейших исследований
         ''' 
         self.ini = Ini()
-        
-        self.fields =   pd.DataFrame(
-                           json.loads(
-                                  Path(
-                        self.ini.paths.ini_files_dir , f'''prestashop_product_fields.json'''
-                              )))
+        ''' Плохое , очень плохое решение'''
 
-        self.combinations = pd.DataFrame(
-                               json.loads(
-                                      Path(
-                        self.ini.paths.ini_files_dir , f'''prestashop_product_combinations_fields.json'''
-                              )))
 
-        self.prestashop_product_combinations_synonyms = pd.DataFrame(
-                          json.loads(
-                                 Path(
-                        self.ini.paths.ini_files_dir , f'''prestashop_product_combinations_sysnonyms_{lang}.json'''
-                              )))
         
+        self.fields = json.loads(Path(self.ini.paths.ini_files_dir , f'''prestashop_product_fields.json'''))
+
+        self.combinations =json.loads(Path(self.ini.paths.ini_files_dir , f'''prestashop_product_combinations_fields.json'''))
+
+        #self.prestashop_product_combinations_synonyms = json.loads(Path(self.ini.paths.ini_files_dir , f'''prestashop_product_combinations_sysnonyms_{lang}.json'''))
         pass
     pass
 
@@ -72,35 +63,32 @@ class Product():
         return True , self.print(f'''{w} не найдено''')
     
     
-    def get_product_fields_from_product_page(s):
+    def get_product_fields_from_product_page(self,s):
     
         '''
         https://stackoverflow.com/questions/34301815/understand-the-find-function-in-beautiful-soup#_=_
         Here we are also checking for presence of data-value attribute.
         soup.find("span", {"class": "real number", "data-value": True})['data-value']
         '''
-        p = products.Product()
+        p = Product()
 
-        p.fields["title"] = formatter.remove_special_characters(s.driver.title)
+        p.fields["title"] = SF.remove_special_characters(s.driver.title)
 
         '''
     
              Получаю сырые данные со страницы
 
         '''
-  
-
-    
 
         raw_product_price_supplier = s.driver.find(s.locators['product']['product_price_locator'])
         raw_product_images = ','.join(s.driver.find(s.locators['product']['product_images_locator']))
         raw_product_images_alt = ','.join(s.driver.find(s.locators['product']['product_images_alt_locator']))
-        raw_product_sikum = ''.join(self.find(s.locators['product']['product_sikum_locator']))
-        combinations = ''.join(self.find(s.locators['product']['product_attributes_locator']))
+        raw_product_sikum = ''.join(s.driver.find(s.locators['product']['product_sikum_locator']))
+        combinations = ''.join(s.driver.find(s.locators['product']['product_attributes_locator']))
         raw_product_description = ''.join(s.driver.find(s.locators['product']['product_description_locator']))
         raw_product_mkt_locator = ''.join(s.driver.find(s.locators['product']['product_mkt_locator']))
 
-        p.fields["categories"] = self.current_node["prestashop_category"]
+        p.fields["categories"] = s.current_node["prestashop_category"]
 
         tiur = formatter.remove_special_characters(f'''{raw_product_description}''')
 

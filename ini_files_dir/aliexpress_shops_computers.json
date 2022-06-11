@@ -4,13 +4,15 @@
     "about": "====",
     "store_id": 910316084,
     "shop_url": "https://www.aliexpress.com/store/910316084",
-    "all-wholesale-products": "https://www.aliexpress.com/store/all-wholesale-products/910316084.html"
+    "all-wholesale-products": "https://www.aliexpress.com/store/all-wholesale-products/910316084.html",
+    "ajax_shop_file": "https://keyestudio-stem.aliexpress.com/store/productGroupsAjax.htm?storeId=911943321&shopVersion=3.0&callback=jsonp_911943321"
   },
   "Muchisimo Store": {
     "description": "видеокарточки и доски",
     "about": "====",
     "store_id": 5095129,
     "shop_url": "https://www.aliexpress.com/store/5095129",
-    "all-wholesale-products": "https://www.aliexpress.com/store/all-wholesale-products/5095129.html"
+    "all-wholesale-products": "https://www.aliexpress.com/store/all-wholesale-products/5095129.html",
+    "ajax_shop_file": "https://keyestudio-stem.aliexpress.com/store/productGroupsAjax.htm?storeId=911943321&shopVersion=3.0&callback=jsonp_911943321"
   }
 }

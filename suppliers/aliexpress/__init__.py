@@ -28,28 +28,33 @@ def login(s) -> bool :
     except Exception as ex:return False, print(ex)
 
 ''' ------------------ НАЧАЛО -------------------------- '''
-t:list = []
+shops:list = []
 def run_shops(s):
     
-    shops_groups_files_dict = json.loads(Path(s.ini.paths.ini_files_dir , f'''aliexpress.json'''))['shops']
+    shops_groups_files_dict = json.loads(Path(s.ini.paths.ini_files_dir , f'''aliexpress.json'''))['scenaries']
     for shop_group_file in shops_groups_files_dict:
         shops_dict = json.loads(Path(s.ini.paths.ini_files_dir , f'''{shop_group_file}'''))
         try:
             for shop_dict in shops_dict.items(): 
-                t.append({
+                shops.append({
                 'category ID': shop_dict[1]['store_id'] ,
                 'pail': 1,
                 'category name': shop_dict[1]['description'],
                 'parent category': 3,
                 'root': 0 ,
-                'aliexpress_url' : shop_dict[1]['shop_url']
+                'aliexpress_url' : shop_dict[1]['shop_url'],
+                'ajax_categories': shop_dict[1]['ajax_categories']
                 })
-
+                get_store_categories_ajax(s , shop_dict)
                 build_shop_categories(s , shop_dict)
         except Exception as ex:return False, print(ex)
     pass 
     ''' ------------------ КОНЕЦ  -------------------------- '''
 
+def get_ajax_from_store(s , shop_dict : dict):
+    s.driver.get_url(shop_dict[1]['ajax_categories'])
+    ajax_from_store = s.driver.find(shop_dict[1]['ajax_shop_file'])
+    return ajax_from_store
 
 
 ''' ------------------ НАЧАЛО -------------------------- ''' 
@@ -105,10 +110,13 @@ def build_shop_categories(s , shop_dict : dict) -> dict:
                     'aliexpress_url' : sub_category_url
                     })
                 
+    
     s.export(data = t , format = ['csv'] )
     pass
     ''' ------------------ КОНЕЦ  -------------------------- '''
 
+def run_local_scenario():
+    pass
 
 ''' ------------------ НАЧАЛО -------------------------- '''
 @attrs

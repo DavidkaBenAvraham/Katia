@@ -5,7 +5,7 @@
     "about": "Rasberry, Arduino СУПЕРСКИЕ",
     "shop_url": "https://keyestudio-stem.aliexpress.com/store/4247007",
     "all-wholesale-products": "https://keyestudio-stem.aliexpress.com/store/all-wholesale-products/4247007.html",
-
+    "ajax_shop_file": "https://keyestudio-stem.aliexpress.com/store/productGroupsAjax.htm?storeId=4247007&shopVersion=3.0&callback=jsonp_4247007",
 
     "scenaries": {
       "Raspberry Pi Kit": {
@@ -550,7 +550,7 @@
     "about": "деревянные электронные игрушки",
     "shop_url": "https://www.aliexpress.com/store/910331321",
     "all-wholesale-products": "https://aliexpress.com/store/all-wholesale-products/910331321.html",
-
+    "ajax_shop_file": "https://keyestudio-stem.aliexpress.com/store/productGroupsAjax.htm?storeId=910331321&shopVersion=3.0&callback=jsonp_910331321",
 
     "scenaries": {
       "Arduno kit && Electronic Kit": {

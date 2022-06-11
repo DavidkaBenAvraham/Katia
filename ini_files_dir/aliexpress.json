@@ -6,6 +6,8 @@
   "login_url": "https://www.login.aliexpress.com",
   "root_category": 3,
 
+  "aliexpres_ajax_store": "https://he.aliexpress.com/store/productGroupsAjax.htm?storeId=",
+
   "catalog_wholesale-products": {
     "ALL NOT SORTED": "https://www.aliexpress.com/wholesale.html?spm=a2g0o.11810135.0.0.61b4IPjRIPjR75",
     "HE": "https://www.he.aliexpress.com/all-wholesale-products.html",

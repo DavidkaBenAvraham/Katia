@@ -79,7 +79,7 @@ class Supplier:
     driver  : Driver = attrib(init = False , default = None)
     ''' вебдрайвер - мотор всей системы '''
     
-    p : list = attrib(init = False , default = None)
+    p : Factory(list) = attrib(init = False , default = [])
 
 
     ''' ------------------ ИНИЦИАЛИЗАЦИЯ -------------------------- '''
@@ -90,6 +90,8 @@ class Supplier:
             которые задяются при инициализации класса Supplier в виде парамтров:  attrib(kw_only = True)  
         '''
 
+        def get_store_json_file():
+            pass
 
         self.supplier_settings_from_json : dict  = json.loads(Path(self.ini.paths.ini_files_dir , f'''{self.supplier_prefics}.json'''))
 
@@ -102,10 +104,13 @@ class Supplier:
         self.related_functions = importlib.import_module(f'''suppliers.{self.supplier_prefics}''')
         ''' подгружаю релевантные функции для конкретного поствщика '''
 
+        self.related_functions.run_local_scenario()
+
         self.driver.get_url(self.supplier_settings_from_json['start_url'])
         
         
         if self.supplier_settings_from_json['if_login']:self.related_functions.login(self)
+        ''' логин '''
 
     ''' ------------------ КОНЕЦ  -------------------------- '''
 
@@ -115,14 +120,14 @@ class Supplier:
     def run(self):
         #self.driver.get_url(f'''https://www.aliexpress.com''')
         ''' Запуск кода сценариев   '''
-        execute_scenaries.execute_list_of_scenaries(self)
+        #execute_scenaries.execute_list_of_scenaries(self)
         
         
-        #self.related_functions.run_shops(self)
+        self.related_functions.run_shops(self)
 
-        C = self.related_functions.categories()
+        #C = self.related_functions.categories()
 
-        C.build_ALIEXPRESS_categories_table(self)
+        #C.build_ALIEXPRESS_categories_table(self)
         #''' собираю дерево каталогов'''
         #self.SHOP.build_SHOP_categories_table()
 

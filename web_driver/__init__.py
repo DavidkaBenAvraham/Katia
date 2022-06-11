@@ -193,12 +193,18 @@ class Driver():
     ''' ------------------ НАЧАЛО -------------------------- '''
 
     #@print
-    def _get_url(self, url:str )->bool:
+    def _get_url(self, url:str , wait_locator_to_be_loaded : dict = {} , view_html_source_mode : bool = False)->bool:
         '''переход по заданному адресу 
+        с ожиданием загрузки контента до локатора wait_locator_to_be_loaded
         view_html_source = True : возвращает код страницы
         кроме того она проверяет что сайт не выпал в страницу логина
         '''
-
+        wait_locator_to_be_loaded = {
+            "attribute": "innerHTML",
+            "by": "tag name",
+            "selector": "body"
+            }
+        ''' КОСТЫЛЬ '''
 
         def check_if_not_login():
             ''' проверяюм что не упал на логин 
@@ -210,15 +216,14 @@ class Driver():
         try:
 
 
-            self.driver.get(f'''view-source:{url}''') if self.driver.view_html_source_mode else self.driver.get(f'''{url}''')
-           
-            self.driver.wait_to_precence_located(self, self.locators['body'])
+            self.driver.get(f'''view-source:{url}''') if view_html_source_mode else self.driver.get(f'''{url}''')
+            pass
+            #self.driver.wait_to_precence_located(wait_locator_to_be_loaded)
 
 
             #check_if_not_login()
             ''' везде есть баги здесь проверка, что не выпала страница логина '''
-            #self.driver._wait_to_precence_located(self, locator)
-
+            
             if self.driver.current_url == 'about:blank':
                 ''' если тормозит на пустой странице '''
                 #self.driver.wait()

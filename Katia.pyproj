@@ -999,8 +999,6 @@
     <Content Include="google_api\desktop.ini" />
     <Content Include="google_api\Untitled.ipynb" />
     <Content Include="ini_files_dir\aliexpress.json" />
-    <Content Include="ini_files_dir\aliexpress_categories_electronic_components.json" />
-    <Content Include="ini_files_dir\aliexpress_electronic_components_manufacturers.json" />
     <Content Include="ini_files_dir\aliexpress_locators.json" />
     <Content Include="ini_files_dir\aliexpress_shops_brands.json" />
     <Content Include="ini_files_dir\aliexpress_shops_computers.json" />

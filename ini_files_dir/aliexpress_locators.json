@@ -111,6 +111,11 @@
       "selector": "//ul[@class='groups-list groups-default']"
     },
 
+    "categories_ajax_file": {
+      "attribute": "innerText",
+      "by": "tag_name",
+      "selector": "body"
+    },
 
     "categories_sub_blocks": {
       "attribute": "innerHTML",
@@ -158,9 +163,6 @@
 
   },
 
-
-
-
   "cookies accept": {
     "attribute": "innerHTML",
     "by": "xpath",
@@ -173,7 +175,6 @@
     "selector": "//*a[@class ='link-goto-globalsite']"
   },
 
-
   "product": {
 
 
@@ -184,7 +185,7 @@
     },
 
     "product_block_locator": {
-      "attribute": "innerHTML",
+      "attribute": "text",
       "by": "xpath",
       "selector": "//*[@id='product-page-root']",
       "_selector": "//*[contains(. , 'flex-direction: row;')]/*"
@@ -193,32 +194,61 @@
     "product_price_locator": {
       "attribute": "innerText",
       "by": "xpath",
-      "selector": "//*[@id='product-page-root']//div[@aria-label]//div[text()]"
+      "selector": "//span[contains(@class, 'product-price-value') or contains(@class, 'product-price-current')]"
+
+    },
+    "product_shipping_price_locator": {
+      "attribute": "innerText",
+      "by": "xpath",
+      "selector": "//div[contains( @class , 'dynamic-shipping-line')]"
 
     },
     "product_images_locator": {
       "attribute": "src",
       "by": "xpath",
-      "selector": "//*[@id='product-page-root']//ul[@class='slider animated']//img"
+      "selector": "//ul[@class='images-view-list']//img"
 
     },
     "product_images_alt_locator": {
       "attribute": "alt",
       "by": "xpath",
-      "selector": "//*[@id='product-page-root']//ul[@class='slider animated']//img"
+      "selector": "//ul[@class='images-view-list']//img"
 
     },
 
     "product_sikum_locator": {
-      "attribute": "innerHTML",
+      "attribute": "innerText",
       "by": "xpath",
-      "selector": "//*[@id='product-page-root']//div[@aria-label]/p"
+      "selector": "//h1[@class='product-title-text']"
     },
 
     "product_attributes_locator": {
       "attribute": "innerHTML",
       "by": "xpath",
-      "selector": "//*[@id='product-page-root']//div[@aria-label]//following-sibling::div/p[1]"
+      "selector": "//ul[@class='sku-property-list']//li",
+      "about": "опции товара, такие как цвет, размер и т.п. они на али находятся в маленьких квадратиках. могут содержать картинки или тексты",
+
+      "text_attribute_locator": {
+        "attribute": "innerHTML",
+        "by": "xpath",
+        "selector": "//ul[@class='sku-property-list']//li//span"
+      },
+      "image_attribute_locator": {
+        "attribute": "href",
+        "by": "xpath",
+        "selector": "//ul[@class='sku-property-list']//li//img"
+      }
+
+    },
+    "product_qty": {
+      "attribute": "innerText",
+      "by": "xpath",
+      "selector": "//ul[@class='product-quantity-tip']"
+    },
+    "product_byer_protection": {
+      "attribute": "innerText",
+      "by": "xpath",
+      "selector": "//div[@class='buyer-pretection-content']"
     },
 
     "product_description_locator": {
