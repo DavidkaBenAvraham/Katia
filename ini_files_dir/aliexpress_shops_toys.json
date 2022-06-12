@@ -71,7 +71,6 @@
 
         "price_rule": 1
       },
-
       "Raspberry Pi Cameras": {
         "url": "https://keyestudio-stem.aliexpress.com/store/group/Camera/4247007_40000001744483.html",
         "prestashop categories": {
@@ -114,7 +113,6 @@
 
         "price_rule": 1
       },
-
       "Raspberry Pi Cases": {
         "url": "https://keyestudio-stem.aliexpress.com/store/group/Case/4247007_40000000504117.html",
         "prestashop categories": {
@@ -550,7 +548,7 @@
     "about": "деревянные электронные игрушки",
     "shop_url": "https://www.aliexpress.com/store/910331321",
     "all-wholesale-products": "https://aliexpress.com/store/all-wholesale-products/910331321.html",
-    "ajax_shop_file": "https://keyestudio-stem.aliexpress.com/store/productGroupsAjax.htm?storeId=910331321&shopVersion=3.0&callback=jsonp_910331321",
+    "ajax_shop_file": "https://www.aliexpress.com/store/productGroupsAjax.htm?storeId=910331321&shopVersion=3.0&callback=jsonp_910331321",
 
     "scenaries": {
       "Arduno kit && Electronic Kit": {

@@ -4,7 +4,11 @@ from pathlib import Path
 import pandas as pd
 from attr import attrib, attrs, Factory
 from selenium.webdriver.remote.webelement import WebElement 
+from strings_formatter import StringFormatter
 
+
+
+sf = StringFormatter()
 shops : list = []
 
 def login(s) -> bool :
@@ -28,48 +32,51 @@ def login(s) -> bool :
     except Exception as ex:return False, print(ex)
 
 ''' ------------------ НАЧАЛО -------------------------- '''
-shops:list = []
+stores:list = []
 def run_shops(s):
     
-    shops_groups_files_dict = json.loads(Path(s.ini.paths.ini_files_dir , f'''aliexpress.json'''))['scenaries']
-    for shop_group_file in shops_groups_files_dict:
-        shops_dict = json.loads(Path(s.ini.paths.ini_files_dir , f'''{shop_group_file}'''))
+    stores_groups_files_dict = json.loads(Path(s.ini.paths.ini_files_dir , f'''aliexpress.json'''))['scenaries']
+    for stores_group_file in stores_groups_files_dict:
+        stores_dict = json.loads(Path(s.ini.paths.ini_files_dir , f'''{stores_group_file}'''))
         try:
-            for shop_dict in shops_dict.items(): 
-                shops.append({
-                'category ID': shop_dict[1]['store_id'] ,
+            for store_settings_dict in stores_dict.items(): 
+                stores.append({
+                'store ID': store_settings_dict[1]['store_id'] ,
                 'pail': 1,
-                'category name': shop_dict[1]['description'],
+                'store description': store_settings_dict[1]['description'],
                 'parent category': 3,
                 'root': 0 ,
-                'aliexpress_url' : shop_dict[1]['shop_url'],
-                'ajax_categories': shop_dict[1]['ajax_categories']
+                'aliexpress_url' : store_settings_dict[1]['shop_url'],
+                'store_categories_ajax': store_settings_dict[1]['ajax_shop_file']
                 })
-                get_store_categories_ajax(s , shop_dict)
-                build_shop_categories(s , shop_dict)
+
+
+                run_local_scenario(s,stores[-1])
+                '''запускаю последний добавленный в список '''
+
         except Exception as ex:return False, print(ex)
     pass 
     ''' ------------------ КОНЕЦ  -------------------------- '''
 
-def get_ajax_from_store(s , shop_dict : dict):
-    s.driver.get_url(shop_dict[1]['ajax_categories'])
-    ajax_from_store = s.driver.find(shop_dict[1]['ajax_shop_file'])
+def get_ajax_from_store(s , store_settings_dict : dict = {}) -> dict:
+    s.driver.get_url(store_settings_dict['store_categories_ajax'] )
+    ajax_from_store = s.driver.find(s.locators['store']['data_from_store_ajax_file'])[0].text
     return ajax_from_store
 
 
 ''' ------------------ НАЧАЛО -------------------------- ''' 
-def build_shop_categories(s , shop_dict : dict) -> dict:   
+def build_shop_categories(s , store_settings_dict : dict) -> dict:   
 
    
-    s.driver.get_url(shop_dict[1]['all-wholesale-products'])
+    s.driver.get_url(store_settings_dict[1]['all-wholesale-products'])
     #try:
     #    s.driver.find(s.locators['eng version'])[0].click()
     #except Exception as ex : print(ex)
     
-    if s.driver.current_url != shop_dict[1]['all-wholesale-products']:
+    if s.driver.current_url != store_settings_dict[1]['all-wholesale-products']:
         if str(s.driver.current_url).find('login.aliexpress')>0:login(s)
         else:print(s.driver.current_url)
-        s.driver.get_url(shop_dict[1]['all-wholesale-products'])
+        s.driver.get_url(store_settings_dict[1]['all-wholesale-products'])
         pass
 
 
@@ -115,8 +122,12 @@ def build_shop_categories(s , shop_dict : dict) -> dict:
     pass
     ''' ------------------ КОНЕЦ  -------------------------- '''
 
-def run_local_scenario():
-    pass
+def run_local_scenario(s, store_settings_dict: dict = {}):
+    ajax_from_store = get_ajax_from_store(s, store_settings_dict)
+    #ajax_from_store = sf.remove_HTML_tags(ajax_from_store)
+    s.export(ajax_from_store , ['json'] , store_settings_dict['store ID'])
+    print(f''' {store_settings_dict['store ID']} added''')
+
 
 ''' ------------------ НАЧАЛО -------------------------- '''
 @attrs

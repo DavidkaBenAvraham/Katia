@@ -57,8 +57,7 @@ class Ini():
     paths           : paths = attrib(init = False ,default = None)
     _range          : range = attrib(init = False , default = range(5))
     ''' randomizer range settings '''
-    aliexpress      : aliexpress = attrib(init = False ,default = None)
-
+    
     @attrs
     class paths():
         '''В классе path я собираю все пути'''
@@ -70,8 +69,7 @@ class Ini():
         export_dir      : Path = attrib(init = False, default = False)
         log_file        : Path = attrib(init = False, default = False)
         apis_file       : Path = attrib(init = False, default = False)
-        aliexpress_shops: dict = attrib(init = False, default = False)
-
+       
         def __attrs_post_init__(self,  *args, **kwards):
             
             _paths_dict   : dict = self.launcher_dict['program_paths']

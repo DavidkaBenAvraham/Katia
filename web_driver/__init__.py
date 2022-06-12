@@ -57,8 +57,9 @@ class Driver():
     driver: вебдрайвер - (firefox, chrome, etc)
     wait: ожидание перед действиями селениума (нахуй не нужно)
     '''
-    
-   
+
+
+
     current_url : str = attrib(init = False , default = None)
 
     driver      : webdriver = attrib(init = False , default = None)
@@ -95,14 +96,12 @@ class Driver():
             options = webdriver.ChromeOptions()
             for argument in webdriver_settings["arguments"]:
                     options.add_argument(argument)
-                    options.set_capability('intl.accept_languages', 'en-GB')
             self.driver = webdriver.Chrome(options = options)
 
         if webdriver_settings['name'] == 'firefox': 
                 options = webdriver.FirefoxOptions()
                 for argument in webdriver_settings["arguments"]:
                         options.add_argument(argument)
-                        options.set_capability('intl.accept_languages', 'en-GB')
                 self.driver = webdriver.Firefox(options = options)  
 
 
@@ -150,7 +149,7 @@ class Driver():
 
     ''' ------------------ НАЧАЛО -------------------------- '''
     #@print
-    def _implicity_wait(self , wait :int = 0):
+    def _implicity_wait(self , wait : int = 0):
         '''
         Неявное ожидание указывает WebDriver'у опрашивать DOM определенное количество времени, 
         когда пытается найти элемент или элементы, которые недоступны в тот момент. 
@@ -167,7 +166,7 @@ class Driver():
 
     ''' ------------------ НАЧАЛО -------------------------- '''
     #@print
-    def _wait_to_precence_located(self, locator) -> object :
+    def _wait_to_precence_located(self, locator : dict ) -> object :
         '''
         ожидание 100% загрузки элемента
         locator=(By.CSS_SELECTOR , selector)
@@ -180,7 +179,8 @@ class Driver():
 
     ''' ------------------ НАЧАЛО -------------------------- '''
     #@print
-    def _wait_to_be_clickable(self, locator) :
+    
+    def _wait_to_be_clickable(self, wait : int = 0 , locator : dict = {}) :
         '''
         ождание кликабельности элемента '''
         element_clickable = EC.element_to_be_clickable(locator)
@@ -189,22 +189,27 @@ class Driver():
     ''' ------------------ КОНЕЦ  -------------------------- '''
 
 
-
     ''' ------------------ НАЧАЛО -------------------------- '''
 
     #@print
-    def _get_url(self, url:str , wait_locator_to_be_loaded : dict = {} , view_html_source_mode : bool = False)->bool:
+    
+    def _get_url(self, url:str , wait_to_locator_be_loaded : dict = {} , view_html_source_mode : bool = False)->bool:
         '''переход по заданному адресу 
         с ожиданием загрузки контента до локатора wait_locator_to_be_loaded
         view_html_source = True : возвращает код страницы
         кроме того она проверяет что сайт не выпал в страницу логина
         '''
-        wait_locator_to_be_loaded = {
-            "attribute": "innerHTML",
-            "by": "tag name",
-            "selector": "body"
-            }
+
+
+
         ''' КОСТЫЛЬ '''
+        if(len(wait_to_locator_be_loaded.items())) == 0:
+            wait_to_locator_be_loaded = {
+                "attribute": "innerHTML",
+                "by": "tag name",
+                "selector": "body"
+                }
+           
 
         def check_if_not_login():
             ''' проверяюм что не упал на логин 
@@ -274,10 +279,13 @@ class Driver():
         _е : list = [] 
 
         # 1) если аттрибуты в словаре {'href','text'}
-        if str(type(locator['attribute'])).find('dict') >-1:
+        isinstance(locator['attribute'], dict)
+        #if str(type(locator['attribute'])).find('dict') >-1:
+        if isinstance(locator['attribute'], dict):
             _d  : dict = {}
             for k,v in dict(locator['attribute']).items():
-                if str(type(elements)).find('list') >-1:
+                #if str(type(elements)).find('list') >-1:
+                if isinstance(locator['attribute'], list):
                     for el in list(elements): _d.update({el.get_attribute(k):el.get_attribute(v)})
                 else: _d.update({elements.get_attribute(k):elements.get_attribute(v)})
             _е.append(_d)
@@ -441,3 +449,5 @@ class Driver():
 
 
     
+
+        

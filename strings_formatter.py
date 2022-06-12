@@ -22,16 +22,17 @@ https://github.com/chuanconggao/html2json/blob/master/README.md
 class StringFormatter():
     ''' Обработчик строк '''
 
-    def remove_suppliers_and_special_chars(method_to_decorate:object)->object: 
+    def remove_suppliers_and_special_chars(method_to_decorate:object , s:str)->object: 
         ''' Декоратор для внутренних функций форматера.
         Убираю имя поставщика и значки не удовлетворяющие условиям хранения строк в базе данных
         моего каталога
         '''
-        def remover(self , str:str)->str:
-            str = self.pattern_remove_suppliers_from_string.sub(r'',str)
-            str = self.pattern_remove_special_characters.sub(r'',str)
-            method_to_decorate(self,str)
-        return str
+        def remover(self , s:str)->str:
+            s = self.pattern_remove_suppliers_from_string.sub(r'',s)
+            s = self.pattern_remove_special_characters.sub(r'',s)
+            s = self.pattern_remove_line_breaks.sub(r'',s)
+            method_to_decorate(self,s)
+        return remover(s)
 
 
 
@@ -63,37 +64,37 @@ class StringFormatter():
 
 
 
-            наиболее важные методы регулярного выражения модуля Python Re:
+                                                    наиболее важные методы регулярного выражения модуля Python Re:
 
-Re.findall (шаблон, строка) : Проверяет, соответствует ли строка шаблон и возвращает Все вхождения 
-                            сопоставленного шаблона как список строк.
+                                        Re.findall (шаблон, строка) : Проверяет, соответствует ли строка шаблон и возвращает Все вхождения 
+                                                                    сопоставленного шаблона как список строк.
 
-Re.Search (шаблон, строка) : Проверяет, соответствует ли строка шаблона Regex и возвращает только Первый матч 
-                            как объект матча. Объект Match – это просто: объект, который хранит мета информацию о матче, 
-                            такой как соответствующая позиция и соответствующая подстрока.
+                                        Re.Search (шаблон, строка) : Проверяет, соответствует ли строка шаблона Regex и возвращает только Первый матч 
+                                                                    как объект матча. Объект Match – это просто: объект, который хранит мета информацию о матче, 
+                                                                    такой как соответствующая позиция и соответствующая подстрока.
 
-Re.match (шаблон, строка) : Проверяет, если кто-нибудь Струнный префикс 
-                            Соответствует шаблону Regex и возвращает объект совпадения.
+                                        Re.match (шаблон, строка) : Проверяет, если кто-нибудь Струнный префикс 
+                                                                    Соответствует шаблону Regex и возвращает объект совпадения.
 
-Re.fullmatch (шаблон, строка) : Проверяет, если целая строка Соответствует шаблону Regex и 
-                            возвращает объект совпадения.
+                                        Re.fullmatch (шаблон, строка) : Проверяет, если целая строка Соответствует шаблону Regex и 
+                                                                    возвращает объект совпадения.
 
-Re.compile (Pattern) : Создает объект регулярного выражения из шаблона для ускорения совпадения, 
-                            если вы хотите использовать шаблон Regex несколько раз.
+                                        Re.compile (Pattern) : Создает объект регулярного выражения из шаблона для ускорения совпадения, 
+                                                                    если вы хотите использовать шаблон Regex несколько раз.
 
-Re.Split (шаблон, строка) : Разбивает строку, где бы закономерность регенсирует и возвращает список строк. 
-                                Например, вы можете разделить строку в список слов, используя пробельные символы в качестве сепараторов.
+                                        Re.Split (шаблон, строка) : Разбивает строку, где бы закономерность регенсирует и возвращает список строк. 
+                                                                        Например, вы можете разделить строку в список слов, используя пробельные символы в качестве сепараторов.
 
-Re.sub (шаблон, репрект, строка) : Заменяет ( sub stitutes) Первое возникновение рисунка Regex с заменой 
-                                String Repland и вернуть новую строку.
+                                        Re.sub (шаблон, репрект, строка) : Заменяет ( sub stitutes) Первое возникновение рисунка Regex с заменой 
+                                                                        String Repland и вернуть новую строку.
 
-чтобы проверить, содержит ли строка шестнадцатеричные цифры (от 0 до 9 и от A до F), следует использовать 
-такой диапазон:
-[A-Fa-f0-9]
+                                        чтобы проверить, содержит ли строка шестнадцатеричные цифры (от 0 до 9 и от A до F), следует использовать 
+                                        такой диапазон:
+                                        [A-Fa-f0-9]
 
-Чтобы проверить обратное, используйте отрицательный диапазон, который в нашем случае подходит под любой символ, 
-кроме цифр от 0 до 9 и букв от A до F:
-[^A-Fa-f0-9]
+                                        Чтобы проверить обратное, используйте отрицательный диапазон, который в нашем случае подходит под любой символ, 
+                                        кроме цифр от 0 до 9 и букв от A до F:
+                                        [^A-Fa-f0-9]
 
 
     '''
@@ -108,41 +109,30 @@ Re.sub (шаблон, репрект, строка) : Заменяет ( sub sti
     def __attrs_post_init__(self , *srgs, **kwrads):
         pass
 
-    def remove_line_breaks(self,str:str)->str:
-        return self.pattern_remove_line_breaks.sub(r' ', str)
+    def remove_line_breaks(self,s:str)->str:
+        return self.pattern_remove_line_breaks.sub(r' ', s).strip()
 
-    @remove_suppliers_and_special_chars
-    def remove_HTML_tags(self,str:str)->str:
+    #@remove_suppliers_and_special_chars
+    def remove_HTML_tags(self , s:str)->str:
         ''' Удаляю HTML из строки'''
-        return self.pattern_remove_HTML.sub(r' ', str(str))
+        s = self.pattern_remove_HTML.sub(r' ', str(s))
+        #s = self.pattern_remove_special_characters.sub(r'',s)
+        return self.pattern_remove_line_breaks.sub(r'',s)
 
-    @remove_suppliers_and_special_chars
-    def remove_htms_suppliers_and_special_chars(str:str)->str:
-        return self.pattern_remove_HTML.sub(r' ', str(str))
-
-
-    @remove_suppliers_and_special_chars
-    def remove_special_characters(self,str:str)->str:
-        return str
+    #@remove_suppliers_and_special_chars
+    def remove_htms_suppliers_and_special_chars(s:str)->str:
+        return self.pattern_remove_HTML.sub(r' ', str(s)).strip()
 
 
+    #@remove_suppliers_and_special_chars
+    def remove_special_characters(s:str)->str:
+        return s
 
 
-    def clear_price(self, input_str:str)->str:
-        return self.pattern_clear_price.sub(r'',input_str)
 
-    def check_int(self, data) -> bool:
-        if isinstance(data, int) : return True
-        else: return False
 
-    def check_bool(self, data) -> bool:
-        if isinstance(data, bool) : return True
-        else: return False
-
-    def check_none_or_false(self, data = False) -> bool:
-        if isinstance(data, bool) and data == False: return True
-        if data == None: return True
-        else: return True
+    def clear_price(s:str)->str:
+        return self.pattern_clear_price.sub(r'',s)
 
     #@staticmethod
     #def random(range:range = None ) -> int:

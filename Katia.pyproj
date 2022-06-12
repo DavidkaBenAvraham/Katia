@@ -272,6 +272,7 @@
     <Compile Include="dingtalk\__init__.py" />
     <Compile Include="google_api\main.py" />
     <Compile Include="ini_files_dir\aliexpress_shops_malls.json" />
+    <Compile Include="scenaries\__init__.py" />
     <Compile Include="suppliers\aliexpress\__init__.py" />
     <Compile Include="top\api\base.py" />
     <Compile Include="top\api\rest\AliexpressAppraiseRedefiningQuerysellerevaluationorderlistRequest.py" />
@@ -915,6 +916,7 @@
     <Folder Include="google_api\" />
     <Folder Include="google_api\.ipynb_checkpoints\" />
     <Folder Include="categories\" />
+    <Folder Include="scenaries\" />
     <Folder Include="suppliers\aliexpress\" />
     <Folder Include="top\" />
     <Folder Include="top\api\" />
@@ -1090,6 +1092,7 @@
     <Content Include="ini_files_dir\ksp_locators.json" />
     <Content Include="ini_files_dir\logins.json" />
     <Content Include="ini_files_dir\manufacturers.json" />
+    <Content Include="ini_files_dir\mypy.ini" />
     <Content Include="launcher.json" />
     <Content Include="ini_files_dir\morlevi_categories_mb_gigabyte - Copy.json" />
     <Content Include="ini_files_dir\morlevi_categories_memory_sodimm_ddr4.json" />

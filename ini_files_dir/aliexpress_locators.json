@@ -4,7 +4,7 @@
   "infinity_scroll": false,
 
   "body_locator": {
-    "attribute": "innerHTML",
+    "attribute": "innerText",
     "by": "tag name",
     "selector": "body"
   },
@@ -103,7 +103,6 @@
 
   "store": {
 
-
     "all_store_categories_HTMLBLOCK": {
       "DESCRIPTION": " блок катагероий магазина",
       "attribute": "innerHTML",
@@ -111,10 +110,10 @@
       "selector": "//ul[@class='groups-list groups-default']"
     },
 
-    "categories_ajax_file": {
-      "attribute": "innerText",
-      "by": "tag_name",
-      "selector": "body"
+    "data_from_store_ajax_file": {
+      "attribute": "text",
+      "by": "xpath",
+      "selector": "//body"
     },
 
     "categories_sub_blocks": {
