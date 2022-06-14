@@ -20,6 +20,8 @@
   "print_types": [ "jupiter", "html", "simple" ],
 
   "rnd_range": 5,
+
+
   "program_paths": {
     "ini_files_dir": "ini_files_dir",
     "export_dir": "export",
@@ -29,60 +31,58 @@
 
   "webdriver": {
 
-      "name": "chromedriver",
-      "arguments": [
-        "--no-sandbox",
-        "--disable-dev-shm-usage"
-      ],
-      "wait": 5,
-      "maximize_window": true,
-      "view_html_source_mode": false
-    
+    "name": "chromedriver",
+    "arguments": [
+      "--no-sandbox",
+      "--disable-dev-shm-usage"
+    ],
+    "deafault_wait_time": 5,
+    "maximize_window": true,
+    "view_html_source_mode": false
+
   },
 
 
-    "about kora": "kora обертка для запуска вебдрайвера в google.research взята из https://github.com/korakot/kora",
-    "excluded webdrivers": {
+  "about kora": "kora обертка для запуска вебдрайвера в google.research взята из https://github.com/korakot/kora",
+  "excluded webdrivers": {
 
-
-
-      "webdriver": {
-        "name": "firefox",
-        "arguments": [ "--no-sandbox" ],
-        "disabled_arguments": [
-          "--disable-dev-shm-usage",
-          "--headless"
-        ],
-        "wait": 5,
-        "maximize_window": true
-      },
-
-      "webdriver": {
-        "name": "kora",
-        "arguments": [
-          "--headless",
-          "--no-sandbox",
-          "--disable-dev-shm-usage"
-        ],
-        "wait": 5,
-        "about wait": "явное ожидание браузера в сек",
-        "random": [ 0, 5 ]
-      },
-
-      "chromedriver": {
-        "name": "chromedriver",
-        "arguments": [
-          "--headless",
-          "--no-sandbox",
-          "--disable-dev-shm-usage"
-        ],
-        "wait": 5
-      }
+    "webdriver firefox": {
+      "name": "firefox",
+      "arguments": [ "--no-sandbox" ],
+      "disabled_arguments": [
+        "--disable-dev-shm-usage",
+        "--headless"
+      ],
+      "deafault_wait_time": 5,
+      "maximize_window": true
     },
 
-    "suppliers": [
-      "aliexpress"
-    ],
-    "suppliers_excluded": [ "morlevi", "grandadvance", "ksp" ]
+    "webdriver kora": {
+      "name": "kora",
+      "arguments": [
+        "--headless",
+        "--no-sandbox",
+        "--disable-dev-shm-usage"
+      ],
+      "deafault_wait_time": 5,
+      "about wait": "явное ожидание браузера в сек",
+      "random": [ 0, 5 ]
+    },
 
-  }
+    "webdriver chromedriver": {
+      "name": "chromedriver",
+      "arguments": [
+        "--headless",
+        "--no-sandbox",
+        "--disable-dev-shm-usage"
+      ],
+      "deafault_wait_time": 5
+    }
+  },
+
+  "suppliers": [
+    "ksp"
+  ],
+  "suppliers_excluded": [ "morlevi", "grandadvance", "ksp", "aliexpress" ]
+
+}

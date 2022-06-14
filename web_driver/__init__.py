@@ -67,7 +67,7 @@ class Driver():
     get_parsed_google_search_result : GoogleHtmlParser = attrib(init = False, default = None)
 
     def __attrs_post_init__(self , *args, **kwrads):
-        #self.set_driver(self.ini.webdriver_settings)
+        ''' драйвер запускается поставщиком '''
         pass
 
     def set_driver(self , webdriver_settings : dict) -> driver:      
@@ -113,7 +113,7 @@ class Driver():
 
         if webdriver_settings['maximize_window'] : self.driver.maximize_window()
 
-        self._wait = webdriver_settings['wait']
+        self._deafault_wait_time = webdriver_settings['deafault_wait_time']
 
         self._add_extra_functions(webdriver_settings)
 
@@ -121,7 +121,7 @@ class Driver():
 
     def _add_extra_functions(self ,webdriver_settings):
         
-        self.driver.wait =                              self._wait
+        self.driver.deafault_wait_time =                self._deafault_wait_time
         self.driver.implicity_wait =                    self._implicity_wait
         self.driver.wait_to_precence_located =          self._wait_to_precence_located
         self.driver.wait_to_be_clickable =              self._wait_to_be_clickable
@@ -161,7 +161,9 @@ class Driver():
 
     ''' ------------------ КОНЕЦ  -------------------------- '''
 
-
+    def _wait(self , wait : int = 0):
+        
+        pass
 
 
     ''' ------------------ НАЧАЛО -------------------------- '''
@@ -219,7 +221,7 @@ class Driver():
             pass
 
         try:
-
+                
 
             self.driver.get(f'''view-source:{url}''') if view_html_source_mode else self.driver.get(f'''{url}''')
             pass
@@ -253,12 +255,12 @@ class Driver():
 
     ''' ------------------ НАЧАЛО -------------------------- '''
     #@print
-    def _scroller(self, wait : int =0 , prokrutok : int = 5, scroll_frame : int = 500) -> bool:
+    def _scroller(self, wait : int = 1 , prokrutok : int = 5, scroll_frame : int = 1500) -> bool:
         ''' скроллинг '''
         try:
             for i in range(prokrutok):
                 self.driver.execute_script(f'''window.scrollBy(0,{scroll_frame})''') # поднял окошко
-                #time.sleep(wait)
+                time.sleep(wait)
                 #self.wait(1)
             return True
         except Exception as ex: return  False , print(f''' ошибка скроллинга {ex}''')
@@ -274,50 +276,57 @@ class Driver():
     ''' ------------------ КОНЕЦ  -------------------------- '''
 
     ''' ------------------ НАЧАЛО -------------------------- '''
-    def _find_attributes_in_webelements(self , elements , locator): 
-        '''аттрибуты в locator['attribute'] могут быть строкой  словарем или списком '''
+    def _find_attributes_in_webelements(self , elements , locator) -> list: 
+        '''аттрибуты в locator['attribute'] 
+        могут быть None, строкой,  словарем или списком 
+         если аттрибут None - эта функция не должна вызываться,
+         а вебэлемент отдается целиком '''
+
+
         _е : list = [] 
 
         # 1) если аттрибуты в словаре {'href','text'}
-        isinstance(locator['attribute'], dict)
-        #if str(type(locator['attribute'])).find('dict') >-1:
-        if isinstance(locator['attribute'], dict):
-            _d  : dict = {}
-            for k,v in dict(locator['attribute']).items():
-                #if str(type(elements)).find('list') >-1:
-                if isinstance(locator['attribute'], list):
-                    for el in list(elements): _d.update({el.get_attribute(k):el.get_attribute(v)})
-                else: _d.update({elements.get_attribute(k):elements.get_attribute(v)})
-            _е.append(_d)
+        if isinstance(locator['attribute']  , dict):
+            #_d  : dict = {}
+            for el in elements: 
+                for k,v in dict(locator['attribute']).items():
+                    _е.append({el.get_attribute(k):el.get_attribute(v)})
             return _е
 
         #2) аттрибуты списоком ['href','text']
-        if str(type(locator['attribute'])).find('list') >-1:
+        if isinstance(locator['attribute']  , list):
             for el in elements:
-                for attr in locator['attribute']:_е.append(el.get_attribute(attr))
+                for attr in locator['attribute']:
+                    _е.append(el.get_attribute(attr))
             return _е
 
-        #3) один 'innerHTML'
-        if str(type(locator['attribute'])).find('str') >-1:
+        #3) один f.e. 'innerHTML'
+        else:
             for el in elements:
                 _е.append(el.get_attribute(locator['attribute']))
             return _е
 
-        pass
     ''' ------------------ КОНЕЦ  -------------------------- '''
 
 
 
     ''' ------------------ НАЧАЛО -------------------------- ''' 
     #@print
-    def _find(self, locator:dict):
-        ''' поиск элементов на странице '''
+    def _find(self, locator:dict) :
+        ''' поиск элементов на странице 
+         есть секрет в аттрибуте локатора
+         если он пустой возвращается ВЕСЬ! элемент
+        далее - None , [] , {}
+        '''
 
         #1) выуживаю элементы со страницы
         elements = self._get_webelments_from_page(locator)
+        if len(elements) == 1 :  elements = elements[0]
+        ''' все таки я решил единственный найденный элемент не передавать списком '''
 
         #2) вытаскиваю аттрибуты по локатору
-        return elements
+        return elements if  locator['attribute'] is None else self._find_attributes_in_webelements(elements , locator)
+
     ''' ------------------ КОНЕЦ  -------------------------- '''
 
 

@@ -149,7 +149,7 @@ def build_shop_categories(s , store_settings_dict : dict) -> dict:
     s.export(data = t , format = ['csv'] )
     pass
     ''' ------------------ КОНЕЦ  -------------------------- '''
-''' ------------------ НАЧАЛО -------------------------- ''' 
+
 def run_local_scenario(s, store_settings_dict: dict = {}):
     json_from_store = get_json_from_store(s, store_settings_dict)
     #s.export(ajax_from_store , ['json'] , store_settings_dict['store ID'])
@@ -159,10 +159,7 @@ def run_local_scenario(s, store_settings_dict: dict = {}):
 
 
     ''' ------------------ НАЧАЛО -------------------------- '''
-
-
 products: list = []
-''' ------------------ НАЧАЛО -------------------------- '''
 def grab_product_page(s):
     _d = s.driver
     _d.scroll(3)
@@ -228,10 +225,6 @@ def grab_product_page(s):
         
 
     pass
-
-
-
-
 
 #@attrs
 #class page: 

@@ -3,9 +3,9 @@
     "store_id": 4247007,
     "description": "Electronic Components & Supplies",
     "about": "Rasberry, Arduino СУПЕРСКИЕ",
-    "shop_url": "https://keyestudio-stem.aliexpress.com/store/4247007",
+    "url": "https://keyestudio-stem.aliexpress.com/store/4247007",
     "all-wholesale-products": "https://keyestudio-stem.aliexpress.com/store/all-wholesale-products/4247007.html",
-    "ajax_shop_file": "https://keyestudio-stem.aliexpress.com/store/productGroupsAjax.htm?storeId=4247007&shopVersion=3.0&callback=jsonp_4247007",
+    "store_categories_json_file": "https://keyestudio-stem.aliexpress.com/store/productGroupsAjax.htm?storeId=4247007&shopVersion=3.0&callback=jsonp_4247007",
 
     "scenaries": {
       "Raspberry Pi Kit": {
@@ -134,7 +134,6 @@
 
         "price_rule": 1
       },
-
       "Raspberry Pi Accessories": {
         "url": "https://keyestudio-stem.aliexpress.com/store/group/Accessories/4247007_40000001736986.html",
         "prestashop categories": {
@@ -156,7 +155,6 @@
 
         "price_rule": 1
       },
-
       "Raspberry Pi PICO Boards": {
         "url": "https://keyestudio-stem.aliexpress.com/store/group/Board/4247007_40000001662207.html",
         "prestashop categories": {
@@ -535,20 +533,16 @@
 
         "price_rule": 1
       }
+
     }
-
   },
-
-
-
-
   "Fantasyland Toy Store": {
     "store_id": 910331321,
     "description": "Technology Small Production Experiment Constructor",
     "about": "деревянные электронные игрушки",
-    "shop_url": "https://www.aliexpress.com/store/910331321",
+    "url": "https://www.aliexpress.com/store/910331321",
     "all-wholesale-products": "https://aliexpress.com/store/all-wholesale-products/910331321.html",
-    "ajax_shop_file": "https://www.aliexpress.com/store/productGroupsAjax.htm?storeId=910331321&shopVersion=3.0&callback=jsonp_910331321",
+    "store_categories_json_file": "https://www.aliexpress.com/store/productGroupsAjax.htm?storeId=910331321&shopVersion=3.0&callback=jsonp_910331321",
 
     "scenaries": {
       "Arduno kit && Electronic Kit": {

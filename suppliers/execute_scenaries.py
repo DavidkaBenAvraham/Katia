@@ -19,8 +19,7 @@ from pathlib import Path
 from ini_files_dir import Ini
 import execute_json as json
 from logger import Log
-import products
-from strings_formatter import StringFormatter as SF
+from strings_formatter import StringFormatter 
 
 ''' @print '''
 def execute_list_of_scenaries(Supplier) -> bool :
@@ -35,15 +34,12 @@ def execute_list_of_scenaries(Supplier) -> bool :
     ################################################################################
 
     s = Supplier
-    #^^^^^^^^^^^^
-    '''
-       s - значит Supplier
-
-    '''
+    _d = s.driver
+   
 
 
     # 0. 
-    if not s.driver.get_url(s.supplier_settings_from_json['start_url']):
+    if not _d.get_url(s.supplier_settings_from_json['start_url']):
         print(f''' supplier not started in url:
        {s.supplier_settings_from_json['start_url']}''')
         return False
@@ -65,7 +61,8 @@ def execute_list_of_scenaries(Supplier) -> bool :
 
     for scenario_files in s.supplier_settings_from_json["scenaries"]:
         ''' запускаю json файлы один за другим '''
-        if str(type(scenario_files)).find('str')>-1:
+
+        if isinstance(scenario_files, str):
             ''' если в сценарии есть всего один файл '''
             run(scenario_files)
         else:
@@ -77,7 +74,7 @@ def execute_list_of_scenaries(Supplier) -> bool :
 ''' @print '''
 def run_scenario(s) -> bool:
     '''
-        -текущий сценарий исполнения состоит из узлов. Каждый узел состоит из:
+    -текущий сценарий исполнения состоит из узлов. Каждый узел состоит из:
     - <brand> 
     - [<model>] необязательное поле
     - <url> откуда собирать товары
@@ -85,13 +82,23 @@ def run_scenario(s) -> bool:
     - <price_rule> пересчет для магазина по умолчанию установливается в self.price_rule
 
     '''
-    for scenario_node in s.current_scenario:
+    while len(s.current_scenario.items())>0:
+        node = s.current_scenario.popitem()[1]
+        ''' 
+        иду по именам узлов сценария 
+        если поставщик это алиэкспресс, то это магазины поставщика
+        в таком файле  сценарий в формате  сдвинут  вправо в scenaries{}
+        я его отличаю по признаку store_id
+        если поставщик это ksp, то это узлы категорий
 
-        def run():
+        '''
+
+
+        def run(s):
             ''' бегунок '''
 
             '''      #########           1        ############# '''
-            list_products_urls : list = get_list_products_urls(s)
+            list_products_urls : list = get_list_products_urls(s , node)
             ''' получаю список url на страницы товаров '''
         
 
@@ -115,33 +122,31 @@ def run_scenario(s) -> bool:
 
                 #   b)
                 #p_fields = s.related_functions.get_product_fields_from_product_page(s)
+                product : dict = s.related_functions.grab_product_page(s)
                 ''' получаю поля товара '''
 
                 #   c)
-                s.p.append(products.Product().get_product_fields_from_product_page(s))
+                
+                s.p.append(product)
                 ''' добавляю поля в список supplier.p[] '''
 
 
-        s.dict_current_node = s.current_scenario[scenario_node]
-        ''' текущий сценарий в формате dict '''
-
-        if 'store_id' in s.dict_current_node:
+        if 'store_id' in s.current_scenario:
             ''' 
             имеем дело с магазином
             текущий сценарий в формате dict сдвинут  вправо
-            и находится в узле  scenaries 
+            и находится в узле  scenaries:{}
             '''
             for scenario in s.dict_current_node['scenaries']:
                 s.current_scenario = s.dict_current_node['scenaries'][scenario]
-                s.current_node = s.dict_current_node['scenaries'][scenario]
-              
-                run()
+                for scenario_node in s.dict_current_node['scenaries'][scenario].items():
+                    s.current_node = scenario_node
+                    run(s)
             pass
            
         else:
-            s.current_nodename = str(scenario_node)
-            ''' имя узла сценария   '''
-            run()
+            ''' имею дело с узлом сценария как в ksp, mor, etc '''
+            run(s)
 
 
 
@@ -149,23 +154,22 @@ def run_scenario(s) -> bool:
         return True
 
 #@print
-def get_list_products_urls(s) ->list:
+def get_list_products_urls(s , scenario_node : dict ) ->list:
     '''  возвращает ссылки на все товары в категории 
         по локатору self.locators['product']['link_to_product_locator']
     '''
     
-    if not s.driver.get_url(s.current_node["url"]): 
+    if not s.driver.get_url(scenario_node["url"]): 
         return [] , log.print(f'''нет такой страницы! 
                 {s.current_node["url"]}
                 Возможно, 
                 проверить категорию в файле сценария ? ''')
-
-    page = s.related_functions.page(s = s)
+    
 
     #''' на странице категории могут находится  чекбоксы    
     # если их нет, в сценарии JSON они прописаны checkbox = false
     #'''
-    json_checkboxes = s.current_node["checkbox"]
+    json_checkboxes = scenario_node["checkbox"]
     if json_checkboxes: 
         s.driver.click_checkboxes(s, json_checkboxes) 
         log.print(f''' есть чекбоксы {json_checkboxes}''')
@@ -184,14 +188,19 @@ def get_list_products_urls(s) ->list:
     else:
         ''' Б переключение между страницами'''
 
-        list_product_urls : list = s.driver.find(s.locators['product']['link_to_product_locator'])
-        ''' беру линки с певой страницы '''
-
-        while page.click_to_next_page():
-            ''' функция реализуется для каждого поставщика в зависимости от страницы '''
+        paginator = s.driver.find(s.locators['pagination_block'])
+        list_product_urls : list = []
+        def pagination(list_product_urls):
             list_product_urls += s.driver.find(s.locators['product']['link_to_product_locator'])
-            ''' продолжаю собирать со след страниц '''
+            ''' беру линки с страницы '''
 
+            if len(paginator)>0:
+                pagination()
+                pass
+
+        pagination(list_product_urls)
 
         return list_product_urls
+
+
 

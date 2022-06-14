@@ -3,7 +3,7 @@
   "supplier_prefics": "aliexpress",
   "start_url": "https://www.aliexpress.com/",
   "wholesale_products_url": "https://www.aliexpress.com/all-wholesale-products.html",
-  "login_url": "https://www.login.aliexpress.com",
+
   "root_category": 3,
 
   "aliexpres_ajax_store": "https://he.aliexpress.com/store/productGroupsAjax.htm?storeId=",
@@ -17,22 +17,32 @@
   },
   "price_rule": "+0",
   "num_items_4_flush": 300,
-  "if_login": true,
+  "if_login": false,
+  "login_url": "https://www.login.aliexpress.com",
+
   "collect_products_from_categorypage": false,
   "scenaries": [
 
-    "aliexpress_shops_toys.json"
-    
+    "aliexpress_stores_elctronic_toys.json",
+    "aliexpress_stores_baby_clothing.json"
+
   ],
   "excluded": [
-    "aliexpress_shops_brands.json",
-    "aliexpress_shops_computer_components.json",
-    "aliexpress_shops_electronics.json",
-    "aliexpress_shops_fans.json",
-    "aliexpress_shops_lighting.json",
-    "aliexpress_shops_malls.json",
-    "aliexpress_shops_memory.json",
-    "aliexpress_shops_lighting.json"
+
+    "aliexpress_stores_battery.json",
+    "aliexpress_stores_brands.json",
+    "aliexpress_stores_computer_components.json",
+    "aliexpress_stores_computer_components_fans.json",
+    "aliexpress_stores_computers.json",
+    "aliexpress_stores_electronics.json",
+    "aliexpress_stores_elctronic_components_audio.json",
+    "aliexpress_stores_elctronic_components_leds.json",
+    "aliexpress_stores_elctronic_toys.json",
+    "aliexpress_stores_lighting.json",
+    "aliexpress_stores_leds.json",
+    "aliexpress_stores_malls.json",
+    "aliexpress_stores_memory.json",
+    "aliexpress_stores_phones_repair_computers.json"
   ]
 
 }

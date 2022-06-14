@@ -8,7 +8,6 @@ from web_driver import Driver
 from strings_formatter import StringFormatter
 import csv_json_executers as json
 import suppliers.execute_scenaries as execute_scenaries
-from products import Product
 from logger import Log
 from attr import attrs, attrib, Factory
 import apis
@@ -105,7 +104,7 @@ class Supplier:
 
         
         
-        if self.supplier_settings_from_json['if_login']:self.related_functions.login(self)
+        if self.supplier_settings_from_json['if_login']: self.related_functions.login(self)
         ''' логин '''
 
     ''' ------------------ КОНЕЦ  -------------------------- '''
@@ -114,7 +113,7 @@ class Supplier:
 
     ''' ------------------ НАЧАЛО -------------------------- '''   
     def run(self):
-        self.driver.get_url(f'''https://www.aliexpress.com''')
+       
 
         ''' Запуск кода сценариев   '''
         execute_scenaries.execute_list_of_scenaries(self)

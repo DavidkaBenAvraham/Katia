@@ -271,9 +271,11 @@
     <Compile Include="dingtalk\api\__init__.py" />
     <Compile Include="dingtalk\__init__.py" />
     <Compile Include="google_api\main.py" />
-    <Compile Include="ini_files_dir\aliexpress_shops_malls.json" />
+    <Compile Include="ini_files_dir\aliexpress_stores_malls.json" />
     <Compile Include="scenaries\__init__.py" />
     <Compile Include="suppliers\aliexpress\__init__.py" />
+    <Compile Include="suppliers\bangood\__init__.py" />
+    <Compile Include="suppliers\_sample supplier\__init__.py" />
     <Compile Include="top\api\base.py" />
     <Compile Include="top\api\rest\AliexpressAppraiseRedefiningQuerysellerevaluationorderlistRequest.py" />
     <Compile Include="top\api\rest\AliexpressAppraiseRedefiningSavesellerfeedbackRequest.py" />
@@ -507,7 +509,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="__DEPRECATED\__PCPart\__init__.py" />
-    <Compile Include="products\__init__.py" />
+    <Compile Include="suppliers\product.py" />
     <Compile Include="strings_formatter.py" />
     <Compile Include="__DEPRECATED\_DEPRECATED_regex.py" />
     <Compile Include="suppliers\ksp\__init__.py" />
@@ -536,9 +538,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ini_files_dir\morlevi_categories_headsets.json">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="products\product_fields.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ini_files_dir\cdata_categories_aio_hp.json">
@@ -918,6 +917,8 @@
     <Folder Include="categories\" />
     <Folder Include="scenaries\" />
     <Folder Include="suppliers\aliexpress\" />
+    <Folder Include="suppliers\bangood\" />
+    <Folder Include="suppliers\_sample supplier\" />
     <Folder Include="top\" />
     <Folder Include="top\api\" />
     <Folder Include="top\api\rest\" />
@@ -936,7 +937,7 @@
     <Folder Include="ini_files_dir\" />
     <Folder Include="__DEPRECATED\" />
     <Folder Include="web_driver\" />
-    <Folder Include="products\" />
+    <Folder Include="__DEPRECATED\products\" />
     <Folder Include="__DEPRECATED\PCPart\" />
     <Folder Include="__DEPRECATED\bot\" />
     <Folder Include="suppliers\ksp\" />
@@ -1002,15 +1003,20 @@
     <Content Include="google_api\Untitled.ipynb" />
     <Content Include="ini_files_dir\aliexpress.json" />
     <Content Include="ini_files_dir\aliexpress_locators.json" />
-    <Content Include="ini_files_dir\aliexpress_shops_brands.json" />
-    <Content Include="ini_files_dir\aliexpress_shops_computers.json" />
-    <Content Include="ini_files_dir\aliexpress_shops_computer_components.json" />
-    <Content Include="ini_files_dir\aliexpress_shops_electronics.json" />
-    <Content Include="ini_files_dir\aliexpress_shops_fans.json" />
-    <Content Include="ini_files_dir\aliexpress_shops_leds.json" />
-    <Content Include="ini_files_dir\aliexpress_shops_lighting.json" />
-    <Content Include="ini_files_dir\aliexpress_shops_memory.json" />
-    <Content Include="ini_files_dir\aliexpress_shops_toys.json" />
+    <Content Include="ini_files_dir\aliexpress_stores_brands.json" />
+    <Content Include="ini_files_dir\aliexpress_stores_elctronic_components_audio.json" />
+    <Content Include="ini_files_dir\aliexpress_stores_elctronic_components_leds.json" />
+    <Content Include="ini_files_dir\aliexpress_stores_battery.json" />
+    <Content Include="ini_files_dir\aliexpress_stores_phones_repair_computers.json" />
+    <Content Include="ini_files_dir\aliexpress_stores_computers.json" />
+    <Content Include="ini_files_dir\aliexpress_stores_computer_components.json" />
+    <Content Include="ini_files_dir\aliexpress_stores_electronics.json" />
+    <Content Include="ini_files_dir\aliexpress_stores_computer_components_fans.json" />
+    <Content Include="ini_files_dir\aliexpress_stores_leds.json" />
+    <Content Include="ini_files_dir\aliexpress_stores_lighting.json" />
+    <Content Include="ini_files_dir\aliexpress_stores_memory.json" />
+    <Content Include="ini_files_dir\aliexpress_stores_elctronic_toys.json" />
+    <Content Include="ini_files_dir\aliexpress_stores_baby_clothing.json" />
     <Content Include="ini_files_dir\apis.json" />
     <Content Include="ini_files_dir\brands.json">
       <SubType>Code</SubType>

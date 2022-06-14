@@ -15,14 +15,14 @@ stores : list = []
 
 def login(s) -> bool :
 
-    _locator =  s.locators['login']
+    _ =  s.locators['login']
     _d = s.driver
     try:
-        _d.get('https://login.aliexpress.com')
+        _d.get('')
         #_d.switch_to_frame(0) 
-        _d.find(_locator['user_locator'])[0].send_keys(_locator['user'])
-        _d.find(_locator['password_locator'])[0].send_keys(_locator['password'])
-        _d.find(_locator['send_locator'])[0].click()
+        _d.find(_['user_locator']).send_keys(_['user'])
+        _d.find(_['password_locator']).send_keys(_['password'])
+        _d.find(_['send_locator']).click()
         return True
 
     #try:
@@ -44,17 +44,21 @@ def login(s) -> bool :
 
     ''' ------------------ НАЧАЛО -------------------------- '''
 
-def set_start_setiings(s)->bool:
-    _locator =  s.locators['currency_laguage_country_locators']
+def set_start_settings(s)->bool:
+    _ =  s.locators['currency_laguage_country_locators']
     _d = s.driver
-    _d.find(_locator['country_locator'])[0].send_keys('Israel')
-    _d.find(_locator['currency_locator'])[0].send_keys(Keys.RETURN)
+    _d.find(_['country_locator']).send_keys('Israel')
+    _d.find(_['currency_locator']).send_keys(Keys.RETURN)
 
 ''' ------------------ НАЧАЛО -------------------------- '''
 stores:list = []
 def run_stores(s):
-    
-    stores_groups_files_dict = json.loads(Path(s.ini.paths.ini_files_dir , f'''aliexpress.json'''))['scenaries']
+    '''  
+    Запускает сценарий сбора товаров по определенным в сценарии магазинам поставщика 
+    -------------------------
+    s : текущий Supplier
+    '''
+    stores_groups_files_dict = json.loads(Path(s.ini.paths.ini_files_dir , f'''{s.}.json'''))['scenaries']
     for stores_group_file in stores_groups_files_dict:
         stores_dict = json.loads(Path(s.ini.paths.ini_files_dir , f'''{stores_group_file}'''))
         try:
@@ -149,7 +153,7 @@ def build_shop_categories(s , store_settings_dict : dict) -> dict:
     s.export(data = t , format = ['csv'] )
     pass
     ''' ------------------ КОНЕЦ  -------------------------- '''
-''' ------------------ НАЧАЛО -------------------------- ''' 
+
 def run_local_scenario(s, store_settings_dict: dict = {}):
     json_from_store = get_json_from_store(s, store_settings_dict)
     #s.export(ajax_from_store , ['json'] , store_settings_dict['store ID'])
@@ -159,10 +163,7 @@ def run_local_scenario(s, store_settings_dict: dict = {}):
 
 
     ''' ------------------ НАЧАЛО -------------------------- '''
-
-
 products: list = []
-''' ------------------ НАЧАЛО -------------------------- '''
 def grab_product_page(s):
     _d = s.driver
     _d.scroll(3)
@@ -228,10 +229,6 @@ def grab_product_page(s):
         
 
     pass
-
-
-
-
 
 #@attrs
 #class page: 

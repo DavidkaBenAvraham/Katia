@@ -25,8 +25,9 @@
       "selector": "infinity_scroll"
     }
   },
-  "product": {
 
+
+  "product": {
 
     "link_to_product_locator": {
       "attribute": "href",
@@ -37,8 +38,7 @@
     "product_block_locator": {
       "attribute": "innerHTML",
       "by": "xpath",
-      "selector": "//*[@id='product-page-root']",
-      "_selector": "//*[contains(. , 'flex-direction: row;')]/*"
+      "selector": "//*[@id='product-page-root']"
     },
 
     "product_price_locator": {
@@ -48,34 +48,45 @@
 
     },
     "product_images_locator": {
-      "attribute": "src",
+      "attribute": { "alt": "src" },
       "by": "xpath",
-      "selector": "//*[@id='product-page-root']//ul[@class='slider animated']//img"
-
-    },
-    "product_images_alt_locator": {
-      "attribute": "alt",
-      "by": "xpath",
-      "selector": "//*[@id='product-page-root']//ul[@class='slider animated']//img"
+      "selector": "//*[contains(@class ,'carousel-slider')]//img"
 
     },
 
     "product_sikum_locator": {
       "attribute": "innerHTML",
       "by": "xpath",
-      "selector": "//*[@id='product-page-root']//div[@aria-label]/p"
+      "selector": "//div[contains(@aria-label , '.')]"
     },
 
     "product_attributes_locator": {
       "attribute": "innerHTML",
       "by": "xpath",
-      "selector": "//*[@id='product-page-root']//div[@aria-label]//following-sibling::div/p[1]"
+      "selector": "//*[@id='product-page-root']//div[@aria-label]//following-sibling::div/p[1]",
+      "product attribute": {
+        "color": {
+          "attribute": null,
+          "by": "xpath",
+          "selector": "//h3[contains(@aria-label , 'בחירתצבע')]/following-sibling::*"
+        },
+        "phone memory": {
+          "attribute": null,
+          "by": "xpath",
+          "selector": "//h3[contains(@aria-label , 'בחירתנפח')]/following-sibling::*"
+        },
+        "delivery": {
+          "attribute": null,
+          "by": "xpath",
+          "selector": "//h3[contains(@aria-label , 'אפשרויות איסוף ומשלוח')]/following-sibling::*"
+        }
+      }
     },
 
     "product_description_locator": {
-      "attribute": "innerHTML",
+      "attribute": null,
       "by": "xpath",
-      "selector": "//*[contains(@class , 'review')]/div/div"
+      "selector": "//div[contains(@id , 'review-section')]"
     },
 
     "product_mkt_locator": {
@@ -84,15 +95,11 @@
       "selector": "//*[contains(@data-id, 'product-')]/span"
     },
 
-
-
-    "replaced by driver.title": {
-      "title_locator": {
-        "attribute": "innerHTML",
-        "by": "xpath",
-        "replaced by driver.title": null,
-        "selector": "//*[@id='product-page-root']//h1"
-      }
+    "title_locator": {
+      "attribute": "innerHTML",
+      "by": "xpath",
+      "replaced by driver.title": null,
+      "selector": "//*[@id='product-page-root']//h1"
     }
 
 

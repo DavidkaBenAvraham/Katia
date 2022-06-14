@@ -9,10 +9,28 @@
     "selector": "body"
   },
 
+  "currency_laguage_country_locators": {
+
+    "country_locator": {
+      "attribute": "innerHTML",
+      "by": "xpath",
+      "selector": "//div[@class = 'address-select']//input",
+      "about": "внутри алиэкспресс аж 3 div адрессов !?!??"
+    },
+
+    "currency_locator": {
+      "attribute": "innerHTML",
+      "by": "xpath",
+      "selector": "//div[@class = 'switcher-currency-c']//a[contains(.,'US Dollar')]"
+
+    }
+  },
+
   "pagination_block": {
     "attribute": "{text,href}",
     "by": "xpath",
-    "selector": "//*[@class = 'ui-pagination-navi util-left']/a"
+    "selector": "//*[@class = 'ui-pagination-navi util-left']/a",
+    "about": "возвращает список словарей элемента а. Важно знать последнюю цифру"
   },
 
   "login": {
@@ -56,7 +74,7 @@
       "selector": "//input[@id='fm-login-password']"
     },
     "send_locator": {
-      "attribute": "click",
+      "attribute": "text",
       "by": "xpath",
       "selector": "//button[@type='submit']"
     }
@@ -178,51 +196,52 @@
 
 
     "link_to_product_locator": {
-      "attribute": "{text,href}",
+      "attribute": "href",
       "by": "xpath",
-      "selector": "//div[@class ='detail']//a"
+      "selector": "//div[@class ='detail']//h3//a"
     },
 
     "product_block_locator": {
-      "attribute": "text",
+      "attribute": "innerHTML",
       "by": "xpath",
-      "selector": "//*[@id='product-page-root']",
-      "_selector": "//*[contains(. , 'flex-direction: row;')]/*"
+      "selector": "//div[@class = 'product-info']"
     },
 
+    "product_mkt_locator": {
+      "attribute": "url",
+      "by": "url",
+      "selector": "https://www.aliexpress.com/item/"
+    },
+    "product_title_locator": {
+      "attribute": "innerText",
+      "by": "xpath",
+      "selector": "//h1[contains(@class, 'product-title-text')]"
+    },
     "product_price_locator": {
       "attribute": "innerText",
       "by": "xpath",
-      "selector": "//span[contains(@class, 'product-price-value') or contains(@class, 'product-price-current')]"
-
+      "selector": "//div[contains(@class, 'product-price-current')]//span"
     },
-    "product_shipping_price_locator": {
-      "attribute": "innerText",
+    "product_shipping_locator": {
+      "attribute": null,
       "by": "xpath",
-      "selector": "//div[contains( @class , 'dynamic-shipping-line')]"
-
+      "selector": "//div[@class = 'dynamic-shipping']//strong"
     },
     "product_images_locator": {
-      "attribute": "src",
+      "attribute": {
+        "src": "alt"
+      },
       "by": "xpath",
       "selector": "//ul[@class='images-view-list']//img"
 
     },
-    "product_images_alt_locator": {
-      "attribute": "alt",
-      "by": "xpath",
-      "selector": "//ul[@class='images-view-list']//img"
-
-    },
-
     "product_sikum_locator": {
       "attribute": "innerText",
       "by": "xpath",
       "selector": "//h1[@class='product-title-text']"
     },
-
     "product_attributes_locator": {
-      "attribute": "innerHTML",
+      "attribute": null,
       "by": "xpath",
       "selector": "//ul[@class='sku-property-list']//li",
       "about": "опции товара, такие как цвет, размер и т.п. они на али находятся в маленьких квадратиках. могут содержать картинки или тексты",
@@ -239,27 +258,31 @@
       }
 
     },
-    "product_qty": {
-      "attribute": "innerText",
+    "product_qty_locator": {
+      "attribute": "text",
       "by": "xpath",
-      "selector": "//ul[@class='product-quantity-tip']"
+      "selector": "//div[@class='product-quantity-tip']//span"
     },
-    "product_byer_protection": {
+    "product_byer_protection_locator": {
       "attribute": "innerText",
       "by": "xpath",
       "selector": "//div[@class='buyer-pretection-content']"
     },
-
     "product_description_locator": {
       "attribute": "innerHTML",
       "by": "xpath",
-      "selector": "//*[contains(@class , 'review')]/div/div"
+      "selector": "//div[@id = 'product-description']"
     },
-
-    "product_mkt_locator": {
+    "product_specification_locator": {
       "attribute": "innerHTML",
       "by": "xpath",
-      "selector": "//*[contains(@data-id, 'product-')]/span"
+      "selector": "//div[@class = 'product-specs']"
+    },
+    "product_customer_reviews_locator": {
+      "attribute": "innerHTML",
+      "by": "xpath",
+      "selector": "//div[@id = 'transction-feedback']"
     }
+
   }
 }
