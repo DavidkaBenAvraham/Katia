@@ -1,0 +1,22 @@
+digraph "C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  compound=true
+  subgraph clusterdir_ed9cca3ff638ca45bfb2d6e153ca4178 {
+    graph [ bgcolor="#edf0f7", pencolor="grey25", style="filled,dashed,", label="Aluf", fontname="Helvetica", fontsize="10", URL="dir_ed9cca3ff638ca45bfb2d6e153ca4178.html"]
+  subgraph clusterdir_1ff1e441173a3b5e188489da0ab0ef5b {
+    graph [ bgcolor="#edf0f7", pencolor="grey25", style="filled,bold,", label="", fontname="Helvetica", fontsize="10", URL="dir_1ff1e441173a3b5e188489da0ab0ef5b.html"]
+    dir_1ff1e441173a3b5e188489da0ab0ef5b [shape=plaintext, label="suppliers"];
+  dir_e3db07dee8cd0bd47c13ebb953c267ed [shape=box, label="_sample supplier", style="filled,", fillcolor="#a2b4d6", color="grey25", URL="dir_e3db07dee8cd0bd47c13ebb953c267ed.html"];
+  dir_bd3a2ff30274ad0075a255ed86c4c8d8 [shape=box, label="aliexpress", style="filled,", fillcolor="#a2b4d6", color="grey25", URL="dir_bd3a2ff30274ad0075a255ed86c4c8d8.html"];
+  dir_0702b2516b7894925b3a1b5b7b21119f [shape=box, label="bangood", style="filled,", fillcolor="#a2b4d6", color="grey25", URL="dir_0702b2516b7894925b3a1b5b7b21119f.html"];
+  dir_ce0806a249366cd60d600a2cd8d08800 [shape=box, label="cdata", style="filled,", fillcolor="#a2b4d6", color="grey25", URL="dir_ce0806a249366cd60d600a2cd8d08800.html"];
+  dir_973f38c4ec0b1ad4229576070e47c31b [shape=box, label="grandadvance", style="filled,", fillcolor="#a2b4d6", color="grey25", URL="dir_973f38c4ec0b1ad4229576070e47c31b.html"];
+  dir_d9245f73704c22fda827a9213daeba51 [shape=box, label="ksp", style="filled,", fillcolor="#a2b4d6", color="grey25", URL="dir_d9245f73704c22fda827a9213daeba51.html"];
+  dir_a4e31665b407d41d08970c0a373ebd7b [shape=box, label="morlevi", style="filled,", fillcolor="#a2b4d6", color="grey25", URL="dir_a4e31665b407d41d08970c0a373ebd7b.html"];
+  dir_af294f495ce0af8210aba047fbb055dc [shape=box, label="visualdg", style="filled,", fillcolor="#a2b4d6", color="grey25", URL="dir_af294f495ce0af8210aba047fbb055dc.html"];
+  }
+  }
+}

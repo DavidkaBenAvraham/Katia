@@ -1,4 +1,5 @@
-from strings_formatter import StringFormatter as SF
+from strings_formatter import StringFormatter
+formatter = StringFormatter()
 from logging import Formatter
 import selenium
 
@@ -7,13 +8,19 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
 
-import selenium.webdriver as webdriver
+import copy
+
+#import selenium.webdriver as webdriver
 
 import kora as kora
 from kora.selenium import wd as kora_webdriver
+'''https://github.com/DavidkaBenAvraham/selenium-wire'''
+from seleniumwire import webdriver
+'''https://github.com/DavidkaBenAvraham/selenium-wire'''
+
+
 from web_driver.google_search import GoogleHtmlParser as GoogleHtmlParser
 
-from exceptions_handler import ExceptionsHandler as EH
 
 ''' 
 
@@ -56,6 +63,22 @@ class Driver():
     По умолчанию используется Firefox
     driver: вебдрайвер - (firefox, chrome, etc)
     wait: ожидание перед действиями селениума (нахуй не нужно)
+
+
+
+        webdriver.Firefox
+        webdriver.FirefoxProfile
+        webdriver.Chrome
+        webdriver.ChromeOptions
+        webdriver.Ie
+        webdriver.Opera
+        webdriver.PhantomJS
+        webdriver.Remote
+        webdriver.DesiredCapabilities
+        webdriver.ActionChains
+        webdriver.TouchActions
+        webdriver.Proxy
+        https://selenium-python.readthedocs.io/api.html#desired-capabilities
     '''
 
 
@@ -84,11 +107,18 @@ class Driver():
        
         if webdriver_settings['name'] == 'kora':
             ''' kora - обёртка вебдрайвера для запуска в colab
-            устанавливается в файле launcher '''
+            устанавливается в файле launcher 
+            
+            есть проблема что основной вебдрайвер - 
+            seleniumwire 
+            https://github.com/DavidkaBenAvraham/selenium-wire
+            '''
 
             self.driver = kora.selenium.wd
             self.driver.common = selenium.webdriver.common
             self.driver.support = selenium.webdriver.support
+
+
             
          
 
@@ -204,39 +234,71 @@ class Driver():
 
 
 
-        ''' КОСТЫЛЬ '''
-        if(len(wait_to_locator_be_loaded.items())) == 0:
-            wait_to_locator_be_loaded = {
-                "attribute": "innerHTML",
-                "by": "tag name",
-                "selector": "body"
-                }
+        #''' КОСТЫЛЬ '''
+        #if(len(wait_to_locator_be_loaded.items())) == 0:
+        #    wait_to_locator_be_loaded = {
+        #        "attribute": "innerHTML",
+        #        "by": "tag name",
+        #        "selector": "body"
+        #        }
            
+
+        _d = self.driver
 
         def check_if_not_login():
             ''' проверяюм что не упал на логин 
             плохое решение. Драйверу нечего знать о поставщиках'''
-            if str(self.driver.current_url).find(self.supplier_settings_from_json['login_url'])>0:
+
+            if str(_d.current_url).find(self.supplier_settings_from_json['login_url'])>0:
                 self.related_functions.login(self)
             pass
 
         try:
-                
+            _d.get(f'''view-source:{url}''') if view_html_source_mode else _d.get(f'''{url}''')
+            
+            main_window_handler = _d.current_window_handle
+            ''' запоминаю рабочее окно
+            далее я буду искать файлы json
+            '''
 
-            self.driver.get(f'''view-source:{url}''') if view_html_source_mode else self.driver.get(f'''{url}''')
-            pass
-            #self.driver.wait_to_precence_located(wait_locator_to_be_loaded)
+
+
+            # Access requests via the `requests` attribute
+
+            _locator = {
+            "attribute": "innerText",
+            "by": "xpath",
+            "selector": "//body"
+            }
+            for request in _d.requests:
+                if request.response:
+                    if str(request.response.headers['Content-Type']) == 'application/json':
+                        #_dd = copy.copy(_d)
+
+                        #_dd.switch_to.new_window('window')
+                        #_dd.get(f'''{request.url}''')
+                        #src = _dd.page_source
+                        #src = formatter.remove_htmls(src)
+                        #json.export(src , [json])
+                        #_d.close()
+                        print(
+                            request.url,
+                            request.response.status_code,
+                            request.response.headers['Content-Type']
+                                )
+           
 
 
             #check_if_not_login()
             ''' везде есть баги здесь проверка, что не выпала страница логина '''
             
-            if self.driver.current_url == 'about:blank':
+            if _d.current_url == 'about:blank':
                 ''' если тормозит на пустой странице '''
                 #self.driver.wait()
                 self._get_url(url)
                 pass
                 ''' плохо реализовано - это костыль'''
+
 
             return True 
         except Exception as ex:
@@ -284,27 +346,43 @@ class Driver():
 
 
         _е : list = [] 
+        _ = locator
 
         # 1) если аттрибуты в словаре {'href','text'}
-        if isinstance(locator['attribute']  , dict):
-            #_d  : dict = {}
-            for el in elements: 
-                for k,v in dict(locator['attribute']).items():
-                    _е.append({el.get_attribute(k):el.get_attribute(v)})
-            return _е
+        if isinstance(_['attribute']  , dict):
+            if isinstance(elements , list):
+                ''' элементы списком '''
+                for el in elements: 
+                    for k,v in dict(_['attribute']).items():
+                        _е.append({el.get_attribute(k):el.get_attribute(v)})
+            else:                     
+                for k,v in dict(_['attribute']).items():
+                    _е.append({elements.get_attribute(k):elements.get_attribute(v)})
+
 
         #2) аттрибуты списоком ['href','text']
-        if isinstance(locator['attribute']  , list):
-            for el in elements:
-                for attr in locator['attribute']:
-                    _е.append(el.get_attribute(attr))
-            return _е
+        if isinstance(_['attribute']  , list):
+            if isinstance(elements , list):
+                ''' элементы списком '''
+                for el in elements:
+                    for attr in _['attribute']:
+                        _е.append(el.get_attribute(attr))
+            else: 
+                for attr in _['attribute']:
+                    _е.append(elements.get_attribute(attr))
+
 
         #3) один f.e. 'innerHTML'
         else:
-            for el in elements:
-                _е.append(el.get_attribute(locator['attribute']))
-            return _е
+            if isinstance(elements , list):
+                ''' элементы списком '''
+                for el in elements:_е.append(el.get_attribute(_['attribute']))
+            else: _е.append(elements.get_attribute(_['attribute']))
+
+
+        if len(_е) == 0:return None
+        elif len(_е) == 1:return _е[0]
+        else: return _е
 
     ''' ------------------ КОНЕЦ  -------------------------- '''
 
@@ -314,25 +392,51 @@ class Driver():
     #@print
     def _find(self, locator:dict) :
         ''' поиск элементов на странице 
-        и поиск аттрибута в локаторе (если он нужен)
+        и поиск аттрибута по локатору (если он нужен)
          есть секрет в аттрибуте локатора
          если он пустой возвращается ВЕСЬ! элемент
-        далее - None , [] , {}
+        ----------------------------------------
+        types of locator['attribute']:  str, None , [] , {}
+
+
+        search for elements on the page and search for an attribute in the locator (if needed) 
+        there is a secret: if the locator attribute if it is None (null in JSON), 
+        ALL  element is be  returned! 
+        ----------------------------------------
+        types of locator['attribute']:  str, None , [] , {}
         '''
 
-        #1) выуживаю элементы со страницы. 
+        # 0)
+        '''
+        в случае, когда элемент мне не нужен, но требуется по структуре
+        построения сценария я заполняю локатор элемента значениями null
+        '''
+
+        if locator['by'] is None: return None
+
+
+
+
+        # 1) выуживаю элементы со страницы. 
         elements = self._get_webelments_from_page(locator)
-        ''' всегда получаю list() '''
+        ''' всегда получаю list(), но все равно проверяю '''
         if isinstance(elements , list):
-            if len(elements) == 1 :  elements = elements[0]
-            ''' все таки я решил единственный найденный элемент не передавать списком '''
-            if len(elements) == 0 :  return None
-            ''' ничего не нашел '''
-            
+            if len(elements) == 1: 
+                elements = elements[0]
+                ''' все таки я решил единственный найденный элемент не передавать списком '''
+            elif len(elements) == 0:  
+                elements = None
+                return None
+                ''' пустой список - вебдрайвер  не нашел элемент
+                Нет смысла продолжать функцию '''
+            else: pass # все норм. Пришел список
+           
         
 
         #2) Если локатор locator['attribute'] не установлен в нулл 
-        # то я вытаскиваю аттрибуты по этому локатору
+        # то я возвращаю аттрибуты полученные по этому локатору
+        # иначе - возвращаю весь найденный webelement
+        # херовенько возвращать разные типы данных из функции, но мне так удобно
         return elements if  locator['attribute'] is None else self._find_attributes_in_webelements(elements , locator)
 
     ''' ------------------ КОНЕЦ  -------------------------- '''
@@ -408,68 +512,4 @@ class Driver():
 
 
 
-    ##@print 
-    #def researh_webelements(self, elements)->bool:
-    #    '''
-    #    Функция для исследования элемента
-    #    '''
-    #    for element in elements:
-         
-    #        '''
-    #        Исследование силами Селениума
-    #        '''
-
-    #        for attribute in element.get_attribute:
-    #            self.print(f''' {attribute}  -  {element.get_attribute(attribute)}''')
-
-
-
-
-    #        #log_str = f'''
-    #        #Список HTML аттрибутов  элемента 
-    #        #-----------------------------------------
-    #        #Selenium:
-    #        #type = {element.get_attribute('type')}
-    #        #href = {element.get_attribute('href')}
-    #        #id = {element.get_attribute('id')}
-    #        #name = {element.get_attribute('name')}
-    #        #title = {element.get_attribute('title')}
-    #        #text = {element.get_attribute('text')}
-    #        #value = {element.get_attribute('value')}
-    #        #innerHTML = {element.get_attribute('innerHTML')}
-    #        #outerHTML  = {element.get_attribute('outerHTML ')}
-    #        #'''
-            
-
-
-    #        '''
-    #        Исследование силами жаваскрипт
-    #        '''
-
-    #        attrs = self.driver.execute_script(f'''
-    #        var items = {{}}; 
-    #        for (index = 0; index < arguments[0].attributes.length; ++index)  
-    #        {{ 
-    #            items[arguments[0].attributes[index].name] = arguments[0].attributes[index].value 
-    #        }}; 
-    #        return items;''', element)
-
-    #        #attrs = self.driver.execute_script(f'''
-    #        #var items = {}; 
-    #        #for (index = 0; index < arguments[0].attributes.length; ++index)  
-    #        #{ 
-    #        #    items[arguments[0].attributes[index].name] = arguments[0].attributes[index].value 
-    #        #}; 
-    #        #return items;''', element)
-
-    #        log += f'''
-    #        Javascript:
-    #        -----------------------------------------
-    #        {attrs} \n
-    #        '''
-    #        self.print(log)
-
-
-    
-
-        
+  

@@ -13,7 +13,10 @@
 ''' отсюда https://github.com/sergioteula/python-aliexpress-api/  '''
 
 
- 
+#!pip install selenium-wire
+''' отсюда https://github.com/DavidkaBenAvraham/selenium-wire  '''
+
+
 from pathlib import Path
 
 from threading import Thread
@@ -26,7 +29,6 @@ from exceptions_handler import ExceptionsHandler as EH
 from logger import Log
 from apis import ALIEXPRESS as aliex
 from aliexpress_api import AliexpressApi , models 
-from web_driver.aliexpScraperClassBased import AliScraper
 
 
 ini = Ini()

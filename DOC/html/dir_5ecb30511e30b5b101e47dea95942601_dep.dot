@@ -1,0 +1,11 @@
+digraph "C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/categories"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  compound=true
+  subgraph clusterdir_ed9cca3ff638ca45bfb2d6e153ca4178 {
+    graph [ bgcolor="#edf0f7", pencolor="grey25", style="filled,dashed,", label="Aluf", fontname="Helvetica", fontsize="10", URL="dir_ed9cca3ff638ca45bfb2d6e153ca4178.html"]
+  dir_5ecb30511e30b5b101e47dea95942601 [shape=box, label="categories", style="filled,bold,", fillcolor="#edf0f7", color="grey25", URL="dir_5ecb30511e30b5b101e47dea95942601.html"];
+  }
+}

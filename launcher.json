@@ -30,11 +30,11 @@
   },
 
   "webdriver": {
-
-    "name": "chromedriver",
-    "arguments": [
-      "--no-sandbox",
-      "--disable-dev-shm-usage"
+    "name": "firefox",
+    "arguments": [ "--no-sandbox", "--disable-dev-shm-usage" ],
+    "disabled_arguments": [
+      "--disable-dev-shm-usage",
+      "--headless"
     ],
     "deafault_wait_time": 5,
     "maximize_window": true,
@@ -72,11 +72,12 @@
     "webdriver chromedriver": {
       "name": "chromedriver",
       "arguments": [
-        "--headless",
         "--no-sandbox",
         "--disable-dev-shm-usage"
       ],
-      "deafault_wait_time": 5
+      "deafault_wait_time": 5,
+      "maximize_window": true,
+      "view_html_source_mode": false
     }
   },
 

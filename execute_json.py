@@ -21,6 +21,24 @@ def html2json(html:str)->json:
     pass
 
 
+    ''' ------------------ НАЧАЛО -------------------------- '''   
+def export(data , format : list = ['json','csv'] , filename : str = None):
+    ''' позволяет экспортировать словарь в файл 
+    из всех точек выполнения сценариев '''
+
+    export_file_path =  Path(f'''{self.ini.paths.export_dir}''')
+       
+    if filename == None:
+        filename = f'''{self.supplier_prefics}-{self.ini.get_now()}'''
+
+
+    for frmt in format:
+        export_file_path =  Path(export_file_path , f'''{filename}.{frmt}''')
+        if frmt == 'json':
+            json.dump(data, export_file_path)
+        if frmt == 'csv':
+            json.write(self, data , export_file_path)
+    #
 
     
 

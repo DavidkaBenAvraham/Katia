@@ -23,15 +23,17 @@ from strings_formatter import StringFormatter
 
 ''' @print '''
 def execute_list_of_scenaries(Supplier) -> bool :
-    ''' по умолчанию все сценарии (имена файлов) прописаны в файе <supplier>.json 
-    Каждый сценарий - файл с именем 
+    ''' по умолчанию все сценарии  прописаны в файе <supplier>.json 
+
+
+    Каждый сценарий поставщика - файл с именем 
     <supplier>_categories_<category_name>_<model>_<brand>.json
     при инициализации объекта он хранится в self.scenaries
-    
+    -------------------------------
     supplier - class Supplier  f.e.: mor, cdata, visual, etc.
 
     '''
-    ################################################################################
+  
 
     s = Supplier
     _d = s.driver
@@ -46,18 +48,25 @@ def execute_list_of_scenaries(Supplier) -> bool :
 
 
 
-    # 2.
+    # 1.
     '''
          Запускаю каждый сценарий из из списка <supplier>.json["scenaries"]
             файл сценариев Алиэкспресс отличается тем, что в файл включены хедеры
             магазинов. Я это сделал, чтобы не плодить мелкие файлы по 
             каждому магазину.
     '''
-    def run(json_file):
+    def run(json_file) -> bool:
         s.current_scenario = json.loads(Path(s.ini.paths.ini_files_dir , f'''{json_file}'''))
         s.current_scenario_category = json_file.split('_')[2]
         ''' третье слово в названии файла сценариев это категория товаров '''
-        run_scenario(s)
+
+        try : 
+            run_scenario(s) 
+            return True
+        except Exception as ex: return False , print(f''' 
+        ошибка в ходе выполнения сценария {json_file}
+        ''')
+        
 
     for scenario_files in s.supplier_settings_from_json["scenaries"]:
         ''' запускаю json файлы один за другим '''
@@ -66,8 +75,9 @@ def execute_list_of_scenaries(Supplier) -> bool :
             ''' если в сценарии есть всего один файл '''
             run(scenario_files)
         else:
-            for json_file in [scenario_files]:
+            for json_file in [scenario_files]: 
                 run(json_file)
+               
 
     return True
 
@@ -117,19 +127,28 @@ def run_scenario(s) -> bool:
 
 
                 #   a)
-                s.driver.get_url(product_url)
-                '''Перехожу на страницу товара '''
+                if not s.driver.get_url(product_url) : 
+                    '''Перехожу на страницу товара 
+                        функция get_url('url') возвращает True, 
+                        если переход на страницу был успешен'''
 
-                #   b)
-                #p_fields = s.related_functions.get_product_fields_from_product_page(s)
-                product : dict = s.related_functions.grab_product_page(s)
-                ''' получаю поля товара '''
-
-                #   c)
+                    print(f''' нет такой страницы товара {product_url} ''') 
+                    continue
                 
-                s.p.append(product)
-                ''' добавляю поля в список supplier.p[] '''
 
+                try:
+
+                    #   b)
+                    product = s.related_functions.grab_product_page(s)
+                    ''' получаю товар '''
+                
+
+                    #   c)
+                    s.p.append(product)
+                    ''' добавляю товар в список supplier.p[] '''
+                except Exception as ex: 
+                    print(f''' Ошибка при сборе товара со страницы {product_url} ''')
+                    continue
 
         if 'store_id' in s.current_scenario:
             ''' 

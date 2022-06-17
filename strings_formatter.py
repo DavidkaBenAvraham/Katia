@@ -1,6 +1,6 @@
 ﻿import re
 import pandas as pd
-import json
+import execute_json as json
 import sys
 import os
 import importlib
@@ -134,9 +134,12 @@ class StringFormatter():
         return self.pattern_remove_line_breaks.sub(r'',s)
 
     #@remove_suppliers_and_special_chars
-    def remove_htmls(self , s:str)->str:
-        if isinstance(s , list ):s = s[0]
-        return self.pattern_remove_HTML.sub(r' ', str(s)).strip()
+    def remove_htmls(self , s):
+        if isinstance(s , list ):
+            for sub_s in s:
+                sub_s = self.pattern_remove_HTML.sub(r' ', str(sub_s)).strip()
+            return s
+        else: return self.pattern_remove_HTML.sub(r' ', str(s)).strip()
 
 
     #@remove_suppliers_and_special_chars

@@ -15,6 +15,7 @@ from attr import attrs, attrib, Factory
 import pandas as pd
 
 from strings_formatter import StringFormatter
+formatter = StringFormatter()
 
 from ini_files_dir import Ini
 from logger import Log
@@ -43,41 +44,66 @@ class Product():
   
     def __attrs_post_init__(self , *args, **kwards):
         ''' считываю поля товара в датафреймы для дальнейших исследований
+        I read product fields into dataframes for further research
+
+        структура полей товара определена в файле <prestashop>_product_fields.json
+        структура полей комбинаций товара определена в файле <prestashop>_product_combination.json
         ''' 
        
-        
         self.fields = json.loads(Path(self.s.ini.paths.ini_files_dir , f'''prestashop_product_fields.json'''))
 
         self.combinations =json.loads(Path(self.s.ini.paths.ini_files_dir , f'''prestashop_product_combinations_fields.json'''))
 
 
    
-    def grab_product_page(self) -> dict:
+    def grab_product_page(self):
+        ''' собраю локаторами нужные мне позиции со страницы товара 
+        collect the positions from the product page with locators'''
+
         _d = self.s.driver
-        #_d.scroll(3)
         _ : dict = self.s.locators['product']
         field = self.fields
+            
+        def set_id():
+            try:
+                field['id'] = _d.find(_['product_mkt_locator'])
+                return True
+            except Exception as ex: 
+                print(ex)
+                field['id'] = None
+                return False
 
-        def get_id():
-            try:field['id'] = _d.find(_['product_id_locator'])
-            except Exception as ex: field['id'] = None, print(ex)
+        def set_title():
+            try: 
+                field['title'] = _d.find(_['product_title_locator'])
+                return True
+            except Exception as ex: 
+                print(ex)
+                field['title'] = None
+                return False
 
-        def get_title():
-            try: field['product_title'] = _d.find(_['product_title_locator'])
-            except Exception as ex: field['product_title'] = None, print(ex)
+            try:     
+                field['title'] = formatter.pattern_remove_special_characters(field['title'])
+            except Exception as ex: 
+                print(ex)
+                return False
 
-        def get_price():
+        def set_price():
             try:
                 _price = _d.find(_['product_price_locator'])
-                field['product_price'] = formatter.clear_price(_price)
-            except Exception as ex: field['product_price'] = None, print(ex)
+                field['mexir olut'] = formatter.clear_price(_price)
+            except Exception as ex: field['mexir olut'] = None, print(ex)
 
-        def get_shipping():
+        def set_shipping():
             try:
                 field['product_shipping'] = _d.find(_['product_shipping_locator'])
-            except Exception as ex: field['shipping'] = None, print(ex)
+                return True
+            except Exception as ex: 
+                print(ex)
+                field['shipping'] = None
+                return False
   
-        def get_images():
+        def set_images():
             try:
                 _images = _d.find(_['product_images'])
                 for k,v in _images.items():
@@ -86,50 +112,49 @@ class Product():
             
             except Exception as ex: field['product_images'] = None, print(ex)
 
-        def get_attributes():
+        def set_attributes():
             try:
                 field['product_attributes'] = _d.find(_['product_attributes_locator'])
-            
             except Exception as ex: field['product_attributes'] = None, print(ex)
 
-        def get_qty():
+        def set_qty():
             try:
                 _qty = _d.find(_['product_qty-locator'])
                 field['qty'] = formatter.clear_price(_qty)
             
             except Exception as ex: field['qty'] = None, print(ex)
 
-        def get_byer_protection():
+        def set_byer_protection():
             try:
                 field['product_byer_protection'] = _d.find(_['product_byer_protection_locator'])
             except Exception as ex: field['product_byer_protection'] = None, print(ex)
 
-        def get_description():
+        def set_description():
             try:
                 field['product_description'] = _d.find(_['product_description_locator'])
             except Exception as ex: field['product_description'] = None, print(ex)
 
-        def get_specification():
+        def set_specification():
             try:
                 field['product_specification'] = _d.find(_['product_specification_locator'])
             except Exception as ex: field['product_specification'] = None, print(ex)
-        def get_customer_reviews():
+        def set_customer_reviews():
             try:
                 field['product_customer_reviews'] = _d.find(_['product_customer_reviews_locator'])
             except Exception as ex: field['product_customer_reviews'] = None, print(ex)
 
 
         ''' fill fields '''
-        get_id(),
-        get_title(),
-        get_price(),
-        get_shipping(),
-        get_images(),
-        get_attributes(),
-        get_qty(),
-        get_byer_protection(),
-        get_description(),
-        get_specification(),
-        get_customer_reviews()
+        set_id()
+        set_title()
+        set_price()
+        set_shipping()
+        set_images()
+        set_attributes()
+        set_qty()
+        set_byer_protection()
+        set_description()
+        set_specification()
+        set_customer_reviews()
         
         return self

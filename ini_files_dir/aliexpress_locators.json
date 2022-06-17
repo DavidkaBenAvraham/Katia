@@ -90,7 +90,7 @@
   },
 
 
-  "block_main_items": {
+  "main_items_block_locator": {
     "DESCRIPTION": " блок подкатегорий",
     "attribute": "innerHTML",
     "by": "xpath",
@@ -115,6 +115,17 @@
     }
   },
 
+  "cookies accept": {
+    "attribute": "innerHTML",
+    "by": "xpath",
+    "selector": "//*button[@class ='btn-accept']"
+  },
+
+  "eng version": {
+    "attribute": "href",
+    "by": "xpath",
+    "selector": "//*a[@class ='link-goto-globalsite']"
+  },
 
 
   "ЛОКАТОРЫ МАГАЗИНА ПРОДАВЦА": "КАТЕГОРИИ, БАННЕРЫ, ТОВАРЫ И ВСЕ ОСТАЛЬНОЕ, ЧТО МНЕ НАДО НА СТРАНИЦЕ ПОСТАВЩИКА",
@@ -180,17 +191,6 @@
 
   },
 
-  "cookies accept": {
-    "attribute": "innerHTML",
-    "by": "xpath",
-    "selector": "//*button[@class ='btn-accept']"
-  },
-
-  "eng version": {
-    "attribute": "href",
-    "by": "xpath",
-    "selector": "//*a[@class ='link-goto-globalsite']"
-  },
 
   "product": {
 

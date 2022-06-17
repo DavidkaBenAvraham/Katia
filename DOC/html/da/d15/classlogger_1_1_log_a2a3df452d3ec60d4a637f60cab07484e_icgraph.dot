@@ -1,0 +1,10 @@
+digraph "write_log_to_file"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="write_log_to_file",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="log_print",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$da/d15/classlogger_1_1_log.html#a5ac969259f222e9c6a4870e7c98a6093",tooltip=" "];
+}

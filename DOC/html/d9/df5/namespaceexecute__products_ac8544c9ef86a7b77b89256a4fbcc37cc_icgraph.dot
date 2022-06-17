@@ -1,0 +1,10 @@
+digraph "zapolni_paramerty_tovara"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="zapolni_paramerty_tovara",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="sozdaj_spisok_tovarov\l_zapolini_polia",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d9/df5/namespaceexecute__products.html#af7b6b7beec4d6444de10872972960657",tooltip=" "];
+}

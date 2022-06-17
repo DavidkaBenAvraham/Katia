@@ -41,7 +41,7 @@
       "selector": "//*[@id='product-page-root']"
     },
     "product_mkt_locator": {
-      "attribute": "innerHTML",
+      "attribute": "innerText",
       "by": "xpath",
       "selector": "//*[contains(@data-id, 'product-')]/span"
     },
@@ -57,6 +57,12 @@
       "by": "xpath",
       "selector": "//*[@id='product-page-root']//div[@aria-label]//div[text()]"
     },
+    "product_shipping_locator": {
+      "attribute": "innerHTML",
+      "by": "xpath",
+      "selector": "//*[contains(@class ,'carousel-slider')]//img"
+    },
+
     "product_images_locator": {
       "attribute": { "alt": "src" },
       "by": "xpath",
@@ -103,10 +109,6 @@
       "by": "xpath",
       "selector": "//div[contains(@id , 'review-section')]"
     },
-    "product_customer_reviews_locator": {
-      "attribute": null,
-      "by": "xpath",
-      "selector": ""
-    }
+    "product_customer_reviews_locator": null
   }
 }
