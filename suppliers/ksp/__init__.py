@@ -6,14 +6,9 @@ from logger import Log
 
 from bs4 import BeautifulSoup
 import execute_json as json
-
-import sys
-
-import products
-from strings_formatter import StringFormatter as SF
-
-
-
+from strings_formatter import StringFormatter
+formatter = StringFormatter(
+from suppliers.product import Product 
 def product_attributes(self, p, delimeter, elements):
     i=0
     skip = False
@@ -50,21 +45,16 @@ def product_attributes(self, p, delimeter, elements):
         pass
 
 
-
-def grab_product_page(s) -> []:
+def grab_product_page(s):
     _d = s.driver
     _d.scroll(3)
     _ : dict = s.locators['product']
 
-    p : Product = Product(s=s)
-
+    p : Product = Product(s=s).grab_product_page()
     field = p.fields
 
     def get_id():
-        field['id'] = _d.current_url.split('/')[-1].split('.')[0]
-        ''' выдергиваю из 
-        https://www.aliexpress.com/item/00000000000000.html? 
-        '''
+        field['id'] = _d.find(_['product_mkt_locator'])
        
     def get_title():
         field['title'] = _d.find(_['product_title_locator'])

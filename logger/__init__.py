@@ -154,7 +154,7 @@ class Log(logging.Logger):
         print(o)
 
         
-    #@EH.exeptions_handler
+    #@EH.Exceptions_handler
     def log_print(self, log = object , prn_type:str=''):
         '''  Вывод в консоль
         prn_type:"normal"|"simple"|"jupiter"
@@ -194,7 +194,7 @@ class Log(logging.Logger):
             ''')
 
    
-    #@EH.exeptions_handler
+    #@EH.Exceptions_handler
     def print_driver_response_code(self):
         '''  Статус HTML запроса 100,200,300,400,500'''
         log_types = ['browser','driver','client','server']
@@ -228,7 +228,7 @@ class Log(logging.Logger):
       
     # ислючительно для печати
     # https://habr.com/ru/post/427065/
-    #@EH.exeptions_handler
+    #@EH.Exceptions_handler
     def __str__(self):pass
        
 #        div = f''' <div>'''
@@ -260,7 +260,7 @@ class Log(logging.Logger):
 #        return res
 
 
-    #@EH.exeptions_handler
+    #@EH.Exceptions_handler
     def _print_log_jupiter_html_header(self , css_styles : str = "" , javascript_functions : str = "", header : str = "")->str:
         ''' загоовк лог файла в формате HTML '''
 
@@ -296,7 +296,7 @@ class Log(logging.Logger):
         return f'''{html}{header}'''
  
 
-    #@EH.exeptions_handler
+    #@EH.Exceptions_handler
     def screenshot(self , log = object):
         log_str = str(log)
         filename =  str(self.current_node_name) + ".png"
@@ -315,7 +315,7 @@ class Log(logging.Logger):
         self.print(log_str)
 
 
-    #@EH.exeptions_handler
+    #@EH.Exceptions_handler
     def write_log_to_file(self ,  log = object):
         '''запись лога  в файл 
         self.path_log_file

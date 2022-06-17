@@ -6,7 +6,6 @@ from attr import attrib, attrs, Factory
 from selenium.webdriver.remote.webelement import WebElement 
 from selenium.webdriver.common.keys import Keys
 from strings_formatter import StringFormatter
-from products import Product
 
 
 formatter = StringFormatter()
@@ -196,7 +195,7 @@ def grab_product_page(s):
         _attributes = _d.find(_['product_attributes_locator'])
         return _attributes
     def get_qty():
-        _qty = _d.find(_['product_qty_locator'])
+        _qty = _d.find(_['qty'])
         _qty = formatter.clear_price(_qty)
         return _qty
     def get_byer_protection():

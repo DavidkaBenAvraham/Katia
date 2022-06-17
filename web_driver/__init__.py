@@ -255,7 +255,7 @@ class Driver():
 
     ''' ------------------ НАЧАЛО -------------------------- '''
     #@print
-    def _scroller(self, wait : int = 1 , prokrutok : int = 5, scroll_frame : int = 1500) -> bool:
+    def _scroller(self, wait : int = 0 , prokrutok : int = 5, scroll_frame : int = 1500) -> bool:
         ''' скроллинг '''
         try:
             for i in range(prokrutok):
@@ -314,17 +314,25 @@ class Driver():
     #@print
     def _find(self, locator:dict) :
         ''' поиск элементов на странице 
+        и поиск аттрибута в локаторе (если он нужен)
          есть секрет в аттрибуте локатора
          если он пустой возвращается ВЕСЬ! элемент
         далее - None , [] , {}
         '''
 
-        #1) выуживаю элементы со страницы
+        #1) выуживаю элементы со страницы. 
         elements = self._get_webelments_from_page(locator)
-        if len(elements) == 1 :  elements = elements[0]
-        ''' все таки я решил единственный найденный элемент не передавать списком '''
+        ''' всегда получаю list() '''
+        if isinstance(elements , list):
+            if len(elements) == 1 :  elements = elements[0]
+            ''' все таки я решил единственный найденный элемент не передавать списком '''
+            if len(elements) == 0 :  return None
+            ''' ничего не нашел '''
+            
+        
 
-        #2) вытаскиваю аттрибуты по локатору
+        #2) Если локатор locator['attribute'] не установлен в нулл 
+        # то я вытаскиваю аттрибуты по этому локатору
         return elements if  locator['attribute'] is None else self._find_attributes_in_webelements(elements , locator)
 
     ''' ------------------ КОНЕЦ  -------------------------- '''
@@ -333,10 +341,15 @@ class Driver():
 
     ''' ------------------ НАЧАЛО -------------------------- '''   
 
-    def _get_webelments_from_page(self, locator) ->list:
-        try: elements = self.driver.find_elements(locator['by'] , locator['selector'])
-        except Exception as ex: return [] , print(f''' ex: {ex} ''')
-        return elements
+    def _get_webelments_from_page(self, locator) -> list:
+        ''' возвращает найденные на странице элементы в списке элементы
+        если элементы  не найдны -возвращает пустой список []
+        '''
+        try: 
+            elements = self.driver.find_elements(locator['by'] , locator['selector'])
+            return elements 
+        except Exception as ex: return [] , print(f'''_get_webelments_from_page() ex: {ex} ''')
+        
     ''' ------------------ КОНЕЦ  -------------------------- '''
 
 

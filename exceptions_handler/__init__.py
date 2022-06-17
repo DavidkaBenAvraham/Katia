@@ -87,7 +87,7 @@ class ExceptionsHandler():
 
     '''
 
-    def exeptions_handler(fn):
+    def Exceptions_handler(fn):
         ''' декоратор - перехватчик исключений  '''
         try: 
             return fn
