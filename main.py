@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/env python
-'''@package docstring
- AliExpress API wrapper for Python '''
+
+##@package e-cat.me
+# main() - запуск программы
 
 __author__ = 'e-cat.me'
 
@@ -13,12 +14,8 @@ __author__ = 'e-cat.me'
 #!pip install aliexpress-sdk
 #!pip install scrapyd
 #!conda install -c conda-forge scrapy
-
-
 #!pip install python-aliexpress-api
 ''' отсюда https://github.com/sergioteula/python-aliexpress-api/  '''
-
-
 #!pip install selenium-wire
 ''' отсюда https://github.com/DavidkaBenAvraham/selenium-wire  '''
 
@@ -31,10 +28,10 @@ from threading import Thread
 import execute_json as json
 from ini_files_dir import Ini
 from suppliers import Supplier
-from exceptions_handler import ExceptionsHandler as EH
-from logger import Log
-from apis import ALIEXPRESS as aliex
-from aliexpress_api import AliexpressApi , models 
+#from exceptions_handler import ExceptionsHandler as EH
+#from logger import Log
+#from apis import ALIEXPRESS as aliex
+#from aliexpress_api import AliexpressApi , models 
 
 
 ini = Ini()
@@ -47,10 +44,12 @@ threads : list = []
 
 
 
-
+##@package e-cat.me
+## Документация для класса
+# класс для запуска каждый сценарий в отдельном потоке
 class Thread_for_supplier(Thread):
     '''       получаю имя постащика - открываю для его класса поток
-                    идея в том, чтобы открывать  приложения в новом потоке.
+    идея в том, чтобы открывать  приложения в новом потоке.
     '''
 
 

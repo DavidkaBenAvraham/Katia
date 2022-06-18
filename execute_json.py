@@ -1,5 +1,5 @@
-﻿##@package docstring
-# цаякие полезности для работы с JSON
+﻿##@package e-cat.me
+# всякие полезности для работы с JSON
 
 
 from pathlib import Path

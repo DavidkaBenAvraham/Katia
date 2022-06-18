@@ -1,15 +1,13 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/env python
 __author__ = 'e-cat.me'
-'''@package docstring
+##@package e-cat.me
+#Все классы поставщиков строятся на базе класса Supplier
+#Каждый выполняет свой сценарий из файлов suppliers.<префикс поставщика>
+#----------------------
+#Инициализация класса конкретного поставщика товара:
+#Supplier(lang : dict = ['he','en','ru'] , supplier : str = <имя поставщика>) 
 
-        Все классы поставщиков строятся на базе класса Supplier
-        Каждый выполняет свой сценарий из файлов suppliers.<префикс поставщика>
-
-
-        Инициализация класса конкретного поставщика товара:
-        Supplier(lang = ['he','en','ru'] , supplier = <имя поставщика>) 
-        '''
 
 import inspect
 import pandas as pd
@@ -18,7 +16,8 @@ from pathlib import Path
 from suppliers.aliexpress import  *
 from web_driver import Driver 
 from strings_formatter import StringFormatter
-import csv_json_executers as json
+formatter = StringFormatter()
+import execute_json as json
 import suppliers.execute_scenaries as execute_scenaries
 from logger import Log
 from attr import attrs, attrib, Factory
@@ -26,7 +25,8 @@ import apis
 
 #import xml.etree.ElementTree as ET
 
-
+##@package e-cat.me
+# Supplier
 @attrs
 class Supplier:
     '''  Supplier - класс поставщика

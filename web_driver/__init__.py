@@ -1,10 +1,5 @@
-##@package docstring
-#
-#                      опции запуска драйверов 
-#                            Google, Mozilla
-#                            прописаны в файле
-#                            launcher.json
-
+##@package e-cat.me
+# webdriver.Driver() 
 
 from strings_formatter import StringFormatter
 formatter = StringFormatter()
@@ -56,8 +51,7 @@ from attr import attrs, attrib, Factory
 # <b>from seleniumwire import webdriver</b>
 # webdriver наследуется не напрямую из  селениума, а из обертки 
 # которая умеет и в 
-# request 
-# request.responce 
+# request / request.responce 
 @attrs
 class Driver():
     ''' 
@@ -75,11 +69,24 @@ class Driver():
         webdriver.Proxy
         https://selenium-python.readthedocs.io/api.html#desired-capabilities
     '''
-
-
-
+    ## текущий url. Нужен мне для отслеживания переключений драйвера
     current_url : str = attrib(init = False , default = None)
 
+    ## driver устанавливается из настроек в launcher.json['webdriver']
+    # <h5>Например</h5>
+    # <pre>
+    #  "webdriver": {
+    #    "name": "firefox",
+    #    "arguments": [ "--no-sandbox", "--disable-dev-shm-usage" ],
+    #    "disabled_arguments": [
+    #      "--disable-dev-shm-usage",
+    #      "--headless"
+    #    ],
+    #    "deafault_wait_time": 5,
+    #    "maximize_window": true,
+    #    "view_html_source_mode": false
+    #}
+    # </pre>
     driver      : webdriver = attrib(init = False , default = None)
     
     get_parsed_google_search_result : GoogleHtmlParser = attrib(init = False, default = None)
