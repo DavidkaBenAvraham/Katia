@@ -1,5 +1,8 @@
-﻿'''@package docstring
-Documentation for this module.'''
+﻿# -*- coding: utf-8 -*-
+#!/usr/bin/env python
+__author__ = 'e-cat.me'
+##@package Katia
+#Documentation for this module
 from typing import List
 import execute_json as json
 from pathlib import Path
@@ -231,33 +234,6 @@ def grab_product_page(s):
         
 
     pass
-
-#@attrs
-#class page: 
-#    paginator : WebElement = attrib(init = False , default = None)
-#    ''' paginator - объект листатель '''
-
-#    s : object = attrib(kw_only = True, default = None)     
-#    ''' object Supplier '''
-
-
-#    def set_paginator(self):
-#        ''' object Supplier '''
-#        self.paginator = self.s.driver.find(self.s.locators['pagination_block'])
-#        pass
-
-#    def __attrs_post_init__(self, *args, **kwards):
-#        self.set_paginator()
-#        pass
-
-#    def click_to_next_page(self) -> bool:
-#        #self._s
-#        pass
-
-
-
-
-
 
 
 

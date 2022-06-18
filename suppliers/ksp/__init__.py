@@ -1,8 +1,10 @@
-'''@package docstring
-Documentation for this module.
-            Функции, присущие поставщику  KSP, которыми я дополняю класс supplier
+# -*- coding: utf-8 -*-
+#!/usr/bin/env python
+__author__ = 'e-cat.me'
+##@package Katia
+#Documentation for this module
+#           Функции, присущие поставщику  KSP, которыми я дополняю класс supplier
 
-'''
 from logger import Log
 
 from bs4 import BeautifulSoup

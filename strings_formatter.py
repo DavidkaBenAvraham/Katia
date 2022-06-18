@@ -1,4 +1,8 @@
-﻿import re
+﻿# -*- coding: utf-8 -*-
+#!/usr/bin/env python
+__author__ = 'e-cat.me'
+##@package Katia
+import re
 import pandas as pd
 import execute_json as json
 import sys

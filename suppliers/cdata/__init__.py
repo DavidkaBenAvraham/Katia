@@ -1,5 +1,8 @@
-'''@package docstring
-Documentation for this module.'''
+# -*- coding: utf-8 -*-
+#!/usr/bin/env python
+__author__ = 'e-cat.me'
+##@package Katia
+#Documentation for this module
 from logger import Log
 ##@print_f
 def log_in(self):

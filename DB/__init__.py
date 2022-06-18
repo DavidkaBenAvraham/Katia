@@ -1,7 +1,8 @@
-﻿#!/usr/bin/env python
-'''@package docstring
-Documentation for this module.'''
-
+﻿# -*- coding: utf-8 -*-
+#!/usr/bin/env python
+__author__ = 'e-cat.me'
+##@package Katia
+#Documentation for this module
 
 import sqlite3
 ''' пока пусть будет  так

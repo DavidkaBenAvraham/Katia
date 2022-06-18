@@ -1,8 +1,10 @@
-'''@package docstring
-Documentation for this module.'''
-###############################
-#   https://stackoverflow.com/questions/12211781/how-to-maximize-window-in-chrome-using-webdriver-python
-###############################
+# -*- coding: utf-8 -*-
+#!/usr/bin/env python
+__author__ = 'e-cat.me'
+##@package Katia
+#Documentation for this module
+##   https://stackoverflow.com/questions/12211781/how-to-maximize-window-in-chrome-using-webdriver-python
+
 from selenium.webdriver.firefox.options import Options
 
 

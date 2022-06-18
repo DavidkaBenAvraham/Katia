@@ -1,5 +1,8 @@
-##@package e-cat.me
-# webdriver.Driver() 
+# -*- coding: utf-8 -*-
+#!/usr/bin/env python
+__author__ = 'e-cat.me'
+##@package Katia
+#Documentation for this module
 
 from strings_formatter import StringFormatter
 formatter = StringFormatter()

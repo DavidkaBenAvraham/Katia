@@ -1,4 +1,7 @@
-﻿##@package e-cat.me
+﻿# -*- coding: utf-8 -*-
+#!/usr/bin/env python
+__author__ = 'e-cat.me'
+##@package Katia
 # всякие полезности для работы с JSON
 
 

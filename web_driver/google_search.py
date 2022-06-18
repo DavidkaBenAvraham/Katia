@@ -1,5 +1,7 @@
-'''@package docstring
-Documentation for this module.'''
+# -*- coding: utf-8 -*-
+#!/usr/bin/env python
+__author__ = 'e-cat.me'
+##@package Katia
 from lxml import html
 from attr import attrs, attrib, Factory
 

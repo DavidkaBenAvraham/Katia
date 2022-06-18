@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/env python
-
-##@package e-cat.me
+__author__ = 'e-cat.me'
+##@package Katia
 # main() - запуск программы
 
 __author__ = 'e-cat.me'
@@ -44,7 +44,7 @@ threads : list = []
 
 
 
-##@package e-cat.me
+##@package Katia.Thread
 ## Документация для класса
 # класс для запуска каждый сценарий в отдельном потоке
 class Thread_for_supplier(Thread):

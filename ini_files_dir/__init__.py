@@ -1,6 +1,8 @@
+# -*- coding: utf-8 -*-
 #!/usr/bin/env python
-'''@package docstring
-Documentation for this module.'''
+__author__ = 'e-cat.me'
+##@package Katia.ini
+#Documentation for this module
 
 import datetime , time
 from pathlib import Path

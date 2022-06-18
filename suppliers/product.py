@@ -1,10 +1,9 @@
-﻿'''@package docstring
-#################################################################################
-
-                    Класс товара
-   
-#################################################################################
-'''
+﻿# -*- coding: utf-8 -*-
+#!/usr/bin/env python
+__author__ = 'e-cat.me'
+##@package Katia
+#Documentation for this module
+  
 from pathlib import Path
 import pandas as pd
 import sys

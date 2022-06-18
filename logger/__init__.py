@@ -1,6 +1,12 @@
+# -*- coding: utf-8 -*-
 #!/usr/bin/env python
-'''@package docstring
-Documentation for this module.'''
+__author__ = 'e-cat.me'
+##@package Katia
+#Documentation for this module
+#Настройка логирования в python. Повышаем информативность лога / Хабр
+#https://habr.com/ru/sandbox/150814/
+#https://dev-gang.ru/article/modul-logging-v-python-sugk5e4d8u/
+
 import inspect
 from inspect import *
 from pathlib import Path
@@ -12,15 +18,6 @@ import math
 import datetime
 import time
 import logging
-'''
-Настройка логирования в python. Повышаем информативность лога / Хабр
-https://habr.com/ru/sandbox/150814/
-
-
-
-https://dev-gang.ru/article/modul-logging-v-python-sugk5e4d8u/
-'''
-
 
 import execute_json as json
 from ini_files_dir import Ini
