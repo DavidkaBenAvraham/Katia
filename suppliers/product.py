@@ -1,8 +1,8 @@
 ﻿# -*- coding: utf-8 -*-
 #!/usr/bin/env python
 __author__ = 'e-cat.me'
-##@package Katia
-#Documentation for this module
+##@package Katia.Product
+#Documentation for module
   
 from pathlib import Path
 import pandas as pd
@@ -22,7 +22,8 @@ import execute_json as json
 
 
 
-
+##@package Katia.Product
+## Документация для класса
 @attrs
 class Product():
     ''' Всё, что относится к товару csv_json_executers

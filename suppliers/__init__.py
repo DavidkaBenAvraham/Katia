@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/env python
 __author__ = 'e-cat.me'
-##@package Katia
-#Documentation for this module
+##@package Katia.Supplier
 #Все классы поставщиков строятся на базе класса Supplier
 #Каждый выполняет свой сценарий из файлов suppliers.<префикс поставщика>
 #----------------------
@@ -26,8 +25,8 @@ import apis
 
 #import xml.etree.ElementTree as ET
 
-##@package Katia
-# Supplier
+##@package Katia.Supplier
+## Документация для класса Supplier()
 @attrs
 class Supplier:
     '''  Supplier - класс поставщика

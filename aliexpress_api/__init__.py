@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/env python
-'''@package docstring
- AliExpress API wrapper for Python '''
+##@package Katia.ini
+#Documentation for module AliexpressApi
 
 __author__ = 'Sergio Abad'
 

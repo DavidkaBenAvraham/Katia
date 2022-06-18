@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/env python
 __author__ = 'e-cat.me'
-##@package Katia.ini
+##@package Katia.Ini
 #Documentation for this module
 
 import datetime , time
@@ -43,6 +43,8 @@ import execute_json as json
 import random as rnd
 
 from attr import attrib, attrs, Factory
+##@package Katia.Ini
+#Documentation for class Ini()
 @attrs
 class Ini():
     ''' Начальные установки для запуска программы  '''

@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/env python
 __author__ = 'e-cat.me'
-##@package Katia
-#Documentation for this module
+##@package Katia.Log
+#Documentation for module logger
 #Настройка логирования в python. Повышаем информативность лога / Хабр
 #https://habr.com/ru/sandbox/150814/
 #https://dev-gang.ru/article/modul-logging-v-python-sugk5e4d8u/
@@ -29,6 +29,9 @@ from IPython.display import display, HTML
 
 
 from attr import attrs, attrib, Factory
+
+##@package Katia.Log
+# Документация для класса
 @attrs
 class Log(logging.Logger):
     ''' Логгирование событий  

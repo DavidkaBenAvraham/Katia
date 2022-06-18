@@ -48,13 +48,8 @@ import execute_json as json
 from attr import attrs, attrib, Factory
 
 
-
-## Документация для класса Driver().
-#
-# <b>from seleniumwire import webdriver</b>
-# webdriver наследуется не напрямую из  селениума, а из обертки 
-# которая умеет и в 
-# request / request.responce 
+##@package Katia.Driver
+## Документация для класса Driver()
 @attrs
 class Driver():
     ''' 
