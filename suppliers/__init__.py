@@ -1,3 +1,15 @@
+# -*- coding: utf-8 -*-
+#!/usr/bin/env python
+__author__ = 'e-cat.me'
+'''@package docstring
+
+        Все классы поставщиков строятся на базе класса Supplier
+        Каждый выполняет свой сценарий из файлов suppliers.<префикс поставщика>
+
+
+        Инициализация класса конкретного поставщика товара:
+        Supplier(lang = ['he','en','ru'] , supplier = <имя поставщика>) 
+        '''
 
 import inspect
 import pandas as pd

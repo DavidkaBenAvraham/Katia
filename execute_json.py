@@ -1,4 +1,6 @@
-﻿from pathlib import Path
+﻿'''@package docstring
+Documentation for this module.'''
+from pathlib import Path
 import json as json
 from logger import Log
 

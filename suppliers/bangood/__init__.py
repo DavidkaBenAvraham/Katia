@@ -1,4 +1,6 @@
-﻿from typing import List
+﻿'''@package docstring
+Documentation for this module.'''
+from typing import List
 import execute_json as json
 from pathlib import Path
 import pandas as pd

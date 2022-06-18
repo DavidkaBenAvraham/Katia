@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+'''@package docstring
+Documentation for this module.'''
 import inspect
 from inspect import *
 from pathlib import Path

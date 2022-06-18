@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-'''
+#!/usr/bin/env python
+'''@package docstring
+
 Created on 2012-6-29
 
 @author: lijie.ma

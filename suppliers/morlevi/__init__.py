@@ -1,6 +1,7 @@
+'''@package docstring
+Documentation for this module.'''
 from logger import Log
 
-#@print_f
 def log_in(self):
     if __login(self): return True
     else: 

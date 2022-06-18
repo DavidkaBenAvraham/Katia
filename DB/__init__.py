@@ -1,4 +1,9 @@
-﻿import sqlite3
+﻿#!/usr/bin/env python
+'''@package docstring
+Documentation for this module.'''
+
+
+import sqlite3
 ''' пока пусть будет  так
 import mysql
 import mysql.connector

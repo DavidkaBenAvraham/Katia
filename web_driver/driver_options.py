@@ -1,3 +1,5 @@
+'''@package docstring
+Documentation for this module.'''
 ###############################
 #   https://stackoverflow.com/questions/12211781/how-to-maximize-window-in-chrome-using-webdriver-python
 ###############################

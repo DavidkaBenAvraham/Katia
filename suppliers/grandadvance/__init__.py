@@ -1,4 +1,5 @@
-
+'''@package docstring
+Documentation for this module.'''
 def log_in(self):
     self.print(f"Залогиниваюсь")
     email = self.locators['login']['email']

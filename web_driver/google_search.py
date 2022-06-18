@@ -1,3 +1,5 @@
+'''@package docstring
+Documentation for this module.'''
 from lxml import html
 from attr import attrs, attrib, Factory
 

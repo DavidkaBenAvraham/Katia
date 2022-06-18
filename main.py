@@ -1,4 +1,10 @@
 # -*- coding: utf-8 -*-
+#!/usr/bin/env python
+'''@package docstring
+ AliExpress API wrapper for Python '''
+
+__author__ = 'e-cat.me'
+
 #!pip install conda
 #!pip install selenium
 #!pip install google

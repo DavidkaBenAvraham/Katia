@@ -1,4 +1,5 @@
-'''
+'''@package docstring
+
 Created on 2012-6-29
 
 @author: lihao

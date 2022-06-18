@@ -1,4 +1,5 @@
-'''
+'''@package docstring
+Documentation for this module.
             Функции, присущие поставщику  KSP, которыми я дополняю класс supplier
 
 '''

@@ -1,3 +1,5 @@
+'''@package docstring
+Documentation for this module.'''
 from strings_formatter import StringFormatter
 formatter = StringFormatter()
 from logging import Formatter

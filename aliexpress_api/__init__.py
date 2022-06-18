@@ -1,4 +1,7 @@
-"""AliExpress API wrapper for Python"""
+# -*- coding: utf-8 -*-
+#!/usr/bin/env python
+'''@package docstring
+ AliExpress API wrapper for Python '''
 
 __author__ = 'Sergio Abad'
 

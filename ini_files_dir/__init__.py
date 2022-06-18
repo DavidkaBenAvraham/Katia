@@ -1,11 +1,13 @@
+#!/usr/bin/env python
+'''@package docstring
+Documentation for this module.'''
+
 import datetime , time
 from pathlib import Path
-#from strings_formatter import StringFormatter as SF
-#import os
-#from os.path import abspath
- 
+
 
 ''' 
+NB!
                 объектно ориентированный подход к работе с файлами
                 https://habr.com/ru/company/otus/blog/540380/
 
@@ -34,8 +36,6 @@ __file__. Это работает даже, если ваш пакет упак�
 
 https://ru.stackoverflow.com/questions/535318/%D0%A2%D0%B5%D0%BA%D1%83%D1%89%D0%B0%D1%8F-%D0%B4%D0%B8%D1%80%D0%B5%D0%BA%D1%82%D0%BE%D1%80%D0%B8%D1%8F-%D0%B2-python
 '''
-
-'''  мои модули '''
 
 import execute_json as json
 import random as rnd

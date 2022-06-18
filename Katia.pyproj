@@ -265,7 +265,6 @@
     <Compile Include="aliyun\api\rest\__init__.py" />
     <Compile Include="aliyun\api\__init__.py" />
     <Compile Include="aliyun\__init__.py" />
-    <Compile Include="categories\__init__.py" />
     <Compile Include="dingtalk\api\base.py" />
     <Compile Include="dingtalk\api\rest\__init__.py" />
     <Compile Include="dingtalk\api\__init__.py" />
@@ -824,7 +823,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="main.py" />
-    <Compile Include="csv_json_executers.py">
+    <Compile Include="___csv_json_executers.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -973,7 +972,6 @@
     <Folder Include="DOC\html\search\" />
     <Folder Include="google_api\" />
     <Folder Include="google_api\.ipynb_checkpoints\" />
-    <Folder Include="categories\" />
     <Folder Include="suppliers\aliexpress\" />
     <Folder Include="suppliers\bangood\" />
     <Folder Include="suppliers\_sample supplier\" />
@@ -2428,6 +2426,7 @@
     <Content Include="README.md">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="Global|ContinuumAnalytics|Anaconda39-64" />
