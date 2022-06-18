@@ -11,13 +11,4 @@ google
 kora
 aliyun-python-sdk-core-v3
 aliexpress-sdk
-
-
-
-
-#!pip install python-aliexpress-api
-''' отсюда https://github.com/sergioteula/python-aliexpress-api/  '''
-
-
-#!pip install selenium-wire
-''' отсюда https://github.com/DavidkaBenAvraham/selenium-wire  '''
+selenium-wire

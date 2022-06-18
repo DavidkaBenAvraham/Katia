@@ -1,5 +1,11 @@
-'''@package docstring
-Documentation for this module.'''
+##@package docstring
+#
+#                      опции запуска драйверов 
+#                            Google, Mozilla
+#                            прописаны в файле
+#                            launcher.json
+
+
 from strings_formatter import StringFormatter
 formatter = StringFormatter()
 from logging import Formatter
@@ -24,21 +30,6 @@ from seleniumwire import webdriver
 from web_driver.google_search import GoogleHtmlParser as GoogleHtmlParser
 
 
-''' 
-
-################################################################################
-
-
-                    НАЧАЛО
-
-
-                      опции запуска драйверов 
-                            Google, Mozilla
-                            прописаны в файле
-                            webdriver.json
-      
-
-'''
 #import html5lib
 #from urllib.request import urlopen
 
@@ -59,15 +50,17 @@ import execute_json as json
 from attr import attrs, attrib, Factory
 
 
+
+## Документация для класса Driver().
+#
+# <b>from seleniumwire import webdriver</b>
+# webdriver наследуется не напрямую из  селениума, а из обертки 
+# которая умеет и в 
+# request 
+# request.responce 
 @attrs
 class Driver():
-    ''' webriver 
-    По умолчанию используется Firefox
-    driver: вебдрайвер - (firefox, chrome, etc)
-    wait: ожидание перед действиями селениума (нахуй не нужно)
-
-
-
+    ''' 
         webdriver.Firefox
         webdriver.FirefoxProfile
         webdriver.Chrome
