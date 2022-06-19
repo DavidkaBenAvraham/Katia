@@ -149,21 +149,23 @@ class StringFormatter():
 
 
     def clear_number(self , s):
-        def clear(s):
-            return self.pattern_clear_number.sub(r'', str(s)).strip()
+        def _(s):
+            s = self.pattern_clear_number.sub(r'', str(s)).strip()
+            return s
 
-        if isinstance(s , list ):
-            for sub_s in s: sub_s = clear(sub_s)
-        else: clear(s)
+        if isinstance(s , list):
+            for sub_s in s: sub_s = _(sub_s)
+        else: s = _(s)
         return s
 
     def clear_price(self , s):
-        def clear(s):
-            return self.pattern_clear_price.sub(r'', str(s)).strip().replace(',','.')
+        def _(s):
+            s = self.pattern_clear_price.sub(r'', str(s)).strip().replace(',','.')
+            return s
 
         if isinstance(s , list ):
-            for sub_s in s: sub_s = clear(sub_s)
-        else: clear(s)
+            for sub_s in s: sub_s = _(sub_s)
+        else: s=_(s)
         return s
 
       
