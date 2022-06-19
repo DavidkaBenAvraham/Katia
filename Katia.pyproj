@@ -272,7 +272,13 @@
     <Compile Include="google_api\main.py" />
     <Compile Include="ini_files_dir\aliexpress_stores_malls.json" />
     <Compile Include="suppliers\aliexpress\__init__.py" />
+    <Compile Include="suppliers\amazon\__init__.py" />
     <Compile Include="suppliers\bangood\__init__.py" />
+    <Compile Include="suppliers\ebay\__init__.py" />
+    <Compile Include="suppliers\gearbest\__init__.py" />
+    <Compile Include="suppliers\macy_s\__init__.py" />
+    <Compile Include="suppliers\wallashop\__init__.py" />
+    <Compile Include="suppliers\wallmart\__init__.py" />
     <Compile Include="suppliers\_sample supplier\__init__.py" />
     <Compile Include="top\api\base.py" />
     <Compile Include="top\api\rest\AliexpressAppraiseRedefiningQuerysellerevaluationorderlistRequest.py" />
@@ -843,6 +849,12 @@
     <Folder Include="google_api\.ipynb_checkpoints\" />
     <Folder Include="suppliers\aliexpress\" />
     <Folder Include="suppliers\bangood\" />
+    <Folder Include="suppliers\ebay\" />
+    <Folder Include="suppliers\amazon\" />
+    <Folder Include="suppliers\gearbest\" />
+    <Folder Include="suppliers\macy_s\" />
+    <Folder Include="suppliers\wallmart\" />
+    <Folder Include="suppliers\wallashop\" />
     <Folder Include="suppliers\_sample supplier\" />
     <Folder Include="top\" />
     <Folder Include="top\api\" />

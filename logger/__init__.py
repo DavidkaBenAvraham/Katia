@@ -21,7 +21,6 @@ import logging
 
 import execute_json as json
 from ini_files_dir import Ini
-from exceptions_handler import ExceptionsHandler as EH 
 from strings_formatter import StringFormatter as SF
 
 from IPython.display import display, HTML

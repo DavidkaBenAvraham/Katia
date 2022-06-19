@@ -1,6 +1,6 @@
 {
 
-  "languages": [ "he" ],
+  "languages": [ "he", "en", "ru" ],
   "languages_excluded": [ "en", "ru" ],
 
   "mode": "debug",

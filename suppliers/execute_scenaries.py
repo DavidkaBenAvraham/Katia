@@ -1,30 +1,17 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/env python
 __author__ = 'e-cat.me'
-##@package Katia
-#Documentation for this module
-###################################################################################################################################
-#
+##@package Katia.Supplier
+##Documentation for this module
 #                                       
-#                                          здесь собираются списки товаров от поставщиков
-#    
-#
-####################################################################################################################################
-'''
+#    здесь собираются списки товаров от поставщиков
 
-from logging import log
-import pandas as pd
-import datetime
-import time
-import sys
+
+
 from pathlib import Path
-
-from ini_files_dir import Ini
 import execute_json as json
-from logger import Log
-from strings_formatter import StringFormatter 
 
-''' @print '''
+##Documentation for function execute_list_of_scenaries
 def execute_list_of_scenaries(Supplier) -> bool :
     ''' по умолчанию все сценарии  прописаны в файе <supplier>.json 
 
@@ -84,7 +71,7 @@ def execute_list_of_scenaries(Supplier) -> bool :
 
     return True
 
-''' @print '''
+
 def run_scenario(s) -> bool:
     '''
     -текущий сценарий исполнения состоит из узлов. Каждый узел состоит из:
@@ -175,7 +162,7 @@ def run_scenario(s) -> bool:
 
         return True
 
-#@print
+
 def get_list_products_urls(s , scenario_node : dict ) ->list:
     '''  возвращает ссылки на все товары в категории 
         по локатору self.locators['product']['link_to_product_locator']

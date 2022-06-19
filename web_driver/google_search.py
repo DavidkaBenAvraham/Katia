@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/env python
 __author__ = 'e-cat.me'
-##@package Katia
+##@package Katia.Driver.google_search
 from lxml import html
 from attr import attrs, attrib, Factory
 

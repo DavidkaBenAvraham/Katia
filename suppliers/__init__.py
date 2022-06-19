@@ -2,11 +2,14 @@
 #!/usr/bin/env python
 __author__ = 'e-cat.me'
 ##@package Katia.Supplier
+##<p>
+#
 #Все классы поставщиков строятся на базе класса Supplier
-#Каждый выполняет свой сценарий из файлов suppliers.<префикс поставщика>
-#----------------------
+#Каждый выполняет свой сценарий из файлов <префикс поставщика>.json
+#
 #Инициализация класса конкретного поставщика товара:
-#Supplier(lang : dict = ['he','en','ru'] , supplier : str = <имя поставщика>) 
+#s = Supplier(lang : list = [] , supplier : str = <имя поставщика>) 
+#</p>
 
 
 import inspect
@@ -19,30 +22,25 @@ from strings_formatter import StringFormatter
 formatter = StringFormatter()
 import execute_json as json
 import suppliers.execute_scenaries as execute_scenaries
-from logger import Log
 from attr import attrs, attrib, Factory
-import apis
+
 
 #import xml.etree.ElementTree as ET
 
-##@package Katia.Supplier
-## Документация для класса Supplier()
+
+
 @attrs
+## Supplier - класс поставщика
+# <h3> при инициализации передаются три обязательных параметра <h3>
+#<ul>
+#<li> supplier_prefics : str <i> f.e. 'ksp','aliexpress' </i></li>
+#<li> lang : [str , str] <i> f.e. ['en','he'] </i></li>
+#<li> ini : Ini() </li>
+#</ul>
+#<cite> s = Supplier(supplier_prefics = supplier_prefics, lang = lang , ini = ini) </cite>
 class Supplier:
-    '''  Supplier - класс поставщика
-    при инициализации передаются два обязательных параметра
-    supplier_prefics : str
-    lang : str
 
-    '''
 
-    #####################################################################################################################
-    #supplier_settings_dict : dict  = attrib(init = False , default = None)
-    #''' Словарь из <supplier>.json[]'''
-    
-    #scenaries_dict_from_json : dict  =  attrib(init = False , default = None) 
-    ''' Список сценариев определенный в файле <supplier>.json '''
-    
     
     supplier_prefics    : str  = attrib(kw_only = True, default = None)                         
     '''  Обязательные ключи запуска - имя поставщика    '''
@@ -94,14 +92,11 @@ class Supplier:
     ''' товары '''
 
 
-    ''' ------------------ ИНИЦИАЛИЗАЦИЯ -------------------------- '''
+    #Установки запуска  класса поставщика передаются через обязательные ключи
+    #self.supplier_prefics = supplier_prefics
+    #self.lang = lang 
+    #которые задяются при инициализации класса Supplier в виде парамтров:  attrib(kw_only = True)  
     def __attrs_post_init__(self, *args, **kwards):
-        '''  Установки запуска  класса поставщика передаются через обязательные ключи
-                self.supplier_prefics = supplier_prefics
-                self.lang = lang 
-            которые задяются при инициализации класса Supplier в виде парамтров:  attrib(kw_only = True)  
-        '''
-
 
         self.supplier_settings_from_json : dict  = json.loads(Path(self.ini.paths.ini_files_dir , f'''{self.supplier_prefics}.json'''))
 
@@ -122,8 +117,7 @@ class Supplier:
     ''' ------------------ КОНЕЦ  -------------------------- '''
 
 
-
-    ''' ------------------ НАЧАЛО -------------------------- '''   
+    ## пуск
     def run(self):
        
 

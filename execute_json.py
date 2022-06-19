@@ -1,7 +1,8 @@
 ﻿# -*- coding: utf-8 -*-
 #!/usr/bin/env python
 __author__ = 'e-cat.me'
-##@package Katia
+##@package Katia.Tools
+# execute_json.py
 # всякие полезности для работы с JSON
 
 
@@ -9,37 +10,36 @@ from pathlib import Path
 import json as json
 from logger import Log
 
-from exceptions_handler import ExceptionsHandler as EH
-
-## Документация для функции.
-#
-# Подробнее.
+## Читаю файл из внешнего источника .
+# path: путь к файлу 
 def loads(path:Path )-> dict :
     ''' получаю объект Path - не str! '''
     with path.absolute().open(encoding='utf-8') as f:
             data = json.loads(f.read())
     return data
-## Документация для функции.
-#
-# Подробнее.
+
+
+## скидываю словарь <b>data</b> в файл <b>path</b>
+# dump(data , path).
+# <hr>
+# data : данные в виде словаря или   списка (?). <br>
+# path : путь к файлу.
 def dump(data , path:Path):
     if str(type(data)).find('list')>-1: 
         data = json.dumps(data).replace('[','{').replace(']','}')
     with path.absolute().open('w',encoding='utf-8') as f:
             json.dump(data ,f)
+
+
 ## Документация для функции.
-#
-# Подробнее.
 def html2json(html:str)->json:
     pass
 
 
-## Документация для функции.
-#
-# Подробнее. 
+## экспортирую данные в файл .
+# функция позволяет экспортировать словарь в файл <br>
+# из всех точек выполнения сценариев 
 def export(data , format : list = ['json','csv'] , filename : str = None):
-    ''' позволяет экспортировать словарь в файл 
-    из всех точек выполнения сценариев '''
 
     export_file_path =  Path(f'''{self.ini.paths.export_dir}''')
        

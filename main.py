@@ -3,9 +3,6 @@
 __author__ = 'e-cat.me'
 ##@package Katia
 # main() - запуск программы
-
-__author__ = 'e-cat.me'
-
 #!pip install conda
 #!pip install selenium
 #!pip install google

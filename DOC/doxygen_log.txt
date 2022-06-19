@@ -1,0 +1,792 @@
+Doxygen version used: 1.9.4 (5d15657a55555e6181a7830a5c723af75e7577e2)
+Searching for include files...
+Searching for example files...
+Searching for images...
+Searching for dot files...
+Searching for msc files...
+Searching for dia files...
+Searching for files to exclude
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliyun
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliyun/api
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliyun/api/rest
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliyun/api/rest/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliyun/api/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliyun/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/callil.co.il
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/dingtalk
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/dingtalk/api
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/dingtalk/api/rest
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/dingtalk/api/rest/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/dingtalk/api/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/dingtalk/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/BAK
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/3750
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/3750/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/3940
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/3940/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/4260
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/4260/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/4520
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/4520/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/4960
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/4960/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/5720
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/5720/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/6380
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/6380/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/6420
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/6420/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/6950
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/6950/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/7540
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/7540/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/9740
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/9740/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/mazlima
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/mazlima/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/sulilot
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/sulilot/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/zamena_ekranov_batteries_keyboards
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/zamena_ekranov_batteries_keyboards/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/zamena_ekranov_batteries_keyboards/ru
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/zamena_termopasty
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/zamena_termopasty/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/zamena_termopasty/ru
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/scenario
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/scenario/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/ui
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/ui/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/top
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/top/api
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/top/api/rest
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/top/api/rest/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/top/api/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/top/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/bot
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/bot/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/DoskaObjavlenij
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/DoskaObjavlenij/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/Logging
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/Messages
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/Messages/ui
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/Messages/ui/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/Messages/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/Mor_avoda_im_excel
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/PCPart
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/PCPart/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/products
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/products/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/__dornet
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/__dornet/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/__Mor_avoda_im_excel
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/__PCPart
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/__techorezef
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/__techorezef/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/???????
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/???????/python_gui
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/???????/python_gui/Pygame
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/???????/python_gui/PyGTK
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/???????/python_gui/PyQt
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/???????/python_gui/PyZenity
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/???????/python_gui/Tkinter
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/???????/python_gui/wxPython
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/???????/QT
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/???????/???????? ?????????? ? Python'e, ??? ?? ?????. ??? 1
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/???????/?????? ? ????????
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/DOC/
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/DOC/def
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Mor-selenium
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Mor-selenium/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/python-telegram-bot-master
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/python-telegram-bot-master/contrib
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/python-telegram-bot-master/contrib/debian
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/python-telegram-bot-master/contrib/debian/source
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/python-telegram-bot-master/docs
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/python-telegram-bot-master/docs/source
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/python-telegram-bot-master/docs/source/_static
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/python-telegram-bot-master/examples
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/python-telegram-bot-master/telegram
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/python-telegram-bot-master/telegram/ext
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/python-telegram-bot-master/telegram/files
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/python-telegram-bot-master/telegram/games
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/python-telegram-bot-master/telegram/inline
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/python-telegram-bot-master/telegram/passport
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/python-telegram-bot-master/telegram/payment
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/python-telegram-bot-master/telegram/utils
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/python-telegram-bot-master/telegram/vendor
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/python-telegram-bot-master/telegram/vendor/ptb_urllib3
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/python-telegram-bot-master/tests
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/exceptions_handler
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/exceptions_handler/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/BAK
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/3750
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/3750/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/3940
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/3940/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/4260
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/4260/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/4520
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/4520/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/4960
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/4960/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/5720
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/5720/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/6380
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/6380/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/6420
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/6420/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/6950
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/6950/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/7540
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/7540/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/9740
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/9740/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/mazlima
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/mazlima/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/sulilot
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/sulilot/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/zamena_ekranov_batteries_keyboards
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/zamena_ekranov_batteries_keyboards/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/zamena_ekranov_batteries_keyboards/ru
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/zamena_termopasty
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/zamena_termopasty/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/zamena_termopasty/ru
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/scenario
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/scenario/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/ui
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/ui/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/HELPS
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/top
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/top/api
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/top/api/rest
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/top/api/rest/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/top/api/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/top/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/logger
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/logger/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/HELPS
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/BAK
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/3750
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/3750/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/3940
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/3940/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/4260
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/4260/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/4520
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/4520/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/4960
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/4960/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/5720
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/5720/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/6380
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/6380/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/6420
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/6420/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/6950
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/6950/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/7540
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/7540/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/9740
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/9740/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/mazlima
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/mazlima/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/sulilot
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/sulilot/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/zamena_ekranov_batteries_keyboards
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/zamena_ekranov_batteries_keyboards/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/zamena_ekranov_batteries_keyboards/ru
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/zamena_termopasty
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/zamena_termopasty/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/zamena_termopasty/ru
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/scenario
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/scenario/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/ui
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/ui/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/exceptions_handler
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/exceptions_handler/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/doska-obyavleniy.com
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/doska-obyavleniy.com/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/DOC/
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/DOC/def
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/dingtalk
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/dingtalk/api
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/dingtalk/api/rest
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/dingtalk/api/rest/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/dingtalk/api/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/dingtalk/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/callil.co.il
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/apis
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/apis/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/exceptions_handler
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/exceptions_handler/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api/errors
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api/errors/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api/helpers
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api/helpers/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api/models
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api/models/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api/skd
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api/skd/api
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api/skd/api/rest
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api/skd/api/rest/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api/skd/api/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api/skd/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api/tools
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api/tools/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api/errors
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api/errors/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api/helpers
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api/helpers/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api/models
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api/models/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api/skd
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api/skd/api
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api/skd/api/rest
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api/skd/api/rest/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api/skd/api/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api/skd/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api/tools
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api/tools/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api/__pycache__
+Searching INPUT for files to process...
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api/errors
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api/errors/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api/helpers
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api/helpers/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api/models
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api/models/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api/skd
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api/skd/api
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api/skd/api/rest
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api/skd/api/rest/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api/skd/api/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api/skd/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api/tools
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api/tools/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliexpress_api/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliyun
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliyun/api
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliyun/api/rest
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliyun/api/rest/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliyun/api/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/aliyun/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/apis
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/apis/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/callil.co.il
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/DB
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/DB/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/dingtalk
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/dingtalk/api
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/dingtalk/api/rest
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/dingtalk/api/rest/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/dingtalk/api/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/dingtalk/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/DOC
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/DOC/def
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/doska-obyavleniy.com
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/doska-obyavleniy.com/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Driver
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/exceptions_handler
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/exceptions_handler/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/BAK
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/3750
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/3750/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/3940
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/3940/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/4260
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/4260/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/4520
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/4520/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/4960
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/4960/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/5720
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/5720/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/6380
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/6380/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/6420
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/6420/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/6950
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/6950/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/7540
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/7540/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/9740
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/maxwevom_xazakim_leavoda/9740/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/mazlima
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/mazlima/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/sulilot
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/sulilot/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/zamena_ekranov_batteries_keyboards
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/zamena_ekranov_batteries_keyboards/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/zamena_ekranov_batteries_keyboards/ru
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/zamena_termopasty
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/zamena_termopasty/he
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/messages/zamena_termopasty/ru
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/scenario
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/scenario/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/ui
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/ui/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Facebook/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/google_api
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/HELPS
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/ini_files_dir
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/ini_files_dir/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/logger
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/logger/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Mor-selenium
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Mor-selenium/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/python-telegram-bot-master
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/python-telegram-bot-master/contrib
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/python-telegram-bot-master/contrib/debian
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/python-telegram-bot-master/contrib/debian/source
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/python-telegram-bot-master/docs
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/python-telegram-bot-master/docs/source
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/python-telegram-bot-master/docs/source/_static
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/python-telegram-bot-master/examples
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/python-telegram-bot-master/telegram
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/python-telegram-bot-master/telegram/ext
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/python-telegram-bot-master/telegram/files
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/python-telegram-bot-master/telegram/games
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/python-telegram-bot-master/telegram/inline
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/python-telegram-bot-master/telegram/passport
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/python-telegram-bot-master/telegram/payment
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/python-telegram-bot-master/telegram/utils
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/python-telegram-bot-master/telegram/vendor
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/python-telegram-bot-master/telegram/vendor/ptb_urllib3
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/python-telegram-bot-master/tests
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/aliexpress
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/aliexpress/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/bangood
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/cdata
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/cdata/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/grandadvance
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/grandadvance/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/ksp
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/ksp/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/morlevi
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/morlevi/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/visualdg
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/visualdg/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/_sample supplier
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/top
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/top/api
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/top/api/rest
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/top/api/rest/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/top/api/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/top/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/web_driver
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/web_driver/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/bot
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/bot/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/DoskaObjavlenij
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/DoskaObjavlenij/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/Logging
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/Messages
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/Messages/ui
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/Messages/ui/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/Messages/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/Mor_avoda_im_excel
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/PCPart
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/PCPart/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/products
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/products/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/__dornet
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/__dornet/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/__Mor_avoda_im_excel
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/__PCPart
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/__techorezef
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/__techorezef/__pycache__
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/???????
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/???????/python_gui
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/???????/python_gui/Pygame
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/???????/python_gui/PyGTK
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/???????/python_gui/PyQt
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/???????/python_gui/PyZenity
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/???????/python_gui/Tkinter
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/???????/python_gui/wxPython
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/???????/QT
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/???????/???????? ?????????? ? Python'e, ??? ?? ?????. ??? 1
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__DEPRECATED/???????/?????? ? ????????
+Searching for files in directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/__pycache__
+Reading and parsing tag files
+Parsing files
+Reading C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/DB/__init__.py...
+Parsing file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/DB/__init__.py...
+Reading C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Driver/__init__.py...
+Parsing file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Driver/__init__.py...
+Reading C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Driver/driver_options.py...
+Parsing file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Driver/driver_options.py...
+Reading C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/execute_json.py...
+Parsing file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/execute_json.py...
+Reading C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/execute_scenaries.py...
+Parsing file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/execute_scenaries.py...
+Reading C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/google_api/main.py...
+Parsing file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/google_api/main.py...
+Reading C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/ini_files_dir/__init__.py...
+Parsing file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/ini_files_dir/__init__.py...
+Reading C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/ini_files_dir/readme.md...
+Reading C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/main.py...
+Parsing file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/main.py...
+Reading C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/README.md...
+Reading C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/strings_formatter.py...
+Parsing file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/strings_formatter.py...
+Reading C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/__init__.py...
+Parsing file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/__init__.py...
+Reading C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/_sample supplier/__init__.py...
+Parsing file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/_sample supplier/__init__.py...
+Reading C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/aliexpress/__init__.py...
+Parsing file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/aliexpress/__init__.py...
+Reading C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/bangood/__init__.py...
+Parsing file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/bangood/__init__.py...
+Reading C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/cdata/__init__.py...
+Parsing file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/cdata/__init__.py...
+Reading C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/execute_scenaries.py...
+Parsing file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/execute_scenaries.py...
+Reading C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/grandadvance/__init__.py...
+Parsing file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/grandadvance/__init__.py...
+Reading C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/ksp/__init__.py...
+Parsing file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/ksp/__init__.py...
+Reading C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/morlevi/__init__.py...
+Parsing file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/morlevi/__init__.py...
+Reading C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/product.py...
+Parsing file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/product.py...
+Reading C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/visualdg/__init__.py...
+Parsing file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/visualdg/__init__.py...
+Reading C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/web_driver/__init__.py...
+Parsing file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/web_driver/__init__.py...
+Reading C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/web_driver/aliexpScraperClassBased.py...
+Parsing file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/web_driver/aliexpScraperClassBased.py...
+Reading C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/web_driver/driver_options.py...
+Parsing file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/web_driver/driver_options.py...
+Reading C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/web_driver/google_search.py...
+Parsing file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/web_driver/google_search.py...
+Building macro definition list...
+Building group list...
+Building directory list...
+Building namespace list...
+Building file list...
+Building class list...
+Building concept list...
+Computing nesting relations for classes...
+Associating documentation with classes...
+Associating documentation with concepts...
+Building example list...
+Searching for enumerations...
+Searching for documented typedefs...
+Searching for members imported via using declarations...
+Searching for included using directives...
+Searching for documented variables...
+Building interface member list...
+Building member list...
+Searching for friends...
+Searching for documented defines...
+Computing class inheritance relations...
+Computing class usage relations...
+Flushing cached template relations that have become invalid...
+Computing class relations...
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/web_driver/aliexpScraperClassBased.py:15: warning: Compound web_driver::aliexpScraperClassBased::AliScraper is not documented.
+Add enum values to enums...
+Searching for member function documentation...
+Creating members for template instances...
+Building page list...
+Search for main page...
+Computing page relations...
+Determining the scope of groups...
+Sorting lists...
+Determining which enums are documented
+Computing member relations...
+Building full member lists recursively...
+Adding members to member groups.
+Computing member references...
+Inheriting documentation...
+Generating disk names...
+Adding source references...
+Adding xrefitems...
+Sorting member lists...
+Setting anonymous enum type...
+Computing dependencies between directories...
+Generating citations page...
+Counting members...
+Counting data structures...
+Resolving user defined references...
+Finding anchors and sections in the documentation...
+Transferring function references...
+Combining using relations...
+Adding members to index pages...
+Correcting members for VHDL...
+Computing tooltip texts...
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/__init__.py:43: warning: Unsupported xml/html tag <supplier> found
+Generating style sheet...
+Generating search indices...
+Generating example documentation...
+Generating file sources...
+Parsing code for file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/DB/__init__.py...
+Parsing code for file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Driver/__init__.py...
+Parsing code for file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/ini_files_dir/__init__.py...
+Parsing code for file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/__init__.py...
+Parsing code for file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/_sample supplier/__init__.py...
+Parsing code for file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/aliexpress/__init__.py...
+Parsing code for file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/bangood/__init__.py...
+Parsing code for file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/cdata/__init__.py...
+Parsing code for file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/grandadvance/__init__.py...
+Parsing code for file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/ksp/__init__.py...
+Parsing code for file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/morlevi/__init__.py...
+Parsing code for file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/visualdg/__init__.py...
+Parsing code for file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/web_driver/__init__.py...
+Parsing code for file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Driver/driver_options.py...
+Parsing code for file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/web_driver/driver_options.py...
+Parsing code for file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/execute_json.py...
+Parsing code for file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/execute_scenaries.py...
+Parsing code for file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/execute_scenaries.py...
+Parsing code for file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/google_api/main.py...
+Parsing code for file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/main.py...
+Parsing code for file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/ini_files_dir/readme.md...
+Parsing code for file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/README.md...
+Parsing code for file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/strings_formatter.py...
+Parsing code for file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/product.py...
+Parsing code for file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/web_driver/aliexpScraperClassBased.py...
+Parsing code for file C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/web_driver/google_search.py...
+Generating file documentation...
+Generating page documentation...
+Generating docs for page md_C__Users_user_OneDrive_REPOS_DavidkaBenAvraham_Katia_Aluf_ini_files_dir_readme...
+Generating docs for page md_C__Users_user_OneDrive_REPOS_DavidkaBenAvraham_Katia_Aluf_README...
+Generating group documentation...
+Generating class documentation...
+Generating concept documentation...
+Generating namespace index...
+Generating docs for compound Driver::Driver...
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Driver/__init__.py:40: warning: Member __init__(self, **kwards) (function) of class Driver::Driver is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Driver/__init__.py:47: warning: Member set_driver(self, **kwards) (function) of class Driver::Driver is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Driver/__init__.py:110: warning: Member click(self, element_locator) (function) of class Driver::Driver is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Driver/__init__.py:122: warning: Member wait_to_be_clickable(self, element_locator, time_to_wait=5) (function) of class Driver::Driver is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Driver/__init__.py:313: warning: Member close(self) (function) of class Driver::Driver is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Driver/__init__.py:50: warning: Member driver_wait (variable) of class Driver::Driver is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/Driver/__init__.py:66: warning: Member driver (variable) of class Driver::Driver is not documented.
+Generating call graph for function Driver.Driver.find
+Generating caller graph for function Driver.Driver.find
+Generating call graph for function Driver.Driver.get_attribute_from_first_found_element
+Generating call graph for function Driver.Driver.get_listattributes_from_allfound_elements
+Generating caller graph for function Driver.Driver.get_url
+Generating call graph for function Driver.Driver.page_refresh
+Generating caller graph for function Driver.Driver.researh_elements
+Generating call graph for function Driver.Driver.wait_to_precence_located
+Generating docs for compound ini_files_dir::Ini...
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/ini_files_dir/__init__.py:90: warning: Member __attrs_post_init__(self, *args, **kwards) (function) of class ini_files_dir::Ini is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/ini_files_dir/__init__.py:94: warning: Member webdriver_settings (variable) of class ini_files_dir::Ini is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/ini_files_dir/__init__.py:95: warning: Member print_type (variable) of class ini_files_dir::Ini is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/ini_files_dir/__init__.py:96: warning: Member suppliers (variable) of class ini_files_dir::Ini is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/ini_files_dir/__init__.py:97: warning: Member languages (variable) of class ini_files_dir::Ini is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/ini_files_dir/__init__.py:98: warning: Member if_threads (variable) of class ini_files_dir::Ini is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/ini_files_dir/__init__.py:99: warning: Member mode (variable) of class ini_files_dir::Ini is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/ini_files_dir/__init__.py:100: warning: Member log_format (variable) of class ini_files_dir::Ini is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/ini_files_dir/__init__.py:46: warning: Member datetime (variable) of class ini_files_dir::Ini is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/ini_files_dir/__init__.py:46: warning: Member init (variable) of class ini_files_dir::Ini is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/ini_files_dir/__init__.py:46: warning: Member False (variable) of class ini_files_dir::Ini is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/ini_files_dir/__init__.py:46: warning: Member default (variable) of class ini_files_dir::Ini is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/ini_files_dir/__init__.py:47: warning: Member dict (variable) of class ini_files_dir::Ini is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/ini_files_dir/__init__.py:48: warning: Member str (variable) of class ini_files_dir::Ini is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/ini_files_dir/__init__.py:51: warning: Member list (variable) of class ini_files_dir::Ini is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/ini_files_dir/__init__.py:53: warning: Member bool (variable) of class ini_files_dir::Ini is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/ini_files_dir/__init__.py:55: warning: Member paths (variable) of class ini_files_dir::Ini is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/ini_files_dir/__init__.py:56: warning: Member range (variable) of class ini_files_dir::Ini is not documented.
+Generating docs for nested compound ini_files_dir::Ini::paths...
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/ini_files_dir/__init__.py:73: warning: Member __attrs_post_init__(self, *args, **kwards) (function) of class ini_files_dir::Ini::paths is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/ini_files_dir/__init__.py:77: warning: Member ini_files_dir (variable) of class ini_files_dir::Ini::paths is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/ini_files_dir/__init__.py:80: warning: Member export_dir (variable) of class ini_files_dir::Ini::paths is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/ini_files_dir/__init__.py:83: warning: Member logfile (variable) of class ini_files_dir::Ini::paths is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/ini_files_dir/__init__.py:86: warning: Member apis_file (variable) of class ini_files_dir::Ini::paths is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/ini_files_dir/__init__.py:65: warning: Member dict (variable) of class ini_files_dir::Ini::paths is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/ini_files_dir/__init__.py:65: warning: Member kw_only (variable) of class ini_files_dir::Ini::paths is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/ini_files_dir/__init__.py:67: warning: Member Path (variable) of class ini_files_dir::Ini::paths is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/ini_files_dir/__init__.py:67: warning: Member init (variable) of class ini_files_dir::Ini::paths is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/ini_files_dir/__init__.py:67: warning: Member False (variable) of class ini_files_dir::Ini::paths is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/ini_files_dir/__init__.py:67: warning: Member default (variable) of class ini_files_dir::Ini::paths is not documented.
+Generating docs for namespace Katia
+Generating docs for namespace Katia::Driver
+Generating docs for namespace Katia::Driver::Options
+Generating docs for namespace Katia::Ini
+Generating docs for namespace Katia::Product
+Generating docs for namespace Katia::Supplier
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/__init__.py:36: warning: Unsupported xml/html tag <> found
+Generating docs for namespace Katia::Thread
+Generating docs for namespace Katia::Tools
+Generating docs for namespace Katia::Tools::StringFormatter
+Generating docs for namespace main
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/main.py:37: warning: Member ini (variable) of namespace main is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/main.py:40: warning: Member list (variable) of namespace main is not documented.
+Generating call graph for function main.start_script
+Generating caller graph for function main.start_script
+Generating docs for compound main::Thread_for_supplier...
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/main.py:68: warning: Member run(self) (function) of class main::Thread_for_supplier is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/main.py:66: warning: Member supplier (variable) of class main::Thread_for_supplier is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/main.py:56: warning: Member Supplier (variable) of class main::Thread_for_supplier is not documented.
+Generating docs for compound strings_formatter::StringFormatter...
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/strings_formatter.py:132: warning: Member __attrs_post_init__(self, *srgs, **kwrads) (function) of class strings_formatter::StringFormatter is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/strings_formatter.py:137: warning: Member remove_line_breaks(self, str s) (function) of class strings_formatter::StringFormatter is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/strings_formatter.py:142: warning: Member remove_HTML_tags(self, str s) (function) of class strings_formatter::StringFormatter is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/strings_formatter.py:150: warning: Member remove_htmls(self, s) (function) of class strings_formatter::StringFormatter is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/strings_formatter.py:159: warning: Member remove_special_characters(self, str s) (function) of class strings_formatter::StringFormatter is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/strings_formatter.py:164: warning: Member clear_number(self, str s) (function) of class strings_formatter::StringFormatter is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/strings_formatter.py:167: warning: Member clear_price(self, str s) (function) of class strings_formatter::StringFormatter is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/strings_formatter.py:105: warning: Member re (variable) of class strings_formatter::StringFormatter is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/strings_formatter.py:105: warning: Member init (variable) of class strings_formatter::StringFormatter is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/strings_formatter.py:105: warning: Member False (variable) of class strings_formatter::StringFormatter is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/strings_formatter.py:105: warning: Member default (variable) of class strings_formatter::StringFormatter is not documented.
+Generating docs for compound suppliers::Supplier...
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/__init__.py:111: warning: Member driver (variable) of class suppliers::Supplier is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/__init__.py:43: warning: Unsupported xml/html tag <supplier> found
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/__init__.py:49: warning: Member kw_only (variable) of class suppliers::Supplier is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/__init__.py:49: warning: Member True (variable) of class suppliers::Supplier is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/__init__.py:49: warning: Member default (variable) of class suppliers::Supplier is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/__init__.py:54: warning: Member ini (variable) of class suppliers::Supplier is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/__init__.py:57: warning: Member dict (variable) of class suppliers::Supplier is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/__init__.py:57: warning: Member init (variable) of class suppliers::Supplier is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/__init__.py:57: warning: Member False (variable) of class suppliers::Supplier is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/__init__.py:59: warning: Member paths (variable) of class suppliers::Supplier is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/__init__.py:89: warning: Member related_functions (variable) of class suppliers::Supplier is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/__init__.py:92: warning: Member Driver (variable) of class suppliers::Supplier is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/__init__.py:95: warning: Member list (variable) of class suppliers::Supplier is not documented.
+Generating docs for compound suppliers::product::Product...
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/product.py:53: warning: Member fields (variable) of class suppliers::product::Product is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/product.py:55: warning: Member combinations (variable) of class suppliers::product::Product is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/product.py:32: warning: Member s (variable) of class suppliers::product::Product is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/product.py:34: warning: Member DataFrame (variable) of class suppliers::product::Product is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/product.py:34: warning: Member init (variable) of class suppliers::product::Product is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/product.py:34: warning: Member False (variable) of class suppliers::product::Product is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/product.py:34: warning: Member default (variable) of class suppliers::product::Product is not documented.
+Generating docs for compound web_driver::Driver...
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/web_driver/__init__.py:123: warning: Member driver (variable) of class web_driver::Driver is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/web_driver/__init__.py:91: warning: Member init (variable) of class web_driver::Driver is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/web_driver/__init__.py:91: warning: Member False (variable) of class web_driver::Driver is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/web_driver/__init__.py:91: warning: Member default (variable) of class web_driver::Driver is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/web_driver/__init__.py:94: warning: Member webdriver (variable) of class web_driver::Driver is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/web_driver/__init__.py:96: warning: Member GoogleHtmlParser (variable) of class web_driver::Driver is not documented.
+Generating docs for compound web_driver::aliexpScraperClassBased::AliScraper...
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/web_driver/aliexpScraperClassBased.py:23: warning: Member driver (variable) of class web_driver::aliexpScraperClassBased::AliScraper is not documented.
+Generating caller graph for function web_driver.aliexpScraperClassBased.AliScraper.get_current_url
+Generating call graph for function web_driver.aliexpScraperClassBased.AliScraper.in_current_url
+Generating call graph for function web_driver.aliexpScraperClassBased.AliScraper.is_login_url
+Generating call graph for function web_driver.aliexpScraperClassBased.AliScraper.matches_current_url
+Generating caller graph for function web_driver.aliexpScraperClassBased.AliScraper.matches_current_url
+Generating call graph for function web_driver.aliexpScraperClassBased.AliScraper.request_url
+Generating docs for compound web_driver::google_search::GoogleHtmlParser...
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/web_driver/google_search.py:38: warning: Member user_agent (variable) of class web_driver::google_search::GoogleHtmlParser is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/web_driver/google_search.py:270: warning: Member tree (variable) of class web_driver::google_search::GoogleHtmlParser is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/web_driver/google_search.py:21: warning: Member str (variable) of class web_driver::google_search::GoogleHtmlParser is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/web_driver/google_search.py:21: warning: Member init (variable) of class web_driver::google_search::GoogleHtmlParser is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/web_driver/google_search.py:21: warning: Member False (variable) of class web_driver::google_search::GoogleHtmlParser is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/web_driver/google_search.py:21: warning: Member default (variable) of class web_driver::google_search::GoogleHtmlParser is not documented.
+C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/web_driver/google_search.py:22: warning: Member html (variable) of class web_driver::google_search::GoogleHtmlParser is not documented.
+Generating call graph for function web_driver.google_search.GoogleHtmlParser.__attrs_post_init__
+Generating call graph for function web_driver.google_search.GoogleHtmlParser.get_data
+Generating graph info page...
+Generating directory documentation...
+Generating dependency graph for directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/_sample supplier
+Generating dependency graph for directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/aliexpress
+Generating dependency graph for directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/bangood
+Generating dependency graph for directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/cdata
+Generating dependency graph for directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/grandadvance
+Generating dependency graph for directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/ksp
+Generating dependency graph for directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/morlevi
+Generating dependency graph for directory C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Aluf/suppliers/visualdg
+Generating index page...
+Generating page index...
+Generating module index...
+Generating namespace index...
+Generating namespace member index...
+Generating concept index...
+Generating annotated compound index...
+Generating alphabetical compound index...
+Generating hierarchical class index...
+Generating graphical class hierarchy...
+Generating member index...
+Generating file index...
+Generating file member index...
+Generating example index...
+finalizing index lists...
+writing tag file...
+Running plantuml with JAVA...
+Running dot...
+Generating dot graphs using 13 parallel threads...
+Running dot for graph 1/41
+Running dot for graph 2/41
+Running dot for graph 3/41
+Running dot for graph 4/41
+Running dot for graph 5/41
+Running dot for graph 6/41
+Running dot for graph 7/41
+Running dot for graph 8/41
+Running dot for graph 9/41
+Running dot for graph 10/41
+Running dot for graph 11/41
+Running dot for graph 12/41
+Running dot for graph 13/41
+Running dot for graph 14/41
+Running dot for graph 15/41
+Running dot for graph 16/41
+Running dot for graph 17/41
+Running dot for graph 18/41
+Running dot for graph 19/41
+Running dot for graph 20/41
+Running dot for graph 21/41
+Running dot for graph 22/41
+Running dot for graph 23/41
+Running dot for graph 24/41
+Running dot for graph 25/41
+Running dot for graph 26/41
+Running dot for graph 27/41
+Running dot for graph 28/41
+Running dot for graph 29/41
+Running dot for graph 30/41
+Running dot for graph 31/41
+Running dot for graph 32/41
+Running dot for graph 33/41
+Running dot for graph 34/41
+Running dot for graph 35/41
+Running dot for graph 36/41
+Running dot for graph 37/41
+Running dot for graph 38/41
+Running dot for graph 39/41
+Running dot for graph 40/41
+Running dot for graph 41/41
+Patching output file 1/14
+Patching output file 2/14
+Patching output file 3/14
+Patching output file 4/14
+Patching output file 5/14
+Patching output file 6/14
+Patching output file 7/14
+Patching output file 8/14
+Patching output file 9/14
+Patching output file 10/14
+Patching output file 11/14
+Patching output file 12/14
+Patching output file 13/14
+Patching output file 14/14
+lookup cache used 275/65536 hits=773 misses=435
+finished...
+*** Doxygen has finished

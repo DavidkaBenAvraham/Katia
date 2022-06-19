@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/env python
 __author__ = 'e-cat.me'
-##@package Katia
-#Documentation for this module
+##@package Katia.Driver.aliexpScraperClassBased
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys

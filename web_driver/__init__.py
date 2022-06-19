@@ -1,8 +1,23 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/env python
 __author__ = 'e-cat.me'
-##@package Katia
-#Documentation for this module
+##@package Katia.Driver
+##<h5>Типы вебдрайверов (не все!) </h5>
+#<ul>
+#<li>        webdriver.Firefox</li>
+#<li>        webdriver.FirefoxProfile</li>
+#<li>        webdriver.Chrome</li>
+#<li>        webdriver.ChromeOptions</li>
+#<li>        webdriver.Ie</li>
+#<li>        webdriver.Opera</li>
+#<li>        webdriver.PhantomJS</li>
+#<li>        webdriver.Remote</li>
+#<li>        webdriver.DesiredCapabilities</li>
+#<li>        webdriver.ActionChains</li>
+#<li>        webdriver.TouchActions</li>
+#<li>        webdriver.Proxy</li>
+#<li>        https://selenium-python.readthedocs.io/api.html#desired-capabilities</li>
+#</ul>
 
 from strings_formatter import StringFormatter
 formatter = StringFormatter()
@@ -47,30 +62,15 @@ from ini_files_dir import Ini as ini
 import execute_json as json
 from attr import attrs, attrib, Factory
 
-
-##@package Katia.Driver
-## Документация для класса Driver()
 @attrs
-class Driver():
-    ''' 
-        webdriver.Firefox
-        webdriver.FirefoxProfile
-        webdriver.Chrome
-        webdriver.ChromeOptions
-        webdriver.Ie
-        webdriver.Opera
-        webdriver.PhantomJS
-        webdriver.Remote
-        webdriver.DesiredCapabilities
-        webdriver.ActionChains
-        webdriver.TouchActions
-        webdriver.Proxy
-        https://selenium-python.readthedocs.io/api.html#desired-capabilities
-    '''
-    ## текущий url. Нужен мне для отслеживания переключений драйвера
-    current_url : str = attrib(init = False , default = None)
-
-    ## driver устанавливается из настроек в launcher.json['webdriver']
+## класс <b>Driver()</b> 
+# реализует функции selenium 
+# в обертке 
+# <a href="https://github.com/DavidkaBenAvraham/selenium-wire" target="_blank"
+# style = "COLOR:#550000;FONT-SIZE:LARGE;FONT-DECORATION:BOLD" > 
+# seleniumwire 
+# </a>
+# driver устанавливается из настроек в файле launcher.json, узел ['webdriver']
     # <h5>Например</h5>
     # <pre>
     #  "webdriver": {
@@ -85,28 +85,54 @@ class Driver():
     #    "view_html_source_mode": false
     #}
     # </pre>
-    driver      : webdriver = attrib(init = False , default = None)
+#<ul>
+#<li>current_url : текущий url. Нужен мне для отслеживания переключений драйвера</li>
+#<li>previous_url : прошлый url. Нужен мне для отслеживания переключений драйвера</li>
+#<li>driver : webdriver </li>
+#<li>get_parsed_google_search_result : время запуска скрипта</li>
+#</ul>
+class Driver():
+
+
+    ## текущий url. Нужен мне для отслеживания переключений драйвера
+    current_url : str = attrib(init = False , default = None)
+
+    ## прошлый url. Нужен мне для отслеживания переключений драйвера
+    previous_url : str = attrib(init = False , default = None)
+    
+    driver      : webdriver = attrib(init = False , default = webdriver)
     
     get_parsed_google_search_result : GoogleHtmlParser = attrib(init = False, default = None)
 
+    ## <pre>
+    # драйвер запускается через вызов set_driver(webdriver_settings)
+    # при инициализации класса s = Supplier()
+    # s.driver = Driver().set_driver(webdriver_settings : dict)
+    # </pre>
     def __attrs_post_init__(self , *args, **kwrads):
-        ''' драйвер запускается поставщиком '''
         pass
 
+
+    ## webdriver_settings : словарь 
+    # <pre>
+    #  webdriver_settings = {
+    #    "name": "firefox",
+    #    "arguments": [ "--no-sandbox", "--disable-dev-shm-usage" ],
+    #    "disabled_arguments": [
+    #      "--disable-dev-shm-usage",
+    #      "--headless"
+    #    ],
+    #    "deafault_wait_time": 5,
+    #    "maximize_window": true,
+    #    "view_html_source_mode": false
+    #}
+    # </pre>
     def set_driver(self , webdriver_settings : dict) -> driver:      
-        '''   webdriver_settings -  из своего launcher.json["webdriver"]
-          
-        kora = обертка для запуска в google.research
-        взята из https://github.com/korakot/kora
-        там также есть ИИ!
-               
-        и догружаю в kora нужные мне элементы из пакета selenium
-        '''
-        
-        
-       
+   
         if webdriver_settings['name'] == 'kora':
             ''' kora - обёртка вебдрайвера для запуска в colab
+            там также есть ИИ!
+
             устанавливается в файле launcher 
             
             есть проблема что основной вебдрайвер - 
@@ -149,6 +175,8 @@ class Driver():
 
         return self.driver
 
+
+    ## добавляю к драйверу свои функции
     def _add_extra_functions(self ,webdriver_settings):
         
         self.driver.deafault_wait_time =                self._deafault_wait_time
@@ -166,15 +194,7 @@ class Driver():
         
         self.driver.get_parsed_google_search_result =   GoogleHtmlParser
         self.driver.view_html_source_mode : bool =      webdriver_settings['view_html_source_mode']
-        
-    '''
-                                    Ожидания драйвера
-
-
-
-        Явное ожидание лучше чем time.sleep() ,  Но это не точно :)
-    '''
-
+  
 
 
     ''' ------------------ НАЧАЛО -------------------------- '''
@@ -223,8 +243,8 @@ class Driver():
 
     ''' ------------------ НАЧАЛО -------------------------- '''
 
-    #@print
-    
+    ## переход по указанному url
+    # обертка для driver.get()
     def _get_url(self, url:str , wait_to_locator_be_loaded : dict = {} , view_html_source_mode : bool = False)->bool:
         '''переход по заданному адресу 
         с ожиданием загрузки контента до локатора wait_locator_to_be_loaded
@@ -254,7 +274,9 @@ class Driver():
             pass
 
         try:
+            _current_url = _d.current_url
             _d.get(f'''view-source:{url}''') if view_html_source_mode else _d.get(f'''{url}''')
+            self.previous_url = _current_url
             
             main_window_handler = _d.current_window_handle
             ''' запоминаю рабочее окно
@@ -417,9 +439,9 @@ class Driver():
 
 
 
-        # 1) выуживаю элементы со страницы. 
+        ## 1) выуживаю элементы со страницы. 
         elements = self._get_webelments_from_page(locator)
-        ''' всегда получаю list(), но все равно проверяю '''
+        ## всегда получаю [] , но все равно проверяю 
         if isinstance(elements , list):
             if len(elements) == 1: 
                 elements = elements[0]
@@ -433,7 +455,7 @@ class Driver():
            
         
 
-        #2) Если локатор locator['attribute'] не установлен в нулл 
+        ## 2) Если локатор locator['attribute'] не установлен в None 
         # то я возвращаю аттрибуты полученные по этому локатору
         # иначе - возвращаю весь найденный webelement
         # херовенько возвращать разные типы данных из функции, но мне так удобно
