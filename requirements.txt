@@ -12,3 +12,4 @@ kora
 aliyun-python-sdk-core-v3
 aliexpress-sdk
 selenium-wire
+pyautogui

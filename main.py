@@ -6,15 +6,21 @@ __author__ = 'e-cat.me'
 #!pip install conda
 #!pip install selenium
 #!pip install google
-#!pip install kora
 #!pip install aliyun-python-sdk-core-v3
 #!pip install aliexpress-sdk
-#!pip install scrapyd
-#!conda install -c conda-forge scrapy
 #!pip install python-aliexpress-api
-''' отсюда https://github.com/sergioteula/python-aliexpress-api/  '''
+## обертка для работы с aliexpress API
+## отсюда https://github.com/sergioteula/python-aliexpress-api/  
 #!pip install selenium-wire
-''' отсюда https://github.com/DavidkaBenAvraham/selenium-wire  '''
+## обертка для selenium
+## с поддержкой request, request.responce 
+## и др, хз как подружить с kora
+## отсюда https://github.com/DavidkaBenAvraham/selenium-wire  
+#!pip install kora
+## обертка для google colab
+#!pip install pyautogui
+## двигалка мыши по экрану
+## отсюда https://itproger.com/news/programma-na-python-dlya-upravleniya-kompyuterom-pyautogui
 
 
 from pathlib import Path

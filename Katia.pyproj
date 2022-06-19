@@ -853,6 +853,9 @@
     <Folder Include="suppliers\amazon\" />
     <Folder Include="suppliers\gearbest\" />
     <Folder Include="suppliers\macy_s\" />
+    <Folder Include="suppliers\6pm\" />
+    <Folder Include="suppliers\maxsanei_hashmal\" />
+    <Folder Include="suppliers\victorinox\" />
     <Folder Include="suppliers\wallmart\" />
     <Folder Include="suppliers\wallashop\" />
     <Folder Include="suppliers\_sample supplier\" />
