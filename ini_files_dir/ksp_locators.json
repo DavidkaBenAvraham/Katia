@@ -58,15 +58,19 @@
       "selector": "//*[@id='product-page-root']//div[@aria-label]//div[text()]"
     },
     "product_shipping_locator": {
-      "attribute": "innerHTML",
+      "attribute": null,
       "by": "xpath",
-      "selector": "//*[contains(@class ,'carousel-slider')]//img"
+      "selector": "//h2[contains(@aria-label ,'אפשרויות איסוף ומשלו')]//following::ul//li[contains(@aria-label ,'משלוח')]"
     },
 
     "product_images_locator": {
-      "attribute": { "alt": "src" },
+      "attribute": { "innerText": "src" },
       "by": "xpath",
-      "selector": "//*[contains(@class ,'carousel-slider')]//img"
+      "selector": [
+        "//*[contains(@class ,'carousel-slider')]//img//preceding::li",
+
+        "//*[contains(@class ,'carousel-slider')]//img"
+      ]
     },
 
     "product_sikum_locator": {

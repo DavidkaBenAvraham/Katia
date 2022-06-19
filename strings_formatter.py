@@ -89,10 +89,10 @@ class StringFormatter():
     ''' Обработчик строк '''
 
     def remove_suppliers_and_special_chars(method_to_decorate:object , s:str)->object: 
-        ''' Декоратор для внутренних функций форматера.
-        Убираю имя поставщика и значки не удовлетворяющие условиям хранения строк в базе данных
-        моего каталога
-        '''
+        ## Декоратор для внутренних функций форматера.
+        #Убираю имя поставщика и значки не удовлетворяющие условиям хранения строк в базе данных
+        #моего каталога
+        
         def remover(self , s:str)->str:
             s = pattern_remove_suppliers_from_string.sub(r'',s)
             s = pattern_remove_special_characters.sub(r'',s)
@@ -101,11 +101,8 @@ class StringFormatter():
         return remover(s)
 
     
-
-
-    ##@package Katia.Tools.StringFormatter
-    # инициализация класса StringFormatter()
     def __attrs_post_init__(self , *srgs, **kwrads):
+        ## инициализация класса StringFormatter()
         self.pattern_remove_HTML = pattern_remove_HTML
         self.pattern_remove_non_latin_characters = pattern_remove_non_latin_characters
         self.pattern_remove_line_breaks = pattern_remove_line_breaks
@@ -115,16 +112,15 @@ class StringFormatter():
 
         pass
 
-    ##@package Katia.Tools.StringFormatter
     # убираю все значки переноса строк
     def remove_line_breaks(self,s:str)->str:
-        def clear(s):
+        def _(s):
             return self.pattern_remove_line_breaks.sub(r' ', s).strip()
 
         if isinstance(s , list ):
             for sub_s in s:
-                sub_s = clear(sub_s)
-        else: clear(s)
+                sub_s = _(sub_s)
+        else: s=_(s)
 
         return s
         
@@ -132,16 +128,15 @@ class StringFormatter():
 
     #@remove_suppliers_and_special_chars
     def remove_htmls(self , s):
-        def clear(s):
+        def _(s):
             return self.pattern_remove_HTML.sub(r' ', str(sub_s)).strip()
 
         if isinstance(s , list ):
-            for sub_s in s: sub_s = clear(sub_s)
-        else: clear(s)
+            for sub_s in s: sub_s = _(sub_s)
+        else: s=_(s)
         return s
 
 
-    #@remove_suppliers_and_special_chars
     def remove_special_characters(self , s:str)->str:
         s = self.remove_htmls(s)
         s = self.remove_line_breaks(s)

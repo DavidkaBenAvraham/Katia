@@ -1,6 +1,2 @@
-#<p>
-#<h3>Танцуем отсюда </h3>
-#</p>
-#<div><pre>
-#main() -> start_script() : параметры запуска находятся в файле launcher.json
-#</pre></div>
+﻿                    # удобно для исследований
+                    # https://colab.research.google.com/drive/1cQEb3-StSL0pz1FD9CXIUJ8tnqFUkzYf

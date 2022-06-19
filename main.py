@@ -28,14 +28,11 @@ from pathlib import Path
 from threading import Thread
 ''' Работа с потоками описана в https://python-scripts.com/threading '''
 
+
+from pathlib import Path
 import execute_json as json
 from ini_files_dir import Ini
 from suppliers import Supplier
-#from exceptions_handler import ExceptionsHandler as EH
-#from logger import Log
-#from apis import ALIEXPRESS as aliex
-#from aliexpress_api import AliexpressApi , models 
-
 
 ini = Ini()
 ''' инициализация '''
@@ -44,16 +41,11 @@ threads : list = []
 ''' потоки '''
 
 
-
-
-
-##@package Katia.Thread
 ## Документация для класса
 # класс для запуска каждый сценарий в отдельном потоке
 class Thread_for_supplier(Thread):
-    '''       получаю имя постащика - открываю для его класса поток
-    идея в том, чтобы открывать  приложения в новом потоке.
-    '''
+     ## получаю имя постащика - открываю для его класса поток
+     # идея в том, чтобы открывать  приложения в новом потоке.
 
 
     supplier : Supplier = None
@@ -62,39 +54,36 @@ class Thread_for_supplier(Thread):
     def __init__(self, supplier_prefics:str , lang:list , ini : Ini):
         ''' в классе Ini() происходит раскрытие launcher.json
         supplier_prefics : str - поставщик из класса ini.suppliers, 
-        lang : list - язык/и  из класса ini.lang
+        lang : list - язык/и  из launcher.json ???? нахуя?
         '''
+
         Thread.__init__(self)
-     
+        ### Здесь создался поток. ОСТОРОЖНО! Может повесить малоядерные цпу
+        # 
         self.supplier  = Supplier(supplier_prefics = supplier_prefics, lang = lang , ini = ini)
+        ### Здесь родился Supplier() в потоке 
         
     def run(self):
 
         threads.append(self.supplier)
         '''  Старт программы  в потоке'''
         self.supplier.run()
-        #self.supplier.run()
-        ''' try - except ОБЯЗАТЕЛЬНО '''    
+        ## try - except ОБЯЗАТЕЛЬНО !!! зависнет нахуй '''    
         self.supplier.driver.close()
         ''' Финиш '''
 
 
 def start_script() -> bool:  
-    '''     
-
-                Отсюда я запускаю всю программу 
+    ## Отсюда я запускаю всю программу 
+    # ini : Ini = Ini() 
+    # Класс инициализации приложения 
+    # строится на основе файла launch.json 
    
-    ini : Ini = Ini()
-    Класс инициализации приложения 
-    строится на основе файла launch.json 
-    --------------------------
-    Определяет:
-            - пути для файлов сценариев, экспорта и логгирования
-
-    '''
     
     for lang in ini.languages:
-        ''' выбор языка/ов исполнения сценариев '''
+        ''' выбор языка/ов исполнения сценариев 
+        ЗАЧЕМ ТУТ??? 
+        УБРАТЬ НАХУЙ'''
 
         for supplier_prefics in ini.suppliers: 
             
@@ -122,6 +111,10 @@ def start_script() -> bool:
 
                 if ini.mode == "prod":
                     supplier  = Supplier(supplier_prefics = supplier_prefics, lang = lang , ini = ini)
+                    ### Здесь родился Supplier() в ОДНОМ потоке
+                    # программа будет их перелопачивать их один за другим
+                    # удобно для исследований
+                    # https://colab.research.google.com/drive/1cQEb3-StSL0pz1FD9CXIUJ8tnqFUkzYf
                     supplier.run()
                 else:
                     supplier =  Supplier(supplier_prefics = supplier_prefics, lang = lang , ini = ini)

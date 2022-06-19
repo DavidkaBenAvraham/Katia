@@ -472,6 +472,9 @@ class Driver():
         если элементы  не найдны -возвращает пустой список []
         '''
         try: 
+            if isinstance(locator['selector'] , list) and isinstance(locator['attribute'] , dict):
+                _e : dict = {}
+
             elements = self.driver.find_elements(locator['by'] , locator['selector'])
             return elements 
         except Exception as ex: return [] , print(f'''_get_webelments_from_page() ex: {ex} ''')

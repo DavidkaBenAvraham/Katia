@@ -30,15 +30,17 @@
   },
 
   "webdriver": {
-    "name": "firefox",
-    "arguments": [ "--no-sandbox", "--disable-dev-shm-usage" ],
-    "disabled_arguments": [
-      "--disable-dev-shm-usage",
-      "--headless"
-    ],
-    "deafault_wait_time": 5,
-    "maximize_window": true,
-    "view_html_source_mode": false
+     "name": "kora",
+      "arguments": [
+        "--headless",
+        "--no-sandbox",
+        "--disable-dev-shm-usage"
+      ],
+      "deafault_wait_time": 5,
+      "about wait": "явное ожидание браузера в сек",
+      "random": [ 0, 5 ],
+      "view_html_source_mode": false,
+      "maximize_window": true
 
   },
 

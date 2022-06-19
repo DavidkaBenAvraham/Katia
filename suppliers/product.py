@@ -128,7 +128,7 @@ class Product():
   
         def set_images():
             try:
-                _images = _d.find(_['product_images'])
+                _images = _d.find(_['product_images_locator'])
                 for k,v in _images.items():
                        field['img url'] += f''' {v}, '''
                        field['img alt'] += f''' {k}, '''
