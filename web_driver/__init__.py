@@ -113,7 +113,9 @@ class Driver():
         pass
 
 
-    ## webdriver_settings : словарь 
+    ## set_driver
+    #
+    # webdriver_settings : словарь 
     # <pre>
     #  webdriver_settings = {
     #    "name": "firefox",
@@ -126,23 +128,38 @@ class Driver():
     #    "maximize_window": true,
     #    "view_html_source_mode": false
     #}
+    #
+    #   // Required for Docker version of Puppeteer
+    #   "--no-sandbox",
+    #   "--disable-setuid-sandbox",
+    #
+    #
+    #   // Disable GPU
+    #   "--disable-gpu",
+    #
+    #
+    #   // This will write shared memory files into /tmp instead of /dev/shm,
+    #   // because Docker’s default for /dev/shm is 64MB
+    #   "--disable-dev-shm-usage"
+
     # </pre>
     def set_driver(self , webdriver_settings : dict) -> driver:      
    
-        if webdriver_settings['name'] == 'kora':
-            ''' kora - обёртка вебдрайвера для запуска в colab
-            там также есть ИИ!
+        if not kora.IN_COLAB: webdriver_settings['name'] == 'chromedriver'
+        ## костыль!
 
-            устанавливается в файле launcher 
-            
-            есть проблема что основной вебдрайвер - 
-            seleniumwire 
-            https://github.com/DavidkaBenAvraham/selenium-wire
-            '''
+        if webdriver_settings['name'] == 'kora':
+            ##kora - обёртка вебдрайвера для запуска в colab
+            #там также есть ИИ!
+            #устанавливается в файле launcher 
+            #есть проблема что основной вебдрайвер - 
+            #seleniumwire 
+            #https://github.com/DavidkaBenAvraham/selenium-wire
+
 
             self.driver = kora.selenium.wd
-            self.driver.common = selenium.webdriver.common
-            self.driver.support = selenium.webdriver.support
+            #self.driver.common = selenium.webdriver.common
+            #self.driver.support = selenium.webdriver.support
 
 
             

@@ -30,20 +30,40 @@
   },
 
   "webdriver": {
-     "name": "kora",
-      "arguments": [
-        "--headless",
-        "--no-sandbox",
-        "--disable-dev-shm-usage"
-      ],
-      "deafault_wait_time": 5,
-      "about wait": "явное ожидание браузера в сек",
-      "random": [ 0, 5 ],
-      "view_html_source_mode": false,
-      "maximize_window": true
+    "name": "kora",
+    "arguments": [
+      "--headless",
+      "--no-sandbox",
+      "--disable-dev-shm-usage"
+    ],
+    "deafault_wait_time": 5,
+    "about wait": "явное ожидание браузера в сек",
+    "random": [ 0, 5 ],
+    "view_html_source_mode": false,
+    "maximize_window": true
 
   },
-
+  "webdriver chromedriver": {
+    "name": "chromedriver",
+    "arguments": [
+      "--no-sandbox",
+      "--disable-dev-shm-usage"
+    ],
+    "deafault_wait_time": 5,
+    "maximize_window": true,
+    "view_html_source_mode": false,
+    "maximize_window": true
+  },
+  "webdriver firefox": {
+    "name": "firefox",
+    "arguments": [ "--no-sandbox" ],
+    "disabled_arguments": [
+      "--disable-dev-shm-usage",
+      "--headless"
+    ],
+    "deafault_wait_time": 5,
+    "maximize_window": true
+  },
 
   "about kora": "kora обертка для запуска вебдрайвера в google.research взята из https://github.com/korakot/kora",
   "excluded webdrivers": {
