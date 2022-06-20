@@ -33,7 +33,7 @@
         "--no-sandbox",
         "--disable-dev-shm-usage"
       ],
-      "deafault_wait_time": 5,
+      "deafault_wait_time": 2,
       "about wait": "явное ожидание браузера в сек",
       "random": [ 0, 5 ],
       "view_html_source_mode": false,
@@ -43,10 +43,15 @@
     "chrome": {
       "arguments": [
         "--no-sandbox",
-        "--disable-dev-shm-usage"
+        "--disable-dev-shm-usage",
+        "--ignore-certificate-errors",
+        "--allow-profiles-outside-user-dir",
+        "--allow-insecure-localhost"
+
       ],
+      "disabled arguments": [  "-auto-open-devtools-for-tabs" ],
+      "about arguments": "https://peter.sh/experiments/chromium-command-line-switches/",
       "deafault_wait_time": 5,
-      "maximize_window": true,
       "view_html_source_mode": false,
       "maximize_window": true
     },

@@ -11,7 +11,6 @@ from attr import attrib, attrs, Factory
 from selenium.webdriver.remote.webelement import WebElement 
 from selenium.webdriver.common.keys import Keys
 from strings_formatter import StringFormatter
-from products import Product
 
 
 formatter = StringFormatter()
@@ -19,43 +18,30 @@ stores : list = []
 ''' ------------------ НАЧАЛО -------------------------- '''
 
 def login(s) -> bool :
+    def _login() -> bool:
+        _ =  s.locators['login']
+        _d = s.driver
+        try:
+            _d.get(_['login_url'])
+            #_d.switch_to_frame(0) 
+            _d.send_keys(_['user_locator'], _['user'])
+            _d.send_keys(_['password_locator'], _['password'])
+            _d.click(_['send_locator'])
+            return True
+        except Exception as ex: return False , print(f''' не залогинился ''')
 
-    _locator =  s.locators['login']
-    _d = s.driver
-    try:
-        _d.get('https://login.aliexpress.com')
-        #_d.switch_to_frame(0) 
-        _d.find(_locator['user_locator'])[0].send_keys(_locator['user'])
-        _d.find(_locator['password_locator'])[0].send_keys(_locator['password'])
-        _d.find(_locator['send_locator'])[0].click()
-        return True
-
-    #try:
-    #    ''' всякие банннеры '''
-    #    s.driver.find(locators['close banner'])[0].click()
-    #    s.driver.find(locators['open_login_popup_button'])[0].click()
-    #    s.driver.find(locators['open_login_popup_button']['open_login_popup_button 2lvl'])[0].click()
-
-    #except Exception as ex: return False, print(ex)
-
-
-    #try:
-    #    s.driver.find(locators['user_locator'])[0].send_keys( locators['user'])
-    #    s.driver.find(locators['password_locator'])[0].send_keys( locators['password'])
-    #    s.driver.find(locators['send_locator'])[0].click()
-
-    except Exception as ex:return False, print(ex)
-    ''' ------------------ КОНЕЦ -------------------------- '''
-
-    ''' ------------------ НАЧАЛО -------------------------- '''
-
-def set_start_setiings(s)->bool:
-    _locator =  s.locators['currency_laguage_country_locators']
-    _d = s.driver
-    _d.find(_locator['country_locator'])[0].send_keys('Israel')
-    _d.find(_locator['currency_locator'])[0].send_keys(Keys.RETURN)
-
-''' ------------------ НАЧАЛО -------------------------- '''
+    def _set_language_currency_shipto():
+        _ =  s.locators['currency_laguage_shipto_locators']
+        _d = s.driver
+        _d.get_url("https://www.aliexpress.com")
+        try:
+            _d.click(_['block_opener_locator'])
+            _d.click(_['shipto_locator'])
+            _d.click(_['language_locator'])
+            _d.click(_['currency_locator'])
+        except Exception as ex: return False, print(f'''{ex} не получилось выбрать язык/страну/валюту''')
+    _set_language_currency_shipto()
+   
 stores:list = []
 def run_stores(s):
     
@@ -154,7 +140,7 @@ def build_shop_categories(s , store_settings_dict : dict) -> dict:
     s.export(data = t , format = ['csv'] )
     pass
     ''' ------------------ КОНЕЦ  -------------------------- '''
-
+''' ------------------ НАЧАЛО -------------------------- ''' 
 def run_local_scenario(s, store_settings_dict: dict = {}):
     json_from_store = get_json_from_store(s, store_settings_dict)
     #s.export(ajax_from_store , ['json'] , store_settings_dict['store ID'])
@@ -164,7 +150,10 @@ def run_local_scenario(s, store_settings_dict: dict = {}):
 
 
     ''' ------------------ НАЧАЛО -------------------------- '''
+
+
 products: list = []
+''' ------------------ НАЧАЛО -------------------------- '''
 def grab_product_page(s):
     _d = s.driver
     _d.scroll(3)
@@ -181,37 +170,37 @@ def grab_product_page(s):
         '''
        
     def get_title():
-        field['title'] = _d.find(_['product_title_locator'])[0]
+        field['title'] = _d.find(_['product_title_'])[0]
     def get_price():
-        _price = _d.find(_['product_price_locator'])[0]
+        _price = _d.find(_['product_price_'])[0]
         field['price'] = formatter.clear_price(_price)
     def get_shipping():
-        _shipping = _d.find(_['product_shipping_locator'])
+        _shipping = _d.find(_['product_shipping_'])
         for s in _shipping:
             field['shipping price'] = formatter.clear_price(s)
     def get_images():
-        _images = _d.find(_['product_images_locator'])
+        _images = _d.find(_['product_images_'])
         for k,v in _images.items():
                field['img url'] += f''' {v}, '''
                field['img alt'] += f''' {k}, '''
     def get_attributes():
-        _attributes = _d.find(_['product_attributes_locator'])
+        _attributes = _d.find(_['product_attributes_'])
         return _attributes
     def get_qty():
-        _qty = _d.find(_['product_qty_locator'])
+        _qty = _d.find(_['qty'])
         _qty = formatter.clear_price(_qty)
         return _qty
     def get_byer_protection():
-        _byer_protection = _d.find(_['product_byer_protection_locator'])
+        _byer_protection = _d.find(_['product_byer_protection_'])
         return _byer_protection
     def get_description():
-        _description = _d.find(_['product_description_locator'])
+        _description = _d.find(_['product_description_'])
         return _description
     def get_specification():
-        specification = _d.find(_['product_specification_locator'])
+        specification = _d.find(_['product_specification_'])
         return specification
     def get_customer_reviews():
-        _customer_reviews = _d.find(_['product_customer_reviews_locator'])
+        _customer_reviews = _d.find(_['product_customer_reviews_'])
         return _customer_reviews
 
 
@@ -230,31 +219,6 @@ def grab_product_page(s):
         
 
     pass
-
-#@attrs
-#class page: 
-#    paginator : WebElement = attrib(init = False , default = None)
-#    ''' paginator - объект листатель '''
-
-#    s : object = attrib(kw_only = True, default = None)     
-#    ''' object Supplier '''
-
-
-#    def set_paginator(self):
-#        ''' object Supplier '''
-#        self.paginator = self.s.driver.find(self.s.locators['pagination_block'])
-#        pass
-
-#    def __attrs_post_init__(self, *args, **kwards):
-#        self.set_paginator()
-#        pass
-
-#    def click_to_next_page(self) -> bool:
-#        #self._s
-#        pass
-
-
-
 
 
 

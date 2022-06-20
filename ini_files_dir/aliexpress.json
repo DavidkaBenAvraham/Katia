@@ -17,8 +17,10 @@
   },
   "price_rule": "+0",
   "num_items_4_flush": 300,
-  "if_login": false,
+  "if_login": true,
   "login_url": "https://www.login.aliexpress.com",
+
+
 
   "collect_products_from_categorypage": false,
   "scenaries": [

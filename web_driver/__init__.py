@@ -22,22 +22,32 @@ __author__ = 'e-cat.me'
 from strings_formatter import StringFormatter
 formatter = StringFormatter()
 from logging import Formatter
+
+
 import selenium
+from selenium import * 
+from selenium import webdriver as selenium_wedriver
 
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.keys import Keys
-
-import copy
+#from selenium.webdriver.support.ui import WebDriverWait
+#from selenium.webdriver.support import expected_conditions as EC
+#from selenium.webdriver.common.by import By
+#from selenium.webdriver.common.keys import Keys
+#from selenium.webdriver.common.action_chains import ActionChains
+## from https://ru.stackoverflow.com/questions/1340290/%D0%A0%D0%B5%D0%B0%D0%BB%D0%B8%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C-%D0%BA%D0%BB%D0%B8%D0%BA-%D0%BF%D0%BE-%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D1%83-%D0%B2-selenium-python
 
 #import selenium.webdriver as webdriver
 
 import kora 
-from kora.selenium import wd
-'''https://github.com/DavidkaBenAvraham/selenium-wire'''
-from seleniumwire import webdriver
-'''https://github.com/DavidkaBenAvraham/selenium-wire'''
+from kora.selenium import wd as kora_wedriver
+
+import seleniumwire
+from seleniumwire import webdriver as seleniumwire_wedriver
+# https://github.com/DavidkaBenAvraham/selenium-wire 
+
+SWD = selenium_wedriver
+KWD = kora_wedriver
+SWWD = seleniumwire_wedriver
+WD = SWWD
 
 
 from web_driver.google_search import GoogleHtmlParser as GoogleHtmlParser
@@ -91,8 +101,20 @@ from attr import attrs, attrib, Factory
 #<li>driver : webdriver </li>
 #<li>get_parsed_google_search_result : время запуска скрипта</li>
 #</ul>
-class Driver():
+class Driver:
+    @attrs
+    class JS():
+        def unhide(driver,element):
+            script :str = f''' arguments[0].style.opacity=1;
+                            arguments[0].style['transform']='translate(0px, 0px) scale(1)';
+                            arguments[0].style['MozTransform']='translate(0px, 0px) scale(1)';
+                            arguments[0].style['WebkitTransform']='translate(0px, 0px) scale(1)';
+                            arguments[0].style['msTransform']='translate(0px, 0px) scale(1)';
+                            arguments[0].style['OTransform']='translate(0px, 0px) scale(1)';
+                            arguments[0].scrollIntoView(true);
+                            return true; '''
 
+            self.super().Driver().driver.execute_script(script, element)
 
     ## текущий url. Нужен мне для отслеживания переключений драйвера
     current_url : str = attrib(init = False , default = None)
@@ -100,58 +122,27 @@ class Driver():
     ## прошлый url. Нужен мне для отслеживания переключений драйвера
     previous_url : str = attrib(init = False , default = None)
     
-    driver      : webdriver = attrib(init = False , default = webdriver)
-    
     get_parsed_google_search_result : GoogleHtmlParser = attrib(init = False, default = None)
+
+    driver : WD =  attrib(init = False , default = WD)
 
     ## <pre>
     # драйвер запускается через вызов set_driver(webdriver_settings)
     # при инициализации класса s = Supplier()
     # s.driver = Driver().set_driver(webdriver_settings : dict)
     # </pre>
-    def __attrs_post_init__(self , *args, **kwrads):
+    def __attrs_post_init__(self ,  *args, **kwrads):
         pass
-
-
-    ## set_driver
-    #
-    # webdriver_settings : словарь 
-    # <pre>
-    #  webdriver_settings = {
-    #    "name": "firefox",
-    #    "arguments": [ "--no-sandbox", "--disable-dev-shm-usage" ],
-    #    "disabled_arguments": [
-    #      "--disable-dev-shm-usage",
-    #      "--headless"
-    #    ],
-    #    "deafault_wait_time": 5,
-    #    "maximize_window": true,
-    #    "view_html_source_mode": false
-    #}
-    #
-    #   // Required for Docker version of Puppeteer
-    #   "--no-sandbox",
-    #   "--disable-setuid-sandbox",
-    #
-    #
-    #   // Disable GPU
-    #   "--disable-gpu",
-    #
-    #
-    #   // This will write shared memory files into /tmp instead of /dev/shm,
-    #   // because Docker’s default for /dev/shm is 64MB
-    #   "--disable-dev-shm-usage"
-
-    # </pre>
-    def set_driver(self , webdriver_settings : dict) -> driver:      
-        _settings : dict = {}
+    
+    def set_driver(self , webdriver_settings : dict) -> WD:      
+        
 
         def set_Chrome() -> dict:
             _settings = webdriver_settings['chrome']
-            options = webdriver.ChromeOptions()
-            for argument in webdriver_settings['chrome']['arguments']:
+            options = self.driver.ChromeOptions()
+            for argument in _settings['arguments']:
                     options.add_argument(argument)
-            self.driver = webdriver.Chrome(options = options)
+            self.driver = self.driver.Chrome(options = options)
             return _settings
 
         def set_Firefox() -> dict:
@@ -163,27 +154,21 @@ class Driver():
             return _settings
 
 
-        if not kora.IN_COLAB: 
-            _settings = set_Chrome()
-            ## костыль!
-        else: 
-            self.driver = kora.selenium.wd
-            _settings = webdriver_settings['kora']
-            print(f''' Hello, google colab! ''')
+        def set_Kora() -> bool:
+            _wd = kora.selenium.wd
 
-        if _settings['maximize_window'] : self.driver.maximize_window()
+            #options = _wd.ChromeOptions()
+            #for argument in webdriver_settings['kora']:
+            #        options.add_argument(argument)
+            #self.driver = _wd.Chrome(options = options)
 
-        self._add_extra_functions(_settings)
-
-        return self.driver
+            return True
 
 
-    ## добавляю к драйверу свои функции
-    def _add_extra_functions(self ,webdriver_settings):
-        self._deafault_wait_time =                      webdriver_settings['deafault_wait_time']
-        self.driver.wait_to_precence_located =          self._wait_to_precence_located
-        # в seleniumwire.driver есть раздел timeout
-        self.driver.wait_to_be_clickable =              self._wait_to_be_clickable
+        set_Chrome()
+        if not kora.IN_COLAB: self.driver.maximize_window()
+        
+        self.driver.wait =                              self._wait
         self.driver.get_url =                           self._get_url
         self.driver.find =                              self._find
         self.driver.find_attributes_in_webelements =    self._find_attributes_in_webelements
@@ -192,28 +177,40 @@ class Driver():
         self.driver.page_refresh =                      self._page_refresh
         self.driver.close =                             self._close  
         self.driver.scroll =                            self._scroller
-        
+        self.driver.previous_url        =               self.previous_url
         self.driver.get_parsed_google_search_result =   GoogleHtmlParser
-        self.driver.view_html_source_mode : bool =      webdriver_settings['view_html_source_mode']
-  
+        self.driver.send_keys =                         self._send_keys
+        self.driver.JS =                                self.JS
 
 
-    ''' ------------------ НАЧАЛО -------------------------- '''
-    #@print
-    def _implicity_wait(self , wait : int = 0):
-        '''
-        Неявное ожидание указывает WebDriver'у опрашивать DOM определенное количество времени, 
-        когда пытается найти элемент или элементы, которые недоступны в тот момент. 
-        Значение по умолчанию равно 0. После установки, неявное ожидание устанавливается 
-        для жизни экземпляра WebDriver объекта.
-        #self.wait = WebDriverWait(self.driver, kwargs.get('wait')) if 'wait' in kwargs else WebDriverWait(self.driver, 20)
-        '''
-        self.driver.implicitly_wait(wait)
-
-    ''' ------------------ КОНЕЦ  -------------------------- '''
-
-    def _wait(self , wait : int = 0):
+        self.driver.WebKitGTK =                         SWD.WebKitGTK
+        self.driver.WebKitGTKOptions =                  SWD.WebKitGTKOptions
+        self.driver.WPEWebKit =                         SWD.WPEWebKit
+        self.driver.WPEWebKitOptions =                  SWD.WPEWebKitOptions
         
+
+        from selenium.webdriver.support.ui import WebDriverWait
+        self.driver.WebDriverWait = WebDriverWait
+
+        from selenium.webdriver.support import expected_conditions as EC
+        self.driver.EC = EC
+
+        from selenium.webdriver.common.by import By
+        self.driver.By = By()
+
+        from selenium.webdriver.common.keys import Keys
+        self.driver.Keys = Keys()
+
+        from selenium.webdriver.common.action_chains import ActionChains
+        self.driver.ActionChains = ActionChains
+
+        return self.driver
+
+
+
+    def _wait(self , wait  = 0):
+        if wait == 0 : wait = self._deafault_wait_time
+        time.sleep(wait)
         pass
 
 
@@ -239,10 +236,7 @@ class Driver():
         element_clickable = EC.element_to_be_clickable(locator)
         webelement =  WebDriverWait(self.driver , wait).until(element_clickable)
         return webelement
-    ''' ------------------ КОНЕЦ  -------------------------- '''
-
-
-    ''' ------------------ НАЧАЛО -------------------------- '''
+    
 
     ## переход по указанному url
     # обертка для driver.get()
@@ -276,7 +270,7 @@ class Driver():
 
         try:
             _url = _d.current_url
-            _d.get(f'''view-source:{url}''') if view_html_source_mode else _d.get(f'''{url}''')
+            _d.get(f'''{url}''')
             _d.previous_url = _url
             
             main_window_handler = _d.current_window_handle
@@ -287,32 +281,23 @@ class Driver():
 
 
             # Access requests via the `requests` attribute
-
-            _locator = {
-             "attribute": "innerText",
-            "by": "xpath",
-            "selector": "//body"
-            }
-            for request in _d.requests:
-                if request.response:
-                    if str(request.response.headers['Content-Type']) == 'application/json':
-                        print(
-                            request.url,
-                            request.response.status_code,
-                            request.response.headers['Content-Type']
-                                )
+            ##for request in _d.requests:
+            ##    if request.response:
+            ##        if str(request.response.headers['Content-Type']) == 'application/json':
+            ##            print(
+            ##                request.url,
+            ##                request.response.status_code,
+            ##                request.response.headers['Content-Type']
+            ##                    )
            
 
 
-            #check_if_not_login()
-            ''' везде есть баги здесь проверка, что не выпала страница логина '''
-            
-            if _d.current_url == 'about:blank':
-                ''' если тормозит на пустой странице '''
-                #self.driver.wait()
-                self._get_url(url)
-                pass
-                ''' плохо реализовано - это костыль'''
+            #if _d.current_url == 'about:blank':
+            #    ''' если тормозит на пустой странице '''
+            #    #self.driver.wait()
+            #    self._get_url(url)
+            #    pass
+            #    ''' плохо реализовано - это костыль'''
 
 
             return True 
@@ -326,19 +311,14 @@ class Driver():
         #WebDriverWait(driver, 10).until(lambda driver: self.driver.execute_script('return document.readyState') == 'complete')
         #self.driver.execute_script('return document.readyState') == 'complete'
         ''' ожидание полной загрузки реализoваное на javascript'''
-    ''' ------------------ КОНЕЦ  -------------------------- '''
-
-
-
-    ''' ------------------ НАЧАЛО -------------------------- '''
-    #@print
-    def _scroller(self, wait : int = 0 , prokrutok : int = 8, scroll_frame : int = 1500) -> bool:
+    
+    def _scroller(self, wait : int = 0 , prokrutok : int = 12, scroll_frame : int = 1800) -> bool:
         ''' скроллинг '''
         try:
             for i in range(prokrutok):
                 self.driver.execute_script(f'''window.scrollBy(0,{scroll_frame})''') # поднял окошко
-                time.sleep(wait)
-                #self.wait(1)
+                #time.sleep(wait)
+                self._wait(0.1)
             return True
         except Exception as ex: return  False , print(f''' ошибка скроллинга {ex}''')
     ''' ------------------ КОНЕЦ  -------------------------- '''
@@ -403,8 +383,7 @@ class Driver():
 
 
 
-    ''' ------------------ НАЧАЛО -------------------------- ''' 
-    #@print
+
     def _find(self, locator:dict) :
         ''' поиск элементов на странице 
         и поиск аттрибута по локатору (если он нужен)
@@ -454,80 +433,78 @@ class Driver():
         # херовенько возвращать разные типы данных из функции, но мне так удобно
         return elements if  locator['attribute'] is None else self._find_attributes_in_webelements(elements , locator)
 
-    ''' ------------------ КОНЕЦ  -------------------------- '''
-
-
-
-    ''' ------------------ НАЧАЛО -------------------------- '''   
+    
 
     def _get_webelments_from_page(self, locator) -> list:
         ''' возвращает найденные на странице элементы в списке элементы
         если элементы  не найдны -возвращает пустой список []
         '''
         try: 
-            if isinstance(locator['selector'] , list) and isinstance(locator['attribute'] , dict):
-                _e : dict = {}
-
             elements = self.driver.find_elements(locator['by'] , locator['selector'])
             return elements 
         except Exception as ex: return [] , print(f'''_get_webelments_from_page() ex: {ex} ''')
         
-    ''' ------------------ КОНЕЦ  -------------------------- '''
-
-
-
-    ''' ------------------ НАЧАЛО -------------------------- '''   
-    
+   
     def _click(self, locator) ->bool:
-        '''  Обработчик события click()  '''
-            
-        #element = self.wait_to_be_clickable(locator)
-        #if element == False:
+        ##  Обработчик события click()
 
-        try:element = self._find(self._wait_to_be_clickable(locator))
-        except Exception as ex: return False , print(f''' Возникла ошибка поиска элемента {locator} ''')
+        if isinstance(locator['selector'] , list):
+            ## f.e. 
+            #["//a[contains(@class,'address-select-trigger')]", "//li[contains(@data-code,'il')]"]
+
+            for i in range(len(locator['selector'])):
+                try: 
+                    _ = {      
+                        "attribute": None,
+                        "by": "xpath",
+                        "selector": locator['selector'][i]
+                        }
+
+                    _el = self._find(_)
+                    if isinstance(_el , list): 
+                        for e in _el: e.click()
+                    else: _el.click()
+                except Exception as ex: print(f''' Возникла ошибка  {ex} ''')
+            return True
+
+        try:element = self._find(locator)
+        except Exception as ex:  return False , print(f''' Возникла ошибка {ex} поиска элемента {locator} ''') 
         
-        if element == False: return False , print(f''' Не Не нажался элемент {locator} ''')
+        if element == False:  return False , print(f''' Не найден элемент {locator} ''')
         
         try: element.click() 
-        except Exception as ex: return False , print(f''' Возникла ошибка - Не нажался элемент {locator} ''')
+        except Exception as ex: return False  , print(f''' Возникла ошибка  {ex} Не нажался элемент {locator} ''') 
 
-        return True ,  print(f''' Кликнул на {locator} ''')
+        return True
+   
 
-        #if element == False:
-        #    print(f''' Не нашёлся элемент {locator} ''')
-        #    return False
-        #try: element.click()
-        #    return True
-        #except : 
-        #    print(f''' Не нажался элемент {locator} ''')
-        #    return False
-    ''' ------------------ КОНЕЦ  -------------------------- '''
+    def _send_keys(self, locator , keys) ->bool:
+        _ = locator
+        try:
+            if isinstance(_['selector'] , dict):
+                #пока не использую
+                pass
+            elif isinstance(_['selector'] , list):
+                for i in range(len(_['selector'])):
+                    _l : dict = {
+                        "attribute": _['attribute'][i],
+                        "by": _['by'],
+                        "selector": _['selector'][i]}
+
+                    self._find(_l).send_keys(keys)
+            else: self._find(_).send_keys(keys)
 
 
-
-    ''' ------------------ НАЧАЛО -------------------------- '''       
+        except Exception as ex: return False , print(f''' ошибка {ex} при отправке {keys} в {locator} ''')
+        
+           
     def _page_refresh(self):
-            '''
-            Рефреш с ожиданием поной перезагрузки страницы
-            '''
-            self.driver.get_url(self.driver.current_url)
-            pass
-    ''' ------------------ КОНЕЦ  -------------------------- '''
-
-
-
-    ''' ------------------ НАЧАЛО -------------------------- '''      
+        ##Рефреш с ожиданием полной перезагрузки страницы
+        self._get_url(self.driver.current_url)
+        pass
+  
     def _close(self):
             if self.driver.close(): self.print(''' DRIVER CLOSED ''')
             pass
 
-
-
-    ########################################  КОНЕЦ  #######################################
-    
-
-
-
-
-  
+        

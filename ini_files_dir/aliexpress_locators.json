@@ -9,23 +9,57 @@
     "selector": "body"
   },
 
-  "currency_laguage_country_locators": {
+  "currency_laguage_shipto_locators": {
 
-    "country_locator": {
-      "attribute": "innerHTML",
+    "block_opener_locator": {
+      "attribute": null,
       "by": "xpath",
-      "selector": "//div[@class = 'address-select']//input",
-      "about": "внутри алиэкспресс аж 3 div адрессов !?!??"
+      "selector": "//a[@id = 'switcher-info']"
     },
 
-    "currency_locator": {
-      "attribute": "innerHTML",
+    "shipto_locator": {
+      "attribute": [ null, null, null ],
       "by": "xpath",
-      "selector": "//div[@class = 'switcher-currency-c']//a[contains(.,'US Dollar')]"
+      "selector": [
+        "//a[contains(@class,'address-select-trigger') and contains(@data-role,'country')]",
+        "//div[@class = 'filter-list-container']",
+        "//li[contains(@data-code,'il')]"
+      ]
+    },
+    "language_locator": {
+      "attribute": [ null, null, null ],
+      "by": "xpath",
+      "selector": [
+        "//span[contains( @data-role , 'language-input')]",
+        "//input[contains(@data-role,'language-search')]",
+        "//a[contains(@data-locale,'en_US')]"
+      ]
 
+    },
+    "currency_locator": {
+      "attribute": [ null, null, null ],
+      "by": "xpath",
+      "selector": [
+        "//div[contains(@class , 'switcher-currency-c language-selector')]",
+        "//span[contains(@class , 'select-item')]",
+        "//a[contains(@data-currency , 'USD')]"
+      ]
+
+    },
+    "save_button_locator": {
+      "attribute": [ null, null ],
+      "by": "xpath",
+      "selector": [
+        "//div[contains(@class , 'switcher-btn')]",
+        "//button[contains(@data-role , 'save')]"
+      ]
     }
   },
-
+  "goto global site": {
+    "attribute": "href",
+    "by": "xpath",
+    "selector": "//a[@data-role = 'goto-globalsite']"
+  },
   "pagination_block": {
     "attribute": "{text,href}",
     "by": "xpath",
@@ -36,12 +70,6 @@
   "login": {
     "login_url": "https://login.aliexpress.com",
 
-
-    "goto global site": {
-      "attribute": "href",
-      "by": "xpath",
-      "selector": "//a[@data-role = 'goto-globalsite']"
-    },
 
     "close banner": {
       "attribute": "text",
@@ -63,13 +91,13 @@
 
     "user": "one.last.bit@gmail.com",
     "user_locator": {
-      "attribute": "text",
+      "attribute": null,
       "by": "xpath",
       "selector": "//input[@id='fm-login-id']"
     },
     "password": "dav1969",
     "password_locator": {
-      "attribute": "text",
+      "attribute": null,
       "by": "xpath",
       "selector": "//input[@id='fm-login-password']"
     },
