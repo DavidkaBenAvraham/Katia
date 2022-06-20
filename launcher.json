@@ -19,9 +19,6 @@
   "print_type": "jupiter",
   "print_types": [ "jupiter", "html", "simple" ],
 
-  "rnd_range": 5,
-
-
   "program_paths": {
     "ini_files_dir": "ini_files_dir",
     "export_dir": "export",

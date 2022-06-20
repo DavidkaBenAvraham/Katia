@@ -1,7 +1,7 @@
 {
   "about": "подробное описание структуры файлов JSON смотри READMY.MD в корне этой папки  ",
 
-  "infinity_scroll": false,
+  "infinity_scroll": true,
 
   "body_locator": {
     "attribute": "innerText",

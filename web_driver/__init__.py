@@ -289,21 +289,13 @@ class Driver():
             # Access requests via the `requests` attribute
 
             _locator = {
-            "attribute": "innerText",
+             "attribute": "innerText",
             "by": "xpath",
             "selector": "//body"
             }
             for request in _d.requests:
                 if request.response:
                     if str(request.response.headers['Content-Type']) == 'application/json':
-                        #_dd = copy.copy(_d)
-
-                        #_dd.switch_to.new_window('window')
-                        #_dd.get(f'''{request.url}''')
-                        #src = _dd.page_source
-                        #src = formatter.remove_htmls(src)
-                        #json.export(src , [json])
-                        #_d.close()
                         print(
                             request.url,
                             request.response.status_code,
@@ -340,7 +332,7 @@ class Driver():
 
     ''' ------------------ НАЧАЛО -------------------------- '''
     #@print
-    def _scroller(self, wait : int = 0 , prokrutok : int = 5, scroll_frame : int = 1500) -> bool:
+    def _scroller(self, wait : int = 0 , prokrutok : int = 8, scroll_frame : int = 1500) -> bool:
         ''' скроллинг '''
         try:
             for i in range(prokrutok):

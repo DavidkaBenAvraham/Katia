@@ -39,16 +39,18 @@ def execute_list_of_scenaries(Supplier) -> bool :
         #   магазинов. Я это сделал, чтобы не плодить мелкие файлы по 
         #   каждому магазину.
     def run(json_file) -> bool:
-        s.current_scenario = json.loads(Path(s.ini.paths.ini_files_dir , f'''{json_file}'''))
-        s.current_scenario_category = json_file.split('_')[2]
+        s.scenaries = json.loads(Path(s.ini.paths.ini_files_dir , f'''{json_file}'''))
+        s.scenario_category = json_file.split('_')[2]
         ''' третье слово в названии файла сценариев это категория товаров '''
-
-        try : 
-            run_scenario(s) 
-            return True
-        except Exception as ex: return False , print(f''' 
-        ошибка в ходе выполнения сценария {json_file}
-        ''')
+        while len(s.scenaries.items())>0:
+            _scenario = s.scenaries.popitem()[1]
+            try : 
+                run_scenario(s , _scenario) 
+                return True
+            except Exception as ex:
+                print(f''' ошибка {ex} в ходе выполнения сценария {json_file} ''')
+                return False
+            
         
 
     for scenario_files in s.settings["scenaries"]:
@@ -65,7 +67,7 @@ def execute_list_of_scenaries(Supplier) -> bool :
     return True
 
 
-def run_scenario(s) -> bool:
+def run_scenario(s , scenario) -> bool:
     '''
     -текущий сценарий исполнения состоит из узлов. Каждый узел состоит из:
     - <brand> 
@@ -75,85 +77,57 @@ def run_scenario(s) -> bool:
     - <price_rule> пересчет для магазина по умолчанию установливается в self.price_rule
 
     '''
-    while len(s.current_scenario.items())>0:
-        node = s.current_scenario.popitem()[1]
-        ''' 
-        иду по именам узлов сценария 
-        если поставщик это алиэкспресс, то это магазины поставщика
-        в таком файле  сценарий в формате  сдвинут  вправо в scenaries{}
-        я его отличаю по признаку store_id
-        если поставщик это ksp, то это узлы категорий
+    
 
-        '''
+    def run(s, node):
+        ''' бегунок '''
 
+        ## 1)
+        list_products_urls : list = get_list_products_urls(s , node)
+        ''' получаю список url на страницы товаров '''
 
-        def run(s):
-            ''' бегунок '''
+        if len(list_products_urls) == 0 : return False 
+        ## в исполняемом узле может не оказаться товаров. В этом случае перехожу к следующему узлу выполнения
 
-            '''      #########           1        ############# '''
-            list_products_urls : list = get_list_products_urls(s , node)
-            ''' получаю список url на страницы товаров '''
-        
+        ## 2)
+        for product_url in list_products_urls :
+            ''' перебираю адреса товаров : '''
 
 
-            if len(list_products_urls) == 0 : return False 
-            ''' в исполняемом узле может не оказаться товаров.
-                В таком случае перехожу к следующему узлу выполнения
-            '''
+            #   a)
+            if not s.driver.get_url(product_url) : 
+                '''Перехожу на страницу товара 
+                    функция get_url('url') возвращает True, 
+                    если переход на страницу был успешен'''
 
-        
-            '''
-             #       #########           2        ############# 
-            '''
-            for product_url in list_products_urls :
-                ''' перебираю адреса товаров : '''
-
-
-                #   a)
-                if not s.driver.get_url(product_url) : 
-                    '''Перехожу на страницу товара 
-                        функция get_url('url') возвращает True, 
-                        если переход на страницу был успешен'''
-
-                    print(f''' нет такой страницы товара {product_url} ''') 
-                    continue
+                print(f''' нет такой страницы товара {product_url} ''') 
+                continue
                 
 
-                try:
+            try:
 
-                    #   b)
-                    product = s.related_functions.grab_product_page(s)
-                    ''' получаю товар '''
+                #   b)
+                product = s.related_functions.grab_product_page(s)
+                ''' получаю товар '''
                 
 
-                    #   c)
-                    s.p.append(product)
-                    ''' добавляю товар в список supplier.p[] '''
-                except Exception as ex: 
-                    print(f''' Ошибка при сборе товара со страницы {product_url} ''')
-                    continue
+                #   c)
+                s.p.append(product)
+                ''' добавляю товар в список supplier.p[] '''
+            except Exception as ex: 
+                print(f''' Ошибка {ex} при сборе товара со страницы {product_url} ''')
+                continue
 
-        if 'store_id' in s.current_scenario:
-            ''' 
-            имеем дело с магазином
-            текущий сценарий в формате dict сдвинут  вправо
-            и находится в узле  scenaries:{}
-            '''
-            for scenario in s.dict_current_node['scenaries']:
-                s.current_scenario = s.dict_current_node['scenaries'][scenario]
-                for scenario_node in s.dict_current_node['scenaries'][scenario].items():
-                    s.current_node = scenario_node
-                    run(s)
-            pass
-           
-        else:
-            ''' имею дело с узлом сценария как в ksp, mor, etc '''
-            run(s)
-
-
-
-
-        return True
+    if 'store_id' in scenario.keys():
+        ##         имеем дело с магазином
+        # текущий сценарий в формате dict сдвинут  вправо 
+        # и находится в узле  scenaries:{} 
+        while len(scenario['scenaries'].items())>0:
+            run(s , scenario['scenaries'].popitem()[1])
+    else:
+        ''' имею дело с узлом сценария как в ksp, mor, etc '''
+        run(s , scenario)
+    return True
 
 
 def get_list_products_urls(s , scenario_node : dict ) ->list:
@@ -168,19 +142,20 @@ def get_list_products_urls(s , scenario_node : dict ) ->list:
                 проверить категорию в файле сценария ? ''')
     
 
-    #''' на странице категории могут находится  чекбоксы    
-    # если их нет, в сценарии JSON они прописаны checkbox = false
-    #'''
-    json_checkboxes = scenario_node["checkbox"]
-    if json_checkboxes: 
-        s.driver.click_checkboxes(s, json_checkboxes) 
-        log.print(f''' есть чекбоксы {json_checkboxes}''')
+    ##''' на странице категории могут находится  чекбоксы    
+    ## если их нет, в сценарии JSON они прописаны checkbox = false
+    ##'''
+    #json_checkboxes = scenario_node["checkbox"]
+    #if json_checkboxes: 
+    #    s.driver.click_checkboxes(s, json_checkboxes) 
+    #    log.print(f''' есть чекбоксы {json_checkboxes}''')
        
 
     
-    '''                     Существует два вида показа товаров: 
-                            переключение между страницами и бесконечная прокрутка 
-    '''
+
+
+    ##                     Существует два вида показа товаров: 
+    #                      переключение между страницами и бесконечная прокрутка 
     if s.locators['infinity_scroll'] == True: 
         ''' А бесконечная прокрука '''
         s.driver.scroll()
