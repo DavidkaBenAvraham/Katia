@@ -46,7 +46,8 @@
         "--disable-dev-shm-usage",
         "--ignore-certificate-errors",
         "--allow-profiles-outside-user-dir",
-        "--allow-insecure-localhost"
+        "--allow-insecure-localhost",
+        "--headless"
 
       ],
       "disabled arguments": [  "-auto-open-devtools-for-tabs" ],

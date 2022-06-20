@@ -164,9 +164,12 @@ class Driver:
 
             return True
 
-
-        set_Chrome()
-        if not kora.IN_COLAB: self.driver.maximize_window()
+        if not kora.IN_COLAB: 
+            set_Firefox()
+            self.driver.maximize_window()
+        else:
+            set_Chrome()
+            print(f''' Hello colab ''')
         
         self.driver.wait =                              self._wait
         self.driver.get_url =                           self._get_url
@@ -381,9 +384,6 @@ class Driver:
 
     ''' ------------------ КОНЕЦ  -------------------------- '''
 
-
-
-
     def _find(self, locator:dict) :
         ''' поиск элементов на странице 
         и поиск аттрибута по локатору (если он нужен)
@@ -491,7 +491,8 @@ class Driver:
                         "by": _['by'],
                         "selector": _['selector'][i]}
 
-                    self._find(_l).send_keys(keys)
+                    _el = self._find(_l)
+                    _el.send_keys(keys)
             else: self._find(_).send_keys(keys)
 
 
