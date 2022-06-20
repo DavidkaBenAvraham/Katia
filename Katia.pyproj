@@ -856,6 +856,8 @@
     <Folder Include="suppliers\6pm\" />
     <Folder Include="suppliers\maxsanei_hashmal\" />
     <Folder Include="suppliers\neimanmarcus\" />
+    <Folder Include="suppliers\hobbyking\" />
+    <Folder Include="suppliers\bug\" />
     <Folder Include="suppliers\victorinox\" />
     <Folder Include="suppliers\wallmart\" />
     <Folder Include="suppliers\wallashop\" />
@@ -971,6 +973,17 @@
     <Content Include="ini_files_dir\grandadvance_categories_laptops_lenovo.json" />
     <Content Include="ini_files_dir\grandadvance_categories_keyboards_logitech.json" />
     <Content Include="ini_files_dir\grandadvance_categories_mb_msi.json" />
+    <Content Include="ini_files_dir\gearbest.json" />
+    <Content Include="ini_files_dir\ebay.json" />
+    <Content Include="ini_files_dir\bangood.json" />
+    <Content Include="ini_files_dir\amazon.json" />
+    <Content Include="ini_files_dir\6pm.json" />
+    <Content Include="ini_files_dir\hobbyking.json" />
+    <Content Include="ini_files_dir\macy_s.json" />
+    <Content Include="ini_files_dir\neimanmarcus.json" />
+    <Content Include="ini_files_dir\wallmart.json" />
+    <Content Include="ini_files_dir\wallashop.json" />
+    <Content Include="ini_files_dir\victorinox.json" />
     <Content Include="ini_files_dir\ksp.json" />
     <Content Include="ini_files_dir\ksp_categories_motherboards.json" />
     <Content Include="ini_files_dir\ksp_categories_notebooks_asus_by_screen_and_cpu.json" />

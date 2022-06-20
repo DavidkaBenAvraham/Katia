@@ -33,8 +33,8 @@ import copy
 
 #import selenium.webdriver as webdriver
 
-import kora as kora
-from kora.selenium import wd as kora_webdriver
+import kora 
+from kora.selenium import wd
 '''https://github.com/DavidkaBenAvraham/selenium-wire'''
 from seleniumwire import webdriver
 '''https://github.com/DavidkaBenAvraham/selenium-wire'''
@@ -144,61 +144,45 @@ class Driver():
 
     # </pre>
     def set_driver(self , webdriver_settings : dict) -> driver:      
-   
-        if not kora.IN_COLAB: webdriver_settings['name'] == 'chromedriver'
-        ## костыль!
+        _settings : dict = {}
 
-        if webdriver_settings['name'] == 'kora':
-            ##kora - обёртка вебдрайвера для запуска в colab
-            #там также есть ИИ!
-            #устанавливается в файле launcher 
-            #есть проблема что основной вебдрайвер - 
-            #seleniumwire 
-            #https://github.com/DavidkaBenAvraham/selenium-wire
-
-
-            self.driver = kora.selenium.wd
-            #self.driver.common = selenium.webdriver.common
-            #self.driver.support = selenium.webdriver.support
-
-
-            
-         
-
-        if webdriver_settings['name'] == 'chromedriver': 
+        def set_Chrome() -> dict:
+            _settings = webdriver_settings['chrome']
             options = webdriver.ChromeOptions()
-            for argument in webdriver_settings["arguments"]:
+            for argument in webdriver_settings['chrome']['arguments']:
                     options.add_argument(argument)
             self.driver = webdriver.Chrome(options = options)
+            return _settings
 
-        if webdriver_settings['name'] == 'firefox': 
-                options = webdriver.FirefoxOptions()
-                for argument in webdriver_settings["arguments"]:
-                        options.add_argument(argument)
-                self.driver = webdriver.Firefox(options = options)  
+        def set_Firefox() -> dict:
+            _settings = webdriver_settings['firefox']
+            options = webdriver.FirefoxOptions()
+            for argument in webdriver_settings['firefox']['arguments']:
+                    options.add_argument(argument)
+            self.driver = webdriver.Firefox(options = options)
+            return _settings
 
 
-        if webdriver_settings['name'] == 'opera': 
-            self.driver = webdriver.Opera(options = driver_options.opera_options(self))
+        if not kora.IN_COLAB: 
+            _settings = set_Chrome()
+            ## костыль!
+        else: 
+            self.driver = kora.selenium.wd
+            _settings = webdriver_settings['kora']
+            print(f''' Hello, google colab! ''')
 
-        if webdriver_settings['name'] == 'edge': 
-            self.driver = webdriver.Edge(options = driver_options.edge_options(self))
+        if _settings['maximize_window'] : self.driver.maximize_window()
 
-        if webdriver_settings['maximize_window'] : self.driver.maximize_window()
-
-        self._deafault_wait_time = webdriver_settings['deafault_wait_time']
-
-        self._add_extra_functions(webdriver_settings)
+        self._add_extra_functions(_settings)
 
         return self.driver
 
 
     ## добавляю к драйверу свои функции
     def _add_extra_functions(self ,webdriver_settings):
-        
-        self.driver.deafault_wait_time =                self._deafault_wait_time
-        self.driver.implicity_wait =                    self._implicity_wait
+        self._deafault_wait_time =                      webdriver_settings['deafault_wait_time']
         self.driver.wait_to_precence_located =          self._wait_to_precence_located
+        # в seleniumwire.driver есть раздел timeout
         self.driver.wait_to_be_clickable =              self._wait_to_be_clickable
         self.driver.get_url =                           self._get_url
         self.driver.find =                              self._find
@@ -286,14 +270,14 @@ class Driver():
             ''' проверяюм что не упал на логин 
             плохое решение. Драйверу нечего знать о поставщиках'''
 
-            if str(_d.current_url).find(self.supplier_settings_from_json['login_url'])>0:
+            if str(_d.current_url).find(self.settings['login_url'])>0:
                 self.related_functions.login(self)
             pass
 
         try:
-            _current_url = _d.current_url
+            _url = _d.current_url
             _d.get(f'''view-source:{url}''') if view_html_source_mode else _d.get(f'''{url}''')
-            self.previous_url = _current_url
+            _d.previous_url = _url
             
             main_window_handler = _d.current_window_handle
             ''' запоминаю рабочее окно

@@ -43,15 +43,13 @@ threads : list = []
 
 ## Документация для класса
 # класс для запуска каждый сценарий в отдельном потоке
+# получаю имя постащика - открываю для его класса поток
+# идея в том, чтобы открывать  приложения в новом потоке.
 class Thread_for_supplier(Thread):
-     ## получаю имя постащика - открываю для его класса поток
-     # идея в том, чтобы открывать  приложения в новом потоке.
-
-
     supplier : Supplier = None
     ''' здесь рождается класс поставщика в собственном потоке '''
 
-    def __init__(self, supplier_prefics:str , lang:list , ini : Ini):
+    def __init__(self, supplier_prefics:str ,  ini : Ini):
         ''' в классе Ini() происходит раскрытие launcher.json
         supplier_prefics : str - поставщик из класса ini.suppliers, 
         lang : list - язык/и  из launcher.json ???? нахуя?
@@ -60,7 +58,7 @@ class Thread_for_supplier(Thread):
         Thread.__init__(self)
         ### Здесь создался поток. ОСТОРОЖНО! Может повесить малоядерные цпу
         # 
-        self.supplier  = Supplier(supplier_prefics = supplier_prefics, lang = lang , ini = ini)
+        self.supplier  = Supplier(supplier_prefics = supplier_prefics, ini = ini)
         ### Здесь родился Supplier() в потоке 
         
     def run(self):
@@ -78,48 +76,20 @@ def start_script() -> bool:
     # ini : Ini = Ini() 
     # Класс инициализации приложения 
     # строится на основе файла launch.json 
-   
-    
-    for lang in ini.languages:
-        ''' выбор языка/ов исполнения сценариев 
-        ЗАЧЕМ ТУТ??? 
-        УБРАТЬ НАХУЙ'''
-
-        for supplier_prefics in ini.suppliers: 
+    _ = ini.launcher
+    for supplier_prefics in _['suppliers']: 
             
-            if ini.if_threads:
-                ''' с потоками -> '''
+        if _['threads']:
+            # с потоками -> 
+            thread  = thread_for_supplier(supplier_prefics ,  ini)
+            thread.start()
 
-                if ini.mode == "prod":
-                    ''' 
-                    ini.mode = 'prod' <- с конструкцией try: except: 
-                    ini.mode = 'debug' со всеми крешами :
-                    -----------------------------------
-                    Пока криво реализовано, вернее не реализовано никак
-                    '''
-
-                    
-                    thread = Thread_for_supplier(supplier_prefics , lang , ini)
-                    thread.start()
-                else:
-                    '''ini.mode = 'debug' '''
-                    thread  = Thread_for_supplier(supplier_prefics , lang , ini)
-                    thread.start()
-
-            else:
-                ''' Без потоков -> '''
-
-                if ini.mode == "prod":
-                    supplier  = Supplier(supplier_prefics = supplier_prefics, lang = lang , ini = ini)
-                    ### Здесь родился Supplier() в ОДНОМ потоке
-                    # программа будет их перелопачивать их один за другим
-                    # удобно для исследований
-                    # https://colab.research.google.com/drive/1cQEb3-StSL0pz1FD9CXIUJ8tnqFUkzYf
-                    supplier.run()
-                else:
-                    supplier =  Supplier(supplier_prefics = supplier_prefics, lang = lang , ini = ini)
-                    supplier.run()
-
+        else:
+            # Без потоков ->
+            supplier  = Supplier(supplier_prefics = supplier_prefics, ini = ini)
+            ### Здесь родился Supplier() в ОДНОМ потоке
+            # программа будет перелопачивать их один за другим
+            supplier.run()
 
 
 if __name__ == "__main__":

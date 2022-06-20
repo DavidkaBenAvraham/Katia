@@ -11,40 +11,33 @@ __author__ = 'e-cat.me'
 from pathlib import Path
 import execute_json as json
 
-##Documentation for function execute_list_of_scenaries
+
 def execute_list_of_scenaries(Supplier) -> bool :
-    ''' по умолчанию все сценарии  прописаны в файе <supplier>.json 
+    ## по умолчанию все сценарии  прописаны в файлах <supplier>.json
+    # Каждый сценарий поставщика - файл с именем 
+    # <supplier>_categories_<category_name>_<model>_<brand>.json
+    # при инициализации объекта он хранится в self.scenaries
+    # -------------------------------
+    # supplier - class Supplier  f.e.: mor, cdata, visual, etc.
 
-
-    Каждый сценарий поставщика - файл с именем 
-    <supplier>_categories_<category_name>_<model>_<brand>.json
-    при инициализации объекта он хранится в self.scenaries
-    -------------------------------
-    supplier - class Supplier  f.e.: mor, cdata, visual, etc.
-
-    '''
-  
 
     s = Supplier
     _d = s.driver
    
-
-
-    # 0. 
-    if not _d.get_url(s.supplier_settings_from_json['start_url']):
+    
+    ## 0. 
+    if not _d.get_url(s.settings['start_url']):
         print(f''' supplier not started in url:
-       {s.supplier_settings_from_json['start_url']}''')
+       {s.settings['start_url']}''')
         return False
 
 
 
-    # 1.
-    '''
-         Запускаю каждый сценарий из из списка <supplier>.json["scenaries"]
-            файл сценариев Алиэкспресс отличается тем, что в файл включены хедеры
-            магазинов. Я это сделал, чтобы не плодить мелкие файлы по 
-            каждому магазину.
-    '''
+    ## 1.
+        # Запускаю каждый сценарий из из списка <supplier>.json["scenaries"]
+        #   файл сценариев Алиэкспресс отличается тем, что в файл включены хедеры
+        #   магазинов. Я это сделал, чтобы не плодить мелкие файлы по 
+        #   каждому магазину.
     def run(json_file) -> bool:
         s.current_scenario = json.loads(Path(s.ini.paths.ini_files_dir , f'''{json_file}'''))
         s.current_scenario_category = json_file.split('_')[2]
@@ -58,7 +51,7 @@ def execute_list_of_scenaries(Supplier) -> bool :
         ''')
         
 
-    for scenario_files in s.supplier_settings_from_json["scenaries"]:
+    for scenario_files in s.settings["scenaries"]:
         ''' запускаю json файлы один за другим '''
 
         if isinstance(scenario_files, str):

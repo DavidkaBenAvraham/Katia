@@ -30,57 +30,7 @@
   },
 
   "webdriver": {
-    "name": "kora",
-    "arguments": [
-      "--headless",
-      "--no-sandbox",
-      "--disable-dev-shm-usage"
-    ],
-    "deafault_wait_time": 5,
-    "about wait": "явное ожидание браузера в сек",
-    "random": [ 0, 5 ],
-    "view_html_source_mode": false,
-    "maximize_window": true
-
-  },
-  "webdriver chromedriver": {
-    "name": "chromedriver",
-    "arguments": [
-      "--no-sandbox",
-      "--disable-dev-shm-usage"
-    ],
-    "deafault_wait_time": 5,
-    "maximize_window": true,
-    "view_html_source_mode": false,
-    "maximize_window": true
-  },
-  "webdriver firefox": {
-    "name": "firefox",
-    "arguments": [ "--no-sandbox" ],
-    "disabled_arguments": [
-      "--disable-dev-shm-usage",
-      "--headless"
-    ],
-    "deafault_wait_time": 5,
-    "maximize_window": true
-  },
-
-  "about kora": "kora обертка для запуска вебдрайвера в google.research взята из https://github.com/korakot/kora",
-  "excluded webdrivers": {
-
-    "webdriver firefox": {
-      "name": "firefox",
-      "arguments": [ "--no-sandbox" ],
-      "disabled_arguments": [
-        "--disable-dev-shm-usage",
-        "--headless"
-      ],
-      "deafault_wait_time": 5,
-      "maximize_window": true
-    },
-
-    "webdriver kora": {
-      "name": "kora",
+    "kora": {
       "arguments": [
         "--headless",
         "--no-sandbox",
@@ -88,24 +38,58 @@
       ],
       "deafault_wait_time": 5,
       "about wait": "явное ожидание браузера в сек",
-      "random": [ 0, 5 ]
-    },
+      "random": [ 0, 5 ],
+      "view_html_source_mode": false,
+      "maximize_window": false
 
-    "webdriver chromedriver": {
-      "name": "chromedriver",
+    },
+    "chrome": {
       "arguments": [
         "--no-sandbox",
         "--disable-dev-shm-usage"
       ],
       "deafault_wait_time": 5,
       "maximize_window": true,
-      "view_html_source_mode": false
+      "view_html_source_mode": false,
+      "maximize_window": true
+    },
+    "firefox": {
+      "arguments": [ "--no-sandbox" ],
+      "disabled_arguments": [
+        "--disable-dev-shm-usage",
+        "--headless"
+      ],
+      "deafault_wait_time": 5,
+      "about wait": "явное ожидание браузера в сек",
+      "random": [ 0, 5 ],
+      "view_html_source_mode": false,
+      "maximize_window": true
     }
-  },
-
+  }
+  ,
   "suppliers": [
+    "aliexpress",
     "ksp"
   ],
-  "suppliers_excluded": [ "morlevi", "grandadvance", "ksp", "aliexpress" ]
+  "suppliers_excluded": [
+    "morlevi",
+    "grandadvance",
+    "amazon",
+    "bangood",
+    "cdata",
+    "ebay",
+    "gearbest",
+    "grandadvance",
+    "cdata",
+    "maxsanei_hashmal",
+    "morlevi",
+    "macy_s",
+    "neimanmarcus",
+    "victorinox",
+    "visualdg",
+    "wallashop",
+    "wallmart"
+
+  ]
 
 }

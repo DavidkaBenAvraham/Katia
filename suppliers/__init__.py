@@ -44,13 +44,11 @@ class Supplier:
     
     supplier_prefics    : str  = attrib(kw_only = True, default = None)                         
     '''  Обязательные ключи запуска - имя поставщика    '''
-    lang                : str = attrib( kw_only = True , default = None)                           
-    ''' Обязательные ключи запуска -  язык сценария EN|RU|HE'''
-
+  
     ini                 : ini = attrib(kw_only = True, default = None)
     ''' Параметры из лончера '''
 
-    supplier_settings_from_json :dict  = attrib(init = False, default = None)
+    settings :dict  = attrib(init = False, default = None)
     
     paths               : paths  = attrib(init = False, default = None)
     ''' класс с путями всяких разных директорий '''
@@ -97,13 +95,16 @@ class Supplier:
     #self.lang = lang 
     #которые задяются при инициализации класса Supplier в виде парамтров:  attrib(kw_only = True)  
     def __attrs_post_init__(self, *args, **kwards):
+        _ = self.ini
 
-        self.supplier_settings_from_json : dict  = json.loads(Path(self.ini.paths.ini_files_dir , f'''{self.supplier_prefics}.json'''))
 
+        self.settings : dict  = json.loads(Path(_.paths.ini_files_dir , f'''{self.supplier_prefics}.json'''))
 
-        self.driver = Driver().set_driver(self.ini.webdriver_settings)
+        _.start_time = _.get_now()
 
-        self.locators : dict = json.loads(Path(self.ini.paths.ini_files_dir , f'''{self.supplier_prefics}_locators.json'''))
+        self.driver = Driver().set_driver(_.launcher['webdriver'])
+
+        self.locators : dict = json.loads(Path(_.paths.ini_files_dir , f'''{self.supplier_prefics}_locators.json'''))
         ''' локаторы элементов страницы '''
         
         self.related_functions = importlib.import_module(f'''suppliers.{self.supplier_prefics}''')
@@ -111,7 +112,7 @@ class Supplier:
 
         
         
-        if self.supplier_settings_from_json['if_login']: self.related_functions.login(self)
+        if self.settings['if_login']: self.related_functions.login(self)
         ''' логин '''
 
     ''' ------------------ КОНЕЦ  -------------------------- '''
@@ -119,8 +120,6 @@ class Supplier:
 
     ## пуск
     def run(self):
-       
-
         ''' Запуск кода сценариев   '''
         execute_scenaries.execute_list_of_scenaries(self)
         
