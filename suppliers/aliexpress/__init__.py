@@ -43,7 +43,7 @@ def login(s) -> bool :
             _d.wait(1)
             _d.click(_['currency_locator'])
             _d.wait(3)
-            _d.send_keys(_['save_button_locator'] , '\ue006')
+            _d.click(_['save_button_locator'])
             return True
         except Exception as ex: return False, print(f'''{ex} не получилось выбрать язык/страну/валюту''')
     #_login()

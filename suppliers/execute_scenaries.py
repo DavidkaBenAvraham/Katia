@@ -105,12 +105,9 @@ def run_scenario(s , scenario) -> bool:
                 
 
             try:
-
                 #   b)
                 product = s.related_functions.grab_product_page(s)
                 ''' получаю товар '''
-                
-
                 #   c)
                 s.p.append(product)
                 ''' добавляю товар в список supplier.p[] '''

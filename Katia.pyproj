@@ -858,6 +858,12 @@
     <Folder Include="suppliers\neimanmarcus\" />
     <Folder Include="suppliers\hobbyking\" />
     <Folder Include="suppliers\bug\" />
+    <Folder Include="suppliers\asos\" />
+    <Folder Include="suppliers\mpdigest\" />
+    <Folder Include="suppliers\crow_pi\" />
+    <Folder Include="suppliers\elecrow\" />
+    <Folder Include="suppliers\sparkfun\" />
+    <Folder Include="suppliers\pmi-rf\" />
     <Folder Include="suppliers\victorinox\" />
     <Folder Include="suppliers\wallmart\" />
     <Folder Include="suppliers\wallashop\" />
@@ -928,6 +934,10 @@
     <Content Include="google_api\.ipynb_checkpoints\Untitled-checkpoint.ipynb" />
     <Content Include="google_api\desktop.ini" />
     <Content Include="google_api\Untitled.ipynb" />
+    <Content Include="ini_files_dir\elecrow.json" />
+    <Content Include="ini_files_dir\crow_pi.json" />
+    <Content Include="ini_files_dir\mpdigest.json" />
+    <Content Include="ini_files_dir\sparkfun.json" />
     <Content Include="ini_files_dir\aliexpress.json" />
     <Content Include="ini_files_dir\aliexpress_locators.json" />
     <Content Include="ini_files_dir\aliexpress_stores_brands.json" />
@@ -981,6 +991,7 @@
     <Content Include="ini_files_dir\hobbyking.json" />
     <Content Include="ini_files_dir\macy_s.json" />
     <Content Include="ini_files_dir\neimanmarcus.json" />
+    <Content Include="ini_files_dir\pmi-rf.json" />
     <Content Include="ini_files_dir\wallmart.json" />
     <Content Include="ini_files_dir\wallashop.json" />
     <Content Include="ini_files_dir\victorinox.json" />

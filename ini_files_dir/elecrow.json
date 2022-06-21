@@ -1,12 +1,12 @@
 {
-  "supplier": "6pm",
-  "supplier_prefics": "6pm",
-  "start_url": "https://www.ksp.co.il/",
+  "supplier": "elecrow",
+  "supplier_prefics": "elecrow",
+  "start_url": "https://www.elecrow.com/",
   "price_rule": "+0",
   "if_login": false,
   "collect_products_from_categorypage": false,
   "root_category": 3,
- 
+
 
   "scenaries": [
     ".json",

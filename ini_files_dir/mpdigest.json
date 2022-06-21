@@ -1,12 +1,10 @@
 {
-  "supplier": "aliexpress",
-  "supplier_prefics": "aliexpress",
-  "start_url": "https://www.aliexpress.com/",
-  "wholesale_products_url": "https://www.aliexpress.com/all-wholesale-products.html",
+  "supplier": "mpdigest",
+  "supplier_prefics": "mpdigest",
+  "start_url": "https://www.mpdigest.com/category/on-the-market/",
   "price_rule": "+0",
-  "num_items_4_flush": 300,
-  "if_login": true,
-  "login_url": "https://www.login.aliexpress.com",
+  "if_login": false,
+  "login_url": "",
   "root_category": 3,
   "collect_products_from_categorypage": false,
 

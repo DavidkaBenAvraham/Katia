@@ -47,7 +47,7 @@ from seleniumwire import webdriver as seleniumwire_wedriver
 SWD = selenium_wedriver
 KWD = kora_wedriver
 SWWD = seleniumwire_wedriver
-WD = SWWD
+WD = SWD
 
 
 from web_driver.google_search import GoogleHtmlParser as GoogleHtmlParser
@@ -136,7 +136,6 @@ class Driver:
     
     def set_driver(self , webdriver_settings : dict) -> WD:      
         
-
         def set_Chrome() -> dict:
             _settings = webdriver_settings['chrome']
             options = self.driver.ChromeOptions()
@@ -165,6 +164,7 @@ class Driver:
             return True
 
         if not kora.IN_COLAB: 
+            print(f''' Hello local Jupiter :) ''')
             set_Firefox()
             self.driver.maximize_window()
         else:
@@ -490,7 +490,6 @@ class Driver:
                         "attribute": _['attribute'][i],
                         "by": _['by'],
                         "selector": _['selector'][i]}
-
                     _el = self._find(_l)
                     _el.send_keys(keys)
             else: self._find(_).send_keys(keys)
