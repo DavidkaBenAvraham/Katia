@@ -32,9 +32,9 @@ from threading import Thread
 from pathlib import Path
 import execute_json as json
 from ini_files_dir import Ini
+ini = Ini()
 from suppliers import Supplier
 
-ini = Ini()
 ''' инициализация '''
 
 threads : list = []

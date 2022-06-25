@@ -5,10 +5,12 @@
 
 from pathlib import Path
 import pandas as pd
-import pandas as pd
+
 
 from strings_formatter import StringFormatter
 formatter = StringFormatter()
+from ini_files_dir import Ini
+ini = Ini()
 import execute_json as json
 
 from attr import attrs, attrib, Factory
@@ -40,11 +42,7 @@ from attr import attrs, attrib, Factory
 class Product():
     
 
-
-
-    ##@param s : Supplier()
-    #поставщик 
-    s  = attrib(kw_only = True, default = None)   
+    
 
     ##@param fields : pd.DataFrame 
     #поля товара 
@@ -65,8 +63,8 @@ class Product():
     #словарь полей комбинаций товара определена в файле <prestashop>_product_combination.json
     def __attrs_post_init__(self , *args, **kwards):
 
-        self.fields = json.loads(Path(self.s.ini.paths.ini_files_dir , f'''prestashop_product_fields.json'''))
-        self.combinations =json.loads(Path(self.s.ini.paths.ini_files_dir , f'''prestashop_product_combinations_fields.json'''))
+        self.fields = json.loads(Path(ini.paths.ini_files_dir , f'''prestashop_product_fields.json'''))
+        self.combinations =json.loads(Path(ini.paths.ini_files_dir , f'''prestashop_product_combinations_fields.json'''))
         
     
     @attrs
@@ -74,24 +72,28 @@ class Product():
         def __attrs_post_init__(self , *args, **kwards):
             pass
 
-        def handler(ex:Exception , locator:dict = {} , field:dict={}):
+        def handler(ex:Exception , locator , field):
             ## 
             #@params ex
             #@params field
             #@params locator
 
 
-            field = None
-            print(ex)
+            #field = None
+            print(f''' 
+            {ex}, 
+            locator {locator} , 
+            field {field} ''')
             return False
 
 
     ##собраю локаторами нужные мне позиции со страницы товара 
     #collect the positions from the product page with locators
-    def grab_product_page(self):
+    def grab_product_page(self , s):
       
-        _d = self.s.driver
-        _ : dict = self.s.locators['product']
+        _d = s.driver
+        _ : dict = s.locators['product']
+        _current_node = s.current_node
         field = self.fields
             
         def set_id():
@@ -104,7 +106,7 @@ class Product():
         def set_title():
             try: 
                 field['title'] = _d.find(_['product_title_locator'])
-                field['title'] = formatter.pattern_remove_special_characters(field['title'])
+                field['title'] = formatter.remove_special_characters(field['title'])
             except Exception as ex: self.err.handler(ex,_['product_title_locator'],field['title'])
 
                 
@@ -127,13 +129,18 @@ class Product():
 
   
         def set_images():
+            def set(i):
+                for k,v in i.items():
+                    field['img url'] += f''' {v}, '''
+                    field['img alt'] += f''' {k}, '''
+
             try:
                 _images = _d.find(_['product_images_locator'])
-                for k,v in _images.items():
-                       field['img url'] += f''' {v}, '''
-                       field['img alt'] += f''' {k}, '''
+                if isinstance(_images , list):
+                    for i in _images:set(i)
+                else: set(i)
                 return True
-            except Exception as ex:  self.err.handler(ex,_['product_images'], [field['img url' , field['img alt']] ])
+            except Exception as ex:  self.err.handler(ex, _['product_images_locator'], [field['img url'] , field['img alt']])
 
         def set_attributes():
             try:
@@ -146,11 +153,11 @@ class Product():
 
         def set_qty():
             try:
-                _qty = _d.find(_['product_qty-locator'])
+                _qty = _d.find(_['product_qty_locator'])[0]
                 field['qty'] = formatter.clear_price(_qty)
                 return True
             except Exception as ex: 
-                field['qty'] = None
+                #field['qty'] = None
                 print(ex)
                 return False
 
@@ -184,8 +191,12 @@ class Product():
                field['product_customer_reviews'] = None
                print(ex)
 
+        def set_categories():
+            for k , v in _current_node['prestashop_categories'].items():
+                field['categories'] += f'''{k}, '''
 
-        ''' fill fields '''
+
+
         set_id()
         set_title()
         set_price()
@@ -197,5 +208,6 @@ class Product():
         set_description()
         set_specification()
         set_customer_reviews()
+        set_categories()
         
         return self

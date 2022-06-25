@@ -10,9 +10,9 @@
     "scenaries": {
       "Raspberry Pi Kit": {
         "url": "https://keyestudio-stem.aliexpress.com/store/group/Kit/4247007_40000000488227.html",
-        "prestashop categories": {
-          "4247007": "store id",
-          "40000000488227": "store category id",
+        "prestashop_categories": {
+          "4247007": "store_id",
+          "40000000488227": "store_category_id",
           "1071": "Gaming",
           "2673": "Tech",
           "2676": "Arduno kit && Electronic Kit",
@@ -31,9 +31,9 @@
       },
       "Raspberry Pi Shield": {
         "url": "https://keyestudio-stem.aliexpress.com/store/group/Shield/4247007_40000000514152.html",
-        "prestashop categories": {
-          "4247007": "store id",
-          "40000000514152": "store category id",
+        "prestashop_categories": {
+          "4247007": "store_id",
+          "40000000514152": "store_category_id",
           "1071": "Gaming",
           "2673": "Tech",
           "2676": "Arduno kit && Electronic Kit",
@@ -52,9 +52,9 @@
       },
       "Raspberry Pi Robot": {
         "url": "https://keyestudio-stem.aliexpress.com/store/group/Robot/4247007_40000000492143.html",
-        "prestashop categories": {
-          "4247007": "store id",
-          "40000000492143": "store category id",
+        "prestashop_categories": {
+          "4247007": "store_id",
+          "40000000492143": "store_category_id",
           "1071": "Gaming",
           "2673": "Tech",
           "2676": "Arduno kit && Electronic Kit",
@@ -73,9 +73,9 @@
       },
       "Raspberry Pi Cameras": {
         "url": "https://keyestudio-stem.aliexpress.com/store/group/Camera/4247007_40000001744483.html",
-        "prestashop categories": {
-          "4247007": "store id",
-          "40000001744483": "store category id",
+        "prestashop_categories": {
+          "4247007": "store_id",
+          "40000001744483": "store_category_id",
           "1071": "Gaming",
           "2673": "Tech",
           "2676": "Arduno kit && Electronic Kit",
@@ -94,9 +94,9 @@
       },
       "Raspberry Pi Screens": {
         "url": "https://keyestudio-stem.aliexpress.com/store/group/Camera/4247007_40000001744483.html",
-        "prestashop categories": {
-          "4247007": "store id",
-          "40000001744483": "store category id",
+        "prestashop_categories": {
+          "4247007": "store_id",
+          "40000001744483": "store_category_id",
           "1071": "Gaming",
           "2673": "Tech",
           "2676": "Arduno kit && Electronic Kit",
@@ -115,9 +115,9 @@
       },
       "Raspberry Pi Cases": {
         "url": "https://keyestudio-stem.aliexpress.com/store/group/Case/4247007_40000000504117.html",
-        "prestashop categories": {
-          "4247007": "store id",
-          "40000000504117": "store category id",
+        "prestashop_categories": {
+          "4247007": "store_id",
+          "40000000504117": "store_category_id",
           "1071": "Gaming",
           "2673": "Tech",
           "2676": "Arduno kit && Electronic Kit",
@@ -136,9 +136,9 @@
       },
       "Raspberry Pi Accessories": {
         "url": "https://keyestudio-stem.aliexpress.com/store/group/Accessories/4247007_40000001736986.html",
-        "prestashop categories": {
-          "4247007": "store id",
-          "40000000504117": "store category id",
+        "prestashop_categories": {
+          "4247007": "store_id",
+          "40000000504117": "store_category_id",
           "1071": "Gaming",
           "2673": "Tech",
           "2676": "Arduno kit && Electronic Kit",
@@ -157,9 +157,9 @@
       },
       "Raspberry Pi PICO Boards": {
         "url": "https://keyestudio-stem.aliexpress.com/store/group/Board/4247007_40000001662207.html",
-        "prestashop categories": {
-          "4247007": "store id",
-          "40000001662207": "store category id",
+        "prestashop_categories": {
+          "4247007": "store_id",
+          "40000001662207": "store_category_id",
           "1071": "Gaming",
           "2673": "Tech",
           "2676": "Arduno kit && Electronic Kit",
@@ -178,9 +178,9 @@
       },
       "Raspberry Pi PICO Shields": {
         "url": "https://keyestudio-stem.aliexpress.com/store/group/Shield/4247007_40000001748185.html",
-        "prestashop categories": {
-          "4247007": "store id",
-          "40000001748185": "store category id",
+        "prestashop_categories": {
+          "4247007": "store_id",
+          "40000001748185": "store_category_id",
           "1071": "Gaming",
           "2673": "Tech",
           "2676": "Arduno kit && Electronic Kit",
@@ -199,9 +199,9 @@
       },
       "Raspberry Pi PICO Kits": {
         "url": "https://keyestudio-stem.aliexpress.com/store/group/Kit/4247007_40000001641128.html",
-        "prestashop categories": {
-          "4247007": "store id",
-          "40000001641128": "store category id",
+        "prestashop_categories": {
+          "4247007": "store_id",
+          "40000001641128": "store_category_id",
           "1071": "Gaming",
           "2673": "Tech",
           "2676": "Arduno kit && Electronic Kit",
@@ -220,9 +220,9 @@
       },
       "BBC Micro:bit V2.2 Boards": {
         "url": "https://keyestudio-stem.aliexpress.com/store/group/Kit/4247007_40000001641128.html",
-        "prestashop categories": {
-          "4247007": "store id",
-          "40000001641128": "store category id",
+        "prestashop_categories": {
+          "4247007": "store_id",
+          "40000001641128": "store_category_id",
           "1071": "Gaming",
           "2673": "Tech",
           "2676": "Arduno kit && Electronic Kit",
@@ -241,9 +241,9 @@
       },
       "BBC Micro:bit Shields": {
         "url": "https://keyestudio-stem.aliexpress.com/store/group/Shield/4247007_40000000500359.html",
-        "prestashop categories": {
-          "4247007": "store id",
-          "40000001641128": "store category id",
+        "prestashop_categories": {
+          "4247007": "store_id",
+          "40000001641128": "store_category_id",
           "1071": "Gaming",
           "2673": "Tech",
           "2676": "Arduno kit && Electronic Kit",
@@ -262,9 +262,9 @@
       },
       "BBC Micro:bit Kits": {
         "url": "https://keyestudio-stem.aliexpress.com/store/group/Kit/4247007_40000001641128.html",
-        "prestashop categories": {
-          "4247007": "store id",
-          "40000001641128": "store category id",
+        "prestashop_categories": {
+          "4247007": "store_id",
+          "40000001641128": "store_category_id",
           "1071": "Gaming",
           "2673": "Tech",
           "2676": "Arduno kit && Electronic Kit",
@@ -283,9 +283,9 @@
       },
       "BBC Micro:bit Robots": {
         "url": "https://keyestudio-stem.aliexpress.com/store/group/Robot/4247007_40000000477037.html",
-        "prestashop categories": {
-          "4247007": "store id",
-          "40000000477037": "store category id",
+        "prestashop_categories": {
+          "4247007": "store_id",
+          "40000000477037": "store_category_id",
           "1071": "Gaming",
           "2673": "Tech",
           "2676": "Arduno kit && Electronic Kit",
@@ -304,9 +304,9 @@
       },
       "BBC Micro:bit Modules": {
         "url": "https://keyestudio-stem.aliexpress.com/store/group/Module/4247007_40000000514074.html",
-        "prestashop categories": {
-          "4247007": "store id",
-          "40000000514074": "store category id",
+        "prestashop_categories": {
+          "4247007": "store_id",
+          "40000000514074": "store_category_id",
           "1071": "Gaming",
           "2673": "Tech",
           "2676": "Arduno kit && Electronic Kit",
@@ -325,9 +325,9 @@
       },
       "Micro:bit Acessories": {
         "url": "https://keyestudio-stem.aliexpress.com/store/group/Accessories/4247007_40000001726336.html",
-        "prestashop categories": {
-          "4247007": "store id",
-          "40000001726336": "store category id",
+        "prestashop_categories": {
+          "4247007": "store_id",
+          "40000001726336": "store_category_id",
           "1071": "Gaming",
           "2673": "Tech",
           "2676": "Arduno kit && Electronic Kit",
@@ -346,9 +346,9 @@
       },
       "Arduino Boards": {
         "url": "https://keyestudio-stem.aliexpress.com/store/group/Board/4247007_40000000504110.html",
-        "prestashop categories": {
-          "4247007": "store id",
-          "40000000504110": "store category id",
+        "prestashop_categories": {
+          "4247007": "store_id",
+          "40000000504110": "store_category_id",
           "1071": "Gaming",
           "2673": "Tech",
           "2676": "Arduno kit && Electronic Kit",
@@ -367,9 +367,9 @@
       },
       "Arduino Shields": {
         "url": "https://keyestudio-stem.aliexpress.com/store/group/Shield/4247007_40000001529668.html",
-        "prestashop categories": {
-          "4247007": "store id",
-          "40000000504110": "store category id",
+        "prestashop_categories": {
+          "4247007": "store_id",
+          "40000000504110": "store_category_id",
           "1071": "Gaming",
           "2673": "Tech",
           "2676": "Arduno kit && Electronic Kit",
@@ -388,9 +388,9 @@
       },
       "Arduino Kits": {
         "url": "https://keyestudio-stem.aliexpress.com/store/group/Kit/4247007_40000000504084.html",
-        "prestashop categories": {
-          "4247007": "store id",
-          "40000000504084": "store category id",
+        "prestashop_categories": {
+          "4247007": "store_id",
+          "40000000504084": "store_category_id",
           "1071": "Gaming",
           "2673": "Tech",
           "2676": "Arduno kit && Electronic Kit",
@@ -409,9 +409,9 @@
       },
       "Arduino Robots": {
         "url": "https://keyestudio-stem.aliexpress.com/store/group/Robot/4247007_40000000495017.html",
-        "prestashop categories": {
-          "4247007": "store id",
-          "40000000495017": "store category id",
+        "prestashop_categories": {
+          "4247007": "store_id",
+          "40000000495017": "store_category_id",
           "1071": "Gaming",
           "2673": "Tech",
           "2676": "Arduno kit && Electronic Kit",
@@ -430,9 +430,9 @@
       },
       "Arduino Accessories": {
         "url": "https://keyestudio-stem.aliexpress.com/store/group/Accessories/4247007_40000000491113.html",
-        "prestashop categories": {
-          "4247007": "store id",
-          "40000000491113": "store category id",
+        "prestashop_categories": {
+          "4247007": "store_id",
+          "40000000491113": "store_category_id",
           "1071": "Gaming",
           "2673": "Tech",
           "2676": "Arduno kit && Electronic Kit",
@@ -451,9 +451,9 @@
       },
       "ESP 32": {
         "url": "https://keyestudio-stem.aliexpress.com/store/group/ESP32/4247007_40000001795896.html",
-        "prestashop categories": {
-          "4247007": "store id",
-          "40000001795896": "store category id",
+        "prestashop_categories": {
+          "4247007": "store_id",
+          "40000001795896": "store_category_id",
           "1071": "Gaming",
           "2673": "Tech",
           "2676": "Arduno kit && Electronic Kit",
@@ -472,9 +472,9 @@
       },
       "Easy Plug Kit": {
         "url": "https://keyestudio-stem.aliexpress.com/store/group/Easy-Plug/4247007_10000002116054.html",
-        "prestashop categories": {
-          "4247007": "store id",
-          "10000002116054": "store category id",
+        "prestashop_categories": {
+          "4247007": "store_id",
+          "10000002116054": "store_category_id",
           "1071": "Gaming",
           "2673": "Tech",
           "2676": "Arduno kit && Electronic Kit",
@@ -493,9 +493,9 @@
       },
       "3D Machine & Printer kit": {
         "url": "https://keyestudio-stem.aliexpress.com/store/group/3D-Machine-Printer-kit/4247007_40000001542996.html",
-        "prestashop categories": {
-          "4247007": "store id",
-          "40000001542996": "store category id",
+        "prestashop_categories": {
+          "4247007": "store_id",
+          "40000001542996": "store_category_id",
           "1071": "Gaming",
           "2673": "Tech",
           "2676": "Arduno kit && Electronic Kit",
@@ -514,9 +514,9 @@
       },
       "CNC Shields": {
         "url": "https://keyestudio-stem.aliexpress.com/store/group/CNC-Series/4247007_40000001537885.html",
-        "prestashop categories": {
-          "4247007": "store id",
-          "40000001537885": "store category id",
+        "prestashop_categories": {
+          "4247007": "store_id",
+          "40000001537885": "store_category_id",
           "1071": "Gaming",
           "2673": "Tech",
           "2676": "Arduno kit && Electronic Kit",
@@ -546,10 +546,10 @@
 
     "scenaries": {
       "Arduno kit && Electronic Kit": {
-        "store category id": "10000001157695",
+        "store_category_id": "10000001157695",
         "prestashop category id": "2676",
         "url": "https://www.aliexpress.com/store/group/Arduno-kit-Electronic-Kit/910331321_10000001157695.html",
-        "prestashop categories": {
+        "prestashop_categories": {
           "1071": "Gaming",
           "2673": "Tech",
           "2676": "Arduno kit && Electronic Kit",

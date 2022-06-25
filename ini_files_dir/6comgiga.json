@@ -1,12 +1,12 @@
 {
-  "supplier": "aliexpress",
-  "supplier_prefics": "aliexpress",
-  "start_url": "https://www.aliexpress.com/",
-  "wholesale_products_url": "https://www.aliexpress.com/all-wholesale-products.html",
+  "supplier": "6comgiga",
+  "supplier_prefics": "6comgiga",
+  "start_url": "https://www.6comgiga.com/",
+  "wholesale_products_url": "",
   "price_rule": "+0",
   "num_items_4_flush": 300,
   "if_login": true,
-  "login_url": "https://www.login.aliexpress.com",
+  "login_url": "",
   "root_category": 3,
   "collect_products_from_categorypage": false,
 
@@ -20,10 +20,8 @@
     "FR": "https://fr.aliexpress.com/all-wholesale-products.html"
   },
   "scenaries": [
-    "aliexpress_stores_elctronic_toys.json",
-    "aliexpress_stores_elctronic_components_leds.json",
-    "aliexpress_stores_battery.json",
 
+    "aliexpress_stores_elctronic_toys.json",
     "aliexpress_stores_baby_clothing.json"
 
   ],

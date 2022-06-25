@@ -8,7 +8,9 @@ __author__ = 'e-cat.me'
 
 from pathlib import Path
 import json as json
+import csv
 from logger import Log
+import pandas as pd
 
 ## Читаю файл из внешнего источника .
 # path: путь к файлу 
@@ -36,25 +38,31 @@ def html2json(html:str)->json:
     pass
 
 
+
+
 ## экспортирую данные в файл .
 # функция позволяет экспортировать словарь в файл <br>
 # из всех точек выполнения сценариев 
-def export(data , format : list = ['json','csv'] , filename : str = None):
+def export(supplier , data , format : list = ['json','csv','txt'] , filename : str = None):
 
-    export_file_path =  Path(f'''{self.ini.paths.export_dir}''')
+    export_file_path =  Path(f'''{supplier.ini.paths.export_dir}''')
        
     if filename == None:
-        filename = f'''{self.supplier_prefics}-{self.ini.get_now()}'''
+        filename = f'''-{supplier.supplier_prefics}'''
 
 
     for frmt in format:
-        export_file_path =  Path(export_file_path , f'''{filename}.{frmt}''')
+        export_file_path =  Path(export_file_path , f'''{filename}-{supplier.ini.get_now()}.{frmt}''')
         if frmt == 'json':
             json.dump(data, export_file_path)
         if frmt == 'csv':
-            json.write(self, data , export_file_path)
-
-    
+            df = pd.DataFrame(data)
+            df.to_csv(export_file_path , sep = ',')
+           
+        if frmt == 'txt': 
+            with open(export_file_path, 'w')as txtfile:
+                txtfile.write(str(data))
+              
 
 
 

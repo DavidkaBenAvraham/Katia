@@ -483,6 +483,7 @@
     <Compile Include="apis\__init__.py" />
     <Compile Include="web_driver\aliexpScraperClassBased.py" />
     <Compile Include="exceptions_handler\__init__.py" />
+    <Compile Include="web_driver\facebook.py" />
     <Compile Include="web_driver\google_search.py" />
     <Compile Include="web_driver\__init__.py" />
     <Compile Include="web_driver\driver_options.py">
@@ -862,6 +863,7 @@
     <Folder Include="suppliers\mpdigest\" />
     <Folder Include="suppliers\crow_pi\" />
     <Folder Include="suppliers\elecrow\" />
+    <Folder Include="suppliers\6comgiga\" />
     <Folder Include="suppliers\sparkfun\" />
     <Folder Include="suppliers\pmi-rf\" />
     <Folder Include="suppliers\victorinox\" />
@@ -922,6 +924,7 @@
     <Content Include="aliexpress_api\skd\desktop.ini" />
     <Content Include="aliexpress_api\tools\desktop.ini" />
     <Content Include="apis\README.md" />
+    <Content Include="DB\prestashop-viewers-creation.sql" />
     <Content Include="Facebook\.ipynb_checkpoints\facebook.ini 23042020-checkpoint.ipynb" />
     <Content Include="Facebook\.ipynb_checkpoints\Untitled-checkpoint.ipynb" />
     <Content Include="Facebook\.ipynb_checkpoints\Написать сообщение-checkpoint.ipynb" />
@@ -934,6 +937,7 @@
     <Content Include="google_api\.ipynb_checkpoints\Untitled-checkpoint.ipynb" />
     <Content Include="google_api\desktop.ini" />
     <Content Include="google_api\Untitled.ipynb" />
+    <Content Include="ini_files_dir\6comgiga.json" />
     <Content Include="ini_files_dir\elecrow.json" />
     <Content Include="ini_files_dir\crow_pi.json" />
     <Content Include="ini_files_dir\mpdigest.json" />

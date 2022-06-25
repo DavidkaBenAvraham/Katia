@@ -11,44 +11,71 @@ from attr import attrib, attrs, Factory
 from selenium.webdriver.remote.webelement import WebElement 
 from selenium.webdriver.common.keys import Keys
 from strings_formatter import StringFormatter
-
+from suppliers.product import Product
+import pickle
 
 formatter = StringFormatter()
 stores : list = []
-''' ------------------ НАЧАЛО -------------------------- '''
 
+## paginator
+def pagination(s):
+    _d = s.driver
+    _ = s.locators
+    _d.scroll(7)
+    list_product_urls : list = _d.find(_['product']['link_to_product_locator'])
+    pagination_block = _d.find(_['pagination_block_locator'])
+    ## Одна страница категории
+    if pagination_block is None:
+        return list_product_urls
+    ## Много страниц в категории
+    for item in pagination_block:
+        for k,v in item.items():
+            if str(k).find('Next') < 0:
+                _d.get_url(v)
+                list_product_urls += _d.find(_['product']['link_to_product_locator'])
+    return list_product_urls
+        
+## login etc.
 def login(s) -> bool :
     def _login() -> bool:
         _ =  s.locators['login']
         _d = s.driver
+
+        _d.get(_['login_url'])
+        _d.get('https://www.aliexpress.com')
+
+
+
         try:
             _d.get(_['login_url'])
-            #_d.switch_to_frame(0) 
-            _d.send_keys(_['user_locator'], _['user'])
-            _d.send_keys(_['password_locator'], _['password'])
-            _d.click(_['send_locator'])
+            cookies = pickle.load(open('aliexpress-cookies.pkl', 'rb'))
+            for cookie in cookies:_d.add_cookie(cookie)
             return True
         except Exception as ex: return False , print(f''' не залогинился ''')
 
     def _set_language_currency_shipto() -> bool:
         _ =  s.locators['currency_laguage_shipto_locators']
         _d = s.driver
-        _d.get_url("https://www.aliexpress.com")
-        try:
-            _d.click(_['block_opener_locator'])
-            _d.wait(1)
-            _d.click(_['shipto_locator'])
-            _d.wait(1)
-            _d.click(_['language_locator'])
-            _d.wait(1)
-            _d.click(_['currency_locator'])
-            _d.wait(3)
-            _d.click(_['save_button_locator'])
-            return True
-        except Exception as ex: return False, print(f'''{ex} не получилось выбрать язык/страну/валюту''')
+        _d.get_url('https://www.aliexpress.com')
+        if _d.click(_['block_opener_locator']):_d.wait(1)
+        if _d.click(_['shipto_locator']):_d.wait(.7)
+        if _d.click(_['language_locator']):_d.wait(.7)
+        if _d.click(_['currency_locator']):_d.wait(.7)
+        if _d.click(_['save_button_locator']):_d.wait(.7)
+
+        cookies = _d.get_cookies()
+        for cookie in cookies:
+            if cookie.get('expiry', None) is not None:
+                cookie['expires'] = cookie.pop('expiry')
+        pickle.dump(cookies, open('aliexpress-cookies.pkl', 'wb'))
+        return True
+
     #_login()
-    _set_language_currency_shipto()
-   
+    _set_language_currency_shipto() 
+    
+
+
+
 stores:list = []
 def run_stores(s):
     
@@ -75,8 +102,7 @@ def run_stores(s):
     pass 
     ''' ------------------ КОНЕЦ  -------------------------- '''
 
-
-''' ------------------ НАЧАЛО -------------------------- ''' 
+## try to get json fro file
 def get_json_from_store(s , store_settings_dict : dict = {}) -> dict:
     ''' у каждого магазина в алиэкспресс можно запросить файл 
     https://aliexpress.com/store/store/productGroupsAjax.htm?storeId=<storeId>&shopVersion=3.0&callback=<callback>
@@ -89,8 +115,7 @@ def get_json_from_store(s , store_settings_dict : dict = {}) -> dict:
     json_from_store = s.driver.find(s.locators['store']['data_from_store_json_file'])[0].text
     return json_from_store
 
-
-''' ------------------ НАЧАЛО -------------------------- ''' 
+## build_shop_categories
 def build_shop_categories(s , store_settings_dict : dict) -> dict:   
 
    
@@ -116,7 +141,7 @@ def build_shop_categories(s , store_settings_dict : dict) -> dict:
         main_category_url_list = main_category_url.split('/')[-1].split('.')[0].split('_')
         main_category_id = main_category_url_list[-1]
         shop_id = main_category_url_list[0]
-        t.append({
+        el.append({
                 'category ID': main_category_id ,
                 'pail': 1,
                 'category name': main_category_name,
@@ -147,7 +172,8 @@ def build_shop_categories(s , store_settings_dict : dict) -> dict:
     s.export(data = t , format = ['csv'] )
     pass
     ''' ------------------ КОНЕЦ  -------------------------- '''
-''' ------------------ НАЧАЛО -------------------------- ''' 
+
+## run_local_scenario
 def run_local_scenario(s, store_settings_dict: dict = {}):
     json_from_store = get_json_from_store(s, store_settings_dict)
     #s.export(ajax_from_store , ['json'] , store_settings_dict['store ID'])
@@ -158,15 +184,13 @@ def run_local_scenario(s, store_settings_dict: dict = {}):
 
     ''' ------------------ НАЧАЛО -------------------------- '''
 
-
 products: list = []
-''' ------------------ НАЧАЛО -------------------------- '''
-def grab_product_page(s):
+## grab_product_page
+def grab_product_page(s , p):
     _d = s.driver
     _d.scroll(3)
     _ : dict = s.locators['product']
-
-    p : Product = Product(s=s)
+    p.grab_product_page(s)
 
     field = p.fields
 
@@ -176,39 +200,39 @@ def grab_product_page(s):
         https://www.aliexpress.com/item/00000000000000.html? 
         '''
        
-    def get_title():
-        field['title'] = _d.find(_['product_title_'])[0]
-    def get_price():
-        _price = _d.find(_['product_price_'])[0]
-        field['price'] = formatter.clear_price(_price)
-    def get_shipping():
-        _shipping = _d.find(_['product_shipping_'])
-        for s in _shipping:
-            field['shipping price'] = formatter.clear_price(s)
-    def get_images():
-        _images = _d.find(_['product_images_'])
-        for k,v in _images.items():
-               field['img url'] += f''' {v}, '''
-               field['img alt'] += f''' {k}, '''
-    def get_attributes():
-        _attributes = _d.find(_['product_attributes_'])
-        return _attributes
-    def get_qty():
-        _qty = _d.find(_['qty'])
-        _qty = formatter.clear_price(_qty)
-        return _qty
-    def get_byer_protection():
-        _byer_protection = _d.find(_['product_byer_protection_'])
-        return _byer_protection
-    def get_description():
-        _description = _d.find(_['product_description_'])
-        return _description
-    def get_specification():
-        specification = _d.find(_['product_specification_'])
-        return specification
-    def get_customer_reviews():
-        _customer_reviews = _d.find(_['product_customer_reviews_'])
-        return _customer_reviews
+    def get_title():pass
+        #field['title'] = _d.find(_['product_title'])[0]
+    def get_price():pass
+        #_price = _d.find(_['product_price'])[0]
+        #field['price'] = formatter.clear_price(_price)
+    def get_shipping():pass
+        #_shipping = _d.find(_['product_shipping'])
+        #for s in _shipping:
+        #    field['shipping price'] = formatter.clear_price(s)
+    def get_images():pass
+        #_images = _d.find(_['product_images'])
+        #for k,v in _images.items():
+        #       field['img url'] += f''' {v}, '''
+        #       field['img alt'] += f''' {k}, '''
+    def get_attributes():pass
+        #_attributes = _d.find(_['product_attributes'])
+        #return _attributes
+    def get_qty():pass
+        #_qty = _d.find(_['qty'])
+        #_qty = formatter.clear_price(_qty)
+        #return _qty
+    def get_byer_protection():pass
+        #_byer_protection = _d.find(_['product_byer_protection'])
+        #return _byer_protection
+    def get_description():pass
+        #_description = _d.find(_['product_description'])
+        #return _description
+    def get_specification():pass
+        #specification = _d.find(_['product_specification'])
+        #return specification
+    def get_customer_reviews():pass
+        #_customer_reviews = _d.find(_['product_customer_reviews'])
+        #return _customer_reviews
 
 
 
@@ -225,7 +249,7 @@ def grab_product_page(s):
     get_customer_reviews()
         
 
-    pass
+    return p.fields
 
 
 

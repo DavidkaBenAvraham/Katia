@@ -6,11 +6,16 @@ __author__ = 'e-cat.me'
 #                                       
 #    здесь собираются списки товаров от поставщиков
 
-
+from suppliers.product import Product
 
 from pathlib import Path
 import execute_json as json
+from ini_files_dir import Ini
+ini = Ini()
+import pandas as pd
 
+def error_handler():
+    pass
 
 def execute_list_of_scenaries(Supplier) -> bool :
     ## по умолчанию все сценарии  прописаны в файлах <supplier>.json
@@ -26,7 +31,9 @@ def execute_list_of_scenaries(Supplier) -> bool :
    
     
     ## 0. 
-    if not _d.get_url(s.settings['start_url']):
+    json_files = _d.get_url(s.settings['start_url'])
+    
+    if not json_files:
         print(f''' supplier not started in url:
        {s.settings['start_url']}''')
         return False
@@ -46,10 +53,11 @@ def execute_list_of_scenaries(Supplier) -> bool :
             _scenario = s.scenaries.popitem()[1]
             try : 
                 run_scenario(s , _scenario) 
-                return True
+                json.export(s, s.p , ['csv'] , f'''{_scenario['store_id']}-{_scenario['description']} ''')
             except Exception as ex:
-                print(f''' ошибка {ex} в ходе выполнения сценария {json_file} ''')
-                return False
+                print(f''' ошибка {ex} в ходе выполнения сценария {_scenario} ''')
+                json.export(s, s.p , ['csv'] , f'''{_scenario['store_id']}-{_scenario['description']} ''')
+                continue
             
         
 
@@ -71,16 +79,18 @@ def run_scenario(s , scenario) -> bool:
     '''
     -текущий сценарий исполнения состоит из узлов. Каждый узел состоит из:
     - <brand> 
-    - [<model>] необязательное поле
+    - [<model>] необязательное полеstore_id
     - <url> откуда собирать товары
     - <prestashop_category> список id категорий 
     - <price_rule> пересчет для магазина по умолчанию установливается в self.price_rule
 
     '''
     
-
+    ## бегунок
     def run(s, node):
         ''' бегунок '''
+
+        s.current_node = node
 
         ## 1)
         list_products_urls : list = get_list_products_urls(s , node)
@@ -102,43 +112,61 @@ def run_scenario(s , scenario) -> bool:
 
                 print(f''' нет такой страницы товара {product_url} ''') 
                 continue
-                
-
+           
             try:
-                #   b)
-                product = s.related_functions.grab_product_page(s)
+                product_fields = s.related_functions.grab_product_page(s , Product())
                 ''' получаю товар '''
                 #   c)
-                s.p.append(product)
-                ''' добавляю товар в список supplier.p[] '''
-            except Exception as ex: 
+                s.p.append(product_fields)
+                json.export(s, s.p , ['csv'] , f'''{node['store_category_id']} ''')
+                #try:
+                #    #   b)
+                #    product = s.related_functions.grab_product_page(s)
+                #    ''' получаю товар '''
+                #    #   c)
+                #    s.p.append(product)
+                #    ''' добавляю товар в список supplier.p[] '''
+                #except Exception as ex: 
+                #    print(f''' Ошибка {ex} при сборе товара со страницы {product_url} ''')
+                #    continue
+                #if len(s.p)>10:
+                #    json.export(s, s.p , ['csv'] , f'''{node['store_category_id']} ''')
+            except Exception as ex:
                 print(f''' Ошибка {ex} при сборе товара со страницы {product_url} ''')
+                json.export(s, s.p , ['csv'] , f'''{node['store_category_id']}''')
+                s.p.clear()
                 continue
 
+
+
+    ## aliexpress etc
     if 'store_id' in scenario.keys():
         ##         имеем дело с магазином
         # текущий сценарий в формате dict сдвинут  вправо 
         # и находится в узле  scenaries:{} 
         while len(scenario['scenaries'].items())>0:
             run(s , scenario['scenaries'].popitem()[1])
-    else:
-        ''' имею дело с узлом сценария как в ksp, mor, etc '''
-        run(s , scenario)
+    ## ksp, morlevi etc
+    else:run(s , scenario)
+    ''' имею дело с узлом сценария как в ksp, mor, etc '''
+            
+        
+    json.export(s, s.p , ['csv'] , f'''{node['store_category_id']}''')
     return True
 
-
+## get_list_products_urls
 def get_list_products_urls(s , scenario_node : dict ) ->list:
     '''  возвращает ссылки на все товары в категории 
         по локатору self.locators['product']['link_to_product_locator']
     '''
     
     if not s.driver.get_url(scenario_node["url"]): 
-        return [] , log.print(f'''нет такой страницы! 
+        return [] , print(f'''нет такой страницы! 
                 {s.current_node["url"]}
                 Возможно, 
                 проверить категорию в файле сценария ? ''')
-    
 
+    _ = s.locators['product']['link_to_product_locator']
     ##''' на странице категории могут находится  чекбоксы    
     ## если их нет, в сценарии JSON они прописаны checkbox = false
     ##'''
@@ -156,24 +184,12 @@ def get_list_products_urls(s , scenario_node : dict ) ->list:
     if s.locators['infinity_scroll'] == True: 
         ''' А бесконечная прокрука '''
         s.driver.scroll()
-        list_product_urls : list = s.driver.find(s.locators['product']['link_to_product_locator'])
+        list_product_urls : list = s.driver.find(_)
         return list_product_urls
     
     else:
         ''' Б переключение между страницами'''
-
-        paginator = s.driver.find(s.locators['pagination_block'])
-        list_product_urls : list = []
-        def pagination(list_product_urls):
-            list_product_urls += s.driver.find(s.locators['product']['link_to_product_locator'])
-            ''' беру линки с страницы '''
-
-            if len(paginator)>0:
-                pagination()
-                pass
-
-        pagination(list_product_urls)
-
+        list_product_urls = s.related_functions.pagination(s)
         return list_product_urls
 
 

@@ -129,7 +129,7 @@ class StringFormatter():
     #@remove_suppliers_and_special_chars
     def remove_htmls(self , s):
         def _(s):
-            return self.pattern_remove_HTML.sub(r' ', str(sub_s)).strip()
+            return self.pattern_remove_HTML.sub(r' ', str(s)).strip()
 
         if isinstance(s , list ):
             for sub_s in s: sub_s = _(sub_s)
