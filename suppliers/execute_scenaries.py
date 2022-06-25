@@ -134,7 +134,6 @@ def run_scenario(s , scenario) -> bool:
             except Exception as ex:
                 print(f''' Ошибка {ex} при сборе товара со страницы {product_url} ''')
                 json.export(s, s.p , ['csv'] , f'''{node['store_category_id']}''')
-                s.p.clear()
                 continue
 
 
@@ -146,6 +145,7 @@ def run_scenario(s , scenario) -> bool:
         # и находится в узле  scenaries:{} 
         while len(scenario['scenaries'].items())>0:
             run(s , scenario['scenaries'].popitem()[1])
+        
     ## ksp, morlevi etc
     else:run(s , scenario)
     ''' имею дело с узлом сценария как в ksp, mor, etc '''
