@@ -1,16 +1,49 @@
 {
-  "about": "подробное описание структуры файлов JSON смотри READMY.MD в корне этой папки  ",
+  "============== ABOUT ==================": [ "подробное описание структуры файлов JSON смотри READMY.MD в корне этой папки " ],
 
-  "infinity_scroll": false,
+  "============== ЛОГИН ==========================": [ "ЛОГИН" ],
+  "login": {
+    "login_url": "https://login.aliexpress.com",
 
-  "body_locator": {
-    "attribute": "innerText",
-    "by": "tag name",
-    "selector": "body",
-    "action": ""
+
+    "close banner": {
+      "attribute": "text",
+      "by": "xpath",
+      "selector": "//div[contains(text(), 'אפשר')]",
+      "action": "send_key(Key.RETURN)"
+    },
+
+    "open_login_popup_button": {
+      "attribute": [ "href", "href" ],
+      "by": [ "href", "href" ],
+      "selector": [ "//a[@data-role='myaliexpress-link']", "//a[@class='sign-btn']" ],
+      "action": [ "click()", "click()" ]
+    },
+
+
+    "user": "one.last.bit@gmail.com",
+    "user_locator": {
+      "attribute": null,
+      "by": "xpath",
+      "selector": "//input[@id='fm-login-id']",
+      "action": ""
+    },
+    "password": "dav1969",
+    "password_locator": {
+      "attribute": null,
+      "by": "xpath",
+      "selector": "//input[@id='fm-login-password']",
+      "action": ""
+    },
+    "send_locator": {
+      "attribute": "text",
+      "by": "xpath",
+      "selector": "//button[@type='submit']",
+      "action": ""
+    }
+
   },
-
-  "currency_laguage_shipto_locators": {
+  "currency_language_shipto_locators": {
 
     "block_opener_locator": {
       "attribute": null,
@@ -56,74 +89,34 @@
       "action": ""
     }
   },
+
+
+  "infinity_scroll": false,
+  "body_locator": {
+    "attribute": "innerText",
+    "by": "tag name",
+    "selector": "body",
+    "action": ""
+  },
   "goto_global_site": {
     "attribute": "href",
     "by": "xpath",
     "selector": "//a[@data-role = 'goto-globalsite']",
     "action": "click()"
   },
-
-
   "pagination_block_locator": {
     "attribute": {
-      "text":
-      "href"
+      "text": "href"
     },
     "by": "xpath",
     "selector": "//*[@class = 'ui-pagination-navi util-left']/a"
   },
-
-  "login": {
-    "login_url": "https://login.aliexpress.com",
-
-
-    "close banner": {
-      "attribute": "text",
-      "by": "xpath",
-      "selector": "//div[contains(text(), 'אפשר')]",
-      "action": "send_key(Key.RETURN)"
-    },
-
-    "open_login_popup_button": {
-      "attribute": [ "href", "href" ],
-      "by": [ "href", "href" ],
-      "selector": [ "//a[@data-role='myaliexpress-link']", "//a[@class='sign-btn']" ],
-      "action": [ "click()", "click()" ]
-    },
-
-
-    "user": "one.last.bit@gmail.com",
-    "user_locator": {
-      "attribute": null,
-      "by": "xpath",
-      "selector": "//input[@id='fm-login-id']",
-      "action": ""
-    },
-    "password": "dav1969",
-    "password_locator": {
-      "attribute": null,
-      "by": "xpath",
-      "selector": "//input[@id='fm-login-password']",
-      "action": ""
-    },
-    "send_locator": {
-      "attribute": "text",
-      "by": "xpath",
-      "selector": "//button[@type='submit']",
-      "action": ""
-    }
-
-  },
-
-
   "main_categories_locator_HTMLBLOCK": {
     "DESCRITION": "корневые категории алиэкспресс (Оранжевые)",
     "attribute": { "text": "href" },
     "by": "xpath",
     "selector": "//*[@class='item util-clearfix']//h3//a"
   },
-
-
   "main_items_block_locator": {
     "DESCRIPTION": " блок подкатегорий",
     "attribute": "innerHTML",
@@ -148,7 +141,6 @@
       }
     }
   },
-
   "cookies_accept": {
     "attribute": "innerHTML",
     "by": "xpath",
@@ -156,8 +148,7 @@
   },
 
 
-  "ЛОКАТОРЫ МАГАЗИНА ПРОДАВЦА": "КАТЕГОРИИ, БАННЕРЫ, ТОВАРЫ И ВСЕ ОСТАЛЬНОЕ, ЧТО МНЕ НАДО НА СТРАНИЦЕ ПОСТАВЩИКА",
-
+  "============== STORE ==========================": null,
   "store": {
 
     "all_store_categories_HTMLBLOCK": {
@@ -219,15 +210,22 @@
 
   },
 
-
+  "============== PRODUCT ==========================": null,
   "product": {
-
 
     "link_to_product_locator": {
       "attribute": "href",
       "by": "xpath",
       "selector": "//div[@class ='detail']//h3//a"
     },
+
+
+    "shop_info_locator": {
+      "attribute": null,
+      "by": "xpath",
+      "selector": "//div[contains(@class , 'HeaderPDP_ShopInfo__wrapper']"
+    },
+
 
     "product_block_locator": {
       "attribute": "innerHTML",
@@ -256,24 +254,46 @@
       "by": "xpath",
       "selector": "//div[@class = 'dynamic-shipping']//strong"
     },
-    "product_images_locator": {
-      "attribute": {
-        "src": "alt"
-      },
-      "by": "xpath",
-      "selector": "//ul[@class='images-view-list']//img"
 
+    "product_images_thumb_50x50": {
+      "attribute": null,
+      "by": "xpath",
+      "selector": "//div[contains(@class , 'Product_GalleryBarItem_']/"
+    },
+    "product_main_image_locator": {
+      "attribute": "src",
+      "by": "xpath",
+      "selector": "//img[@class='magnifier-image']"
     },
     "product_sikum_locator": {
       "attribute": "innerText",
       "by": "xpath",
       "selector": "//h1[@class='product-title-text']"
     },
-    "product_attributes_locator": {
+
+
+    "product_combinations_container_locator": {
       "attribute": null,
       "by": "xpath",
-      "selector": "//ul[@class='sku-property-list']//li",
+      "selector": "//div[contains(@class='Product_Sku__container')]",
       "about": "опции товара, такие как цвет, размер и т.п. они на али находятся в маленьких квадратиках. могут содержать картинки или тексты",
+
+      "product_combinations_title": {
+        "attribute": "innerText",
+        "by": "xpath",
+        "selector": "//div[@class='Product_SkuItem__title']//span"
+      },
+
+      "product_combinations_values": {
+        "attribute": null,
+        "by": "xpath",
+        "selector": "//div[@class='Product_SkuValueBaseItem']//img"
+      },
+      "product_combinations_value_title": {
+        "attribute": "innerText",
+        "by": "xpath",
+        "selector": "//span[contains(@class,'sku-title-value']"
+      },
 
       "text_attribute_locator": {
         "attribute": "innerHTML",
@@ -287,6 +307,8 @@
       }
 
     },
+
+
     "product_qty_locator": {
       "attribute": "innerText",
       "by": "xpath",
@@ -297,6 +319,8 @@
       "by": "xpath",
       "selector": "//div[@class='buyer-pretection-content']"
     },
+
+
     "product_description_locator": {
       "attribute": "innerHTML",
       "by": "xpath",

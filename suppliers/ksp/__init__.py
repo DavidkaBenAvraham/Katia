@@ -73,7 +73,7 @@ def grab_product_page(s) -> Product:
 
     def set_images():pass
 
-    def set_attributes():pass
+    def set_combinations():pass
 
     def set_qty():pass
 
@@ -91,7 +91,7 @@ def grab_product_page(s) -> Product:
     #set_price(),
     #set_shipping(),
     #set_images(),
-    #set_attributes(),
+    #set_combinations(),
     #set_qty(),
     #set_byer_protection(),
     #set_description(),

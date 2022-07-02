@@ -81,7 +81,7 @@ class Supplier:
     ''' Имя испоняемого узла сценария'''
      
     related_functions = attrib(init = False , default = None)
-    
+    ''' функции, присущие конкретному постащику '''
 
     driver  : Driver = attrib(init = False , default = None)
     ''' вебдрайвер - мотор всей системы '''

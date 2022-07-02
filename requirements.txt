@@ -1,4 +1,4 @@
-﻿certifi
+certifi
 tornado>=5.1
 cryptography
 decorator>=4.4.0
@@ -13,3 +13,6 @@ aliyun-python-sdk-core-v3
 aliexpress-sdk
 selenium-wire
 pyautogui
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTkwNDg1NTQzNF19
+-->

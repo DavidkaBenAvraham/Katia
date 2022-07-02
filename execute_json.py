@@ -55,9 +55,10 @@ def export(supplier , data , format : list = ['json','csv','txt'] , filename : s
         export_file_path =  Path(export_file_path , f'''{filename}-{supplier.ini.get_now()}.{frmt}''')
         if frmt == 'json':
             json.dump(data, export_file_path)
+
         if frmt == 'csv':
             df = pd.DataFrame(data)
-            df.to_csv(export_file_path , sep = ',')
+            df.to_csv(export_file_path , sep = ';' , index=False ,  encoding='utf-8')
            
         if frmt == 'txt': 
             with open(export_file_path, 'w')as txtfile:

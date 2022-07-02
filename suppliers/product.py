@@ -38,12 +38,79 @@ from attr import attrs, attrib, Factory
 # @section author_product Author(s)
 # - Created by Katia on 19/06/2022.
 #
+##'''
+##ID
+##Active (0/1)
+##Name*
+##Categories (x,y,z...)
+##Price tax excluded
+##Price tax included
+##Tax rule ID
+##Cost price
+##On sale (0/1)
+##Discount amount
+##Discount percent
+##Discount from (yyyy-mm-dd)
+##Discount to (yyyy-mm-dd)
+##Reference #
+##Supplier reference #
+##Supplier
+##Brand
+##EAN13
+##UPC
+##MPN
+##Ecotax
+##Width
+##Height
+##Depth
+##Weight
+##Delivery time of in-stock products:
+##Delivery time of out-of-stock products with allowed orders:
+##Quantity
+##Minimal quantity
+##Low stock level
+##Send me an email when the quantity is under this level
+##Visibility
+##Additional shipping cost
+##Unit for base price
+##Base price
+##Summary
+##Description
+##Tags (x,y,z...)
+##Meta title
+##Meta keywords
+##Meta description
+##Rewritten URL
+##Label when in stock
+##Label when backorder allowed
+##Available for order (0 = No, 1 = Yes)
+##Product availability date
+##Product creation date
+##Show price (0 = No, 1 = Yes)
+##Image URLs (x,y,z...)
+##Image alt texts (x,y,z...)
+##Delete existing images (0 = No, 1 = Yes)
+##Feature (Name:Value:Position:Customized)
+##Available online only (0 = No, 1 = Yes)
+##Condition
+##Customizable (0 = No, 1 = Yes)
+##Uploadable files (0 = No, 1 = Yes)
+##Text fields (0 = No, 1 = Yes)
+##Action when out of stock
+##Virtual product (0 = No, 1 = Yes)
+##File URL
+##Number of allowed downloads
+##Expiration date (yyyy-mm-dd)
+##Number of days
+##ID / Name of shop
+##Advanced Stock Management
+##Depends on stock
+##Warehouse
+##Accessories (x,y,z...)
+##'''
 # Copyright (c) 2020 e-cat.me  All rights reserved.
 class Product():
-    
-
-    
-
+  
     ##@param fields : pd.DataFrame 
     #поля товара 
     fields : pd.DataFrame = attrib(init = False, default = None)
@@ -96,70 +163,26 @@ class Product():
         _current_node = s.current_node
         field = self.fields
             
-        def set_id():
-            try:
-                field['id'] = _d.find(_['product_mkt_locator'])
-                return True
-            except Exception as ex: self.err.handler(ex,_['product_mkt_locator'],field['id'])
+        def set_id():pass
+           
+        def set_mkt_suppl():
+            field['mkt_suppl'] = _d.find(_['product_mkt_locator'])
 
+        def set_supplier():
+            pass
+        def set_title():pass
+            
+        def set_price():pass
 
-        def set_title():
-            try: 
-                field['title'] = _d.find(_['product_title_locator'])
-                field['title'] = formatter.remove_special_characters(field['title'])
-            except Exception as ex: self.err.handler(ex,_['product_title_locator'],field['title'])
+        def set_shipping():pass
+            
+        def set_images():pass
+            
+        def set_combinations():pass
+            
 
-                
-                
+        def set_qty():pass
 
-        def set_price():
-            try:
-                _price = _d.find(_['product_price_locator'])
-                _price = formatter.clear_price(_price)
-                field['mexir olut'] = _price
-                return True
-            except Exception as ex: self.err.handler(ex,_['product_price_locator'],field['mexir olut'])
-               
-
-        def set_shipping():
-            try:
-                field['product_shipping'] = _d.find(_['product_shipping_locator'])
-                return True
-            except Exception as ex: self.err.handler(ex,_['product_shipping_locator'],field['product_shipping'])
-
-  
-        def set_images():
-            def set(i):
-                for k,v in i.items():
-                    field['img url'] += f''' {v}, '''
-                    field['img alt'] += f''' {k}, '''
-
-            try:
-                _images = _d.find(_['product_images_locator'])
-                if isinstance(_images , list):
-                    for i in _images:set(i)
-                else: set(i)
-                return True
-            except Exception as ex:  self.err.handler(ex, _['product_images_locator'], [field['img url'] , field['img alt']])
-
-        def set_attributes():
-            try:
-                field['product_attributes'] = _d.find(_['product_attributes_locator'])
-                return True
-            except Exception as ex: 
-                field['product_attributes'] = None
-                print(ex)
-                return False
-
-        def set_qty():
-            try:
-                _qty = _d.find(_['product_qty_locator'])[0]
-                field['qty'] = formatter.clear_price(_qty)
-                return True
-            except Exception as ex: 
-                #field['qty'] = None
-                print(ex)
-                return False
 
         def set_byer_protection():
             try:
@@ -202,7 +225,7 @@ class Product():
         set_price()
         set_shipping()
         set_images()
-        set_attributes()
+        set_combinations()
         set_qty()
         set_byer_protection()
         set_description()

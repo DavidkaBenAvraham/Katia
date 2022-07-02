@@ -938,6 +938,7 @@
     <Content Include="google_api\desktop.ini" />
     <Content Include="google_api\Untitled.ipynb" />
     <Content Include="ini_files_dir\6comgiga.json" />
+    <Content Include="ini_files_dir\aliexpress_stores_912124063.json" />
     <Content Include="ini_files_dir\elecrow.json" />
     <Content Include="ini_files_dir\crow_pi.json" />
     <Content Include="ini_files_dir\mpdigest.json" />

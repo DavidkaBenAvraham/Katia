@@ -26,6 +26,7 @@ __author__ = 'e-cat.me'
 #<li>        https://selenium-python.readthedocs.io/api.html#desired-capabilities</li>
 #</ul>
 
+from pathlib import Path
 from strings_formatter import StringFormatter
 formatter = StringFormatter()
 from logging import Formatter
@@ -44,8 +45,8 @@ from selenium import webdriver as selenium_wedriver
 
 #import selenium.webdriver as webdriver
 
-import kora 
-from kora.selenium import wd as kora_wedriver
+import kora
+
 
 import seleniumwire
 from seleniumwire import webdriver as seleniumwire_wedriver
@@ -54,8 +55,8 @@ from seleniumwire import webdriver as seleniumwire_wedriver
 import pickle
 
 
+#from kora.selenium import wd as KWD
 SWD = selenium_wedriver
-KWD = kora_wedriver
 SWWD = seleniumwire_wedriver
 WD = SWWD
 
@@ -148,7 +149,26 @@ class Driver:
     def __attrs_post_init__(self ,  *args, **kwrads):
         pass
     
-    def set_driver(self , webdriver_settings : dict) -> WD:      
+    def set_driver(self , webdriver_settings : dict) -> WD:  
+        # webdriver_settings from launcher.json: 
+        # --------------------------
+        # f.e. FirefoxDriver
+        #"firefox": {
+        #     "arguments": [ "--no-sandbox" ],
+        #     "disabled_arguments": [
+        #       "--disable-dev-shm-usage",
+        #       "--headless"
+        #     ],
+        #     "deafault_wait_time": 5,
+        #     "about wait": "явное ожидание браузера в сек",
+        #     "random": [ 0, 5 ],
+        #     "view_html_source_mode": false,
+        #     "maximize_window": true
+        #   }
+        # }
+
+
+
         ## set_Chrome
         def set_Chrome() -> dict:
             _settings = webdriver_settings['chrome']
@@ -157,6 +177,7 @@ class Driver:
                     options.add_argument(argument)
             self.driver = self.driver.Chrome(options = options)
             return _settings
+
         ## set_Firefox
         def set_Firefox() -> dict:
             _settings = webdriver_settings['firefox']
@@ -164,25 +185,25 @@ class Driver:
             for argument in _settings['arguments']:
                     options.add_argument(argument)
             self.driver = self.driver.Firefox(options = options)
-            
+         
         ## set_Kora
         def set_Kora() -> bool:
             _wd = kora.selenium.wd
-
-            #options = _wd.ChromeOptions()
-            #for argument in webdriver_settings['kora']:
-            #        options.add_argument(argument)
-            #self.driver = _wd.Chrome(options = options)
+            if not kora.IN_COLAB: 
+                print(f''' Hello local  :) ''')
+                set_Chrome()
+                self.driver.maximize_window()
+            else:
+                set_Chrome()
+                print(f''' Hello colab ''')
+                #options = _wd.ChromeOptions()
+                #for argument in webdriver_settings['kora']:
+                #        options.add_argument(argument)
+                #self.driver = _wd.Chrome(options = options)
 
             return True
 
-        if not kora.IN_COLAB: 
-            print(f''' Hello local  :) ''')
-            set_Firefox()
-            self.driver.maximize_window()
-        else:
-            set_Chrome()
-            print(f''' Hello colab ''')
+
         
         self.driver.wait =                              self._wait
         self.driver.get_url =                           self._get_url
@@ -197,6 +218,11 @@ class Driver:
         #self.driver.get_parsed_google_search_result =   GoogleHtmlParser
         self.driver.send_keys =                         self._send_keys
         self.driver.JS =                                self.JS
+        
+        
+        self.driver.cookies =                           self.cookies
+        self.driver.dump_cookies_to_file =              self._dump_cookies_to_file
+        self.driver.load_cookies_from_file =            self._load_cookies_from_file
 
 
         self.driver.WebKitGTK =                         SWD.WebKitGTK
@@ -226,13 +252,25 @@ class Driver:
 
 
 
+
+
+    #########################################################
+    #                                                       #
+    #                                                       #
+    #                       Ожидания                        #
+    #                                                       #
+    #                                                       #
+    #########################################################
+
+    ### _wait
+    ## Явное ожидание через time.sleep
     def _wait(self , wait  = 0):
         if wait == 0 : wait = self._deafault_wait_time
         time.sleep(wait)
         pass
 
 
-    ## _wait_to_precence_located 
+    ### _wait_to_precence_located 
     # ожидание 100% загрузки элемента
     def _wait_to_precence_located(self, locator : dict ) -> object :
         '''
@@ -251,15 +289,41 @@ class Driver:
         return webelement
     
 
-    ## переход по указанному url
-    # обертка для driver.get()
-    def _get_url(self, url:str , wait_to_locator_be_loaded : dict = {} , view_html_source_mode : bool = False):
-        '''переход по заданному адресу 
-        с ожиданием загрузки контента до локатора wait_locator_to_be_loaded
-        view_html_source = True : возвращает код страницы
-        кроме того она проверяет что сайт не выпал в страницу логина
-        '''
 
+    #########################################################
+    #                                                       #
+    #                                                       #
+    #                       Куки                            #
+    #                                                       #
+    #                                                       #
+    #########################################################
+
+    def _load_cookies_from_file(cookies_file : Path = 'cookies.pkl'):
+        try:
+            self.cookies = pickle.load(open(cookies_file , 'rb'))
+            for cookie in self.cookies:
+                self.add_cookie(cookie)  
+        except :pass
+
+    ## После успешного события ведрайвера я бережно сохраню печеньку  в файл 
+    #@param
+    #   cookies_file : Path('cookies.pkl')
+    def _dump_cookies_to_file(cookies_file : Path = 'cookies.pkl'):
+        _cookies = self.get_cookies()
+        for cookie in _cookies:
+            if cookie.get('expiry', None) is not None:
+                cookie['expires'] = cookie.pop('expiry')
+        pickle.dump(_cookies, open('cookies_file.pkl', 'wb'))
+
+
+    ## обертка для driver.get():
+    # переход по указанному url
+    # @param
+    #   url:str 
+    # @param
+    #   view_html_source_mode : bool     возвращает код страницы
+    def _get_url(self, url:str , wait_to_locator_be_loaded : dict = {} , view_html_source_mode : bool = False):
+       
         
         _d = self.driver
 
@@ -267,26 +331,24 @@ class Driver:
 
         try:
             _url = _d.current_url
-            ## подставляю куки
-            
-            def set_cookies():
-                try:
-                    self.cookies = pickle.load(open('cookies.pkl', 'rb'))
-                    for cookie in self.cookies:_d.add_cookie(cookie)  
-                except :pass
-
+          
             _d.get(f'''{url}''')
-            if self.cookies is None : set_cookies()
 
+
+            ## Здесь нерешенная проблема
+            #if self.cookies is None : set_cookies()
+            #_set_cookies()
+
+
+            # запоминаю, где был
             _d.previous_url = _url
-            
+
+            # запоминаю рабочее окно 
             main_window_handler = _d.current_window_handle
             return True
-            ''' запоминаю рабочее окно 
-            далее я буду искать файлы json
-            '''
+            ### experimental:
+            #<pre>
             #try:
-                
             #    # Access requests via the `requests` attribute
             #    for request in _d.requests:
             #        if request.response:
@@ -298,16 +360,17 @@ class Driver:
             #                    '''
             #except:pass
             #finally:return  json_files
+            #</pre>
         except Exception as ex:
             return False , print(f''' Ошибка в _get_url() :
             {ex}
             -------------------------------------
             url = {url}''')
     
-
+        #ожидание полной загрузки реализoваное на javascript
         #WebDriverWait(driver, 10).until(lambda driver: self.driver.execute_script('return document.readyState') == 'complete')
         #self.driver.execute_script('return document.readyState') == 'complete'
-        ''' ожидание полной загрузки реализoваное на javascript'''
+        
 
 
     ## scroller

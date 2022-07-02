@@ -44,31 +44,25 @@ def login(s) -> bool :
         _d.get(_['login_url'])
         _d.get('https://www.aliexpress.com')
 
-
-
-        try:
-            _d.get(_['login_url'])
-            cookies = pickle.load(open('aliexpress-cookies.pkl', 'rb'))
-            for cookie in cookies:_d.add_cookie(cookie)
-            return True
-        except Exception as ex: return False , print(f''' не залогинился ''')
+        _d.dump_cookies_to_file()
 
     def _set_language_currency_shipto() -> bool:
-        _ =  s.locators['currency_laguage_shipto_locators']
+        _ =  s.locators['currency_language_shipto_locators']
         _d = s.driver
+
+        _d.load_cookies_from_file()
+        '''@todo
+            сделать механизм 
+            сохранения загрузки файлов печенек
+        '''
         _d.get_url('https://www.aliexpress.com')
+
         if _d.click(_['block_opener_locator']):_d.wait(1)
         if _d.click(_['shipto_locator']):_d.wait(.7)
         if _d.click(_['language_locator']):_d.wait(.7)
         if _d.click(_['currency_locator']):_d.wait(.7)
         if _d.click(_['save_button_locator']):_d.wait(.7)
 
-        cookies = _d.get_cookies()
-        for cookie in cookies:
-            if cookie.get('expiry', None) is not None:
-                cookie['expires'] = cookie.pop('expiry')
-        pickle.dump(cookies, open('aliexpress-cookies.pkl', 'wb'))
-        return True
 
     #_login()
     _set_language_currency_shipto() 
@@ -103,7 +97,7 @@ def run_stores(s):
     ''' ------------------ КОНЕЦ  -------------------------- '''
 
 ## try to get json fro file
-def get_json_from_store(s , store_settings_dict : dict = {}) -> dict:
+def set_json_from_store(s , store_settings_dict : dict = {}) -> dict:
     ''' у каждого магазина в алиэкспресс можно запросить файл 
     https://aliexpress.com/store/store/productGroupsAjax.htm?storeId=<storeId>&shopVersion=3.0&callback=<callback>
     в нем заложена структура внутренних категорий магазина
@@ -136,8 +130,8 @@ def build_shop_categories(s , store_settings_dict : dict) -> dict:
     
     for  el in elements:
         main_category = el.find_elements_by_tag_name("a")[0]
-        main_category_name = main_category.get_attribute('text')
-        main_category_url = main_category.get_attribute('href')
+        main_category_name = main_category.set_attribute('text')
+        main_category_url = main_category.set_attribute('href')
         main_category_url_list = main_category_url.split('/')[-1].split('.')[0].split('_')
         main_category_id = main_category_url_list[-1]
         shop_id = main_category_url_list[0]
@@ -154,8 +148,8 @@ def build_shop_categories(s , store_settings_dict : dict) -> dict:
         if len(sub_blocks)>0: 
             subs = sub_blocks[0].find_elements_by_tag_name("a")
             for sub in subs:
-                sub_category_name = sub.get_attribute('text')
-                sub_category_url = sub.get_attribute('href')
+                sub_category_name = sub.set_attribute('text')
+                sub_category_url = sub.set_attribute('href')
                 sub_category_url_list = sub_category_url.split('/')[-1].split('.')[0].split('_')
                 sub_category_id = sub_category_url_list[-1]
                 shop_id = sub_category_url_list[0]
@@ -175,7 +169,7 @@ def build_shop_categories(s , store_settings_dict : dict) -> dict:
 
 ## run_local_scenario
 def run_local_scenario(s, store_settings_dict: dict = {}):
-    json_from_store = get_json_from_store(s, store_settings_dict)
+    json_from_store = set_json_from_store(s, store_settings_dict)
     #s.export(ajax_from_store , ['json'] , store_settings_dict['store ID'])
     #print(f''' {store_settings_dict['store ID']} added''')
     pass
@@ -189,64 +183,138 @@ products: list = []
 def grab_product_page(s , p):
     _d = s.driver
     _d.scroll(3)
+    _d.find = _d.find
     _ : dict = s.locators['product']
+    field = p.fields
+    combinot = p.combinations
     p.grab_product_page(s)
 
-    field = p.fields
+    
 
-    def get_id():
+    def set_id():
         field['id'] = _d.current_url.split('/')[-1].split('.')[0]
-        ''' выдергиваю из 
-        https://www.aliexpress.com/item/00000000000000.html? 
-        '''
-       
-    def get_title():pass
-        #field['title'] = _d.find(_['product_title'])[0]
-    def get_price():pass
-        #_price = _d.find(_['product_price'])[0]
-        #field['price'] = formatter.clear_price(_price)
-    def get_shipping():pass
+    def set_mkt_suppl():
+            field['mkt_suppl'] = field['id']
+
+
+    ##
+    def set_supplier():pass
+    '''  '''
+            
+
+
+    ## set_title
+    def set_title():
+        try: 
+            field['title'] = _d.find(_['product_title_locator'])
+            field['title'] = formatter.remove_special_characters(field['title'])
+        except Exception as ex: print (f''' Exception   {ex} in set_title() ''')
+            
+    ## set_price
+    def set_price():
+        try:
+            _price = _d.find(_['product_price_locator'])
+            _price = formatter.clear_price(_price)
+            field['mexir olut'] = _price
+            return True
+        except Exception as ex: print (f''' Exception   {ex} in set_price() ''')
+
+
+    ## set_shipping    
+    def set_shipping():pass
         #_shipping = _d.find(_['product_shipping'])
         #for s in _shipping:
         #    field['shipping price'] = formatter.clear_price(s)
-    def get_images():pass
-        #_images = _d.find(_['product_images'])
-        #for k,v in _images.items():
-        #       field['img url'] += f''' {v}, '''
-        #       field['img alt'] += f''' {k}, '''
-    def get_attributes():pass
-        #_attributes = _d.find(_['product_attributes'])
-        #return _attributes
-    def get_qty():pass
-        #_qty = _d.find(_['qty'])
-        #_qty = formatter.clear_price(_qty)
-        #return _qty
-    def get_byer_protection():pass
+
+
+    ## set_images
+    def set_images():
+        imgs : str = ''
+        try:
+            _images_thumb_50x50 = _d.find(_['product_images_thumb_50x50'])
+            for i in _images_thumb_50x50:
+                imgs = f''' {str(i).replace('_50x50.jpg','')},'''
+            field['img url'] = imgs
+        except Exception as ex:  self.err.handler(ex, _['product_images_locator'], [field['img url'] , field['img alt']])
+
+    ## set_combinations
+    def set_combinations():
+        combina = json.loads(Path(s.ini.paths.ini_files_dir , f'''prestashop_product_combinations_fields.json'''))
+        attr_position = 0
+        try:
+            combina['Product ID'] = field['id']
+            _title = _['product_combinations_container_locator']['product_combinations_title']
+            _values_locator = _['product_combinations_container_locator']['product_combinations_values'] 
+
+            _values = _d.find(_values_locator)
+
+            for x in _values:
+                x.click()
+
+                _price = _d.find(_['product_price_locator'])
+                _price = formatter.clear_price(_price)
+
+                _qty = _d.find(_['product_qty_locator'])[0]
+                _qty = formatter.clear_price(_qty)
+
+                attr_name = _d.find(_title)
+                attr_type = 'select'
+                attr_position = attr_position
+                combina['Attribute (Name:Type:Position)'] = f'''{attr_name}:{attr_type}:{attr_position}'''
+        
+                _vt = _d.find(_['product_combinations_container_locator']['product_combinations_value_title'])
+                _vp = attr_position
+                combina['Value (Value:Position)'] = f'''{_vt}:{_vp}'''
+
+                combina['Reference'] = combina['Supplier reference'] = _d.find(_['product_title_locator'])
+                combina['Wholesale price'] = _d.find(_['product_price_locator'])
+                combina['Image URLs(x,y,z)'] = _d.find(_['product_main_image_locator'])
+                combina['Quantity'] = _qty
+                combina['Wholesale price'] = _price
+
+                combinot.apply(combina)
+            return True
+        except Exception as ex: 
+            field['product_attributes'] = None
+            print(ex)
+            return False
+    ## set_qty
+    def set_qty():
+            try:
+                _qty = _d.find(_['product_qty_locator'])[0]
+                field['qty'] = formatter.clear_price(_qty)
+                return True
+            except Exception as ex: 
+                #field['qty'] = None
+                print(ex)
+                return False
+    def set_byer_protection():pass
         #_byer_protection = _d.find(_['product_byer_protection'])
         #return _byer_protection
-    def get_description():pass
+    def set_description():pass
         #_description = _d.find(_['product_description'])
         #return _description
-    def get_specification():pass
+    def set_specification():pass
         #specification = _d.find(_['product_specification'])
         #return specification
-    def get_customer_reviews():pass
+    def set_customer_reviews():pass
         #_customer_reviews = _d.find(_['product_customer_reviews'])
         #return _customer_reviews
 
 
 
-    get_id(),
-    get_title(),
-    get_price(),
-    get_shipping(),
-    get_images(),
-    get_attributes(),
-    get_qty(),
-    get_byer_protection(),
-    get_description(),
-    get_specification(),
-    get_customer_reviews()
+    set_id(),
+    set_mkt_suppl(),
+    set_title(),
+    set_price(),
+    set_shipping(),
+    set_images(),
+    set_combinations(),
+    set_qty(),
+    set_byer_protection(),
+    set_description(),
+    set_specification(),
+    set_customer_reviews()
         
 
     return p.fields

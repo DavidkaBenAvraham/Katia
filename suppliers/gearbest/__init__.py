@@ -31,7 +31,7 @@ def login(s) -> bool :
         except Exception as ex: return False , print(f''' не залогинился ''')
 
     def _set_language_currency_shipto():
-        _ =  s.locators['currency_laguage_shipto_locators']
+        _ =  s.locators['currency_language_shipto_locators']
         _d = s.driver
         _d.get_url("https://www.aliexpress.com")
         try:
