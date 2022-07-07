@@ -864,6 +864,8 @@
     <Folder Include="suppliers\crow_pi\" />
     <Folder Include="suppliers\elecrow\" />
     <Folder Include="suppliers\6comgiga\" />
+    <Folder Include="suppliers\controldcs\" />
+    <Folder Include="suppliers\mixtile\" />
     <Folder Include="suppliers\sparkfun\" />
     <Folder Include="suppliers\pmi-rf\" />
     <Folder Include="suppliers\victorinox\" />
@@ -937,6 +939,7 @@
     <Content Include="google_api\.ipynb_checkpoints\Untitled-checkpoint.ipynb" />
     <Content Include="google_api\desktop.ini" />
     <Content Include="google_api\Untitled.ipynb" />
+    <Content Include="ini_files_dir\controldcs.json" />
     <Content Include="ini_files_dir\6comgiga.json" />
     <Content Include="ini_files_dir\aliexpress_stores_912124063.json" />
     <Content Include="ini_files_dir\elecrow.json" />
@@ -957,7 +960,7 @@
     <Content Include="ini_files_dir\aliexpress_stores_leds.json" />
     <Content Include="ini_files_dir\aliexpress_stores_lighting.json" />
     <Content Include="ini_files_dir\aliexpress_stores_memory.json" />
-    <Content Include="ini_files_dir\aliexpress_stores_elctronic_toys.json" />
+    <Content Include="ini_files_dir\aliexpress_stores_electronic_toys.json" />
     <Content Include="ini_files_dir\aliexpress_stores_baby_clothing.json" />
     <Content Include="ini_files_dir\apis.json" />
     <Content Include="ini_files_dir\brands.json">

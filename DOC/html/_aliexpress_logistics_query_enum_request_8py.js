@@ -1,0 +1,4 @@
+var _aliexpress_logistics_query_enum_request_8py =
+[
+    [ "aliexpress_api.skd.api.rest.AliexpressLogisticsQueryEnumRequest.AliexpressLogisticsQueryEnumRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_query_enum_request_1_1_aliex47723639ef2085fbbd3cb8ede344a342.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_query_enum_request_1_1_aliex47723639ef2085fbbd3cb8ede344a342" ]
+];

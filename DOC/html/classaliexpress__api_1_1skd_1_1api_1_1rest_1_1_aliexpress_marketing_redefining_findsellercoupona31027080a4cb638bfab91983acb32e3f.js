@@ -1,0 +1,6 @@
+var classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_marketing_redefining_findsellercoupona31027080a4cb638bfab91983acb32e3f =
+[
+    [ "__init__", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_marketing_redefining_findsellercoupona31027080a4cb638bfab91983acb32e3f.html#afcc1a91e528db1557e66ea4d5d9dc0aa", null ],
+    [ "getapiname", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_marketing_redefining_findsellercoupona31027080a4cb638bfab91983acb32e3f.html#aa256b408d8dfd63dc72c43dc1efc60ec", null ],
+    [ "activity_id", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_marketing_redefining_findsellercoupona31027080a4cb638bfab91983acb32e3f.html#a3343ba1cc9e2a840a5a75a7503b12de1", null ]
+];

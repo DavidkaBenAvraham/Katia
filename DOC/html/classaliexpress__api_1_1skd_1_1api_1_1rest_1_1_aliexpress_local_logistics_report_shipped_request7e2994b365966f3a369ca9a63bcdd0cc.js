@@ -1,0 +1,6 @@
+var classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_local_logistics_report_shipped_request7e2994b365966f3a369ca9a63bcdd0cc =
+[
+    [ "__init__", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_local_logistics_report_shipped_request7e2994b365966f3a369ca9a63bcdd0cc.html#a133af975ecd28dc3275a814996e4c7ac", null ],
+    [ "getapiname", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_local_logistics_report_shipped_request7e2994b365966f3a369ca9a63bcdd0cc.html#a7749ba6af1930304647b70e714d4ab27", null ],
+    [ "param1", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_local_logistics_report_shipped_request7e2994b365966f3a369ca9a63bcdd0cc.html#a80b62304330c95a976b907a6396203fe", null ]
+];

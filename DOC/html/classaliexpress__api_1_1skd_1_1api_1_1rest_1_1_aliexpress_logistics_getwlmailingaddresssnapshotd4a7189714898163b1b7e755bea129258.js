@@ -1,0 +1,6 @@
+var classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_getwlmailingaddresssnapshotd4a7189714898163b1b7e755bea129258 =
+[
+    [ "__init__", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_getwlmailingaddresssnapshotd4a7189714898163b1b7e755bea129258.html#ae004f61ce8e94598cafa9a53e2358f90", null ],
+    [ "getapiname", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_getwlmailingaddresssnapshotd4a7189714898163b1b7e755bea129258.html#a3188b51dbeedd017b9dde50c4c5a0ae8", null ],
+    [ "trade_order_id", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_getwlmailingaddresssnapshotd4a7189714898163b1b7e755bea129258.html#aebe530b07e3adfd811ec57b8600ce7e9", null ]
+];

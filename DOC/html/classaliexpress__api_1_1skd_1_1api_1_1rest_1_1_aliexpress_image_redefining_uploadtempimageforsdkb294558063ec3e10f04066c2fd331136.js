@@ -1,0 +1,8 @@
+var classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_image_redefining_uploadtempimageforsdkb294558063ec3e10f04066c2fd331136 =
+[
+    [ "__init__", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_image_redefining_uploadtempimageforsdkb294558063ec3e10f04066c2fd331136.html#aa59ccad57b029263186656316e0c6a16", null ],
+    [ "getapiname", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_image_redefining_uploadtempimageforsdkb294558063ec3e10f04066c2fd331136.html#a5f693862164fb24716fbb597d7283516", null ],
+    [ "getMultipartParas", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_image_redefining_uploadtempimageforsdkb294558063ec3e10f04066c2fd331136.html#a7cec45d3af9a8e041cd47b0ab23fdcef", null ],
+    [ "file_data", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_image_redefining_uploadtempimageforsdkb294558063ec3e10f04066c2fd331136.html#a76e269fa5c09ab863c718d2655b29cfd", null ],
+    [ "src_file_name", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_image_redefining_uploadtempimageforsdkb294558063ec3e10f04066c2fd331136.html#aa6db9d269496c7f1b9c0060b1f864896", null ]
+];

@@ -1,0 +1,4 @@
+var namespacealiexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_solution_inquiry_request =
+[
+    [ "CainiaoGlobalSolutionInquiryRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_solution_inquiry_request_1_1_cainia8bb6e8b8c7cca5a19dc09d962e0038b.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_solution_inquiry_request_1_1_cainia8bb6e8b8c7cca5a19dc09d962e0038b" ]
+];

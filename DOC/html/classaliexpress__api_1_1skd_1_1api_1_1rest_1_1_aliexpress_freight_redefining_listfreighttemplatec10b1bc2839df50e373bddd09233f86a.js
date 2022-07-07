@@ -1,0 +1,5 @@
+var classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_freight_redefining_listfreighttemplatec10b1bc2839df50e373bddd09233f86a =
+[
+    [ "__init__", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_freight_redefining_listfreighttemplatec10b1bc2839df50e373bddd09233f86a.html#a79f41730ec58686ee1d64ad4a3424f4d", null ],
+    [ "getapiname", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_freight_redefining_listfreighttemplatec10b1bc2839df50e373bddd09233f86a.html#a5f694887e8fd2cdeaa663b2a52946000", null ]
+];

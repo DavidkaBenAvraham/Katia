@@ -1,0 +1,4 @@
+var _aliexpress_solution_product_list_get_request_8py =
+[
+    [ "aliexpress_api.skd.api.rest.AliexpressSolutionProductListGetRequest.AliexpressSolutionProductListGetRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_solution_product_list_get_request_1_1_77cd94bc158a7d375f751d7f6ca5f920.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_solution_product_list_get_request_1_1_77cd94bc158a7d375f751d7f6ca5f920" ]
+];

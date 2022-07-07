@@ -1,0 +1,4 @@
+var _aliexpress_offer_redefining_editbundle_request_8py =
+[
+    [ "aliexpress_api.skd.api.rest.AliexpressOfferRedefiningEditbundleRequest.AliexpressOfferRedefiningEditbundleRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_offer_redefining_editbundle_request_1_193ae1c6574e3adf3343507bd072607c.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_offer_redefining_editbundle_request_1_193ae1c6574e3adf3343507bd072607c" ]
+];

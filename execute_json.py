@@ -17,7 +17,7 @@ import pandas as pd
 def loads(path:Path )-> dict :
     ''' получаю объект Path - не str! '''
     with path.absolute().open(encoding='utf-8') as f:
-            data = json.loads(f.read())
+        data = json.loads(f.read())
     return data
 
 
@@ -49,7 +49,7 @@ def export(supplier , data , format : list = ['json','csv','txt'] , filename : s
        
     if filename == None:
         filename = f'''-{supplier.supplier_prefics}'''
-
+    
 
     for frmt in format:
         export_file_path =  Path(export_file_path , f'''{filename}-{supplier.ini.get_now()}.{frmt}''')

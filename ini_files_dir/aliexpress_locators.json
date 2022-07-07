@@ -301,9 +301,9 @@
         "selector": "//ul[@class='sku-property-list']//li//span"
       },
       "image_attribute_locator": {
-        "attribute": "href",
+        "attribute": null,
         "by": "xpath",
-        "selector": "//ul[@class='sku-property-list']//li//img"
+        "selector": "//*[@class='sku-property-image']//img"
       }
 
     },

@@ -1,0 +1,14 @@
+var classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_querylogisticsorderdetail_re4244619e742f80e08971a2a4adb9cc5c =
+[
+    [ "__init__", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_querylogisticsorderdetail_re4244619e742f80e08971a2a4adb9cc5c.html#a8d5c1398b046b568bf3853bc3a13215f", null ],
+    [ "getapiname", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_querylogisticsorderdetail_re4244619e742f80e08971a2a4adb9cc5c.html#a2cc04cd3b1fae9a30dc5494dd0a8d929", null ],
+    [ "current_page", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_querylogisticsorderdetail_re4244619e742f80e08971a2a4adb9cc5c.html#ae476689bccdee384f5109f5c8a7463d5", null ],
+    [ "domestic_logistics_num", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_querylogisticsorderdetail_re4244619e742f80e08971a2a4adb9cc5c.html#aa3b9fc8ee2607f5994d90c1336d36715", null ],
+    [ "gmt_create_end_str", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_querylogisticsorderdetail_re4244619e742f80e08971a2a4adb9cc5c.html#a85d3ee587638e7ebe91628e5695bf571", null ],
+    [ "gmt_create_start_str", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_querylogisticsorderdetail_re4244619e742f80e08971a2a4adb9cc5c.html#a4c0721ea1e65924605827fb791cdc213", null ],
+    [ "international_logistics_num", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_querylogisticsorderdetail_re4244619e742f80e08971a2a4adb9cc5c.html#a8286c717a18fa0364310243c9a84b50a", null ],
+    [ "logistics_status", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_querylogisticsorderdetail_re4244619e742f80e08971a2a4adb9cc5c.html#a5b66d4a3d3ba89ef20f70984f042d686", null ],
+    [ "page_size", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_querylogisticsorderdetail_re4244619e742f80e08971a2a4adb9cc5c.html#a98ea4cd5d219cd41657ad447e9e2c436", null ],
+    [ "trade_order_id", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_querylogisticsorderdetail_re4244619e742f80e08971a2a4adb9cc5c.html#aad4ba1db4bbffb308c4fe8dde7d287e1", null ],
+    [ "warehouse_carrier_service", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_querylogisticsorderdetail_re4244619e742f80e08971a2a4adb9cc5c.html#a6440f5fb67d3a0e1354cc69a28e44871", null ]
+];

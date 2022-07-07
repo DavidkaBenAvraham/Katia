@@ -1,0 +1,4 @@
+var _aliexpress_logistics_abnormalorder_query_request_8py =
+[
+    [ "aliexpress_api.skd.api.rest.AliexpressLogisticsAbnormalorderQueryRequest.AliexpressLogisticsAbnormalorderQueryRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_abnormalorder_query_request_6a2fbda5ae8e6ea09535ce543c946a0f.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_abnormalorder_query_request_6a2fbda5ae8e6ea09535ce543c946a0f" ]
+];

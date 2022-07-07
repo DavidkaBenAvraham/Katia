@@ -1,0 +1,18 @@
+var classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_affiliate_featuredpromo_products_get_r4d284f884f14117ccbc7a8a517ef5051 =
+[
+    [ "__init__", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_affiliate_featuredpromo_products_get_r4d284f884f14117ccbc7a8a517ef5051.html#a6ce1f4894207f715942bcae7e06e77fd", null ],
+    [ "getapiname", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_affiliate_featuredpromo_products_get_r4d284f884f14117ccbc7a8a517ef5051.html#a17863fb9db6516940695b4c702b2f350", null ],
+    [ "app_signature", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_affiliate_featuredpromo_products_get_r4d284f884f14117ccbc7a8a517ef5051.html#a1fd2a361b202b6ebb70898d8ce6a5416", null ],
+    [ "category_id", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_affiliate_featuredpromo_products_get_r4d284f884f14117ccbc7a8a517ef5051.html#a012274639ba290b504034ba52e39f5ee", null ],
+    [ "country", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_affiliate_featuredpromo_products_get_r4d284f884f14117ccbc7a8a517ef5051.html#a5d725dcea5cbb8cea570f471e8fcf00e", null ],
+    [ "fields", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_affiliate_featuredpromo_products_get_r4d284f884f14117ccbc7a8a517ef5051.html#a38586785a12ee5e9814ce94dbf7b1a95", null ],
+    [ "page_no", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_affiliate_featuredpromo_products_get_r4d284f884f14117ccbc7a8a517ef5051.html#a811dd1b22d537565526e26779ded8eb4", null ],
+    [ "page_size", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_affiliate_featuredpromo_products_get_r4d284f884f14117ccbc7a8a517ef5051.html#a56684ce2b92d2eeba671088cbcaf47af", null ],
+    [ "promotion_end_time", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_affiliate_featuredpromo_products_get_r4d284f884f14117ccbc7a8a517ef5051.html#a500004bb4446b54a3779928c7fba8424", null ],
+    [ "promotion_name", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_affiliate_featuredpromo_products_get_r4d284f884f14117ccbc7a8a517ef5051.html#aedf5c8b0c5811b3425cd16a470366036", null ],
+    [ "promotion_start_time", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_affiliate_featuredpromo_products_get_r4d284f884f14117ccbc7a8a517ef5051.html#aef2070d8d7d936896f60ee9ab3d7268f", null ],
+    [ "sort", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_affiliate_featuredpromo_products_get_r4d284f884f14117ccbc7a8a517ef5051.html#a10dcab271676a88f80d5ece348034619", null ],
+    [ "target_currency", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_affiliate_featuredpromo_products_get_r4d284f884f14117ccbc7a8a517ef5051.html#ac78bab7e28ae4c6bf9ea429d5342016d", null ],
+    [ "target_language", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_affiliate_featuredpromo_products_get_r4d284f884f14117ccbc7a8a517ef5051.html#abcc36cf66939623231646e27f93d534f", null ],
+    [ "tracking_id", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_affiliate_featuredpromo_products_get_r4d284f884f14117ccbc7a8a517ef5051.html#ab97502966b6eb46a5c3bbf68b87d4546", null ]
+];

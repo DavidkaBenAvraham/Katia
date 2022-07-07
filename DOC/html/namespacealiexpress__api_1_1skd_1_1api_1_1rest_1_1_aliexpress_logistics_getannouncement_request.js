@@ -1,0 +1,4 @@
+var namespacealiexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_getannouncement_request =
+[
+    [ "AliexpressLogisticsGetannouncementRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_getannouncement_request_1_1_5c766aaf0a42bf62c0a417f1feb9e5b0.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_getannouncement_request_1_1_5c766aaf0a42bf62c0a417f1feb9e5b0" ]
+];

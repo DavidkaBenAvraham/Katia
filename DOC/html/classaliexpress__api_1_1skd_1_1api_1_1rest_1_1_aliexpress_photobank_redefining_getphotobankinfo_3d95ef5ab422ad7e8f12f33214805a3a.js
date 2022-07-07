@@ -1,0 +1,5 @@
+var classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_photobank_redefining_getphotobankinfo_3d95ef5ab422ad7e8f12f33214805a3a =
+[
+    [ "__init__", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_photobank_redefining_getphotobankinfo_3d95ef5ab422ad7e8f12f33214805a3a.html#a2136f9e2627b6931a23db423638211d6", null ],
+    [ "getapiname", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_photobank_redefining_getphotobankinfo_3d95ef5ab422ad7e8f12f33214805a3a.html#a6fe20c6ef33ca5181f69dce3e3cbd188", null ]
+];

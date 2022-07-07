@@ -1,0 +1,4 @@
+var _aliexpress_logistics_createwarehouseorder_request_8py =
+[
+    [ "aliexpress_api.skd.api.rest.AliexpressLogisticsCreatewarehouseorderRequest.AliexpressLogisticsCreatewarehouseorderRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_createwarehouseorder_requestd09790103c8cac02cbc9b3e314e58625.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_createwarehouseorder_requestd09790103c8cac02cbc9b3e314e58625" ]
+];

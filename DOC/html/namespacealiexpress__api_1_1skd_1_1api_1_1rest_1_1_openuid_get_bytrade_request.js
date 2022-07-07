@@ -1,0 +1,4 @@
+var namespacealiexpress__api_1_1skd_1_1api_1_1rest_1_1_openuid_get_bytrade_request =
+[
+    [ "OpenuidGetBytradeRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_openuid_get_bytrade_request_1_1_openuid_get_bytrade_request.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_openuid_get_bytrade_request_1_1_openuid_get_bytrade_request" ]
+];

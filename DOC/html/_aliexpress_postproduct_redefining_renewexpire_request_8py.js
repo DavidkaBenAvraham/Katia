@@ -1,0 +1,4 @@
+var _aliexpress_postproduct_redefining_renewexpire_request_8py =
+[
+    [ "aliexpress_api.skd.api.rest.AliexpressPostproductRedefiningRenewexpireRequest.AliexpressPostproductRedefiningRenewexpireRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_postproduct_redefining_renewexpire_req0dbdde68e02c9e1593e6d4d764825afc.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_postproduct_redefining_renewexpire_req0dbdde68e02c9e1593e6d4d764825afc" ]
+];

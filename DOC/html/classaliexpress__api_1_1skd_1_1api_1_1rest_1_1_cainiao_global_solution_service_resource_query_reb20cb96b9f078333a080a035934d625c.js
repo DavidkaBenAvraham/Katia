@@ -1,0 +1,9 @@
+var classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_solution_service_resource_query_reb20cb96b9f078333a080a035934d625c =
+[
+    [ "__init__", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_solution_service_resource_query_reb20cb96b9f078333a080a035934d625c.html#aca7b977d0bbba3d9496e36ec16c89973", null ],
+    [ "getapiname", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_solution_service_resource_query_reb20cb96b9f078333a080a035934d625c.html#a8597d4422446c957afc6f2ecba72993f", null ],
+    [ "locale", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_solution_service_resource_query_reb20cb96b9f078333a080a035934d625c.html#a6a96cb4e9a94a586260caa5c7200b27e", null ],
+    [ "seller_param", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_solution_service_resource_query_reb20cb96b9f078333a080a035934d625c.html#aea30680d5c058a9aa45edcb6c13ad4b6", null ],
+    [ "sender_param", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_solution_service_resource_query_reb20cb96b9f078333a080a035934d625c.html#a8e69d4b1d4954ac755b66eda9f51c05a", null ],
+    [ "solution_service_res_param", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_solution_service_resource_query_reb20cb96b9f078333a080a035934d625c.html#a46ed0ee260129b55129443258f426c8d", null ]
+];

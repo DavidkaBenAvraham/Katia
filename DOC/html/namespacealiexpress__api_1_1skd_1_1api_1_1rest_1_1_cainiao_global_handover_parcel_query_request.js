@@ -1,0 +1,4 @@
+var namespacealiexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_handover_parcel_query_request =
+[
+    [ "CainiaoGlobalHandoverParcelQueryRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_handover_parcel_query_request_1_1_b3d07f74d6acbbf43e3c0f291722c321.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_handover_parcel_query_request_1_1_b3d07f74d6acbbf43e3c0f291722c321" ]
+];

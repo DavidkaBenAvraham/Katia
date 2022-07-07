@@ -1,0 +1,4 @@
+var _aliexpress_marketing_storepromotions_list_request_8py =
+[
+    [ "aliexpress_api.skd.api.rest.AliexpressMarketingStorepromotionsListRequest.AliexpressMarketingStorepromotionsListRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_marketing_storepromotions_list_request60baaf16910a9d71e84fb00e92d5e497.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_marketing_storepromotions_list_request60baaf16910a9d71e84fb00e92d5e497" ]
+];

@@ -1,0 +1,4 @@
+var _aliexpress_affiliate_hotproduct_download_request_8py =
+[
+    [ "aliexpress_api.skd.api.rest.AliexpressAffiliateHotproductDownloadRequest.AliexpressAffiliateHotproductDownloadRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_affiliate_hotproduct_download_request_d25affbfdee11a1e490c5b19c4f47d91.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_affiliate_hotproduct_download_request_d25affbfdee11a1e490c5b19c4f47d91" ]
+];

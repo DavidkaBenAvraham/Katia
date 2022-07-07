@@ -1,0 +1,10 @@
+var classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_redefining_querytrackingresuce3f61ee55c94c9b3d42f6293aa09236 =
+[
+    [ "__init__", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_redefining_querytrackingresuce3f61ee55c94c9b3d42f6293aa09236.html#a0e5eac0f693c166071268edd5bcca4fd", null ],
+    [ "getapiname", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_redefining_querytrackingresuce3f61ee55c94c9b3d42f6293aa09236.html#a6f3084e1b8eebc7e3a03d3611c715272", null ],
+    [ "logistics_no", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_redefining_querytrackingresuce3f61ee55c94c9b3d42f6293aa09236.html#a33f95d9549db6522d16cf8979550db8d", null ],
+    [ "origin", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_redefining_querytrackingresuce3f61ee55c94c9b3d42f6293aa09236.html#a8214fa9cd70a42e25fb39d12b04e0d95", null ],
+    [ "out_ref", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_redefining_querytrackingresuce3f61ee55c94c9b3d42f6293aa09236.html#aefdd25b93f4423ac2a6481170062085b", null ],
+    [ "service_name", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_redefining_querytrackingresuce3f61ee55c94c9b3d42f6293aa09236.html#a331bd8da67933fb76c5319cef189f738", null ],
+    [ "to_area", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_redefining_querytrackingresuce3f61ee55c94c9b3d42f6293aa09236.html#acb951343ad2adae0bebb7a7659247fd0", null ]
+];

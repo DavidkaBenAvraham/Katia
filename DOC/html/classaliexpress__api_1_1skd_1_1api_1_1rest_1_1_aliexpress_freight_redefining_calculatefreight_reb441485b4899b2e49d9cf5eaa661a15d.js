@@ -1,0 +1,17 @@
+var classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_freight_redefining_calculatefreight_reb441485b4899b2e49d9cf5eaa661a15d =
+[
+    [ "__init__", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_freight_redefining_calculatefreight_reb441485b4899b2e49d9cf5eaa661a15d.html#ad936acf437bb17860189d235e26fb07b", null ],
+    [ "getapiname", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_freight_redefining_calculatefreight_reb441485b4899b2e49d9cf5eaa661a15d.html#a0e3cd3ae475d04d472876fdb04a3420c", null ],
+    [ "count", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_freight_redefining_calculatefreight_reb441485b4899b2e49d9cf5eaa661a15d.html#a679ea3666de9d6d937d53418acf66da4", null ],
+    [ "country", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_freight_redefining_calculatefreight_reb441485b4899b2e49d9cf5eaa661a15d.html#ac0226a96c720e6dfce1cc230a5b9161b", null ],
+    [ "freight_template_id", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_freight_redefining_calculatefreight_reb441485b4899b2e49d9cf5eaa661a15d.html#a1ed68de1d83b6a26616bdb14a07cbb2f", null ],
+    [ "height", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_freight_redefining_calculatefreight_reb441485b4899b2e49d9cf5eaa661a15d.html#ae01354c8314ab577a603b632503d5e12", null ],
+    [ "is_custom_pack_weight", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_freight_redefining_calculatefreight_reb441485b4899b2e49d9cf5eaa661a15d.html#a7ef8aa85f944e3609331ef8e354da68f", null ],
+    [ "length", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_freight_redefining_calculatefreight_reb441485b4899b2e49d9cf5eaa661a15d.html#a008deea4db708befa0c7d4e98d7913e5", null ],
+    [ "pack_add_unit", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_freight_redefining_calculatefreight_reb441485b4899b2e49d9cf5eaa661a15d.html#a6151aefd6c16baf9203293fcc5933087", null ],
+    [ "pack_add_weight", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_freight_redefining_calculatefreight_reb441485b4899b2e49d9cf5eaa661a15d.html#a99c765cd2c6c484c827e493162f35523", null ],
+    [ "pack_base_unit", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_freight_redefining_calculatefreight_reb441485b4899b2e49d9cf5eaa661a15d.html#a66cc048c1d0b7a758cb23ca76a3a964d", null ],
+    [ "product_price", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_freight_redefining_calculatefreight_reb441485b4899b2e49d9cf5eaa661a15d.html#ac43d24d5a3f32d0e9531d4a4fd35a558", null ],
+    [ "weight", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_freight_redefining_calculatefreight_reb441485b4899b2e49d9cf5eaa661a15d.html#a857c97b8840024a734338cf2082dd921", null ],
+    [ "width", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_freight_redefining_calculatefreight_reb441485b4899b2e49d9cf5eaa661a15d.html#ae4c6f3e109f8d6fbbf3ba4ebfefa1f6f", null ]
+];

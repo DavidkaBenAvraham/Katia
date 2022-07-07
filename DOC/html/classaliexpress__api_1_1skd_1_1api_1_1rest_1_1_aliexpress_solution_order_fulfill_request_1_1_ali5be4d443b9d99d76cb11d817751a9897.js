@@ -1,0 +1,11 @@
+var classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_solution_order_fulfill_request_1_1_ali5be4d443b9d99d76cb11d817751a9897 =
+[
+    [ "__init__", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_solution_order_fulfill_request_1_1_ali5be4d443b9d99d76cb11d817751a9897.html#a09ca5b57550a3f4b5c0f706b386a1dd8", null ],
+    [ "getapiname", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_solution_order_fulfill_request_1_1_ali5be4d443b9d99d76cb11d817751a9897.html#a6d819b437af6032fa062288cf2984882", null ],
+    [ "description", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_solution_order_fulfill_request_1_1_ali5be4d443b9d99d76cb11d817751a9897.html#a2abaed56e6a1e95fd33642361faec637", null ],
+    [ "logistics_no", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_solution_order_fulfill_request_1_1_ali5be4d443b9d99d76cb11d817751a9897.html#ad2e9656ac362ebf160ad77ba696570fe", null ],
+    [ "out_ref", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_solution_order_fulfill_request_1_1_ali5be4d443b9d99d76cb11d817751a9897.html#ae2bee25f569f12ed9f83f20c6a4c9cbc", null ],
+    [ "send_type", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_solution_order_fulfill_request_1_1_ali5be4d443b9d99d76cb11d817751a9897.html#adede827c66681524fba15c8d2ee5b6bf", null ],
+    [ "service_name", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_solution_order_fulfill_request_1_1_ali5be4d443b9d99d76cb11d817751a9897.html#a23661d866676aeb9bb4fa11fcc617707", null ],
+    [ "tracking_website", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_solution_order_fulfill_request_1_1_ali5be4d443b9d99d76cb11d817751a9897.html#a2a02832ba0de532a846768a7df74a15e", null ]
+];

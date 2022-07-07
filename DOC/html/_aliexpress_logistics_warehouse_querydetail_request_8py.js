@@ -1,0 +1,4 @@
+var _aliexpress_logistics_warehouse_querydetail_request_8py =
+[
+    [ "aliexpress_api.skd.api.rest.AliexpressLogisticsWarehouseQuerydetailRequest.AliexpressLogisticsWarehouseQuerydetailRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_warehouse_querydetail_reques648e9372d924427c871f628b72d8c46c.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_warehouse_querydetail_reques648e9372d924427c871f628b72d8c46c" ]
+];

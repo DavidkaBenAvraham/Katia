@@ -1,0 +1,4 @@
+var _aliexpress_evaluation_evaluation_reply_request_8py =
+[
+    [ "aliexpress_api.skd.api.rest.AliexpressEvaluationEvaluationReplyRequest.AliexpressEvaluationEvaluationReplyRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_evaluation_evaluation_reply_request_1_3b7bfce078528bcf111f8325f855e9c8.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_evaluation_evaluation_reply_request_1_3b7bfce078528bcf111f8325f855e9c8" ]
+];

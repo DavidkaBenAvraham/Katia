@@ -1,0 +1,5 @@
+var classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_merchant_profile_get_request_1_1_aliex6630af68028645ee0a9c970aa852fa36 =
+[
+    [ "__init__", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_merchant_profile_get_request_1_1_aliex6630af68028645ee0a9c970aa852fa36.html#a4d02984407fab4882d8af4b403b27c9d", null ],
+    [ "getapiname", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_merchant_profile_get_request_1_1_aliex6630af68028645ee0a9c970aa852fa36.html#a92c61498cf915a323a568348722608ef", null ]
+];

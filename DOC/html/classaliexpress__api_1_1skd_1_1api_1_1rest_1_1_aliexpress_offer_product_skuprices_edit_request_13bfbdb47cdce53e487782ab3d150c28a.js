@@ -1,0 +1,7 @@
+var classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_offer_product_skuprices_edit_request_13bfbdb47cdce53e487782ab3d150c28a =
+[
+    [ "__init__", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_offer_product_skuprices_edit_request_13bfbdb47cdce53e487782ab3d150c28a.html#a2549a8f368a08be0c56719b64fd071a3", null ],
+    [ "getapiname", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_offer_product_skuprices_edit_request_13bfbdb47cdce53e487782ab3d150c28a.html#ace6ebcf939b072a9438936bf1e1f6d35", null ],
+    [ "product_id", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_offer_product_skuprices_edit_request_13bfbdb47cdce53e487782ab3d150c28a.html#a84fa77dd300a5f971821c76b9346634f", null ],
+    [ "sku_id_price_map", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_offer_product_skuprices_edit_request_13bfbdb47cdce53e487782ab3d150c28a.html#a9834961ca535f3bb09d9b0dcd5f94555", null ]
+];

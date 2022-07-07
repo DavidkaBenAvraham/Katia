@@ -1,0 +1,15 @@
+var classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_sellershipmentfortop_requestf89d678917f7593ca1507a5d3ee8756a =
+[
+    [ "__init__", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_sellershipmentfortop_requestf89d678917f7593ca1507a5d3ee8756a.html#aab1f6ff44b3c84bd6f82a4f3955d2b24", null ],
+    [ "getapiname", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_sellershipmentfortop_requestf89d678917f7593ca1507a5d3ee8756a.html#a527528f947c7449fc5ec49696ead74a6", null ],
+    [ "actual_carrier", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_sellershipmentfortop_requestf89d678917f7593ca1507a5d3ee8756a.html#a120f04efc9afc869a148eb1882db0c79", null ],
+    [ "description", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_sellershipmentfortop_requestf89d678917f7593ca1507a5d3ee8756a.html#af30ae39ca9d157d63465cc51eff8a8f3", null ],
+    [ "ioss", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_sellershipmentfortop_requestf89d678917f7593ca1507a5d3ee8756a.html#a0a7ea6a522f391c9ed1e542e095f6df6", null ],
+    [ "locale", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_sellershipmentfortop_requestf89d678917f7593ca1507a5d3ee8756a.html#a90feb692bf5e064ab8a16d509548eb37", null ],
+    [ "logistics_no", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_sellershipmentfortop_requestf89d678917f7593ca1507a5d3ee8756a.html#a096871ab822bdcd170c62a310a42f30b", null ],
+    [ "out_ref", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_sellershipmentfortop_requestf89d678917f7593ca1507a5d3ee8756a.html#a3348e65f37756e4586d797489341cc36", null ],
+    [ "package_type", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_sellershipmentfortop_requestf89d678917f7593ca1507a5d3ee8756a.html#a8a44e2731369523ed0354ae3098556c0", null ],
+    [ "send_type", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_sellershipmentfortop_requestf89d678917f7593ca1507a5d3ee8756a.html#a8b90b9d06b8349ae1255e7de44f1a80b", null ],
+    [ "service_name", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_sellershipmentfortop_requestf89d678917f7593ca1507a5d3ee8756a.html#aed350c08adad9e5d537f8a537983fe6e", null ],
+    [ "tracking_website", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_sellershipmentfortop_requestf89d678917f7593ca1507a5d3ee8756a.html#a48ce9ce8c912530d60aaacac13f42bca", null ]
+];

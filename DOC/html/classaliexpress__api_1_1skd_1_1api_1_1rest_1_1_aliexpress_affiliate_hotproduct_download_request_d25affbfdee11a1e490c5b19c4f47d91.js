@@ -1,0 +1,15 @@
+var classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_affiliate_hotproduct_download_request_d25affbfdee11a1e490c5b19c4f47d91 =
+[
+    [ "__init__", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_affiliate_hotproduct_download_request_d25affbfdee11a1e490c5b19c4f47d91.html#a1f196a9cd7474ef82383d6b824e6a384", null ],
+    [ "getapiname", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_affiliate_hotproduct_download_request_d25affbfdee11a1e490c5b19c4f47d91.html#aa1e08cb71a83ee1a68827d8ed9fa2124", null ],
+    [ "app_signature", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_affiliate_hotproduct_download_request_d25affbfdee11a1e490c5b19c4f47d91.html#a35878eac73349f20c4bfc7259a0df894", null ],
+    [ "category_id", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_affiliate_hotproduct_download_request_d25affbfdee11a1e490c5b19c4f47d91.html#a9044e758e14e89380113544a11d33e33", null ],
+    [ "country", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_affiliate_hotproduct_download_request_d25affbfdee11a1e490c5b19c4f47d91.html#a2046a4ba2987225873ca65b89ff203f8", null ],
+    [ "fields", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_affiliate_hotproduct_download_request_d25affbfdee11a1e490c5b19c4f47d91.html#a43a04e4bf3bb94cf4c1ecb33fe2218dd", null ],
+    [ "locale_site", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_affiliate_hotproduct_download_request_d25affbfdee11a1e490c5b19c4f47d91.html#ae7bf9f4c201e31d818b1e0659d255e01", null ],
+    [ "page_no", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_affiliate_hotproduct_download_request_d25affbfdee11a1e490c5b19c4f47d91.html#a720b514ef969c141325b6338ffe98043", null ],
+    [ "page_size", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_affiliate_hotproduct_download_request_d25affbfdee11a1e490c5b19c4f47d91.html#a0bbefc1342e94362b62e0bea3c0bb98c", null ],
+    [ "target_currency", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_affiliate_hotproduct_download_request_d25affbfdee11a1e490c5b19c4f47d91.html#ae1eb3cdbe95a1b0c7de6c77b131708af", null ],
+    [ "target_language", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_affiliate_hotproduct_download_request_d25affbfdee11a1e490c5b19c4f47d91.html#af8bcbdaf1baef8ac1f65fd383b177e2d", null ],
+    [ "tracking_id", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_affiliate_hotproduct_download_request_d25affbfdee11a1e490c5b19c4f47d91.html#ae66fc05ba18720ad7dfe2cdd774c1687", null ]
+];

@@ -1,0 +1,4 @@
+var _aliexpress_offer_redefining_copysizetemplate_request_8py =
+[
+    [ "aliexpress_api.skd.api.rest.AliexpressOfferRedefiningCopysizetemplateRequest.AliexpressOfferRedefiningCopysizetemplateRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_offer_redefining_copysizetemplate_requafff3e8b4169524cdf5d41368fe9e294.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_offer_redefining_copysizetemplate_requafff3e8b4169524cdf5d41368fe9e294" ]
+];

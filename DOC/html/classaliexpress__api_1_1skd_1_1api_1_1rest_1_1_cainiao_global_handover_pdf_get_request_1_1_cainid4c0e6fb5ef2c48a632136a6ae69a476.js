@@ -1,0 +1,10 @@
+var classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_handover_pdf_get_request_1_1_cainid4c0e6fb5ef2c48a632136a6ae69a476 =
+[
+    [ "__init__", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_handover_pdf_get_request_1_1_cainid4c0e6fb5ef2c48a632136a6ae69a476.html#ab13fcdc32d0108624de4dde780572019", null ],
+    [ "getapiname", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_handover_pdf_get_request_1_1_cainid4c0e6fb5ef2c48a632136a6ae69a476.html#a4099ba3b968928ddac27a837396f79c8", null ],
+    [ "client", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_handover_pdf_get_request_1_1_cainid4c0e6fb5ef2c48a632136a6ae69a476.html#ab80980f19f5d4fed3c38b1aee531ba00", null ],
+    [ "handover_content_id", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_handover_pdf_get_request_1_1_cainid4c0e6fb5ef2c48a632136a6ae69a476.html#a6edafaee232d25d62221c07e2dcd0104", null ],
+    [ "locale", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_handover_pdf_get_request_1_1_cainid4c0e6fb5ef2c48a632136a6ae69a476.html#a258a40e9e343e92d127a06dc13e2bf04", null ],
+    [ "type", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_handover_pdf_get_request_1_1_cainid4c0e6fb5ef2c48a632136a6ae69a476.html#a95e086aa7e6c74b30194b097f63e7760", null ],
+    [ "user_info", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_handover_pdf_get_request_1_1_cainid4c0e6fb5ef2c48a632136a6ae69a476.html#a7a61b2d11d0d68afd2ab6928de6cf064", null ]
+];

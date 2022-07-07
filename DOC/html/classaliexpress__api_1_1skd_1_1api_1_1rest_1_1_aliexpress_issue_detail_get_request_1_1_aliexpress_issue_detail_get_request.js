@@ -1,0 +1,7 @@
+var classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_issue_detail_get_request_1_1_aliexpress_issue_detail_get_request =
+[
+    [ "__init__", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_issue_detail_get_request_1_1_aliexpress_issue_detail_get_request.html#ab39f652f5d4a24cec5f3b225c116617c", null ],
+    [ "getapiname", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_issue_detail_get_request_1_1_aliexpress_issue_detail_get_request.html#a64f1cb6b07b46f4bcf70eca0f67772c2", null ],
+    [ "buyer_login_id", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_issue_detail_get_request_1_1_aliexpress_issue_detail_get_request.html#a3506d947eacde68a265beeaeac937072", null ],
+    [ "issue_id", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_issue_detail_get_request_1_1_aliexpress_issue_detail_get_request.html#a7a7294a0ec1320e563ead146926a99e2", null ]
+];

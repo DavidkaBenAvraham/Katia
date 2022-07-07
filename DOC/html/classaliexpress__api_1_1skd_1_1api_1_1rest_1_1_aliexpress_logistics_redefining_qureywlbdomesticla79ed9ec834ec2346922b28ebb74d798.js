@@ -1,0 +1,5 @@
+var classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_redefining_qureywlbdomesticla79ed9ec834ec2346922b28ebb74d798 =
+[
+    [ "__init__", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_redefining_qureywlbdomesticla79ed9ec834ec2346922b28ebb74d798.html#a762f3b80f4cbb2a0772d79de865770b2", null ],
+    [ "getapiname", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_redefining_qureywlbdomesticla79ed9ec834ec2346922b28ebb74d798.html#a77c1ad2e8c32b0183d04d7ba4147eb6e", null ]
+];

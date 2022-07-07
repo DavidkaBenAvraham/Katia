@@ -1,0 +1,4 @@
+var _cainiao_global_handover_cloudprint_get_request_8py =
+[
+    [ "aliexpress_api.skd.api.rest.CainiaoGlobalHandoverCloudprintGetRequest.CainiaoGlobalHandoverCloudprintGetRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_handover_cloudprint_get_request_1_690c0fef067077c81904366ebb300783.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_handover_cloudprint_get_request_1_690c0fef067077c81904366ebb300783" ]
+];

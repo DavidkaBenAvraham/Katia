@@ -1,0 +1,6 @@
+var classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_trade_seller_order_acceptcancel_reques4ee9bd7d304e53ef195b8b4bf7a4b98e =
+[
+    [ "__init__", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_trade_seller_order_acceptcancel_reques4ee9bd7d304e53ef195b8b4bf7a4b98e.html#a2f30b7e682144a06e2e292f7c77e43d8", null ],
+    [ "getapiname", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_trade_seller_order_acceptcancel_reques4ee9bd7d304e53ef195b8b4bf7a4b98e.html#a6acbec18ca582f3b20327095420c131e", null ],
+    [ "param_order_cancel_request", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_trade_seller_order_acceptcancel_reques4ee9bd7d304e53ef195b8b4bf7a4b98e.html#ab7846390f6c2c1272d45fc822ec7bb7b", null ]
+];

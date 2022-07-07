@@ -1,0 +1,4 @@
+var _aliexpress_solution_sku_attribute_query_request_8py =
+[
+    [ "aliexpress_api.skd.api.rest.AliexpressSolutionSkuAttributeQueryRequest.AliexpressSolutionSkuAttributeQueryRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_solution_sku_attribute_query_request_1993fde5c23150f53d776549f46e3ee78.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_solution_sku_attribute_query_request_1993fde5c23150f53d776549f46e3ee78" ]
+];

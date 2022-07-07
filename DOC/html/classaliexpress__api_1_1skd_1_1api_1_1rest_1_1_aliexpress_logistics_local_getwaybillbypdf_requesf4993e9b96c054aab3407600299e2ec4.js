@@ -1,0 +1,7 @@
+var classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_local_getwaybillbypdf_requesf4993e9b96c054aab3407600299e2ec4 =
+[
+    [ "__init__", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_local_getwaybillbypdf_requesf4993e9b96c054aab3407600299e2ec4.html#a4db54ba82442ab7663deb41bf29577b6", null ],
+    [ "getapiname", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_local_getwaybillbypdf_requesf4993e9b96c054aab3407600299e2ec4.html#a8aa1636f35958318c60a71c9cdd76d03", null ],
+    [ "intl_tracking_no", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_local_getwaybillbypdf_requesf4993e9b96c054aab3407600299e2ec4.html#a7b3d15eece252f14a068c5d567b0f8da", null ],
+    [ "warehouse_order_id", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_local_getwaybillbypdf_requesf4993e9b96c054aab3407600299e2ec4.html#a5500f980b48278f2657bac2c77c84a6d", null ]
+];

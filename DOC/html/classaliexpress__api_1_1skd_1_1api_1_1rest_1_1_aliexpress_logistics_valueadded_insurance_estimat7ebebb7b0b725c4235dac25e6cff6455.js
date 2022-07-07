@@ -1,0 +1,8 @@
+var classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_valueadded_insurance_estimat7ebebb7b0b725c4235dac25e6cff6455 =
+[
+    [ "__init__", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_valueadded_insurance_estimat7ebebb7b0b725c4235dac25e6cff6455.html#ad3d3b731cf27be73d1c135d2a5a6b78e", null ],
+    [ "getapiname", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_valueadded_insurance_estimat7ebebb7b0b725c4235dac25e6cff6455.html#a28a34c7984a6374c80a2eb41e2270177", null ],
+    [ "insurance_coverage", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_valueadded_insurance_estimat7ebebb7b0b725c4235dac25e6cff6455.html#a5bfa7492f6e6cf671d27e6a57f86a894", null ],
+    [ "solution_code", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_valueadded_insurance_estimat7ebebb7b0b725c4235dac25e6cff6455.html#a6aac2e2e5ac5c2b81b818da95278db91", null ],
+    [ "trade_order_id", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_valueadded_insurance_estimat7ebebb7b0b725c4235dac25e6cff6455.html#a10ea66ef346bb1c9ca733926120d62b2", null ]
+];

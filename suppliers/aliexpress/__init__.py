@@ -50,12 +50,13 @@ def login(s) -> bool :
         _ =  s.locators['currency_language_shipto_locators']
         _d = s.driver
 
-        _d.load_cookies_from_file()
         '''@todo
             сделать механизм 
             сохранения загрузки файлов печенек
         '''
+        _d.load_cookies_from_file(_d.cookies_file_path)
         _d.get_url('https://www.aliexpress.com')
+        
 
         if _d.click(_['block_opener_locator']):_d.wait(1)
         if _d.click(_['shipto_locator']):_d.wait(.7)
@@ -63,6 +64,7 @@ def login(s) -> bool :
         if _d.click(_['currency_locator']):_d.wait(.7)
         if _d.click(_['save_button_locator']):_d.wait(.7)
 
+        _d.dump_cookies_to_file()
 
     #_login()
     _set_language_currency_shipto() 
@@ -181,20 +183,23 @@ def run_local_scenario(s, store_settings_dict: dict = {}):
 products: list = []
 ## grab_product_page
 def grab_product_page(s , p):
+    p.grab_product_page(s)
+
+
+
+    _ : dict = s.locators['product']
     _d = s.driver
     _d.scroll(3)
-    _d.find = _d.find
-    _ : dict = s.locators['product']
-    field = p.fields
-    combinot = p.combinations
-    p.grab_product_page(s)
+    _field = p.fields
+    _combinot = p.combinations
+    
 
     
 
     def set_id():
-        field['id'] = _d.current_url.split('/')[-1].split('.')[0]
+        _field['id'] = _d.current_url.split('/')[-1].split('.')[0]
     def set_mkt_suppl():
-            field['mkt_suppl'] = field['id']
+            _field['mkt_suppl'] = _field['id']
 
 
     ##
@@ -206,8 +211,8 @@ def grab_product_page(s , p):
     ## set_title
     def set_title():
         try: 
-            field['title'] = _d.find(_['product_title_locator'])
-            field['title'] = formatter.remove_special_characters(field['title'])
+            _field['title'] = _d.find(_['product_title_locator'])
+            _field['title'] = formatter.remove_special_characters(_field['title'])
         except Exception as ex: print (f''' Exception   {ex} in set_title() ''')
             
     ## set_price
@@ -215,7 +220,7 @@ def grab_product_page(s , p):
         try:
             _price = _d.find(_['product_price_locator'])
             _price = formatter.clear_price(_price)
-            field['mexir olut'] = _price
+            _field['mexir olut'] = _price
             return True
         except Exception as ex: print (f''' Exception   {ex} in set_price() ''')
 
@@ -234,60 +239,102 @@ def grab_product_page(s , p):
             _images_thumb_50x50 = _d.find(_['product_images_thumb_50x50'])
             for i in _images_thumb_50x50:
                 imgs = f''' {str(i).replace('_50x50.jpg','')},'''
-            field['img url'] = imgs
-        except Exception as ex:  self.err.handler(ex, _['product_images_locator'], [field['img url'] , field['img alt']])
+            _field['img url'] = imgs
+        except Exception as ex:  self.err.handler(ex, _['product_images_locator'], [_field['img url'] , _field['img alt']])
+
+
+
+
+
+
 
     ## set_combinations
     def set_combinations():
-        combina = json.loads(Path(s.ini.paths.ini_files_dir , f'''prestashop_product_combinations_fields.json'''))
-        attr_position = 0
-        try:
-            combina['Product ID'] = field['id']
-            _title = _['product_combinations_container_locator']['product_combinations_title']
-            _values_locator = _['product_combinations_container_locator']['product_combinations_values'] 
+        _combina = json.loads(Path(s.ini.paths.ini_files_dir , f'''prestashop_product_combinations_fields.json'''))
+        _attr_position = 0
 
-            _values = _d.find(_values_locator)
+        def set_values():
 
-            for x in _values:
-                x.click()
+            _combina['Product ID'] = _field['id']
 
-                _price = _d.find(_['product_price_locator'])
-                _price = formatter.clear_price(_price)
+            _price = _d.find(_['product_price_locator'])
+            _price = formatter.clear_price(_price)
 
-                _qty = _d.find(_['product_qty_locator'])[0]
-                _qty = formatter.clear_price(_qty)
+            _qty = _d.find(_['product_qty_locator'])[0]
+            _qty = formatter.clear_price(_qty)
 
-                attr_name = _d.find(_title)
-                attr_type = 'select'
-                attr_position = attr_position
-                combina['Attribute (Name:Type:Position)'] = f'''{attr_name}:{attr_type}:{attr_position}'''
+
+
+            ## форма комбинаций  в Prestashop
+            # Attribute (Name:Type:Position)*
+            # Value (Value:Position)*
+
+            attr_name = _d.find(_title)
+            attr_type = 'select'
+            attr_position = _attr_position
+
+            _combina['Attribute (Name:Type:Position)'] = f'''{attr_name}:{attr_type}:{attr_position}'''
         
-                _vt = _d.find(_['product_combinations_container_locator']['product_combinations_value_title'])
-                _vp = attr_position
-                combina['Value (Value:Position)'] = f'''{_vt}:{_vp}'''
+            _vt = _d.find(_['product_combinations_container_locator']['product_combinations_value_title'])
+            _vp = _attr_position
+            _combina['Value (Value:Position)'] = f'''{_vt}:{_vp}'''
 
-                combina['Reference'] = combina['Supplier reference'] = _d.find(_['product_title_locator'])
-                combina['Wholesale price'] = _d.find(_['product_price_locator'])
-                combina['Image URLs(x,y,z)'] = _d.find(_['product_main_image_locator'])
-                combina['Quantity'] = _qty
-                combina['Wholesale price'] = _price
+                
 
-                combinot.apply(combina)
+            url_dict = _d.get_dict_from_urlstr()
+            _combina['Supplier reference'] = _combina['Product reference'] = url_dict['params']['sku_id']
+                
+                
+            _d.find(_['product_title_locator'])
+
+            _combina['Image URLs(x,y,z)'] = _d.find(_['product_main_image_locator'])
+            _combina['Quantity'] = _qty
+            _combina['Wholesale price'] = _price
+
+        try:
+            
+            _title = _['product_combinations_container_locator']['product_combinations_title']
+            _values_locator = _['product_combinations_container_locator']['image_attribute_locator'] 
+            _values = _d.find(_values_locator)
+            if _values == None: return False
+            ''' нет комбинаций '''
+            
+            if isinstance(_values , list):
+                ''' несколько вариантов товара'''
+                for x in _values:
+                    ''' нажимаю на каждую опцию товара '''
+                    x.click()
+                    set_values()
+                    _combinot.apply(_combina)
+
+            else:
+                ''' один вариант '''
+                _values.click()
+                set_values()
+                _combinot.apply(_combina)
+                
+
+
+
+                
             return True
         except Exception as ex: 
-            field['product_attributes'] = None
+            
             print(ex)
             return False
+
+
     ## set_qty
     def set_qty():
             try:
                 _qty = _d.find(_['product_qty_locator'])[0]
-                field['qty'] = formatter.clear_price(_qty)
+                _field['qty'] = formatter.clear_price(_qty)
                 return True
             except Exception as ex: 
                 #field['qty'] = None
                 print(ex)
                 return False
+
     def set_byer_protection():pass
         #_byer_protection = _d.find(_['product_byer_protection'])
         #return _byer_protection

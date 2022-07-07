@@ -1,0 +1,17 @@
+var classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_handover_commit_request_1_1_cainiae1168737f971a38b309e8a2143bc8642 =
+[
+    [ "__init__", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_handover_commit_request_1_1_cainiae1168737f971a38b309e8a2143bc8642.html#a28bedeb2dcc7e3ab802144145ff7dc15", null ],
+    [ "getapiname", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_handover_commit_request_1_1_cainiae1168737f971a38b309e8a2143bc8642.html#a7beab04062217b0db55c2bd825946520", null ],
+    [ "client", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_handover_commit_request_1_1_cainiae1168737f971a38b309e8a2143bc8642.html#a01e29bae8805faa37b8a41fd5145590c", null ],
+    [ "features", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_handover_commit_request_1_1_cainiae1168737f971a38b309e8a2143bc8642.html#a2b3cdbb98935acce53a9e373c9041927", null ],
+    [ "handover_order_id", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_handover_commit_request_1_1_cainiae1168737f971a38b309e8a2143bc8642.html#a1a274e8a7a877852e6f8c1bf332fc0ff", null ],
+    [ "locale", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_handover_commit_request_1_1_cainiae1168737f971a38b309e8a2143bc8642.html#a3ce1a0fb67b2cc09b44971b57445e0c8", null ],
+    [ "order_code_list", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_handover_commit_request_1_1_cainiae1168737f971a38b309e8a2143bc8642.html#a60da0d61fd91941a613f3517ab55b0a6", null ],
+    [ "pickup_info", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_handover_commit_request_1_1_cainiae1168737f971a38b309e8a2143bc8642.html#a3aa439509c4822ea487a584f740e86b7", null ],
+    [ "remark", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_handover_commit_request_1_1_cainiae1168737f971a38b309e8a2143bc8642.html#aed9241d1c58190eeeba76ad9eb0515e4", null ],
+    [ "return_info", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_handover_commit_request_1_1_cainiae1168737f971a38b309e8a2143bc8642.html#a51fb4e562adcc1e410a5a871d6f27821", null ],
+    [ "type", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_handover_commit_request_1_1_cainiae1168737f971a38b309e8a2143bc8642.html#ac7f5befea69e1575e7238f565e5584a8", null ],
+    [ "user_info", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_handover_commit_request_1_1_cainiae1168737f971a38b309e8a2143bc8642.html#a2f6cb434388177650c1bf12531d49f2a", null ],
+    [ "weight", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_handover_commit_request_1_1_cainiae1168737f971a38b309e8a2143bc8642.html#a5e30acda698140e5d826806974d48292", null ],
+    [ "weight_unit", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_handover_commit_request_1_1_cainiae1168737f971a38b309e8a2143bc8642.html#a73d561be2042ed248c4faaf733a9ce75", null ]
+];

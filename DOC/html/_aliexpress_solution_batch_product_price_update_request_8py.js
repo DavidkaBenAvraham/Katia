@@ -1,0 +1,4 @@
+var _aliexpress_solution_batch_product_price_update_request_8py =
+[
+    [ "aliexpress_api.skd.api.rest.AliexpressSolutionBatchProductPriceUpdateRequest.AliexpressSolutionBatchProductPriceUpdateRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_solution_batch_product_price_update_re2f8d51c40c8df5adf37a7284f4e85918.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_solution_batch_product_price_update_re2f8d51c40c8df5adf37a7284f4e85918" ]
+];

@@ -1,0 +1,4 @@
+var _aliexpress_affiliate_order_get_request_8py =
+[
+    [ "aliexpress_api.skd.api.rest.AliexpressAffiliateOrderGetRequest.AliexpressAffiliateOrderGetRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_affiliate_order_get_request_1_1_aliexpd1cf88e45d770bdaa786dda4f82b40ed.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_affiliate_order_get_request_1_1_aliexpd1cf88e45d770bdaa786dda4f82b40ed" ]
+];

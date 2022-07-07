@@ -1,0 +1,4 @@
+var _aliexpress_solution_order_receiptinfo_get_request_8py =
+[
+    [ "aliexpress_api.skd.api.rest.AliexpressSolutionOrderReceiptinfoGetRequest.AliexpressSolutionOrderReceiptinfoGetRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_solution_order_receiptinfo_get_requestda787a0c9c0bfb63e30036732ad3ee7f.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_solution_order_receiptinfo_get_requestda787a0c9c0bfb63e30036732ad3ee7f" ]
+];

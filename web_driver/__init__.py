@@ -34,7 +34,7 @@ from logging import Formatter
 
 import selenium
 from selenium import * 
-from selenium import webdriver as selenium_wedriver
+
 
 #from selenium.webdriver.support.ui import WebDriverWait
 #from selenium.webdriver.support import expected_conditions as EC
@@ -46,8 +46,6 @@ from selenium import webdriver as selenium_wedriver
 #import selenium.webdriver as webdriver
 
 import kora
-
-
 import seleniumwire
 from seleniumwire import webdriver as seleniumwire_wedriver
 # https://github.com/DavidkaBenAvraham/selenium-wire 
@@ -56,6 +54,8 @@ import pickle
 
 
 #from kora.selenium import wd as KWD
+
+from selenium import webdriver as selenium_wedriver
 SWD = selenium_wedriver
 SWWD = seleniumwire_wedriver
 WD = SWWD
@@ -69,6 +69,8 @@ WD = SWWD
 #from xml.etree import ElementTree as ET
 
 
+import ast
+#https://www.techiedelight.com/ru/parse-string-to-float-or-int-python/
 
 import os
 import pandas as pd
@@ -110,9 +112,13 @@ from attr import attrs, attrib, Factory
 #<li>get_parsed_google_search_result : время запуска скрипта</li>
 #</ul>
 class Driver:
+
+
+
     @attrs
-    ### Всякие javascrits полезности
+    ### JS: Всякие javascrits полезности
     class JS():
+
         def unhide(driver,element):
             script :str = f''' arguments[0].style.opacity=1;
                             arguments[0].style['transform']='translate(0px, 0px) scale(1)';
@@ -136,55 +142,67 @@ class Driver:
 
     #parsed_google_search_result : GoogleHtmlParser = attrib(init = False, default = GoogleHtmlParser)
 
+
     driver : WD =  attrib(init = False , default = WD)
 
 
     cookies = attrib(init = False , default = None)
-
+    cookies_file_path : Path = attrib(init = False , default = Path('cookies.pkl'))
+    
+    
     ## <pre>
     # драйвер запускается через вызов set_driver(webdriver_settings)
     # при инициализации класса s = Supplier()
     # s.driver = Driver().set_driver(webdriver_settings : dict)
     # </pre>
     def __attrs_post_init__(self ,  *args, **kwrads):
+
         pass
     
+
+
+
+
+
+    ## set_driver(webdriver_settings)
+    # <pre>
+    # webdriver_settings from launcher.json: 
+    # --------------------------
+    # f.e. FirefoxDriver
+    #"firefox": {
+    #     "arguments": [ "--no-sandbox" ],
+    #     "disabled_arguments": [
+    #       "--disable-dev-shm-usage",
+    #       "--headless"
+    #     ],
+    #     "deafault_wait_time": 5,
+    #     "about wait": "явное ожидание браузера в сек",
+    #     "random": [ 0, 5 ],
+    #     "view_html_source_mode": false,
+    #     "maximize_window": true
+    #   }
+    # }
+    # </pre>
     def set_driver(self , webdriver_settings : dict) -> WD:  
-        # webdriver_settings from launcher.json: 
-        # --------------------------
-        # f.e. FirefoxDriver
-        #"firefox": {
-        #     "arguments": [ "--no-sandbox" ],
-        #     "disabled_arguments": [
-        #       "--disable-dev-shm-usage",
-        #       "--headless"
-        #     ],
-        #     "deafault_wait_time": 5,
-        #     "about wait": "явное ожидание браузера в сек",
-        #     "random": [ 0, 5 ],
-        #     "view_html_source_mode": false,
-        #     "maximize_window": true
-        #   }
-        # }
-
-
+    
 
         ## set_Chrome
-        def set_Chrome() -> dict:
+        def set_Chrome() -> bool:
             _settings = webdriver_settings['chrome']
             options = self.driver.ChromeOptions()
             for argument in _settings['arguments']:
                     options.add_argument(argument)
             self.driver = self.driver.Chrome(options = options)
-            return _settings
+            return True
 
         ## set_Firefox
-        def set_Firefox() -> dict:
+        def set_Firefox() -> bool:
             _settings = webdriver_settings['firefox']
             options = self.driver.FirefoxOptions()
             for argument in _settings['arguments']:
                     options.add_argument(argument)
             self.driver = self.driver.Firefox(options = options)
+            return True
          
         ## set_Kora
         def set_Kora() -> bool:
@@ -204,7 +222,8 @@ class Driver:
             return True
 
 
-        
+        set_Firefox()
+
         self.driver.wait =                              self._wait
         self.driver.get_url =                           self._get_url
         self.driver.find =                              self._find
@@ -214,13 +233,16 @@ class Driver:
         self.driver.page_refresh =                      self._page_refresh
         self.driver.close =                             self._close  
         self.driver.scroll =                            self._scroller
-        self.driver.previous_url        =               self.previous_url
+        self.driver.previous_url :str =                 self.previous_url
+        self.get_dict_from_urlstr : dict =              self._get_dict_from_urlstr
+
         #self.driver.get_parsed_google_search_result =   GoogleHtmlParser
         self.driver.send_keys =                         self._send_keys
         self.driver.JS =                                self.JS
         
         
         self.driver.cookies =                           self.cookies
+        self.driver.cookies_file_path :Path =           self.cookies_file_path
         self.driver.dump_cookies_to_file =              self._dump_cookies_to_file
         self.driver.load_cookies_from_file =            self._load_cookies_from_file
 
@@ -246,9 +268,11 @@ class Driver:
         from selenium.webdriver.common.action_chains import ActionChains
         self.driver.ActionChains = ActionChains
 
-
-
         return self.driver
+
+
+
+
 
 
 
@@ -290,6 +314,19 @@ class Driver:
     
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
     #########################################################
     #                                                       #
     #                                                       #
@@ -298,22 +335,39 @@ class Driver:
     #                                                       #
     #########################################################
 
-    def _load_cookies_from_file(cookies_file : Path = 'cookies.pkl'):
+    def _load_cookies_from_file(self, cookies_file_path : Path = None ) -> bool:
+        ''' cookies_file_path if None = self.cookies_file_path '''
+
         try:
-            self.cookies = pickle.load(open(cookies_file , 'rb'))
+            cookies_file_path = self.cookies_file_path if cookies_file_path is None else cookies_file_path
+            if not cookies_file_path.exists():
+                return False , print(f''' {cookies_file_path} не найден ''')
+            self.cookies = pickle.load(open(cookies_file_path , 'rb'))
             for cookie in self.cookies:
-                self.add_cookie(cookie)  
-        except :pass
+                self.driver.add_cookie(cookie)  
+            return True
+        except Exception as ex :     
+            return False, print(f''' 
+            ошибка в _load_cookies_from_file
+            {ex}''') 
 
     ## После успешного события ведрайвера я бережно сохраню печеньку  в файл 
     #@param
     #   cookies_file : Path('cookies.pkl')
-    def _dump_cookies_to_file(cookies_file : Path = 'cookies.pkl'):
-        _cookies = self.get_cookies()
+    def _dump_cookies_to_file(self, cookies_file_path : Path = None):
+        cookies_file_path = self.cookies_file_path if cookies_file_path is None else cookies_file_path
+        _cookies = self.driver.get_cookies()
         for cookie in _cookies:
             if cookie.get('expiry', None) is not None:
                 cookie['expires'] = cookie.pop('expiry')
-        pickle.dump(_cookies, open('cookies_file.pkl', 'wb'))
+        pickle.dump(_cookies, open(cookies_file_path, 'wb'))
+
+
+
+
+
+####################   driver.get() ###########################
+
 
 
     ## обертка для driver.get():
@@ -371,6 +425,22 @@ class Driver:
         #WebDriverWait(driver, 10).until(lambda driver: self.driver.execute_script('return document.readyState') == 'complete')
         #self.driver.execute_script('return document.readyState') == 'complete'
         
+
+
+    def _get_dict_from_urlstr(self)->dict:
+        _url = self.current_url
+
+        _url_str_to_list = str(_url).split(str(_url).find('?'))
+
+        _params_str = f'''{{ {str(_url_str_to_list[1]).strip().replace('=' , ':' ,str(_url_str_to_list[1]))} }}'''
+        
+        _params = ast.literal_eval(_params_str)
+
+        _d :dict = {"url":_url_str_to_list[0], "params":_params}
+
+        return _d
+
+
 
 
     ## scroller
@@ -504,8 +574,13 @@ class Driver:
         ex: {ex} ''')
         
     ## CLICK
+    ##  Обработчик события click()
     def _click(self, locator) ->bool:
-        ##  Обработчик события click()
+        
+
+        
+        _url_before_click = self.current_url
+        ''' Запоминаю url ДО клика '''
 
         def err_handler():
             pass
@@ -568,7 +643,14 @@ class Driver:
         except Exception as ex:  return False , print(f''' Возникла ошибка {ex} поиска элемента {locator} ''') 
         
         
-        try:_e.click()
+        try:
+            _e.click()
+            
+            #если после клика изменился url
+            #    запоминаю изменения
+            if _url_before_click != self.current_url:
+                self.previous_url = _url_before_click
+
         except Exception as ex: 
                             print(f''' 
                                 Возникла ошибка  {ex} 
@@ -581,10 +663,11 @@ class Driver:
                             try:self._send_keys( _ , self.driver.Keys.RETURN)
                             except Exception as ex: print(f'''   ХУЙ! ''')
         return True
-   
     ## SEND KEYS
     def _send_keys(self, keys , locator : dict ='' , el  = None) ->bool:
         _ = locator
+        _url_before_send_keys = self.current_url
+        ''' Запоминаю url ДО клика '''
         try:
             if isinstance(_['selector'] , dict):
                 #пока не использую
@@ -599,9 +682,13 @@ class Driver:
                     _el.send_keys(keys)
             else: self._find(_).send_keys(keys)
 
+            #если после клика изменился url
+            #    запоминаю изменения
+            if _url_before_send_keys != self.current_url:
+                self.previous_url = _url_before_send_keys
+
 
         except Exception as ex: return False , print(f''' ошибка {ex} при отправке {keys} в {locator} ''')
-        
     ## PAGE REFRESH      
     def _page_refresh(self):
         ##Рефреш с ожиданием полной перезагрузки страницы

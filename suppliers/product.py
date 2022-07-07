@@ -165,11 +165,8 @@ class Product():
             
         def set_id():pass
            
-        def set_mkt_suppl():
-            field['mkt_suppl'] = _d.find(_['product_mkt_locator'])
-
-        def set_supplier():
-            pass
+        def set_mkt_suppl():pass
+        def set_supplier(): pass
         def set_title():pass
             
         def set_price():pass

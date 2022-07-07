@@ -20,13 +20,11 @@
     "FR": "https://fr.aliexpress.com/all-wholesale-products.html"
   },
   "scenaries": [
-    "aliexpress_stores_elctronic_toys.json",
-    "aliexpress_stores_elctronic_components_leds.json",
-    "aliexpress_stores_battery.json",
-    "aliexpress_stores_baby_clothing.json"
-
+    "aliexpress_stores_electronic_toys.json"
   ],
   "excluded": [
+    "aliexpress_stores_elctronic_components_leds.json",
+    "aliexpress_stores_battery.json",
 
     "aliexpress_stores_battery.json",
     "aliexpress_stores_brands.json",
@@ -41,7 +39,8 @@
     "aliexpress_stores_leds.json",
     "aliexpress_stores_malls.json",
     "aliexpress_stores_memory.json",
-    "aliexpress_stores_phones_repair_computers.json"
+    "aliexpress_stores_phones_repair_computers.json",
+    "aliexpress_stores_baby_clothing.json"
   ]
 
 }

@@ -1,0 +1,4 @@
+var _aliexpress_member_redefining_uicquerytbnick_request_8py =
+[
+    [ "aliexpress_api.skd.api.rest.AliexpressMemberRedefiningUicquerytbnickRequest.AliexpressMemberRedefiningUicquerytbnickRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_member_redefining_uicquerytbnick_reque0538bcbd400c09518d8de6a74768556b.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_member_redefining_uicquerytbnick_reque0538bcbd400c09518d8de6a74768556b" ]
+];

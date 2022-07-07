@@ -83,6 +83,7 @@ pattern_clear_number : re = re.compile ('[^0-9.]')
 pattern_remove_special_characters :re = re.compile ('[#|]')            
 pattern_remove_supplier_name :re = re.compile ('[KSP,ksp]')
     
+import ast
 
 @attrs
 class StringFormatter():
@@ -146,7 +147,7 @@ class StringFormatter():
     def clear_number(self , s):
         def _(s):
             s = self.pattern_clear_number.sub(r'', str(s)).strip()
-            return s
+            return ast.literal_eval(s)
 
         if isinstance(s , list):
             for sub_s in s: sub_s = _(sub_s)
@@ -156,7 +157,7 @@ class StringFormatter():
     def clear_price(self , s):
         def _(s):
             s = self.pattern_clear_price.sub(r'', str(s)).strip().replace(',','.')
-            return s
+            return ast.literal_eval(s)
 
         if isinstance(s , list ):
             for sub_s in s: sub_s = _(sub_s)

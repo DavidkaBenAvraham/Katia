@@ -1,0 +1,5 @@
+var classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_solution_order_get_request_1_1_aliexpress_solution_order_get_request =
+[
+    [ "__attrs_post_init__", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_solution_order_get_request_1_1_aliexpress_solution_order_get_request.html#a01204d7531dca691c0d3a0741ae61e75", null ],
+    [ "getapiname", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_solution_order_get_request_1_1_aliexpress_solution_order_get_request.html#a78accbdf5bc89d3cb0788cfc84943cc7", null ]
+];

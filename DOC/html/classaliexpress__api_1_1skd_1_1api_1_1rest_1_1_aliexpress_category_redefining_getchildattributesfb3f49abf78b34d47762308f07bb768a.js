@@ -1,0 +1,8 @@
+var classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_category_redefining_getchildattributesfb3f49abf78b34d47762308f07bb768a =
+[
+    [ "__init__", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_category_redefining_getchildattributesfb3f49abf78b34d47762308f07bb768a.html#a93f55a8d17b96079987cd9fa7e52ad78", null ],
+    [ "getapiname", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_category_redefining_getchildattributesfb3f49abf78b34d47762308f07bb768a.html#abdf6efb0726d75b50b16d827f687f201", null ],
+    [ "locale", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_category_redefining_getchildattributesfb3f49abf78b34d47762308f07bb768a.html#a189ffdc9507a51b512b319e3da4fd881", null ],
+    [ "param1", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_category_redefining_getchildattributesfb3f49abf78b34d47762308f07bb768a.html#a766e2f4aafd65f2b0d030e15461dee45", null ],
+    [ "param2", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_category_redefining_getchildattributesfb3f49abf78b34d47762308f07bb768a.html#a46c577891d1c618f0d73ed104210b3fa", null ]
+];

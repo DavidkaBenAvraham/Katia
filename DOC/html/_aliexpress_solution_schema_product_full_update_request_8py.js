@@ -1,0 +1,4 @@
+var _aliexpress_solution_schema_product_full_update_request_8py =
+[
+    [ "aliexpress_api.skd.api.rest.AliexpressSolutionSchemaProductFullUpdateRequest.AliexpressSolutionSchemaProductFullUpdateRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_solution_schema_product_full_update_re62c853dfa1e664505588ecab3d864736.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_solution_schema_product_full_update_re62c853dfa1e664505588ecab3d864736" ]
+];

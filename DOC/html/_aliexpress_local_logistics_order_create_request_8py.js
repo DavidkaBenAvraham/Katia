@@ -1,0 +1,4 @@
+var _aliexpress_local_logistics_order_create_request_8py =
+[
+    [ "aliexpress_api.skd.api.rest.AliexpressLocalLogisticsOrderCreateRequest.AliexpressLocalLogisticsOrderCreateRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_local_logistics_order_create_request_12d33018d358438462b9f45fab9aa40ba.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_local_logistics_order_create_request_12d33018d358438462b9f45fab9aa40ba" ]
+];

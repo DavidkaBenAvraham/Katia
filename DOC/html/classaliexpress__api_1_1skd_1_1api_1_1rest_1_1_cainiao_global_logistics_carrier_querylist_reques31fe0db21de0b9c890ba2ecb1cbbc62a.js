@@ -1,0 +1,6 @@
+var classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_logistics_carrier_querylist_reques31fe0db21de0b9c890ba2ecb1cbbc62a =
+[
+    [ "__init__", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_logistics_carrier_querylist_reques31fe0db21de0b9c890ba2ecb1cbbc62a.html#aebbb39d234d165a01bfa72bd30ee4389", null ],
+    [ "getapiname", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_logistics_carrier_querylist_reques31fe0db21de0b9c890ba2ecb1cbbc62a.html#ad3d348ac6b501f8e56dcfe43143f6133", null ],
+    [ "locale", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_logistics_carrier_querylist_reques31fe0db21de0b9c890ba2ecb1cbbc62a.html#ad41819a01d895579cd7ef681e3f137e2", null ]
+];
