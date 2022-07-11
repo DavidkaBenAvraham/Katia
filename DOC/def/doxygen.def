@@ -9152,7 +9152,7 @@ _EnD_oF_dEf_TeXt_;
 - <brand> 
 - [<model>] необязательное поле
 - <url> откуда собирать товары
-- <prestashop_category> список id категорий 
+- <prestashop_categories> список id категорий 
 - <price_rule> пересчет для магазина по умолчанию установливается в self.price_rule
 
 \endverbatim 
@@ -12626,7 +12626,7 @@ _EnD_oF_dEf_TeXt_;
 - <brand> 
 - [<model>] необязательное поле
 - <url> откуда собирать товары
-- <prestashop_category> список id категорий 
+- <prestashop_categories> список id категорий 
 - <price_rule> пересчет для магазина по умолчанию установливается в self.price_rule
 
 \endverbatim 

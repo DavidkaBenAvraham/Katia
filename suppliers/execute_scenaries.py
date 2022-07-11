@@ -81,7 +81,7 @@ def run_scenario(s , scenario) -> bool:
     - <brand> 
     - [<model>] необязательное полеstore_id
     - <url> откуда собирать товары
-    - <prestashop_category> список id категорий 
+    - <prestashop_categories> список id категорий 
     - <price_rule> пересчет для магазина по умолчанию установливается в self.price_rule
 
     '''
@@ -89,6 +89,25 @@ def run_scenario(s , scenario) -> bool:
     ## бегунок
     def run(s, node):
         ''' бегунок '''
+
+        ## СОБИРАЮ ДАННЫЕ СО СТРАНИЦЫ
+        def grab_product_page():
+            product_fields = s.related_functions.grab_product_page(s , Product())
+            ''' получаю товар 
+            заполняю все свойства товара в функции 
+            grab_product_page() для каждого поставщика.
+            '''
+              
+            
+
+            '''
+            c) 
+                добавляю товар в список поставщика
+            '''
+            s.p.append(product_fields)
+            pass
+
+
 
         s.current_node = node
 
@@ -99,50 +118,36 @@ def run_scenario(s , scenario) -> bool:
         if len(list_products_urls) == 0 : return False 
         ## в исполняемом узле может не оказаться товаров. В этом случае перехожу к следующему узлу выполнения
 
-        ## 2)
-        ## Больше одного URL
+
         if isinstance(list_products_urls, list):
+            '''
+                    ## 2)
+                    ## Больше одного URL
+            '''
             for product_url in list_products_urls :
                 ''' перебираю адреса товаров : '''
 
 
                 #   a)
-                if not s.driver.get_url(product_url) : 
-                    '''Перехожу на страницу товара 
+                '''Перехожу на страницу товара 
                         функция get_url('url') возвращает True, 
                         если переход на страницу был успешен'''
-
+                if not s.driver.get_url(product_url) : 
                     print(f''' нет такой страницы товара {product_url} ''') 
                     continue
-           
-                try:
-                    product_fields = s.related_functions.grab_product_page(s , Product())
-                    ''' получаю товар '''
-                    #   c)
-                    s.p.append(product_fields)
-              
-                except Exception as ex:
-                    print(f''' Ошибка {ex} при сборе товара со страницы {product_url} ''')
-                
-                    continue
+
+                grab_product_page()
         else:
         
-            if not s.driver.get_url(list_products_urls) : 
+            if not s.driver.get_url(list_products_urls): 
                 '''Перехожу на страницу товара 
                     функция get_url('url') возвращает True, 
                     если переход на страницу был успешен'''
 
                 print(f''' нет такой страницы товара {list_products_urls} ''') 
-           
-            try:
-                product_fields = s.related_functions.grab_product_page(s , Product())
-                ''' получаю товар '''
-                #   c)
-                s.p.append(product_fields)
-              
-            except Exception as ex:
-                print(f''' Ошибка {ex} при сборе товара со страницы {list_products_urls} ''')
 
+            grab_product_page()
+            
 
 
     ## aliexpress etc

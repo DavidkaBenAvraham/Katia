@@ -3,12 +3,36 @@
     "brand": "GOOGLE",
     "url": "https://ksp.co.il/web/cat/573..3887..31508",
     "checkbox": false,
-    "prestashop_category": "720,719,1023,27,1,2,429,718,1024,848"
+    "prestashop_categories": {
+      "3198": "CONSUMER ELECTRONICS",
+      "3202": "COMPUTERS PHONES CONSOLES SMART DEVICES",
+      "3373": "Smartphones",
+      "3403": "GOOGLE",
+      "3405": "GOOGLE PIXEL PRO"
+    }
   },
   "Pixel 6": {
     "brand": "GOOGLE",
     "url": "https://ksp.co.il/web/cat/573..3887..30356",
     "checkbox": false,
-    "prestashop_category": "721,719,1023,27,1,2,429,718,1024,849"
+    "prestashop_categories": {
+      "3198": "CONSUMER ELECTRONICS",
+      "3202": "COMPUTERS PHONES CONSOLES SMART DEVICES",
+      "3373": "Smartphones",
+      "3403": "GOOGLE",
+      "3404": "GOOGLE PIXEL"
+    }
+  },
+  "Google Pixel 5a 5G": {
+    "brand": "GOOGLE",
+    "url": "https://ksp.co.il/web/cat/573..3887..28492",
+    "checkbox": false,
+    "prestashop_categories": {
+      "3198": "CONSUMER ELECTRONICS",
+      "3202": "COMPUTERS PHONES CONSOLES SMART DEVICES",
+      "3373": "Smartphones",
+      "3403": "GOOGLE",
+      "3406": "Google Pixel 5a 5G"
+    }
   }
 }

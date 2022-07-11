@@ -4,7 +4,7 @@
     "model": "Intel LGA1200 Gen 10 CORE I3",
     "url": "https://www.morlevi.co.il/Cat/337?p_134=586&p_54=3481&sort=datafloat2%2Cprice&keyword=",
     "checkbox": false,
-    "prestashop_category": "66,67,72,661"
+    "prestashop_categories": "66,67,72,661"
   },
 
 
@@ -12,7 +12,7 @@
     "brand": "INTEL",
     "model": "Intel LGA1200 Gen 10 Core I5",
     "checkbox": false,
-    "prestashop_category": "66,67,73,665",
+    "prestashop_categories": "66,67,73,665",
     "url": "https://www.morlevi.co.il/Cat/337?p_134=587&p_54=3481&sort=datafloat2%2Cprice&keyword="
   },
 
@@ -22,7 +22,7 @@
     "model": "Intel LGA1200 Gen 10 Core I7",
     "url": "https://www.morlevi.co.il/Cat/337?p_134=588&p_54=3481&sort=datafloat2%2Cprice&keyword=",
     "checkbox": false,
-    "prestashop_category": "66,67,74,666"
+    "prestashop_categories": "66,67,74,666"
   },
 
 
@@ -31,7 +31,7 @@
     "model": "Intel LGA1200 Gen 10 Core I9",
     "url": "https://www.morlevi.co.il/Cat/337?p_134=848&p_54=3481&sort=datafloat2%2Cprice&keyword=",
     "checkbox": false,
-    "prestashop_category": "66,67,75,667"
+    "prestashop_categories": "66,67,75,667"
   },
 
 
@@ -40,7 +40,7 @@
     "model": "Intel LGA1200 Gen 10 CORE I3",
     "url": "https://www.morlevi.co.il/Cat/337?p_134=585&p_54=3481&sort=datafloat2%2Cprice&keyword=",
     "checkbox": false,
-    "prestashop_category": "66,67,341,668"
+    "prestashop_categories": "66,67,341,668"
   },
 
 
@@ -50,7 +50,7 @@
     "model": "Intel LGA1200 Gen 10 CORE I3",
     "url": "https://www.morlevi.co.il/Cat/337?p_134=584&p_54=3481&sort=datafloat2%2Cprice&keyword=",
     "checkbox": false,
-    "prestashop_category": "66,67,72,669"
+    "prestashop_categories": "66,67,72,669"
   },
 
 
@@ -66,14 +66,14 @@
     "model": "Intel LGA1151 CORE I3",
     "url": "https://www.morlevi.co.il/Cat/270?p_134=586&sort=datafloat2%2Cprice&keyword=",
     "checkbox": false,
-    "prestashop_category": "66,67,72,662"
+    "prestashop_categories": "66,67,72,662"
   },
   "Intel LGA1151 CORE I3 V1": {
     "brand": "INTEL",
     "model": "Intel LGA1151 CORE I3",
     "url": "--------------------------------------------------------------------",
     "checkbox": false,
-    "prestashop_category": "66,67,72,662"
+    "prestashop_categories": "66,67,72,662"
   },
 
   "Intel LGA1151 Core I5 V1": {
@@ -81,14 +81,14 @@
     "model": "Intel LGA1151 Core I5",
     "url": "https://www.morlevi.co.il/Cat/32?p_134=587&p_54=174&sort=datafloat2%2Cprice&keyword=",
     "checkbox": false,
-    "prestashop_category": "66,67,73,920"
+    "prestashop_categories": "66,67,73,920"
   },
   "Intel LGA1151 Core I5 V2": {
     "brand": "INTEL",
     "model": "Intel LGA1151 Core I5",
     "url": "https://www.morlevi.co.il/Cat/32?p_134=587&p_54=175&sort=datafloat2%2Cprice&keyword=",
     "checkbox": false,
-    "prestashop_category": "66,67,73,920"
+    "prestashop_categories": "66,67,73,920"
   },
 
   "Intel LGA1151 Core I7": {
@@ -96,14 +96,14 @@
     "model": "Intel LGA1151 Core I7",
     "url": "https://www.morlevi.co.il/Cat/32?p_134=588&p_54=175&sort=datafloat2%2Cprice&keyword=",
     "checkbox": false,
-    "prestashop_category": "66,67,74,921"
+    "prestashop_categories": "66,67,74,921"
   },
   "Intel LGA1151 Core I9": {
     "brand": "INTEL",
     "model": "Intel LGA1151 Core I9",
     "url": "https://www.morlevi.co.il/Cat/32?p_134=848&p_54=175&sort=datafloat2%2Cprice&keyword=",
     "checkbox": false,
-    "prestashop_category": "66,67,75,922"
+    "prestashop_categories": "66,67,75,922"
   },
 
 
@@ -112,14 +112,14 @@
     "model": "Intel LGA1151 Pentium",
     "url": "https://www.morlevi.co.il/Cat/32?p_134=585&p_54=175&sort=datafloat2%2Cprice&keyword=",
     "checkbox": false,
-    "prestashop_category": "66,67,341,923"
+    "prestashop_categories": "66,67,341,923"
   },
   "Intel LGA1151 Pentium GEN V1": {
     "brand": "INTEL",
     "model": "Intel LGA1151 Pentium",
     "url": "------------------------------------------------------------------------------------",
     "checkbox": false,
-    "prestashop_category": "66,67,341,923"
+    "prestashop_categories": "66,67,341,923"
   },
 
 
@@ -129,20 +129,20 @@
     "model": "Intel LGA2066 CORE I5",
     "url": "------------------------------------Intel LGA2066 CORE I5---------------------------------------------",
     "checkbox": false,
-    "prestashop_category": "66,67,72"
+    "prestashop_categories": "66,67,72"
   },
   "Intel LGA2066 Core I5": {
     "brand": "INTEL",
     "model": "Intel LGA2066 Core I5",
     "checkbox": false,
-    "prestashop_category": "66,67,73",
+    "prestashop_categories": "66,67,73",
     "url": "--------------------------------------Intel LGA2066 Core I5------------------------------------------"
   },
   "Intel LGA2066 Core I7": {
     "brand": "INTEL",
     "model": "Intel LGA2066 Core I7",
     "checkbox": false,
-    "prestashop_category": "66,67,74",
+    "prestashop_categories": "66,67,74",
     "url": "--------------------------------------Intel LGA2066 Core I7-------------------------------------------"
   },
   "Intel LGA2066 Core I9": {
@@ -150,35 +150,35 @@
     "model": "Intel LGA2066 Core I9",
     "url": "https://www.morlevi.co.il/Cat/32?p_134=848&p_54=176&sort=datafloat2%2Cprice&keyword=",
     "checkbox": false,
-    "prestashop_category": "66,67,75"
+    "prestashop_categories": "66,67,75"
   },
   "AMD Ryzen R3": {
     "brand": "AMD",
     "model": "AMD Ryzen R3",
     "url": "https://www.morlevi.co.il/Cat/33?p_135=590&sort=datafloat2%2Cprice&keyword=",
     "checkbox": false,
-    "prestashop_category": "66,68,78,79"
+    "prestashop_categories": "66,68,78,79"
   },
   "AMD Ryzen R5": {
     "brand": "AMD",
     "model": "AMD Ryzen R5",
     "url": "https://www.morlevi.co.il/Cat/33?p_135=591&sort=datafloat2%2Cprice&keyword=",
     "checkbox": false,
-    "prestashop_category": "66,68,78,80"
+    "prestashop_categories": "66,68,78,80"
   },
   "AMD Ryzen R7": {
     "brand": "AMD",
     "model": "AMD Ryzen R7",
     "url": "https://www.morlevi.co.il/Cat/33?p_135=592&sort=datafloat2%2Cprice&keyword=",
     "checkbox": false,
-    "prestashop_category": "66,68,78,81"
+    "prestashop_categories": "66,68,78,81"
   },
   "AMD Ryzen R9": {
     "brand": "AMD",
     "model": "AMD Ryzen R9",
     "url": "https://www.morlevi.co.il/Cat/33?p_135=3237&sort=datafloat2%2Cprice&keyword=",
     "checkbox": false,
-    "prestashop_category": "66,68,78,82"
+    "prestashop_categories": "66,68,78,82"
   },
 
   "AMD Ryzen Threadripper": {
@@ -186,6 +186,6 @@
     "model": "AMD Ryzen Threadripper",
     "url": "https://www.morlevi.co.il/Cat/33?p_135=593&sort=datafloat2%2Cprice&keyword=",
     "checkbox": false,
-    "prestashop_category": "66,68,83"
+    "prestashop_categories": "66,68,83"
   }
 }

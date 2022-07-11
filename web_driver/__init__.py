@@ -210,7 +210,7 @@ class Driver:
             if not kora.IN_COLAB: 
                 print(f''' Hello local  :) ''')
                 set_Chrome()
-                self.driver.maximize_window()
+                
             else:
                 set_Chrome()
                 print(f''' Hello colab ''')
@@ -222,7 +222,11 @@ class Driver:
             return True
 
 
-        set_Firefox()
+        #set_Firefox()
+        set_Chrome()
+        self.driver.maximize_window()
+
+
 
         self.driver.wait =                              self._wait
         self.driver.get_url =                           self._get_url

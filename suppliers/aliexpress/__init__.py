@@ -199,7 +199,7 @@ def grab_product_page(s , p):
     def set_id():
         _field['id'] = _d.current_url.split('/')[-1].split('.')[0]
     def set_mkt_suppl():
-            _field['mkt_suppl'] = _field['id']
+        _field['mkt_suppl'] = _field['id']
 
 
     ##
@@ -217,8 +217,8 @@ def grab_product_page(s , p):
             
     ## set_price
     def set_price():
+        _price = _d.find(_['product_price_locator'])
         try:
-            _price = _d.find(_['product_price_locator'])
             _price = formatter.clear_price(_price)
             _field['mexir olut'] = _price
             return True

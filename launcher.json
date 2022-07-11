@@ -46,11 +46,10 @@
         "--disable-dev-shm-usage",
         "--ignore-certificate-errors",
         "--allow-profiles-outside-user-dir",
-        "--allow-insecure-localhost",
-        "--headless"
+        "--allow-insecure-localhost"
 
       ],
-      "disabled arguments": [  "-auto-open-devtools-for-tabs" ],
+      "disabled arguments": [ "-auto-open-devtools-for-tabs", "--headless" ],
       "about arguments": "https://peter.sh/experiments/chromium-command-line-switches/",
       "deafault_wait_time": 5,
       "view_html_source_mode": false,

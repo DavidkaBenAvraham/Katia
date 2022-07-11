@@ -29,7 +29,7 @@
       }
 
     },
-    "prestashop_category": "3,52,8,52,4,610,989"
+    "prestashop_categories": "3,52,8,52,4,610,989"
   },
   "ACER 11.6 i5": {
     "brand": "ACER",
@@ -60,7 +60,7 @@
       }
 
     },
-    "prestashop_category": "3,5,8,53"
+    "prestashop_categories": "3,5,8,53"
   },
   "ACER 11.6 I7": {
     "brand": "ACER",
@@ -92,7 +92,7 @@
 
     },
 
-    "prestashop_category": "3,6,8,53"
+    "prestashop_categories": "3,6,8,53"
   },
   "ACER 11.6 I9": {
     "brand": "ACER",
@@ -124,7 +124,7 @@
 
     },
 
-    "prestashop_category": "3,7,8,53"
+    "prestashop_categories": "3,7,8,53"
   },
   "ACER 11.6 AMD": {
     "brand": "ACER",
@@ -146,7 +146,7 @@
       }
 
     },
-    "prestashop_category": "3,234,8,53"
+    "prestashop_categories": "3,234,8,53"
   },
   "ACER 11.6 Celeron": {
     "brand": "ACER",
@@ -169,7 +169,7 @@
 
     },
 
-    "prestashop_category": "3,233,8,53"
+    "prestashop_categories": "3,233,8,53"
   },
   "ACER 11.6 Pentium": {
     "brand": "ACER",
@@ -192,7 +192,7 @@
 
     },
 
-    "prestashop_category": "3,232,8,53"
+    "prestashop_categories": "3,232,8,53"
   },
   "ACER 12 I3": {
     "brand": "ACER",
@@ -223,7 +223,7 @@
       }
 
     },
-    "prestashop_category": "3,4,492,53"
+    "prestashop_categories": "3,4,492,53"
   },
   "ACER 12 i5": {
     "brand": "ACER",
@@ -254,7 +254,7 @@
       }
 
     },
-    "prestashop_category": "3,5,492,53"
+    "prestashop_categories": "3,5,492,53"
   },
   "ACER 12 I7": {
     "brand": "ACER",
@@ -286,7 +286,7 @@
 
     },
 
-    "prestashop_category": "3,492,6,53"
+    "prestashop_categories": "3,492,6,53"
   },
   "ACER 12 I9": {
     "brand": "ACER",
@@ -318,7 +318,7 @@
 
     },
 
-    "prestashop_category": "3,492,7,53"
+    "prestashop_categories": "3,492,7,53"
   },
   "ACER 12 AMD": {
     "brand": "ACER",
@@ -341,7 +341,7 @@
 
     },
 
-    "prestashop_category": "3,234,492,53"
+    "prestashop_categories": "3,234,492,53"
   },
   "ACER 12 Celeron": {
     "brand": "ACER",
@@ -363,7 +363,7 @@
       }
 
     },
-    "prestashop_category": "3,233,492,53"
+    "prestashop_categories": "3,233,492,53"
   },
   "ACER 12 Pentium": {
     "brand": "ACER",
@@ -385,7 +385,7 @@
       }
 
     },
-    "prestashop_category": "3,232,492,53"
+    "prestashop_categories": "3,232,492,53"
   },
   "ACER 13.4 - 13.3 I3": {
     "brand": "ACER",
@@ -416,7 +416,7 @@
       }
 
     },
-    "prestashop_category": "3,9,4,53"
+    "prestashop_categories": "3,9,4,53"
   },
   "ACER 13.4 - 13.3 i5": {
     "brand": "ACER",
@@ -447,7 +447,7 @@
       }
 
     },
-    "prestashop_category": "3,9,5,53"
+    "prestashop_categories": "3,9,5,53"
   },
   "ACER 13.4 - 13.3 I7": {
     "brand": "ACER",
@@ -478,7 +478,7 @@
       }
 
     },
-    "prestashop_category": "3,9,6,53"
+    "prestashop_categories": "3,9,6,53"
   },
   "ACER 13.4 - 13.3 I9": {
     "brand": "ACER",
@@ -509,7 +509,7 @@
       }
 
     },
-    "prestashop_category": "3,9,7,53"
+    "prestashop_categories": "3,9,7,53"
   },
   "ACER 13.4 - 13.3 AMD": {
     "brand": "ACER",
@@ -531,7 +531,7 @@
       }
 
     },
-    "prestashop_category": "3,9,234,53"
+    "prestashop_categories": "3,9,234,53"
   },
   "ACER 13.4 - 13.3 Celeron": {
     "brand": "ACER",
@@ -553,7 +553,7 @@
       }
 
     },
-    "prestashop_category": "3,9,233,53"
+    "prestashop_categories": "3,9,233,53"
   },
   "ACER 13.4 - 13.3 Pentium": {
     "brand": "ACER",
@@ -575,7 +575,7 @@
       }
 
     },
-    "prestashop_category": "3,9,232,53"
+    "prestashop_categories": "3,9,232,53"
   },
   "ACER 14 I3": {
     "brand": "ACER",
@@ -606,7 +606,7 @@
       }
 
     },
-    "prestashop_category": "3,10,4,53"
+    "prestashop_categories": "3,10,4,53"
   },
   "ACER 14 i5": {
     "brand": "ACER",
@@ -637,7 +637,7 @@
       }
 
     },
-    "prestashop_category": "3,10,5,53"
+    "prestashop_categories": "3,10,5,53"
   },
   "ACER 14 I7": {
     "brand": "ACER",
@@ -668,7 +668,7 @@
       }
 
     },
-    "prestashop_category": "3,10,6,53"
+    "prestashop_categories": "3,10,6,53"
   },
   "ACER 14 I9": {
     "brand": "ACER",
@@ -699,7 +699,7 @@
       }
 
     },
-    "prestashop_category": "3,10,7,53"
+    "prestashop_categories": "3,10,7,53"
   },
   "ACER 14 AMD": {
     "brand": "ACER",
@@ -721,7 +721,7 @@
       }
 
     },
-    "prestashop_category": "3,10,234,53"
+    "prestashop_categories": "3,10,234,53"
   },
   "ACER 14 Celeron": {
     "brand": "ACER",
@@ -743,7 +743,7 @@
       }
 
     },
-    "prestashop_category": "3,10,233,53"
+    "prestashop_categories": "3,10,233,53"
   },
   "ACER 14 Pentium": {
     "brand": "ACER",
@@ -765,7 +765,7 @@
       }
 
     },
-    "prestashop_category": "3,10,232,53"
+    "prestashop_categories": "3,10,232,53"
   },
   "ACER 15 I3": {
     "brand": "ACER",
@@ -796,7 +796,7 @@
       }
 
     },
-    "prestashop_category": "3,11,4,53"
+    "prestashop_categories": "3,11,4,53"
   },
   "ACER 16 I3": {
     "brand": "ACER",
@@ -827,7 +827,7 @@
       }
 
     },
-    "prestashop_category": "3,11,4,53"
+    "prestashop_categories": "3,11,4,53"
   },
   "ACER 15 i5": {
     "brand": "ACER",
@@ -858,7 +858,7 @@
       }
 
     },
-    "prestashop_category": "3,11,5,53"
+    "prestashop_categories": "3,11,5,53"
   },
   "ACER 16 i5": {
     "brand": "ACER",
@@ -889,7 +889,7 @@
       }
 
     },
-    "prestashop_category": "3,11,5,53"
+    "prestashop_categories": "3,11,5,53"
   },
   "ACER 15 I7": {
     "brand": "ACER",
@@ -920,7 +920,7 @@
       }
 
     },
-    "prestashop_category": "3,11,6,53"
+    "prestashop_categories": "3,11,6,53"
   },
   "ACER 15 I9": {
     "brand": "ACER",
@@ -951,7 +951,7 @@
       }
 
     },
-    "prestashop_category": "3,11,6,53"
+    "prestashop_categories": "3,11,6,53"
   },
   "ACER 15 AMD": {
     "brand": "ACER",
@@ -972,7 +972,7 @@
         "value": [ "15", "15.6", "15,6", "16" ]
       }
     },
-    "prestashop_category": "3,11,234,53"
+    "prestashop_categories": "3,11,234,53"
   },
   "ACER 15 Celeron": {
     "brand": "ACER",
@@ -994,7 +994,7 @@
       }
 
     },
-    "prestashop_category": "3,11,233,53"
+    "prestashop_categories": "3,11,233,53"
   },
   "ACER 15 Pentium": {
     "brand": "ACER",
@@ -1016,7 +1016,7 @@
       }
 
     },
-    "prestashop_category": "3,11,232,53"
+    "prestashop_categories": "3,11,232,53"
   },
   "ACER 17.3 I3": {
     "brand": "ACER",
@@ -1047,7 +1047,7 @@
       }
 
     },
-    "prestashop_category": "3,12,4,53"
+    "prestashop_categories": "3,12,4,53"
   },
   "ACER 17.3 i5": {
     "brand": "ACER",
@@ -1078,7 +1078,7 @@
       }
 
     },
-    "prestashop_category": "3,12,5,53"
+    "prestashop_categories": "3,12,5,53"
   },
   "ACER 17.3 I7": {
     "brand": "ACER",
@@ -1109,7 +1109,7 @@
       }
 
     },
-    "prestashop_category": "3,12,6,53"
+    "prestashop_categories": "3,12,6,53"
   },
   "ACER 17.3 I9": {
     "brand": "ACER",
@@ -1140,7 +1140,7 @@
       }
 
     },
-    "prestashop_category": "3,12,7,53"
+    "prestashop_categories": "3,12,7,53"
   },
   "ACER 17.3 AMD": {
     "brand": "ACER",
@@ -1162,7 +1162,7 @@
       }
 
     },
-    "prestashop_category": "3,12,234,53"
+    "prestashop_categories": "3,12,234,53"
   },
   "ACER 17.3 Celeron": {
     "brand": "ACER",
@@ -1184,7 +1184,7 @@
       }
 
     },
-    "prestashop_category": "3,12,233,53"
+    "prestashop_categories": "3,12,233,53"
   },
   "ACER 17.3 Pentium": {
     "brand": "ACER",
@@ -1205,6 +1205,6 @@
         "value": [ "17", "17.3", "17,3" ]
       }
     },
-    "prestashop_category": "3,12,232,53"
+    "prestashop_categories": "3,12,232,53"
   }
 }

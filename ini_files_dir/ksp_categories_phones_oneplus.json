@@ -3,36 +3,36 @@
     "brand": "ONEPLUS",
     "url": "https://ksp.co.il/web/cat/272..573..2190..27278",
     "checkbox": false,
-    "prestashop_category": "707,706,15,1,2,429,718,989,990"
+    "prestashop_categories": "707,706,15,1,2,429,718,989,990"
   },
   "ONEPLUS Nord CE": {
     "brand": "ONEPLUS",
     "url": "https://ksp.co.il/web/cat/272..573..2190..26037",
     "checkbox": false,
-    "prestashop_category": "708,706,15,1,2,429,718,989,991"
+    "prestashop_categories": "708,706,15,1,2,429,718,989,991"
   },
   "ONEPLUS 8 PRO": {
     "brand": "ONEPLUS",
     "url": "https://ksp.co.il/web/cat/272..573..2190..13340",
     "checkbox": false,
-    "prestashop_category": "709,706,15,1,2,429,718,989,992"
+    "prestashop_categories": "709,706,15,1,2,429,718,989,992"
   },
   "ONEPLUS 8T": {
     "brand": "ONEPLUS",
     "url": "https://ksp.co.il/web/cat/272..573..2190..13340",
     "checkbox": false,
-    "prestashop_category": "800,706,15,1,2,429,718,989,993"
+    "prestashop_categories": "800,706,15,1,2,429,718,989,993"
   },
   "ONEPLUS 9": {
     "brand": "ONEPLUS",
     "url": "https://ksp.co.il/web/cat/272..573..2190..24484",
     "checkbox": false,
-    "prestashop_category": "801,706,15,1,2,429,718,989,994"
+    "prestashop_categories": "801,706,15,1,2,429,718,989,994"
   },
   "ONEPLUS 9 PRO": {
     "brand": "ONEPLUS",
     "url": "https://ksp.co.il/web/cat/272..573..2190..26171",
     "checkbox": false,
-    "prestashop_category": "802,706,15,1,2,429,718,989,995"
+    "prestashop_categories": "802,706,15,1,2,429,718,989,995"
   }
 }

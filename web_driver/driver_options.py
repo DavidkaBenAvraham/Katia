@@ -12,10 +12,11 @@ from selenium.webdriver.firefox.options import Options
 # doc for chrome_options()
 def chrome_options(self):
     options = Options()
-    options.add_argument("--start-maximized")
-    options.add_argument("--start-maximized")
+    
     options.add_argument("--start-maximized")
     return options
+
+
 ##@package Katia.Driver.Options
 # doc for firefox_options()
 def firefox_options(self):

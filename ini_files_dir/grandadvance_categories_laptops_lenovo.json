@@ -29,7 +29,7 @@
       }
 
     },
-    "prestashop_category": "2,3,4,989,48"
+    "prestashop_categories": "2,3,4,989,48"
   },
 
   "LENOVO 12 I3": {
@@ -61,7 +61,7 @@
       }
 
     },
-    "prestashop_category": "3,4,492,53"
+    "prestashop_categories": "3,4,492,53"
   },
 
   "LENOVO 13.4 - 13.3 I3": {
@@ -93,7 +93,7 @@
       }
 
     },
-    "prestashop_category": "3,4,492,53"
+    "prestashop_categories": "3,4,492,53"
   },
   "LENOVO 11.6 i5": {
     "brand": "LENOVO",
@@ -124,7 +124,7 @@
       }
 
     },
-    "prestashop_category": "3,5,8,53"
+    "prestashop_categories": "3,5,8,53"
   },
   "LENOVO 11.6 I7": {
     "brand": "LENOVO",
@@ -156,7 +156,7 @@
 
     },
 
-    "prestashop_category": "3,6,8,53"
+    "prestashop_categories": "3,6,8,53"
   },
   "LENOVO 11.6 I9": {
     "brand": "LENOVO",
@@ -188,7 +188,7 @@
 
     },
 
-    "prestashop_category": "3,7,8,53"
+    "prestashop_categories": "3,7,8,53"
   },
   "LENOVO 11.6 AMD": {
     "brand": "LENOVO",
@@ -210,7 +210,7 @@
       }
 
     },
-    "prestashop_category": "3,234,8,53"
+    "prestashop_categories": "3,234,8,53"
   },
   "LENOVO 11.6 Celeron": {
     "brand": "LENOVO",
@@ -233,7 +233,7 @@
 
     },
 
-    "prestashop_category": "3,233,8,53"
+    "prestashop_categories": "3,233,8,53"
   },
   "LENOVO 11.6 Pentium": {
     "brand": "LENOVO",
@@ -256,7 +256,7 @@
 
     },
 
-    "prestashop_category": "3,232,8,53"
+    "prestashop_categories": "3,232,8,53"
   },
 
   "LENOVO 12 i5": {
@@ -288,7 +288,7 @@
       }
 
     },
-    "prestashop_category": "3,5,492,53"
+    "prestashop_categories": "3,5,492,53"
   },
   "LENOVO 12 I7": {
     "brand": "LENOVO",
@@ -320,7 +320,7 @@
 
     },
 
-    "prestashop_category": "3,492,6,53"
+    "prestashop_categories": "3,492,6,53"
   },
   "LENOVO 12 I9": {
     "brand": "LENOVO",
@@ -352,7 +352,7 @@
 
     },
 
-    "prestashop_category": "3,492,7,53"
+    "prestashop_categories": "3,492,7,53"
   },
   "LENOVO 12 AMD": {
     "brand": "LENOVO",
@@ -375,7 +375,7 @@
 
     },
 
-    "prestashop_category": "3,234,492,53"
+    "prestashop_categories": "3,234,492,53"
   },
   "LENOVO 12 Celeron": {
     "brand": "LENOVO",
@@ -397,7 +397,7 @@
       }
 
     },
-    "prestashop_category": "3,233,492,53"
+    "prestashop_categories": "3,233,492,53"
   },
   "LENOVO 12 Pentium": {
     "brand": "LENOVO",
@@ -419,7 +419,7 @@
       }
 
     },
-    "prestashop_category": "3,232,492,53"
+    "prestashop_categories": "3,232,492,53"
   },
 
   "LENOVO 13.4 - 13.3 i5": {
@@ -451,7 +451,7 @@
       }
 
     },
-    "prestashop_category": "3,9,5,53"
+    "prestashop_categories": "3,9,5,53"
   },
   "LENOVO 13.4 - 13.3 I7": {
     "brand": "LENOVO",
@@ -482,7 +482,7 @@
       }
 
     },
-    "prestashop_category": "3,9,6,53"
+    "prestashop_categories": "3,9,6,53"
   },
   "LENOVO 13.4 - 13.3 I9": {
     "brand": "LENOVO",
@@ -513,7 +513,7 @@
       }
 
     },
-    "prestashop_category": "3,9,7,53"
+    "prestashop_categories": "3,9,7,53"
   },
   "LENOVO 13.4 - 13.3 AMD": {
     "brand": "LENOVO",
@@ -535,7 +535,7 @@
       }
 
     },
-    "prestashop_category": "3,9,234,53"
+    "prestashop_categories": "3,9,234,53"
   },
   "LENOVO 13.4 - 13.3 Celeron": {
     "brand": "LENOVO",
@@ -557,7 +557,7 @@
       }
 
     },
-    "prestashop_category": "3,9,233,53"
+    "prestashop_categories": "3,9,233,53"
   },
   "LENOVO 13.4 - 13.3 Pentium": {
     "brand": "LENOVO",
@@ -579,7 +579,7 @@
       }
 
     },
-    "prestashop_category": "3,9,232,53"
+    "prestashop_categories": "3,9,232,53"
   },
   "LENOVO 14 I3": {
     "brand": "LENOVO",
@@ -610,7 +610,7 @@
       }
 
     },
-    "prestashop_category": "3,10,4,53"
+    "prestashop_categories": "3,10,4,53"
   },
   "LENOVO 14 i5": {
     "brand": "LENOVO",
@@ -641,7 +641,7 @@
       }
 
     },
-    "prestashop_category": "3,10,5,53"
+    "prestashop_categories": "3,10,5,53"
   },
   "LENOVO 14 I7": {
     "brand": "LENOVO",
@@ -672,7 +672,7 @@
       }
 
     },
-    "prestashop_category": "3,10,6,53"
+    "prestashop_categories": "3,10,6,53"
   },
   "LENOVO 14 I9": {
     "brand": "LENOVO",
@@ -703,7 +703,7 @@
       }
 
     },
-    "prestashop_category": "3,10,7,53"
+    "prestashop_categories": "3,10,7,53"
   },
   "LENOVO 14 AMD": {
     "brand": "LENOVO",
@@ -725,7 +725,7 @@
       }
 
     },
-    "prestashop_category": "3,10,234,53"
+    "prestashop_categories": "3,10,234,53"
   },
   "LENOVO 14 Celeron": {
     "brand": "LENOVO",
@@ -747,7 +747,7 @@
       }
 
     },
-    "prestashop_category": "3,10,233,53"
+    "prestashop_categories": "3,10,233,53"
   },
   "LENOVO 14 Pentium": {
     "brand": "LENOVO",
@@ -769,7 +769,7 @@
       }
 
     },
-    "prestashop_category": "3,10,232,53"
+    "prestashop_categories": "3,10,232,53"
   },
   "LENOVO 15 I3": {
     "brand": "LENOVO",
@@ -800,7 +800,7 @@
       }
 
     },
-    "prestashop_category": "3,11,4,53"
+    "prestashop_categories": "3,11,4,53"
   },
   "LENOVO 15 i5": {
     "brand": "LENOVO",
@@ -831,7 +831,7 @@
       }
 
     },
-    "prestashop_category": "3,11,5,53"
+    "prestashop_categories": "3,11,5,53"
   },
   "LENOVO 15 I7": {
     "brand": "LENOVO",
@@ -862,7 +862,7 @@
       }
 
     },
-    "prestashop_category": "3,11,6,53"
+    "prestashop_categories": "3,11,6,53"
   },
   "LENOVO 15 I9": {
     "brand": "LENOVO",
@@ -893,7 +893,7 @@
       }
 
     },
-    "prestashop_category": "3,11,6,53"
+    "prestashop_categories": "3,11,6,53"
   },
   "LENOVO 15 AMD": {
     "brand": "LENOVO",
@@ -914,7 +914,7 @@
         "value": [ "15", "15.6", "6", "16" ]
       }
     },
-    "prestashop_category": "3,11,234,53"
+    "prestashop_categories": "3,11,234,53"
   },
   "LENOVO 15 Celeron": {
     "brand": "LENOVO",
@@ -936,7 +936,7 @@
       }
 
     },
-    "prestashop_category": "3,11,233,53"
+    "prestashop_categories": "3,11,233,53"
   },
   "LENOVO 15 Pentium": {
     "brand": "LENOVO",
@@ -958,7 +958,7 @@
       }
 
     },
-    "prestashop_category": "3,11,232,53"
+    "prestashop_categories": "3,11,232,53"
   },
   "LENOVO 17.3 I3": {
     "brand": "LENOVO",
@@ -989,7 +989,7 @@
       }
 
     },
-    "prestashop_category": "3,12,4,53"
+    "prestashop_categories": "3,12,4,53"
   },
   "LENOVO 17.3 i5": {
     "brand": "LENOVO",
@@ -1020,7 +1020,7 @@
       }
 
     },
-    "prestashop_category": "3,12,5,53"
+    "prestashop_categories": "3,12,5,53"
   },
   "LENOVO 17.3 I7": {
     "brand": "LENOVO",
@@ -1051,7 +1051,7 @@
       }
 
     },
-    "prestashop_category": "3,12,6,53"
+    "prestashop_categories": "3,12,6,53"
   },
   "LENOVO 17.3 I9": {
     "brand": "LENOVO",
@@ -1082,7 +1082,7 @@
       }
 
     },
-    "prestashop_category": "3,12,7,53"
+    "prestashop_categories": "3,12,7,53"
   },
   "LENOVO 17.3 AMD": {
     "brand": "LENOVO",
@@ -1104,7 +1104,7 @@
       }
 
     },
-    "prestashop_category": "3,12,234,53"
+    "prestashop_categories": "3,12,234,53"
   },
   "LENOVO 17.3 Celeron": {
     "brand": "LENOVO",
@@ -1126,7 +1126,7 @@
       }
 
     },
-    "prestashop_category": "3,12,233,53"
+    "prestashop_categories": "3,12,233,53"
   },
   "LENOVO 17.3 Pentium": {
     "brand": "LENOVO",
@@ -1147,6 +1147,6 @@
         "value": [ "17", "17.3", "17,3" ]
       }
     },
-    "prestashop_category": "3,12,232,53"
+    "prestashop_categories": "3,12,232,53"
   }
 }

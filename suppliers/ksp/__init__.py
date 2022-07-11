@@ -50,24 +50,37 @@ def product_attributes(self, p, delimeter, elements):
         pass
 
 
-def grab_product_page(s) -> Product:
-    _d = s.driver
-    _ : dict = s.locators['product']
+def grab_product_page(s , p) -> Product:
+    p.grab_product_page(s)
 
-    p : Product = Product(s=s).grab_product_page()
+
+
+    _ : dict = s.locators['product']
+    _d = s.driver
+    _d.scroll(3)
+    _field = p.fields
+
+    '''комбинации/опции товара '''
+    _combinot = p.combinations
+    
+    
     ''' 
     Вытаскиваю со страницы товара все поля по локаторам
     ------------
     p - товар
     '''
     
-    #field = p.fields
+    def set_id():
+        _field['id'] = ''
 
-    def set_id():pass
-       
-    def set_title():pass
+    def set_mkt_suppl():
+        _field['mkt_suppl'] = _field['id']
+
+    def set_title():
+        _field['title'] = ''
         
-    def set_price():pass
+    def set_price():
+        _price = _d.find(_['product_price_locator'])
 
     def set_shipping():pass
 

@@ -969,7 +969,6 @@
     <Content Include="ini_files_dir\bug.json" />
     <Content Include="ini_files_dir\bug_categories_apple.json" />
     <Content Include="ini_files_dir\cdata.json" />
-    <Content Include="ini_files_dir\desktop.ini" />
     <Content Include="ini_files_dir\dornet_categories_kvm_aten.json">
       <SubType>Code</SubType>
     </Content>
@@ -1006,12 +1005,11 @@
     <Content Include="ini_files_dir\ksp.json" />
     <Content Include="ini_files_dir\ksp_categories_motherboards.json" />
     <Content Include="ini_files_dir\ksp_categories_notebooks_asus_by_screen_and_cpu.json" />
-    <Content Include="ini_files_dir\ksp_categories_phones.json" />
-    <Content Include="ini_files_dir\ksp_categories_phones_google - Copy.json" />
+    <Content Include="ini_files_dir\----------ksp_categories_phones.json" />
+    <Content Include="ini_files_dir\---------------ksp_categories_phones_google - Copy.json" />
     <Content Include="ini_files_dir\ksp_categories_tablets_samsung - Copy.json" />
     <Content Include="ini_files_dir\ksp_categories_wathces_apple.json" />
     <Content Include="ini_files_dir\ksp_categories_consoles_nintendo.json" />
-    <Content Include="ini_files_dir\ksp_categories_consoles_sony.json" />
     <Content Include="ini_files_dir\ksp_categories_headphones_bang_olufsen.json" />
     <Content Include="ini_files_dir\ksp_categories_headphones_razer.json" />
     <Content Include="ini_files_dir\ksp_categories_headphones_hyperx.json" />
@@ -1051,7 +1049,7 @@
     <Content Include="ini_files_dir\ksp_categories_macbook.json" />
     <Content Include="ini_files_dir\ksp_categories_ipads.json" />
     <Content Include="ini_files_dir\ksp_categories_ipods.json" />
-    <Content Include="ini_files_dir\ksp_categories_iphones.json" />
+    <Content Include="ini_files_dir\ksp_categories_phones_apple.json" />
     <Content Include="ini_files_dir\ksp_locators.json" />
     <Content Include="ini_files_dir\logins.json" />
     <Content Include="ini_files_dir\manufacturers.json" />
