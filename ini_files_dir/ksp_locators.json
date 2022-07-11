@@ -6,14 +6,16 @@
       "selector": "//li[@data-value='he']"
     },
     "en": {
-      "attribute": "sendKeys(Keys.RETURN)",
+      "attribute": null,
       "by": "xpath",
-      "selector": "//li[@data-value='en']"
+      "selector": "//li[@data-value='en']",
+      "action": "sendKeys(Keys.RETURN)"
     },
     "ru": {
-      "attribute": "sendKeys(Keys.RETURN)",
+      "attribute": null,
       "by": "xpath",
-      "selector": "//li[@data-value='ru']"
+      "selector": "//li[@data-value='ru']",
+      "action": "sendKeys(Keys.RETURN)"
     }
   },
   "infinity_scroll": true,
@@ -41,14 +43,14 @@
       "by": "xpath",
       "selector": "//*[@id='product-page-root']"
     },
-    "product_mkt_locator": {
+    "product_sku_locator": {
       "attribute": "innerText",
       "by": "xpath",
       "selector": "//*[contains(@data-id, 'product-')]/span"
     },
 
     "product_title_locator": {
-      "attribute": "innerHTML",
+      "attribute": "innerText",
       "by": "xpath",
       "replaced by driver.title": null,
       "selector": "//*[@id='product-page-root']//h1//span"
@@ -58,26 +60,23 @@
       "by": "xpath",
       "selector": "//*[@id='product-page-root']//div[@aria-label]//div[text()]"
     },
-    "product_shipping_locator": {
+    "product_delivery_locator": {
       "attribute": null,
       "by": "xpath",
       "selector": "//h2[contains(@aria-label ,'אפשרויות איסוף ומשלו')]//following::ul//li[contains(@aria-label ,'משלוח')]"
     },
 
     "product_images_locator": {
-      "attribute": { "innerText": "src" },
+      "attribute": "src",
       "by": "xpath",
-      "selector": [
-        "//*[contains(@class ,'carousel-slider')]//img//preceding::li",
-
-        "//*[contains(@class ,'carousel-slider')]//img"
-      ]
+      "selector": 
+        "//li[@class='slide']//img"
     },
 
-    "product_sikum_locator": {
-      "attribute": "innerHTML",
+    "product_summary_locator": {
+      "attribute": "innerText",
       "by": "xpath",
-      "selector": "//div[contains(@aria-label , '.')]"
+      "selector": "//p[contains(text(),'תיאור קצר')]//following-sibling::p[1]"
     },
 
     "product_attributes_locator": {

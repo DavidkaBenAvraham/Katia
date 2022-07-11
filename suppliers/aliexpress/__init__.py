@@ -225,8 +225,8 @@ def grab_product_page(s , p):
         except Exception as ex: print (f''' Exception   {ex} in set_price() ''')
 
 
-    ## set_shipping    
-    def set_shipping():pass
+    ## set_delivery    
+    def set_delivery():pass
         #_shipping = _d.find(_['product_shipping'])
         #for s in _shipping:
         #    field['shipping price'] = formatter.clear_price(s)
@@ -238,9 +238,10 @@ def grab_product_page(s , p):
         try:
             _images_thumb_50x50 = _d.find(_['product_images_thumb_50x50'])
             for i in _images_thumb_50x50:
-                imgs = f''' {str(i).replace('_50x50.jpg','')},'''
+                imgs += f''' {str(i).replace('_50x50.jpg','')},'''
             _field['img url'] = imgs
-        except Exception as ex:  self.err.handler(ex, _['product_images_locator'], [_field['img url'] , _field['img alt']])
+        except Exception as ex:  
+            self.err.handler(ex, _['product_images_locator'], [_field['img url'] , _field['img alt']])
 
 
 
@@ -354,7 +355,7 @@ def grab_product_page(s , p):
     set_mkt_suppl(),
     set_title(),
     set_price(),
-    set_shipping(),
+    set_delivery(),
     set_images(),
     set_combinations(),
     set_qty(),

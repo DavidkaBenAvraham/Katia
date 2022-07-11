@@ -190,7 +190,7 @@ def grab_product_page(s):
         _price = _d.find(_['product_price_locator'])[0]
         field['price'] = formatter.clear_price(_price)
     def get_shipping():
-        _shipping = _d.find(_['product_shipping_locator'])
+        _shipping = _d.find(_['product_delivery_locator'])
         for s in _shipping:
             field['shipping price'] = formatter.clear_price(s)
     def get_images():

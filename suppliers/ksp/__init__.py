@@ -71,20 +71,39 @@ def grab_product_page(s , p) -> Product:
     '''
     
     def set_id():
-        _field['id'] = ''
+        _field['id'] = _d.find(_['product_sku_locator'])
 
     def set_mkt_suppl():
         _field['mkt_suppl'] = _field['id']
 
     def set_title():
-        _field['title'] = ''
-        
+        _field['title'] = _d.find(_['product_title_locator'])
+        _field['title'] = formatter.remove_special_characters(_field['title'])
+    
+    def set_summary():
+        _field['summary'] = _d.find(_['product_summary_locator'])
+
+    def set_description():
+        _field['description'] = _d.find(_['product_description_locator'])
+
     def set_price():
         _price = _d.find(_['product_price_locator'])
+        try:
+            _price = formatter.clear_price(_price)
+            _field['mexir olut'] = _price
+            return True
+        except Exception as ex: print (f''' Exception   {ex} in set_price() ''')
 
-    def set_shipping():pass
+    def set_delivery():pass
 
-    def set_images():pass
+    def set_images():
+        _imgs_list = _d.find(_['product_images_locator'])
+        imgs_str = ''
+        for i in _list_imgs:
+            imgs_str += f''' {str(i)},'''
+        _field['img url'] = imgs_str
+
+
 
     def set_combinations():pass
 
@@ -92,22 +111,23 @@ def grab_product_page(s , p) -> Product:
 
     def set_byer_protection():pass
 
-    def set_description():pass
+    
 
     def set_specification():pass
 
     def set_customer_reviews():pass
 
    
-    #set_id(),
-    #set_title(),
-    #set_price(),
-    #set_shipping(),
-    #set_images(),
-    #set_combinations(),
+    set_id(),
+    set_title(),
+    set_summary()
+    set_price(),
+    set_delivery(),
+    set_images(),
+    set_combinations(),
     #set_qty(),
     #set_byer_protection(),
-    #set_description(),
+    set_description(),
     #set_specification(),
     #set_customer_reviews()
         

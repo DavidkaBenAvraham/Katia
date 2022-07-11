@@ -68,7 +68,7 @@ def grab_product_page(s) -> Product:
         
     def set_price():pass
 
-    def set_shipping():pass
+    def set_delivery():pass
 
     def set_images():pass
 
@@ -88,7 +88,7 @@ def grab_product_page(s) -> Product:
     #set_id(),
     #set_title(),
     #set_price(),
-    #set_shipping(),
+    #set_delivery(),
     #set_images(),
     #set_combinations(),
     #set_qty(),

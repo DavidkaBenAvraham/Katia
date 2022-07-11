@@ -32,8 +32,9 @@
 
       "2255": "MICROSOFT",
       "3232": "Microsoft X-Box",
-      "3231": "Microsoft Xbox Series S",
-      "price_rule": 1
-    }
+      "3231": "Microsoft Xbox Series S"
+    },
+    "price_rule": 1
+
   }
 }

@@ -171,7 +171,7 @@ class Product():
             
         def set_price():pass
 
-        def set_shipping():pass
+        def set_delivery():pass
             
         def set_images():pass
             
@@ -212,15 +212,18 @@ class Product():
                print(ex)
 
         def set_categories():
+            ''' 
+            В
+            '''
             for k , v in _current_node['prestashop_categories'].items():
                 field['categories'] += f'''{k}, '''
-
-
+            
+            field['categories'] = str(field['categories']).removesuffix(',')
 
         set_id()
         set_title()
         set_price()
-        set_shipping()
+        set_delivery()
         set_images()
         set_combinations()
         set_qty()

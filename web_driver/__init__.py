@@ -222,8 +222,8 @@ class Driver:
             return True
 
 
-        #set_Firefox()
-        set_Chrome()
+        set_Firefox()
+        #set_Chrome()
         self.driver.maximize_window()
 
 

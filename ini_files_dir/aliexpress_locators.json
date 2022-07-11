@@ -1,5 +1,5 @@
 {
-  "============== ABOUT ==================": [ "подробное описание структуры файлов JSON смотри READMY.MD в корне этой папки " ],
+  "============== ABOUT ========": [ "подробное описание структуры файлов JSON смотри READMY.MD в корне этой папки " ],
 
   "============== ЛОГИН ==========================": [ "ЛОГИН" ],
   "login": {
@@ -233,7 +233,7 @@
       "selector": "//div[@class = 'product-info']"
     },
 
-    "product_mkt_locator": {
+    "product_sku_locator": {
       "attribute": "current_url",
       "by": null,
       "selector": null,
@@ -249,7 +249,7 @@
       "by": "xpath",
       "selector": "//div[contains(@class, 'product-price-current')]//span"
     },
-    "product_shipping_locator": {
+    "product_delivery_locator": {
       "attribute": null,
       "by": "xpath",
       "selector": "//div[@class = 'dynamic-shipping']//strong"
@@ -265,7 +265,7 @@
       "by": "xpath",
       "selector": "//img[@class='magnifier-image']"
     },
-    "product_sikum_locator": {
+    "product_summary_locator": {
       "attribute": "innerText",
       "by": "xpath",
       "selector": "//h1[@class='product-title-text']"
