@@ -1,6 +1,0 @@
-var classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_offer_redefining_deletebundle_request_f9f540a6e2c6796d1b80a1bbb28e7e12 =
-[
-    [ "__init__", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_offer_redefining_deletebundle_request_f9f540a6e2c6796d1b80a1bbb28e7e12.html#a5bddd0ec949b1f1c5e081e58b4298d12", null ],
-    [ "getapiname", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_offer_redefining_deletebundle_request_f9f540a6e2c6796d1b80a1bbb28e7e12.html#a98daa5272fc63e09a3ddd4c1810881b5", null ],
-    [ "bundle_id", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_offer_redefining_deletebundle_request_f9f540a6e2c6796d1b80a1bbb28e7e12.html#acf1e2e2e11c0a2387b92af43f06be59e", null ]
-];

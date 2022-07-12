@@ -1,4 +1,0 @@
-var _cainiao_global_handover_savedraft_request_8py =
-[
-    [ "aliexpress_api.skd.api.rest.CainiaoGlobalHandoverSavedraftRequest.CainiaoGlobalHandoverSavedraftRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_handover_savedraft_request_1_1_cai7bb246fdfc623270d1683562edab52b1.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_handover_savedraft_request_1_1_cai7bb246fdfc623270d1683562edab52b1" ]
-];

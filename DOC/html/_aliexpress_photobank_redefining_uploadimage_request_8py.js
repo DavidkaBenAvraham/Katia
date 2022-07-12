@@ -1,4 +1,0 @@
-var _aliexpress_photobank_redefining_uploadimage_request_8py =
-[
-    [ "aliexpress_api.skd.api.rest.AliexpressPhotobankRedefiningUploadimageRequest.AliexpressPhotobankRedefiningUploadimageRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_photobank_redefining_uploadimage_requeb2c291bc07b68fe0320426c1bdd54e35.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_photobank_redefining_uploadimage_requeb2c291bc07b68fe0320426c1bdd54e35" ]
-];

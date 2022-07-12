@@ -1,9 +1,0 @@
-var classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_redefining_sellermodifiedshieeeef9942209cf3d97f1b2a37fd451bf =
-[
-    [ "__init__", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_redefining_sellermodifiedshieeeef9942209cf3d97f1b2a37fd451bf.html#aa10661cdb1182e61347d060ab35742a6", null ],
-    [ "getapiname", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_redefining_sellermodifiedshieeeef9942209cf3d97f1b2a37fd451bf.html#a777ecd0b307693575989d3fadc80ff11", null ],
-    [ "old_logistics_no", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_redefining_sellermodifiedshieeeef9942209cf3d97f1b2a37fd451bf.html#a735f9f3543e1d24875e08e1966d5df0a", null ],
-    [ "old_service_name", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_redefining_sellermodifiedshieeeef9942209cf3d97f1b2a37fd451bf.html#a88ce3f2b3ae3ccf7eef946636b2e778c", null ],
-    [ "sub_trade_order_list", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_redefining_sellermodifiedshieeeef9942209cf3d97f1b2a37fd451bf.html#a8781058a3336066b21fcd4b2dcaf4282", null ],
-    [ "trade_order_id", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_redefining_sellermodifiedshieeeef9942209cf3d97f1b2a37fd451bf.html#acb04d9d7b60ebed731934e5e388ffd37", null ]
-];

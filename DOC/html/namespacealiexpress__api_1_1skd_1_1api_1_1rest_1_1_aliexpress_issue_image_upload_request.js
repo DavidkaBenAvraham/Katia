@@ -1,4 +1,0 @@
-var namespacealiexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_issue_image_upload_request =
-[
-    [ "AliexpressIssueImageUploadRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_issue_image_upload_request_1_1_aliexpress_issue_image_upload_request.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_issue_image_upload_request_1_1_aliexpress_issue_image_upload_request" ]
-];

@@ -67,7 +67,7 @@ PROJECT_LOGO           = e:/Users/user/Desktop/кошка.png
 # entered, it will be relative to the location where doxygen was started. If
 # left blank the current directory will be used.
 
-OUTPUT_DIRECTORY       = ../../../DavidkaBenAvraham.github.io/katia/doc
+OUTPUT_DIRECTORY       = ../../../DavidkaBenAvraham.github.io/_doc
 
 # If the CREATE_SUBDIRS tag is set to YES then doxygen will create up to 4096
 # sub-directories (in 2 levels) under the output directory of each output format
@@ -1031,7 +1031,16 @@ EXCLUDE                = C:/Users/user/OneDrive/REPOS/DavidkaBenAvraham/Katia/Al
                          ../filemanager.py \
                          ../execute_fields.py \
                          ../apis \
-                         ../apis
+                         ../apis \
+                         ../__DEPRECATED \
+                         ../__pycache__ \
+                         ../aliexpress_api \
+                         ../aliyun \
+                         ../apis \
+                         ../DB \
+                         ../dingtalk \
+                         . \
+                         ../top
 
 # The EXCLUDE_SYMLINKS tag can be used to select whether or not files or
 # directories that are symbolic links (a Unix file system feature) are excluded

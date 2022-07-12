@@ -1,4 +1,0 @@
-var _aliexpress_evaluation_listorderevaluation_get_request_8py =
-[
-    [ "aliexpress_api.skd.api.rest.AliexpressEvaluationListorderevaluationGetRequest.AliexpressEvaluationListorderevaluationGetRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_evaluation_listorderevaluation_get_reqd0ecc091731cfc68abd45c2222653a00.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_evaluation_listorderevaluation_get_reqd0ecc091731cfc68abd45c2222653a00" ]
-];

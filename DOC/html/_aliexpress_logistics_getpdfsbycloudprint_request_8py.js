@@ -1,4 +1,0 @@
-var _aliexpress_logistics_getpdfsbycloudprint_request_8py =
-[
-    [ "aliexpress_api.skd.api.rest.AliexpressLogisticsGetpdfsbycloudprintRequest.AliexpressLogisticsGetpdfsbycloudprintRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_getpdfsbycloudprint_request_bf34086649d1843c4cc9d2792439001f.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_getpdfsbycloudprint_request_bf34086649d1843c4cc9d2792439001f" ]
-];

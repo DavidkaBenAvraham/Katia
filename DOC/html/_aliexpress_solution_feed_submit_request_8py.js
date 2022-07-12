@@ -1,4 +1,0 @@
-var _aliexpress_solution_feed_submit_request_8py =
-[
-    [ "aliexpress_api.skd.api.rest.AliexpressSolutionFeedSubmitRequest.AliexpressSolutionFeedSubmitRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_solution_feed_submit_request_1_1_aliex74d8bd7d7e0e8af1953ed3539c25b108.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_solution_feed_submit_request_1_1_aliex74d8bd7d7e0e8af1953ed3539c25b108" ]
-];

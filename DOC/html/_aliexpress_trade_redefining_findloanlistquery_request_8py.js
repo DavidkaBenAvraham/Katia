@@ -1,4 +1,0 @@
-var _aliexpress_trade_redefining_findloanlistquery_request_8py =
-[
-    [ "aliexpress_api.skd.api.rest.AliexpressTradeRedefiningFindloanlistqueryRequest.AliexpressTradeRedefiningFindloanlistqueryRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_trade_redefining_findloanlistquery_req3e8d9af09bed754e9fc73db9d2fb676a.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_trade_redefining_findloanlistquery_req3e8d9af09bed754e9fc73db9d2fb676a" ]
-];

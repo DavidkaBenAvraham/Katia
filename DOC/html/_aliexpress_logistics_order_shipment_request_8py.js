@@ -1,4 +1,0 @@
-var _aliexpress_logistics_order_shipment_request_8py =
-[
-    [ "aliexpress_api.skd.api.rest.AliexpressLogisticsOrderShipmentRequest.AliexpressLogisticsOrderShipmentRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_order_shipment_request_1_1_af0cdb66d4b2b74ec68ae3c6fa5c4be15.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_order_shipment_request_1_1_af0cdb66d4b2b74ec68ae3c6fa5c4be15" ]
-];

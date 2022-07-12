@@ -1,4 +1,0 @@
-var _aliexpress_logistics_redefining_getprintinfos_request_8py =
-[
-    [ "aliexpress_api.skd.api.rest.AliexpressLogisticsRedefiningGetprintinfosRequest.AliexpressLogisticsRedefiningGetprintinfosRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_redefining_getprintinfos_req567391b9da3a4fa73a84b619a631f286.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_redefining_getprintinfos_req567391b9da3a4fa73a84b619a631f286" ]
-];

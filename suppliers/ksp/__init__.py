@@ -78,7 +78,7 @@ def grab_product_page(s , p) -> Product:
 
     def set_title():
         _field['title'] = _d.find(_['product_title_locator'])
-        _field['title'] = formatter.remove_special_characters(_field['title'])
+        _field['title'] = formatter.remove_non_latin_characters(_field['title'])
     
     def set_summary():
         _field['summary'] = _d.find(_['product_summary_locator'])
@@ -89,20 +89,27 @@ def grab_product_page(s , p) -> Product:
     def set_price():
         _price = _d.find(_['product_price_locator'])
         try:
+            '''  Может прийти все, что угодно  '''
             _price = formatter.clear_price(_price)
-            _field['mexir olut'] = _price
-            return True
-        except Exception as ex: print (f''' Exception   {ex} in set_price() ''')
+        except Exception as ex: return False , print (f''' Exception   {ex} in set_price() ''')
+        _field['mexir olut'] = _price
+        return True
 
-    def set_delivery():pass
+    def set_delivery():
+        '''@TODO  перенести в комбинации '''
+        product_delivery_list = _d.find(_['product_delivery_locator'])
+        #for i in product_delivery_list:
+        #    pass
+
 
     def set_images():
-        _imgs_list = _d.find(_['product_images_locator'])
-        imgs_str = ''
-        for i in _list_imgs:
-            imgs_str += f''' {str(i)},'''
-        _field['img url'] = imgs_str
-
+        #imgs_list  = _d.find(_['product_images_locator'])
+        #imgs_str :str = ','.join(_d.find(_['product_images_locator']))
+        try:
+            _field['img url'] = ','.join(_d.find(_['product_images_locator']))
+        except Exception as ex:
+            print(f'''ошибка в  _field['img url']  
+            {ex}''')
 
 
     def set_combinations():pass

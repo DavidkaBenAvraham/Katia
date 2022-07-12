@@ -1,4 +1,0 @@
-var _aliexpress_local_logistics_label_print_request_8py =
-[
-    [ "aliexpress_api.skd.api.rest.AliexpressLocalLogisticsLabelPrintRequest.AliexpressLocalLogisticsLabelPrintRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_local_logistics_label_print_request_1_9265c589a2edcb470b297301a7e5fa5d.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_local_logistics_label_print_request_1_9265c589a2edcb470b297301a7e5fa5d" ]
-];

@@ -1,4 +1,0 @@
-var _aliexpress_merchant_redefining_queryremarks_request_8py =
-[
-    [ "aliexpress_api.skd.api.rest.AliexpressMerchantRedefiningQueryremarksRequest.AliexpressMerchantRedefiningQueryremarksRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_merchant_redefining_queryremarks_requebd28b9c4a50abe397f8dc53c51b6f566.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_merchant_redefining_queryremarks_requebd28b9c4a50abe397f8dc53c51b6f566" ]
-];

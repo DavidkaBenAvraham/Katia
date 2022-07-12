@@ -1,9 +1,0 @@
-<map id="aliexpress_api.api.AliexpressApi.get_products_details" name="aliexpress_api.api.AliexpressApi.get_products_details">
-<area shape="rect" id="node1" title=" " alt="" coords="5,104,196,145"/>
-<area shape="rect" id="node2" href="$namespacealiexpress__api_1_1helpers_1_1requests.html#a990e45320ffcdabaed0e5e1d29ada13c" title=" " alt="" coords="251,5,478,47"/>
-<area shape="rect" id="node3" href="$namespacealiexpress__api_1_1helpers_1_1arguments.html#a5d6a667eada6861e946c501ca6f1e08a" title=" " alt="" coords="245,71,484,112"/>
-<area shape="rect" id="node4" href="$namespacealiexpress__api_1_1helpers_1_1arguments.html#a1c131f9d38c9634abdd6e776e310dbb3" title=" " alt="" coords="245,136,484,177"/>
-<area shape="rect" id="node6" href="$namespacealiexpress__api_1_1helpers_1_1products.html#a23afc4a0d492cd3891bc8cde750cba39" title=" " alt="" coords="244,201,485,243"/>
-<area shape="rect" id="node5" href="$namespacealiexpress__api_1_1tools_1_1get__product__id.html#a25fd6f02c714902a7a5453de506c6ec2" title=" " alt="" coords="565,136,743,177"/>
-<area shape="rect" id="node7" href="$namespacealiexpress__api_1_1helpers_1_1products.html#a4e50bc070ac1d5ae3280e177b6aca444" title=" " alt="" coords="533,201,775,243"/>
-</map>

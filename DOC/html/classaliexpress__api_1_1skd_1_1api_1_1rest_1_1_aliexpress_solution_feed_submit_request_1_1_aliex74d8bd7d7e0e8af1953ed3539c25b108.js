@@ -1,8 +1,0 @@
-var classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_solution_feed_submit_request_1_1_aliex74d8bd7d7e0e8af1953ed3539c25b108 =
-[
-    [ "__init__", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_solution_feed_submit_request_1_1_aliex74d8bd7d7e0e8af1953ed3539c25b108.html#aaffe87295aee88ac9a9df0721f507131", null ],
-    [ "getapiname", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_solution_feed_submit_request_1_1_aliex74d8bd7d7e0e8af1953ed3539c25b108.html#ae3af3abd74e4c878693fcf85d5d0ea7b", null ],
-    [ "developer_features", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_solution_feed_submit_request_1_1_aliex74d8bd7d7e0e8af1953ed3539c25b108.html#a659617d0569135e25e4711a8199b5507", null ],
-    [ "item_list", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_solution_feed_submit_request_1_1_aliex74d8bd7d7e0e8af1953ed3539c25b108.html#a342631d883f9a744dc1554645af3de3e", null ],
-    [ "operation_type", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_solution_feed_submit_request_1_1_aliex74d8bd7d7e0e8af1953ed3539c25b108.html#ace6497e1dfdf93691735a28ea4022293", null ]
-];

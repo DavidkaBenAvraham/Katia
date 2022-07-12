@@ -40,15 +40,18 @@ def html2json(html:str)->json:
 
 
 
-## экспортирую данные в файл .
+### экспортирую данные в файл .
 # функция позволяет экспортировать словарь в файл <br>
 # из всех точек выполнения сценариев 
-def export(supplier , data , format : list = ['json','csv','txt'] , filename : str = None):
+def export(supplier, data, filename:str = None, format:list = ['json','csv','txt'])->bool:
 
-    export_file_path =  Path(f'''{supplier.ini.paths.export_dir}''')
+    export_file_path = Path(f'''{supplier.ini.paths.export_dir}''')
        
-    if filename == None:
-        filename = f'''-{supplier.supplier_prefics}'''
+    #if filename == None:
+    #    filename = f'''-{supplier.supplier_prefics}'''
+
+
+    filename = f'''-{supplier.supplier_prefics} '''
     
 
     for frmt in format:

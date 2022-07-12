@@ -1,29 +1,35 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/env python
-__author__ = 'e-cat.me'
 ##@package Katia.Supplier
 ##Documentation for this module
 #                                       
-#    здесь собираются списки товаров от поставщиков
+#           Скрипты выполнения сценариев
+#
+#       execute_list_of_scenaries(Supplier) -> bool
+#       run_scenario(s , scenario) -> bool:
+#       get_list_products_urls(s , scenario_node : dict ) ->list:
 
-from suppliers.product import Product
 
 from pathlib import Path
+import pandas as pd
+
+from suppliers.product import Product
 import execute_json as json
 from ini_files_dir import Ini
 ini = Ini()
-import pandas as pd
 
-def error_handler():
-    pass
 
+
+
+#           по умолчанию все сценарии  прописаны в файлах <supplier>.json
+#           Каждый сценарий поставщика - файл с именем 
+#           <supplier>_categories_<category_name>_<model>_<brand>.json
+#           при инициализации объекта он хранится в self.scenaries
+#           -------------------------------
+#           supplier - class Supplier  f.e.: mor, cdata, visual, 
+#               aliexpress, ebay, amazon etc.
 def execute_list_of_scenaries(Supplier) -> bool :
-    ## по умолчанию все сценарии  прописаны в файлах <supplier>.json
-    # Каждый сценарий поставщика - файл с именем 
-    # <supplier>_categories_<category_name>_<model>_<brand>.json
-    # при инициализации объекта он хранится в self.scenaries
-    # -------------------------------
-    # supplier - class Supplier  f.e.: mor, cdata, visual, etc.
+
 
 
     s = Supplier
@@ -48,16 +54,13 @@ def execute_list_of_scenaries(Supplier) -> bool :
     def run(json_file) -> bool:
         s.scenaries = json.loads(Path(s.ini.paths.ini_files_dir , f'''{json_file}'''))
         s.scenario_category = json_file.split('_')[2]
+        export_file_name = f'''{s.settings['supplier_prefics']}-{s.scenario_category}'''
         ''' третье слово в названии файла сценариев это категория товаров '''
         while len(s.scenaries.items())>0:
             _scenario = s.scenaries.popitem()[1]
-            try : 
-                run_scenario(s , _scenario) 
-                json.export(s, s.p , ['csv'] , f'''{_scenario['store_id']}-{_scenario['description']} ''')
-            except Exception as ex:
-                print(f''' ошибка {ex} в ходе выполнения сценария {_scenario} ''')
-                json.export(s, s.p , ['csv'] , f'''{_scenario['store_id']}-{_scenario['description']} ''')
-                continue
+            run_scenario(s , _scenario) 
+            json.export(s, s.p , export_file_name  , ['csv'] )
+           
             
         
 
@@ -90,89 +93,105 @@ def run_scenario(s , scenario) -> bool:
     def run(s, node):
         ''' бегунок '''
 
-        ## СОБИРАЮ ДАННЫЕ СО СТРАНИЦЫ
+        '''# СОБИРАЮ ДАННЫЕ СО СТРАНИЦЫ '''
         def grab_product_page():
-            product_fields = s.related_functions.grab_product_page(s , Product())
+            product : Product = s.related_functions.grab_product_page(s , Product())
             ''' получаю товар 
             заполняю все свойства товара в функции 
             grab_product_page() для каждого поставщика.
-            '''
-              
-            
 
+            c) Добавляю поля товара в список товаров поставщика 
+            для их дальнейшей обработки
             '''
-            c) 
-                добавляю товар в список поставщика
-            '''
+            product_fields : pd.DataFrame = product.fields
             s.p.append(product_fields)
             pass
 
-
-
         s.current_node = node
 
-        ## 1)
-        list_products_urls : list = get_list_products_urls(s , node)
+        '''              1                          '''
         ''' получаю список url на страницы товаров '''
+        list_products_urls : list = get_list_products_urls(s , node)
+        
 
-        if len(list_products_urls) == 0 : return False 
-        ## в исполняемом узле может не оказаться товаров. В этом случае перехожу к следующему узлу выполнения
+        ''' в исполняемом узле может не оказаться товаров. 
+        В этом случае возвращаю False 
+        (перехожу к следующему узлу выполнения) '''
+        if list_products_urls is None or len(list_products_urls) == 0 : return False 
+
+        '''              2                          '''
+        ''' driver вернул urls на страницы товаров ... '''
 
 
+        ''' ... списком '''
+        ''' перебираю список адресов товаров'''
         if isinstance(list_products_urls, list):
-            '''
-                    ## 2)
-                    ## Больше одного URL
-            '''
+            
             for product_url in list_products_urls :
-                ''' перебираю адреса товаров : '''
-
-
-                #   a)
-                '''Перехожу на страницу товара 
-                        функция get_url('url') возвращает True, 
-                        если переход на страницу был успешен'''
-                if not s.driver.get_url(product_url) : 
+                '''функция get_url('url') возвращает True, 
+                если переход на страницу был успешен,
+                иначе False.
+                Исключения обрабатываются внутри самой get_url()'''
+                if s.driver.get_url(product_url) : 
+                    grab_product_page()
+                    
+                else: 
                     print(f''' нет такой страницы товара {product_url} ''') 
                     continue
 
-                grab_product_page()
-        else:
-        
-            if not s.driver.get_url(list_products_urls): 
-                '''Перехожу на страницу товара 
-                    функция get_url('url') возвращает True, 
-                    если переход на страницу был успешен'''
 
-                print(f''' нет такой страницы товара {list_products_urls} ''') 
-
+            ''' ... строкой '''
+        elif s.driver.get_url(list_products_urls):
+            '''функция get_url('url') возвращает True, 
+            если переход на страницу был успешен,
+            иначе False.
+            Исключения обрабатываются внутри самой get_url()'''
             grab_product_page()
+        else:
+            print(f''' нет такой страницы товара {list_products_urls} ''') 
+
             
+      
+    def export():
+        pass
 
 
-    ## aliexpress etc
-    if 'store_id' in scenario.keys():
-        ##         имеем дело с магазином
+    ## aliexpress etc multitrade
+    ###         имеем дело с магазином
         # текущий сценарий в формате dict сдвинут  вправо 
         # и находится в узле  scenaries:{} 
+    if 'store_id' in scenario.keys():
         while len(scenario['scenaries'].items())>0:
             run(s , scenario['scenaries'].popitem()[1])
-            
+            json.export(s, s.p  , f'''{scenario}''', ['csv'])
+
+
         
-    ## ksp, morlevi etc
-    else:run(s , scenario)
-    ''' имею дело с узлом сценария как в ksp, mor, etc '''
-            
-        
-    json.export(s, s.p , ['csv'] , f'''{scenario}''')
+    ## ksp, morlevi etc alone trade
+        ''' имею дело с узлом сценария как в ksp, mor, etc '''
+    else:
+        run(s , scenario)
+        json.export(s, s.p  , f'''{scenario}''', ['csv'])
+
     return True
 
 ## get_list_products_urls
+# and ссылки на все товары в категории 
+# по локатору self.locators['product']['link_to_product_locator']
 def get_list_products_urls(s , scenario_node : dict ) ->list:
-    '''  возвращает ссылки на все товары в категории 
-        по локатору self.locators['product']['link_to_product_locator']
-    '''
-    
+
+    ## Проверяю изменения чексбоксов на странице категории
+    # 
+    def get_page_check_list(s):
+        locator = {
+                   'by': 'xpath', 
+                   'selector': '//input'}
+        elems = s.driver.find(locator)
+
+
+        for e in elems:
+            print(e.id)
+        pass
     if not s.driver.get_url(scenario_node["url"]): 
         return [] , print(f'''нет такой страницы! 
                 {s.current_node["url"]}
@@ -198,11 +217,13 @@ def get_list_products_urls(s , scenario_node : dict ) ->list:
         ''' А бесконечная прокрука '''
         s.driver.scroll()
         list_product_urls : list = s.driver.find(_)
+        get_page_check_list(s)
         return list_product_urls
     
     else:
-        ''' Б переключение между страницами'''
+        ''' Б переключение между страницами реализуется в каждом постащике '''
         list_product_urls = s.related_functions.pagination(s)
+        get_page_check_list(s)
         return list_product_urls
 
 

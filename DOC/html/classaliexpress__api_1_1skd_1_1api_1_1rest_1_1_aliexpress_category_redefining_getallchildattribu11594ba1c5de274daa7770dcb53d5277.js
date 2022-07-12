@@ -1,8 +1,0 @@
-var classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_category_redefining_getallchildattribu11594ba1c5de274daa7770dcb53d5277 =
-[
-    [ "__init__", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_category_redefining_getallchildattribu11594ba1c5de274daa7770dcb53d5277.html#ae31b070ee10676edb2f4f4c9885ad571", null ],
-    [ "getapiname", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_category_redefining_getallchildattribu11594ba1c5de274daa7770dcb53d5277.html#a99d5959afd075974c96d499428ab7c6e", null ],
-    [ "cate_id", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_category_redefining_getallchildattribu11594ba1c5de274daa7770dcb53d5277.html#a7e9fc057a7fe7929dc5f963599b38b4a", null ],
-    [ "locale", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_category_redefining_getallchildattribu11594ba1c5de274daa7770dcb53d5277.html#aa80acc392a4f3308c63fd0c9f9aaab7d", null ],
-    [ "parent_attrvalue_list", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_category_redefining_getallchildattribu11594ba1c5de274daa7770dcb53d5277.html#aa7a5492bb309ae8b27cb10c63a97720f", null ]
-];

@@ -1,4 +1,0 @@
-var _aliexpress_affiliate_product_query_request_8py =
-[
-    [ "aliexpress_api.skd.api.rest.AliexpressAffiliateProductQueryRequest.AliexpressAffiliateProductQueryRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_affiliate_product_query_request_1_1_ale21ac059ef7cacb2acf2b824bf40749a.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_affiliate_product_query_request_1_1_ale21ac059ef7cacb2acf2b824bf40749a" ]
-];

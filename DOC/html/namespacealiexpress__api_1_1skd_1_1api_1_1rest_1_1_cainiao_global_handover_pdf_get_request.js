@@ -1,4 +1,0 @@
-var namespacealiexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_handover_pdf_get_request =
-[
-    [ "CainiaoGlobalHandoverPdfGetRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_handover_pdf_get_request_1_1_cainid4c0e6fb5ef2c48a632136a6ae69a476.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_handover_pdf_get_request_1_1_cainid4c0e6fb5ef2c48a632136a6ae69a476" ]
-];

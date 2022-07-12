@@ -1,4 +1,0 @@
-var namespacealiexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_offer_draftproducts_get_request =
-[
-    [ "AliexpressOfferDraftproductsGetRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_offer_draftproducts_get_request_1_1_al230a1838f1e1245ac3ee2982a977dcf9.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_offer_draftproducts_get_request_1_1_al230a1838f1e1245ac3ee2982a977dcf9" ]
-];

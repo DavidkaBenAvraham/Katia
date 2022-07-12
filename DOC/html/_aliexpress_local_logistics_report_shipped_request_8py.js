@@ -1,4 +1,0 @@
-var _aliexpress_local_logistics_report_shipped_request_8py =
-[
-    [ "aliexpress_api.skd.api.rest.AliexpressLocalLogisticsReportShippedRequest.AliexpressLocalLogisticsReportShippedRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_local_logistics_report_shipped_request7e2994b365966f3a369ca9a63bcdd0cc.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_local_logistics_report_shipped_request7e2994b365966f3a369ca9a63bcdd0cc" ]
-];

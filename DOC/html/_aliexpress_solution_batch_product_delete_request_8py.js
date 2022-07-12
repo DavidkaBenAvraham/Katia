@@ -1,4 +1,0 @@
-var _aliexpress_solution_batch_product_delete_request_8py =
-[
-    [ "aliexpress_api.skd.api.rest.AliexpressSolutionBatchProductDeleteRequest.AliexpressSolutionBatchProductDeleteRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_solution_batch_product_delete_request_88ee08e56495e17ef22be5fed79235da.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_solution_batch_product_delete_request_88ee08e56495e17ef22be5fed79235da" ]
-];

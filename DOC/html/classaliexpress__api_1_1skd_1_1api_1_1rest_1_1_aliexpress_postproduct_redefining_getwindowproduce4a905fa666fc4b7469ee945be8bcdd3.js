@@ -1,5 +1,0 @@
-var classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_postproduct_redefining_getwindowproduce4a905fa666fc4b7469ee945be8bcdd3 =
-[
-    [ "__init__", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_postproduct_redefining_getwindowproduce4a905fa666fc4b7469ee945be8bcdd3.html#a0713f123b7f5dc05f629d939df02d65e", null ],
-    [ "getapiname", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_postproduct_redefining_getwindowproduce4a905fa666fc4b7469ee945be8bcdd3.html#a3bb587a84e7dee8f87c0014583384f66", null ]
-];

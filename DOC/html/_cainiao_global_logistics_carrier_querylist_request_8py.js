@@ -1,4 +1,0 @@
-var _cainiao_global_logistics_carrier_querylist_request_8py =
-[
-    [ "aliexpress_api.skd.api.rest.CainiaoGlobalLogisticsCarrierQuerylistRequest.CainiaoGlobalLogisticsCarrierQuerylistRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_logistics_carrier_querylist_reques31fe0db21de0b9c890ba2ecb1cbbc62a.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_logistics_carrier_querylist_reques31fe0db21de0b9c890ba2ecb1cbbc62a" ]
-];

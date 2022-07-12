@@ -1,7 +1,0 @@
-var classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_logistic_order_create_request_1_1_8bb3534a8dd5ee0ef260b8c96c6c43c4 =
-[
-    [ "__init__", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_logistic_order_create_request_1_1_8bb3534a8dd5ee0ef260b8c96c6c43c4.html#a5bfdc100d0c130c262073c96d039624d", null ],
-    [ "getapiname", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_logistic_order_create_request_1_1_8bb3534a8dd5ee0ef260b8c96c6c43c4.html#a5b6c8dcfbeb6b19e70346eeebd592d86", null ],
-    [ "locale", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_logistic_order_create_request_1_1_8bb3534a8dd5ee0ef260b8c96c6c43c4.html#a768fe0678e85b32d76940e9092ad178a", null ],
-    [ "order_param", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_logistic_order_create_request_1_1_8bb3534a8dd5ee0ef260b8c96c6c43c4.html#a58b435be35abbe8b39fc8c81466046e8", null ]
-];

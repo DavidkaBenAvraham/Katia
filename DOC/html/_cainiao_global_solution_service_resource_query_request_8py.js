@@ -1,4 +1,0 @@
-var _cainiao_global_solution_service_resource_query_request_8py =
-[
-    [ "aliexpress_api.skd.api.rest.CainiaoGlobalSolutionServiceResourceQueryRequest.CainiaoGlobalSolutionServiceResourceQueryRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_solution_service_resource_query_reb20cb96b9f078333a080a035934d625c.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_solution_service_resource_query_reb20cb96b9f078333a080a035934d625c" ]
-];

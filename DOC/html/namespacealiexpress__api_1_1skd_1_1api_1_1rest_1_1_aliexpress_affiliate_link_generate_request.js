@@ -1,4 +1,0 @@
-var namespacealiexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_affiliate_link_generate_request =
-[
-    [ "AliexpressAffiliateLinkGenerateRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_affiliate_link_generate_request_1_1_al6fcda2933558fd346cefe5efbbf2edd8.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_affiliate_link_generate_request_1_1_al6fcda2933558fd346cefe5efbbf2edd8" ]
-];

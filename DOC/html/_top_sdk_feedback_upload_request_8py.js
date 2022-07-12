@@ -1,4 +1,0 @@
-var _top_sdk_feedback_upload_request_8py =
-[
-    [ "aliexpress_api.skd.api.rest.TopSdkFeedbackUploadRequest.TopSdkFeedbackUploadRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_top_sdk_feedback_upload_request_1_1_top_sdk_feedback_upload_request.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_top_sdk_feedback_upload_request_1_1_top_sdk_feedback_upload_request" ]
-];

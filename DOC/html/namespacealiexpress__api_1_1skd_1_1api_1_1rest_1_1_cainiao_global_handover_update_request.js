@@ -1,4 +1,0 @@
-var namespacealiexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_handover_update_request =
-[
-    [ "CainiaoGlobalHandoverUpdateRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_handover_update_request_1_1_cainia9c08b7c10c9e2a6a0cde5c5bb9d3c09c.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_cainiao_global_handover_update_request_1_1_cainia9c08b7c10c9e2a6a0cde5c5bb9d3c09c" ]
-];

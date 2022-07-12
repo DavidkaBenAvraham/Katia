@@ -1,4 +1,0 @@
-var _aliexpress_solution_feed_query_request_8py =
-[
-    [ "aliexpress_api.skd.api.rest.AliexpressSolutionFeedQueryRequest.AliexpressSolutionFeedQueryRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_solution_feed_query_request_1_1_aliexpc4e060fe0162736067264107ec742d70.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_solution_feed_query_request_1_1_aliexpc4e060fe0162736067264107ec742d70" ]
-];

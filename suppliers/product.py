@@ -181,13 +181,7 @@ class Product():
         def set_qty():pass
 
 
-        def set_byer_protection():
-            try:
-                field['product_byer_protection'] = _d.find(_['product_byer_protection_locator'])
-                return True
-            except Exception as ex: 
-                field['product_byer_protection'] = None
-                print(ex)
+        def set_byer_protection():pass
 
         def set_description():
             try:
@@ -215,10 +209,10 @@ class Product():
             ''' 
             В
             '''
-            for k , v in _current_node['prestashop_categories'].items():
-                field['categories'] += f'''{k}, '''
-            
-            field['categories'] = str(field['categories']).removesuffix(',')
+            #for k , v in _current_node['prestashop_categories'].items():
+            #    field['categories'] += f'''{k}, '''
+            categories :str = ','.join(_current_node['prestashop_categories'].keys())
+            field['categories'] = categories
 
         set_id()
         set_title()

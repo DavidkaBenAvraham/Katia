@@ -1,5 +1,0 @@
-var classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_merchant_oversea_brand_get_request_1_12579b85f439ef10b5e04405f1d996f8e =
-[
-    [ "__init__", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_merchant_oversea_brand_get_request_1_12579b85f439ef10b5e04405f1d996f8e.html#aeaf0636f7e433c93f1229fd86e523c29", null ],
-    [ "getapiname", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_merchant_oversea_brand_get_request_1_12579b85f439ef10b5e04405f1d996f8e.html#a2d5512734f0bdfaeba5db45387f98609", null ]
-];

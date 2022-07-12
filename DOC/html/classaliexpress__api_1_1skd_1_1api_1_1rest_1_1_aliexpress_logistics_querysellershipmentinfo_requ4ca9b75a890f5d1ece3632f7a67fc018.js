@@ -1,9 +1,0 @@
-var classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_querysellershipmentinfo_requ4ca9b75a890f5d1ece3632f7a67fc018 =
-[
-    [ "__init__", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_querysellershipmentinfo_requ4ca9b75a890f5d1ece3632f7a67fc018.html#a4dd724987fc7019d46303626c04f53ca", null ],
-    [ "getapiname", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_querysellershipmentinfo_requ4ca9b75a890f5d1ece3632f7a67fc018.html#ad7028798b91f5256cd625d309f5a2610", null ],
-    [ "logistics_no", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_querysellershipmentinfo_requ4ca9b75a890f5d1ece3632f7a67fc018.html#a7a350674882ee229544c15b968035ed5", null ],
-    [ "service_name", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_querysellershipmentinfo_requ4ca9b75a890f5d1ece3632f7a67fc018.html#aaf15bfa3330354d6ca14b09ea52ead61", null ],
-    [ "sub_trade_order_index", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_querysellershipmentinfo_requ4ca9b75a890f5d1ece3632f7a67fc018.html#afc8650a34b9753ec7085af4dc53b5785", null ],
-    [ "trade_order_id", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_querysellershipmentinfo_requ4ca9b75a890f5d1ece3632f7a67fc018.html#a08df3d9abf9b02933daf1e0d9357d512", null ]
-];

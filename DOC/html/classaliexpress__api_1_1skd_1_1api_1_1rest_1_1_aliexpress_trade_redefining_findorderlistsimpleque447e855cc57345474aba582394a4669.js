@@ -1,6 +1,0 @@
-var classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_trade_redefining_findorderlistsimpleque447e855cc57345474aba582394a4669 =
-[
-    [ "__init__", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_trade_redefining_findorderlistsimpleque447e855cc57345474aba582394a4669.html#a8df1e14444dba5d1cfea746c98c45c9c", null ],
-    [ "getapiname", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_trade_redefining_findorderlistsimpleque447e855cc57345474aba582394a4669.html#a8735a34e5db016eb061630e780d1cacc", null ],
-    [ "param1", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_trade_redefining_findorderlistsimpleque447e855cc57345474aba582394a4669.html#aa6652a570bf4af4dec3571e6f4974ace", null ]
-];

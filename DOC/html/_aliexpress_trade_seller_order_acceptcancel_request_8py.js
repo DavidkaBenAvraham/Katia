@@ -1,4 +1,0 @@
-var _aliexpress_trade_seller_order_acceptcancel_request_8py =
-[
-    [ "aliexpress_api.skd.api.rest.AliexpressTradeSellerOrderAcceptcancelRequest.AliexpressTradeSellerOrderAcceptcancelRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_trade_seller_order_acceptcancel_reques4ee9bd7d304e53ef195b8b4bf7a4b98e.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_trade_seller_order_acceptcancel_reques4ee9bd7d304e53ef195b8b4bf7a4b98e" ]
-];

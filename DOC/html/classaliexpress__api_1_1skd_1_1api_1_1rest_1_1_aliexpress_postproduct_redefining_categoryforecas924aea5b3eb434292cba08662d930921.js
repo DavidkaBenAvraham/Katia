@@ -1,9 +1,0 @@
-var classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_postproduct_redefining_categoryforecas924aea5b3eb434292cba08662d930921 =
-[
-    [ "__init__", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_postproduct_redefining_categoryforecas924aea5b3eb434292cba08662d930921.html#a71defb1d9c865c9ffb83bd8127622020", null ],
-    [ "getapiname", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_postproduct_redefining_categoryforecas924aea5b3eb434292cba08662d930921.html#a0ff60eb52b623da169690c2588c26452", null ],
-    [ "forecast_mode", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_postproduct_redefining_categoryforecas924aea5b3eb434292cba08662d930921.html#a5bf65b7461c9a0f2520ab42fe8b7573a", null ],
-    [ "is_filter_by_permission", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_postproduct_redefining_categoryforecas924aea5b3eb434292cba08662d930921.html#a5db2f119421bbd4f49621d8cb85fd7d4", null ],
-    [ "locale", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_postproduct_redefining_categoryforecas924aea5b3eb434292cba08662d930921.html#aff236f038074c2482f6cb1fc981990a2", null ],
-    [ "subject", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_postproduct_redefining_categoryforecas924aea5b3eb434292cba08662d930921.html#ad7dd5f6d7d343307b80cdb4aa8188ff7", null ]
-];

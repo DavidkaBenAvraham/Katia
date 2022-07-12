@@ -1,9 +1,0 @@
-var classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_photobank_redefining_uploadimageforsdk6522b5518ab1247f54b309029d9c73ee =
-[
-    [ "__init__", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_photobank_redefining_uploadimageforsdk6522b5518ab1247f54b309029d9c73ee.html#aac94dbbb9219c342004c54361dfa1f01", null ],
-    [ "getapiname", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_photobank_redefining_uploadimageforsdk6522b5518ab1247f54b309029d9c73ee.html#ab2c66e83fe5fedfc1d2c4e134d9a7be7", null ],
-    [ "getMultipartParas", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_photobank_redefining_uploadimageforsdk6522b5518ab1247f54b309029d9c73ee.html#a0efac7a147550a7a4b4d089c1151f8af", null ],
-    [ "file_name", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_photobank_redefining_uploadimageforsdk6522b5518ab1247f54b309029d9c73ee.html#ab22946e980647ac37e9bab36ef9be593", null ],
-    [ "group_id", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_photobank_redefining_uploadimageforsdk6522b5518ab1247f54b309029d9c73ee.html#a1203ea1f125f237e57d4171c49fb85fc", null ],
-    [ "image_bytes", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_photobank_redefining_uploadimageforsdk6522b5518ab1247f54b309029d9c73ee.html#abaf227693ce5a01bb75d2723039c57b7", null ]
-];

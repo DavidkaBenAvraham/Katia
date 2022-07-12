@@ -1,6 +1,0 @@
-var classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_freight_redefining_getfreightsettingbyc86d69c8e08d98abd61747ae6907783b =
-[
-    [ "__init__", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_freight_redefining_getfreightsettingbyc86d69c8e08d98abd61747ae6907783b.html#accdc698e773378107e9039be7daf27cb", null ],
-    [ "getapiname", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_freight_redefining_getfreightsettingbyc86d69c8e08d98abd61747ae6907783b.html#a52462330b679752136867f0a7ddd3732", null ],
-    [ "template_id", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_freight_redefining_getfreightsettingbyc86d69c8e08d98abd61747ae6907783b.html#a4fe55f72b4a9ecb2ecbc4a5d2cb1e972", null ]
-];

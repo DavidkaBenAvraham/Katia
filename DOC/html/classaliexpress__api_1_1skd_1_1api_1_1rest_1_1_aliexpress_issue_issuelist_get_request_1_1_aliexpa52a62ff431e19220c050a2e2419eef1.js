@@ -1,6 +1,0 @@
-var classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_issue_issuelist_get_request_1_1_aliexpa52a62ff431e19220c050a2e2419eef1 =
-[
-    [ "__init__", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_issue_issuelist_get_request_1_1_aliexpa52a62ff431e19220c050a2e2419eef1.html#adeb7bdcf0f20b494ca92af4008d0f6d6", null ],
-    [ "getapiname", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_issue_issuelist_get_request_1_1_aliexpa52a62ff431e19220c050a2e2419eef1.html#a592fced69aff5f9da2ca56636e715320", null ],
-    [ "query_dto", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_issue_issuelist_get_request_1_1_aliexpa52a62ff431e19220c050a2e2419eef1.html#a9ca56955acf8e54db98be12bdccef073", null ]
-];

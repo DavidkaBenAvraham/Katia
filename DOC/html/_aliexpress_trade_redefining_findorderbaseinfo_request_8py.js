@@ -1,4 +1,0 @@
-var _aliexpress_trade_redefining_findorderbaseinfo_request_8py =
-[
-    [ "aliexpress_api.skd.api.rest.AliexpressTradeRedefiningFindorderbaseinfoRequest.AliexpressTradeRedefiningFindorderbaseinfoRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_trade_redefining_findorderbaseinfo_reqeddc87aaddfd537daa56678306311f11.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_trade_redefining_findorderbaseinfo_reqeddc87aaddfd537daa56678306311f11" ]
-];

@@ -1,4 +1,0 @@
-var _aliexpress_logistics_local_getwaybillbypdf_request_8py =
-[
-    [ "aliexpress_api.skd.api.rest.AliexpressLogisticsLocalGetwaybillbypdfRequest.AliexpressLogisticsLocalGetwaybillbypdfRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_local_getwaybillbypdf_requesf4993e9b96c054aab3407600299e2ec4.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_local_getwaybillbypdf_requesf4993e9b96c054aab3407600299e2ec4" ]
-];

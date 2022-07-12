@@ -1,6 +1,0 @@
-var classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_marketing_redefining_getactlist_requeseb6c439374d6762e211928cf33c45bbb =
-[
-    [ "__init__", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_marketing_redefining_getactlist_requeseb6c439374d6762e211928cf33c45bbb.html#a5c242df9b1ded80953c2956b0848247c", null ],
-    [ "getapiname", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_marketing_redefining_getactlist_requeseb6c439374d6762e211928cf33c45bbb.html#a50bc3669d8ee731586518fb07041a602", null ],
-    [ "param_seller_coupon_activity_api_query", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_marketing_redefining_getactlist_requeseb6c439374d6762e211928cf33c45bbb.html#a6fc7af1df1a93aafe80cf580c69c7f4e", null ]
-];

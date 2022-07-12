@@ -1,4 +1,0 @@
-var _aliexpress_solution_seller_category_tree_query_request_8py =
-[
-    [ "aliexpress_api.skd.api.rest.AliexpressSolutionSellerCategoryTreeQueryRequest.AliexpressSolutionSellerCategoryTreeQueryRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_solution_seller_category_tree_query_rec0616a23762ea45b9dd61f9e42ba288e.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_solution_seller_category_tree_query_rec0616a23762ea45b9dd61f9e42ba288e" ]
-];

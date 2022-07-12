@@ -115,21 +115,45 @@ class Driver:
 
 
 
-    @attrs
     ### JS: Всякие javascrits полезности
-    class JS():
+    def unhide(driver,element) -> bool:
+        script :str = f''' arguments[0].style.opacity=1;
+                        arguments[0].style['transform']='translate(0px, 0px) scale(1)';
+                        arguments[0].style['MozTransform']='translate(0px, 0px) scale(1)';
+                        arguments[0].style['WebkitTransform']='translate(0px, 0px) scale(1)';
+                        arguments[0].style['msTransform']='translate(0px, 0px) scale(1)';
+                        arguments[0].style['OTransform']='translate(0px, 0px) scale(1)';
+                        arguments[0].scrollIntoView(true);
+                        return true; '''
+        try:
+            driver.execute_script(script, element)
+            return True
+        except Exception as ex:
+            print(f'''
+           ошибка в driver.execute_script(script)
+           script = {script}
+           ------------------
+           {ex}
+            ''')
+            return False
+        return True
+        
+    def get_ready_state(self) -> str:
+        ''' пока идет загрузка DOM дерева возвращает "loading", 
+            а когда загрузился - "complete"             '''
+        script = 'return document.readyState'
+        try:
+            return self.driver.execute_script(script)
+        except Exception as ex:
+            print(f'''
+           ошибка в driver.execute_script(script)
+           script = {script}
+           ----------------
+           {ex}
+            ''')
+            return None
 
-        def unhide(driver,element):
-            script :str = f''' arguments[0].style.opacity=1;
-                            arguments[0].style['transform']='translate(0px, 0px) scale(1)';
-                            arguments[0].style['MozTransform']='translate(0px, 0px) scale(1)';
-                            arguments[0].style['WebkitTransform']='translate(0px, 0px) scale(1)';
-                            arguments[0].style['msTransform']='translate(0px, 0px) scale(1)';
-                            arguments[0].style['OTransform']='translate(0px, 0px) scale(1)';
-                            arguments[0].scrollIntoView(true);
-                            return true; '''
 
-            self.super().Driver().driver.execute_script(script, element)
 
     ## текущий url. Нужен мне для отслеживания переключений драйвера
     current_url : str = attrib(init = False , default = None)
@@ -238,11 +262,10 @@ class Driver:
         self.driver.close =                             self._close  
         self.driver.scroll =                            self._scroller
         self.driver.previous_url :str =                 self.previous_url
-        self.get_dict_from_urlstr : dict =              self._get_dict_from_urlstr
+        self.get_dict_from_urlstr : dict =              self._get_urlstr_params
 
         #self.driver.get_parsed_google_search_result =   GoogleHtmlParser
         self.driver.send_keys =                         self._send_keys
-        self.driver.JS =                                self.JS
         
         
         self.driver.cookies =                           self.cookies
@@ -305,8 +328,10 @@ class Driver:
         ожидание 100% загрузки элемента
         locator=(By.CSS_SELECTOR , selector)
         '''
-        return self.EC.presence_of_element_located(locator)
-
+        self.wait = 100
+        _d = self.driver
+        webelement =  _d.WebDriverWait(_d , self.wait).until(_d.EC.presence_of_element_located(locator))
+        return webelement
     ## _wait_to_be_clickable 
     # ожидание кликабельности элемента
     def _wait_to_be_clickable(self, wait : int = 0 , locator : dict = {}) :
@@ -374,6 +399,42 @@ class Driver:
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+########################### GET URL
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     ## обертка для driver.get():
     # переход по указанному url
     # @param
@@ -384,54 +445,72 @@ class Driver:
        
         
         _d = self.driver
-
         json_files : str = ''
+        _url = _d.current_url
 
         try:
-            _url = _d.current_url
-          
             _d.get(f'''{url}''')
-
-
-            ## Здесь нерешенная проблема
-            #if self.cookies is None : set_cookies()
-            #_set_cookies()
-
-
-            # запоминаю, где был
-            _d.previous_url = _url
-
-            # запоминаю рабочее окно 
-            main_window_handler = _d.current_window_handle
-            return True
-            ### experimental:
-            #<pre>
-            #try:
-            #    # Access requests via the `requests` attribute
-            #    for request in _d.requests:
-            #        if request.response:
-            #            if str(request.response.headers['Content-Type']) == 'application/json':
-            #                json_files += f'''
-            #                    {str(request.url)}
-            #                    {str(request.response.status_code)}
-            #                    {str(request.response.headers['Content-Type'])}
-            #                    '''
-            #except:pass
-            #finally:return  json_files
-            #</pre>
         except Exception as ex:
             return False , print(f''' Ошибка в _get_url() :
             {ex}
             -------------------------------------
-            url = {url}''')
+            url = {url}''')  
+        
+        ''' способ дождаться полной загрузки '''
+        #_locator = (_d.By.TAG_NAME , 'html')
+        #self._wait_to_precence_located(_locator)
+
+
+
+        ''' ожидание полной загрузки 
+        страницы с проверкой document.readyState'''
+        count = 1
+        while self.get_ready_state() == 'loading':
+            print(f''' {self.get_ready_state()} - {_d.current_url}''')
+            self._wait(1)
+            count +=1
+            if count>3:break
+
+
+
+
+
+
+        ## Здесь нерешенная проблема с coockies
+        #if self.cookies is None : set_cookies()
+        #_set_cookies()
+
+
+        # запоминаю, где был
+        _d.previous_url = _url
+
+        # запоминаю рабочее окно 
+        main_window_handler = _d.current_window_handle
+        return True
+        ### experimental:
+        #<pre>
+        #try:
+        #    # Access requests via the `requests` attribute
+        #    for request in _d.requests:
+        #        if request.response:
+        #            if str(request.response.headers['Content-Type']) == 'application/json':
+        #                json_files += f'''
+        #                    {str(request.url)}
+        #                    {str(request.response.status_code)}
+        #                    {str(request.response.headers['Content-Type'])}
+        #                    '''
+        #except:pass
+        #finally:return  json_files
+        #</pre>
+
     
-        #ожидание полной загрузки реализoваное на javascript
-        #WebDriverWait(driver, 10).until(lambda driver: self.driver.execute_script('return document.readyState') == 'complete')
-        #self.driver.execute_script('return document.readyState') == 'complete'
+    #ожидание полной загрузки реализoваное на javascript
+    #WebDriverWait(driver, 10).until(lambda driver: self.driver.execute_script('return document.readyState') == 'complete')
+    #self.driver.execute_script('return document.readyState') == 'complete'
         
 
 
-    def _get_dict_from_urlstr(self)->dict:
+    def  _get_urlstr_params(self)->dict:
         _url = self.current_url
 
         _url_str_to_list = str(_url).split(str(_url).find('?'))
@@ -440,23 +519,26 @@ class Driver:
         
         _params = ast.literal_eval(_params_str)
 
-        _d :dict = {"url":_url_str_to_list[0], "params":_params}
+        _out :dict = {"url":_url_str_to_list[0], "params":_params}
 
-        return _d
+        return _out
 
 
 
 
     ## scroller
     def _scroller(self, wait : int = 0 , prokrutok : int = 5, scroll_frame : int = 1800) -> bool:
-        ''' скроллинг '''
-        try:
-            for i in range(prokrutok):
-                self.driver.execute_script(f'''window.scrollBy(0,{scroll_frame})''') # поднял окошко
-                #time.sleep(wait)
-                self._wait(0.1)
-            return True
-        except Exception as ex: return  False , print(f''' ошибка скроллинга {ex}''')
+        ''' скроллинг вниз '''
+        for i in range(prokrutok):
+            self.driver.execute_script(f'''window.scrollBy(0,{scroll_frame})''') 
+            self._wait(0.6)
+        ''' и вверх '''
+        for i in range(prokrutok):
+            self.driver.execute_script(f'''window.scrollBy(0,-{scroll_frame})''') 
+            self._wait(0.6)
+        
+        return True
+        #except Exception as ex: return  False , print(f''' ошибка скроллинга {ex}''')
    
 
     ## parce_html_block
@@ -476,10 +558,10 @@ class Driver:
         _е : list = [] 
         _ = locator['attribute']
 
-        # 1) если аттрибуты в словаре {'href':'text'}
+        # 1) если АТТРИБУТЫ в словаре {'href':'text'}
         if isinstance(_  , dict):
             if isinstance(elements , list):
-                ''' элементы списком '''
+                ''' ЭЛЕМЕНТЫ списком '''
                 for el in elements: 
                     for i in _.items():
                         _е.append({el.get_attribute(i[0]):el.get_attribute(i[1])})
@@ -488,10 +570,10 @@ class Driver:
                     _е.append({elements.get_attribute(k):elements.get_attribute(v)})
 
 
-        #2) аттрибуты списоком ['href','text']
+        #2) АТТРИБУТЫ списоком ['href','text']
         elif isinstance(_  , list):
             if isinstance(elements , list):
-                ''' элементы списком '''
+                ''' ЭЛЕМЕНТЫ списком '''
                 for el in elements:
                     for attr in _:
                         _е.append(el.get_attribute(attr))
@@ -500,7 +582,10 @@ class Driver:
                     _е.append(elements.get_attribute(attr))
 
 
-        #3) один f.e. 'innerHTML'
+        #3) если один 
+        # Самый часто используемый аттрибут
+        # он получает единственный аттрибут элемента/ов
+        #f.e. 'innerHTML'
         else:
             if isinstance(elements , list):
                 ''' элементы списком '''
@@ -536,9 +621,9 @@ class Driver:
         в случае, когда элемент мне не нужен, но требуется по структуре
         построения сценария я заполняю локатор элемента значениями null
         '''
-
+        if not 'attribute' in locator.keys(): locator['attribute'] = None
         if locator['attribute'] == 'current_url': return self.current_url
-        if locator['by'] is None: return None
+        #if locator['by'] is None: return None
 
 
 
@@ -566,10 +651,11 @@ class Driver:
         return elements if  locator['attribute'] is None else self._find_attributes_in_webelements(elements , locator)
 
     ## get_webelments_from_page
-    def _get_webelments_from_page(self, locator) -> list:
-        ''' возвращает найденные на странице элементы в списке элементы
+    ''' возвращает найденные на странице элементы в списке элементы
         если элементы  не найдны -возвращает пустой список []
-        '''
+    '''
+    def _get_webelments_from_page(self, locator) -> list:
+
         try: 
             elements = self.driver.find_elements(locator['by'] , locator['selector'])
             return elements 

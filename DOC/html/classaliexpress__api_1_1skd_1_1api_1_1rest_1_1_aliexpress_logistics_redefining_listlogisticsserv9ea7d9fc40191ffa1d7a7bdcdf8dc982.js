@@ -1,5 +1,0 @@
-var classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_redefining_listlogisticsserv9ea7d9fc40191ffa1d7a7bdcdf8dc982 =
-[
-    [ "__init__", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_redefining_listlogisticsserv9ea7d9fc40191ffa1d7a7bdcdf8dc982.html#ad7afa5f46842cef5d1b02ad468e4e006", null ],
-    [ "getapiname", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_redefining_listlogisticsserv9ea7d9fc40191ffa1d7a7bdcdf8dc982.html#a21533bc2e2c61c546b4b2b7d5e9edd3f", null ]
-];

@@ -1,4 +1,0 @@
-var _aliexpress_solution_order_info_get_request_8py =
-[
-    [ "aliexpress_api.skd.api.rest.AliexpressSolutionOrderInfoGetRequest.AliexpressSolutionOrderInfoGetRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_solution_order_info_get_request_1_1_al10f56169fbe1fc50750a1f2d8843d776.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_solution_order_info_get_request_1_1_al10f56169fbe1fc50750a1f2d8843d776" ]
-];

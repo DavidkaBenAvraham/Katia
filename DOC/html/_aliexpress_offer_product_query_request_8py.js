@@ -1,4 +1,0 @@
-var _aliexpress_offer_product_query_request_8py =
-[
-    [ "aliexpress_api.skd.api.rest.AliexpressOfferProductQueryRequest.AliexpressOfferProductQueryRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_offer_product_query_request_1_1_aliexp22da33ef1e689146d9842c51a322738f.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_offer_product_query_request_1_1_aliexp22da33ef1e689146d9842c51a322738f" ]
-];

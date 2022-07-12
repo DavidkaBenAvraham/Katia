@@ -1,4 +1,0 @@
-var namespacealiexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_affiliate_category_get_request =
-[
-    [ "AliexpressAffiliateCategoryGetRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_affiliate_category_get_request_1_1_ali5324a0cb88cf012b2725a8f316f8c3c6.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_affiliate_category_get_request_1_1_ali5324a0cb88cf012b2725a8f316f8c3c6" ]
-];

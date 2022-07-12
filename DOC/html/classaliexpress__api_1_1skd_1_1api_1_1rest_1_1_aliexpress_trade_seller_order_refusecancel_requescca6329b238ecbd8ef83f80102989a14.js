@@ -1,6 +1,0 @@
-var classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_trade_seller_order_refusecancel_requescca6329b238ecbd8ef83f80102989a14 =
-[
-    [ "__init__", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_trade_seller_order_refusecancel_requescca6329b238ecbd8ef83f80102989a14.html#ad1d645bc88078ffefc0a8810da916d34", null ],
-    [ "getapiname", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_trade_seller_order_refusecancel_requescca6329b238ecbd8ef83f80102989a14.html#a218b84ae839ddd193f3fc1d58318502e", null ],
-    [ "param_order_cancel_request", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_trade_seller_order_refusecancel_requescca6329b238ecbd8ef83f80102989a14.html#a2605cffd5ed3a19312a06cfb681b19d8", null ]
-];

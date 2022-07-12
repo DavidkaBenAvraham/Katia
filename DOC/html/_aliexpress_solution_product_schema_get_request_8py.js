@@ -1,4 +1,0 @@
-var _aliexpress_solution_product_schema_get_request_8py =
-[
-    [ "aliexpress_api.skd.api.rest.AliexpressSolutionProductSchemaGetRequest.AliexpressSolutionProductSchemaGetRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_solution_product_schema_get_request_1_81678b65cb25659f310c5b08b4586b1c.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_solution_product_schema_get_request_1_81678b65cb25659f310c5b08b4586b1c" ]
-];

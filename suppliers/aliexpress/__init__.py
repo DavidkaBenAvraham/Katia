@@ -336,9 +336,13 @@ def grab_product_page(s , p):
                 print(ex)
                 return False
 
-    def set_byer_protection():pass
-        #_byer_protection = _d.find(_['product_byer_protection'])
-        #return _byer_protection
+    def set_byer_protection():
+        try:
+            field['product_byer_protection'] = _d.find(_['product_byer_protection_locator'])
+            return True
+        except Exception as ex: 
+            field['product_byer_protection'] = None
+            print(ex)
     def set_description():pass
         #_description = _d.find(_['product_description'])
         #return _description

@@ -1,4 +1,0 @@
-var _aliexpress_solution_merchant_profile_get_request_8py =
-[
-    [ "aliexpress_api.skd.api.rest.AliexpressSolutionMerchantProfileGetRequest.AliexpressSolutionMerchantProfileGetRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_solution_merchant_profile_get_request_251f90fd8d700b74b644b35d03776540.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_solution_merchant_profile_get_request_251f90fd8d700b74b644b35d03776540" ]
-];

@@ -69,8 +69,7 @@
     "product_images_locator": {
       "attribute": "src",
       "by": "xpath",
-      "selector": 
-        "//li[@class='slide']//img"
+      "selector": "//li[@class='slide']//img"
     },
 
     "product_summary_locator": {

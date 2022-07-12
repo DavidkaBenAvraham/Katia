@@ -76,7 +76,7 @@ https://github.com/chuanconggao/html2json/blob/master/README.md
 
 
 pattern_remove_HTML :re = re.compile ('<[^<]+?>')
-pattern_remove_non_latin_characters : re = re.compile ('^[A-Za-z0-9]*')
+pattern_remove_non_latin_characters : re = re.compile ('[^A-Za-z0-9-]')
 pattern_remove_line_breaks : re = re.compile ('^\s+|\n|\r|\s+$')
 pattern_clear_price : re = re.compile ('[^0-9.,]')
 pattern_clear_number : re = re.compile ('[^0-9.]')
@@ -122,21 +122,28 @@ class StringFormatter():
             for sub_s in s:
                 sub_s = _(sub_s)
         else: s=_(s)
-
         return s
         
-
-
     #@remove_suppliers_and_special_chars
     def remove_htmls(self , s):
         def _(s):
             return self.pattern_remove_HTML.sub(r' ', str(s)).strip()
-
+        ''' если пришел список строк '''
         if isinstance(s , list ):
             for sub_s in s: sub_s = _(sub_s)
         else: s=_(s)
         return s
 
+    def remove_non_latin_characters(self , s:str)->str:
+        s = self.remove_special_characters(s)
+        def _(s):
+            return self.pattern_remove_non_latin_characters.sub(r' ', str(s)).strip()
+        ''' если пришел список строк '''
+        if isinstance(s , list ):
+            for sub_s in s: sub_s = _(sub_s)
+        else: s=_(s)
+
+        return s
 
     def remove_special_characters(self , s:str)->str:
         s = self.remove_htmls(s)

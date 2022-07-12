@@ -1,4 +1,0 @@
-var _aliexpress_merchant_redefining_saveremark_request_8py =
-[
-    [ "aliexpress_api.skd.api.rest.AliexpressMerchantRedefiningSaveremarkRequest.AliexpressMerchantRedefiningSaveremarkRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_merchant_redefining_saveremark_request94768d35e7cf29fe0bd68f6c3371cd89.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_merchant_redefining_saveremark_request94768d35e7cf29fe0bd68f6c3371cd89" ]
-];

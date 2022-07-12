@@ -10,10 +10,13 @@
     "ksp_categories_consoles_microsoft.json",
 
     "ksp_categories_phones_apple.json",
-    "ksp_categories_phones_samsung.json",
+    "ksp_categories_phones_nokia.json",
     "ksp_categories_phones_google.json",
     "ksp_categories_phones_asus.json",
-    "ksp_categories_phones_nokia.json",
+
+    "ksp_categories_phones_samsung.json",
+
+
     "ksp_categories_phones_oppo.json",
     "ksp_categories_phones_oneplus.json",
     "ksp_categories_phones_philips.json",

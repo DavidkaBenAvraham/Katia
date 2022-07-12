@@ -1,7 +1,0 @@
-var classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_merchant_redefining_queryremark_requesca08bccf81728e42da598326b0431480 =
-[
-    [ "__init__", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_merchant_redefining_queryremark_requesca08bccf81728e42da598326b0431480.html#acbc4855a93b1a44be433ad2f0127832d", null ],
-    [ "getapiname", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_merchant_redefining_queryremark_requesca08bccf81728e42da598326b0431480.html#ae882c1862896e6a287dc6a15289281db", null ],
-    [ "biz_type", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_merchant_redefining_queryremark_requesca08bccf81728e42da598326b0431480.html#ac60488000a9cff5f5786115bcc902eee", null ],
-    [ "remark_id", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_merchant_redefining_queryremark_requesca08bccf81728e42da598326b0431480.html#a10e9ea64de3d3045acb55615ab95c429", null ]
-];

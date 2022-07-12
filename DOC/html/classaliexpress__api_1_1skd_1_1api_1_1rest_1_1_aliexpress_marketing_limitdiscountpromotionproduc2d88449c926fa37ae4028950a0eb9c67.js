@@ -1,6 +1,0 @@
-var classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_marketing_limitdiscountpromotionproduc2d88449c926fa37ae4028950a0eb9c67 =
-[
-    [ "__init__", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_marketing_limitdiscountpromotionproduc2d88449c926fa37ae4028950a0eb9c67.html#a42552b7d19a0dedd5ac8dea29ef2dbee", null ],
-    [ "getapiname", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_marketing_limitdiscountpromotionproduc2d88449c926fa37ae4028950a0eb9c67.html#a39e200058110831df09732b7d611771e", null ],
-    [ "param_limited_disc_product_input_dto", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_marketing_limitdiscountpromotionproduc2d88449c926fa37ae4028950a0eb9c67.html#afeefd524b8d07d19ccf46de60e6ac3c5", null ]
-];

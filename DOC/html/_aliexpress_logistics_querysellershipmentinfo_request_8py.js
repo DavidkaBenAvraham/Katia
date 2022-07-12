@@ -1,4 +1,0 @@
-var _aliexpress_logistics_querysellershipmentinfo_request_8py =
-[
-    [ "aliexpress_api.skd.api.rest.AliexpressLogisticsQuerysellershipmentinfoRequest.AliexpressLogisticsQuerysellershipmentinfoRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_querysellershipmentinfo_requ4ca9b75a890f5d1ece3632f7a67fc018.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_logistics_querysellershipmentinfo_requ4ca9b75a890f5d1ece3632f7a67fc018" ]
-];

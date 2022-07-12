@@ -1,4 +1,0 @@
-var _aliexpress_postproduct_redefining_setgroups_request_8py =
-[
-    [ "aliexpress_api.skd.api.rest.AliexpressPostproductRedefiningSetgroupsRequest.AliexpressPostproductRedefiningSetgroupsRequest", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_postproduct_redefining_setgroups_reque6b3f5a9e4f231a0dfc97fffa24d49d3a.html", "classaliexpress__api_1_1skd_1_1api_1_1rest_1_1_aliexpress_postproduct_redefining_setgroups_reque6b3f5a9e4f231a0dfc97fffa24d49d3a" ]
-];
