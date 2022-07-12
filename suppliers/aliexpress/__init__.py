@@ -4,17 +4,20 @@ __author__ = 'e-cat.me'
 ##@package Katia
 #Documentation for this module
 from typing import List
-import execute_json as json
 from pathlib import Path
 import pandas as pd
+import pickle
+from loguru import logger
 from attr import attrib, attrs, Factory
+
+import execute_json as json
 from selenium.webdriver.remote.webelement import WebElement 
 from selenium.webdriver.common.keys import Keys
-from strings_formatter import StringFormatter
+from strings_formatter import StringFormatter as SF
 from suppliers.product import Product
-import pickle
 
-formatter = StringFormatter()
+
+#formatter = StringFormatter()
 stores : list = []
 
 ## paginator
@@ -94,7 +97,7 @@ def run_stores(s):
                 run_local_scenario(s,stores[-1])
                 '''запускаю последний добавленный в список '''
 
-        except Exception as ex:return False, print(ex)
+        except Exception as ex:return False, logger.error(ex)
     pass 
     ''' ------------------ КОНЕЦ  -------------------------- '''
 
@@ -118,11 +121,11 @@ def build_shop_categories(s , store_settings_dict : dict) -> dict:
     s.driver.get_url(store_settings_dict[1]['all-wholesale-products'])
     #try:
     #    s.driver.find(s.locators['eng version'])[0].click()
-    #except Exception as ex : print(ex)
+    #except Exception as ex : logger.error(ex)
     
     if s.driver.current_url != store_settings_dict[1]['all-wholesale-products']:
         if str(s.driver.current_url).find('login.aliexpress')>0:login(s)
-        else:print(s.driver.current_url)
+        else:logger.error(s.driver.current_url)
         s.driver.get_url(store_settings_dict[1]['all-wholesale-products'])
         pass
 
@@ -173,7 +176,7 @@ def build_shop_categories(s , store_settings_dict : dict) -> dict:
 def run_local_scenario(s, store_settings_dict: dict = {}):
     json_from_store = set_json_from_store(s, store_settings_dict)
     #s.export(ajax_from_store , ['json'] , store_settings_dict['store ID'])
-    #print(f''' {store_settings_dict['store ID']} added''')
+    #logger.error(f''' {store_settings_dict['store ID']} added''')
     pass
 
 
@@ -212,14 +215,14 @@ def grab_product_page(s , p):
     def set_title():
         try: 
             _field['title'] = _d.find(_['product_title_locator'])
-            _field['title'] = formatter.remove_special_characters(_field['title'])
+            _field['title'] = SF.remove_special_characters(_field['title'])
         except Exception as ex: print (f''' Exception   {ex} in set_title() ''')
             
     ## set_price
     def set_price():
         _price = _d.find(_['product_price_locator'])
         try:
-            _price = formatter.clear_price(_price)
+            _price = SF.clear_price(_price)
             _field['mexir olut'] = _price
             return True
         except Exception as ex: print (f''' Exception   {ex} in set_price() ''')
@@ -259,10 +262,10 @@ def grab_product_page(s , p):
             _combina['Product ID'] = _field['id']
 
             _price = _d.find(_['product_price_locator'])
-            _price = formatter.clear_price(_price)
+            _price = SF.clear_price(_price)
 
             _qty = _d.find(_['product_qty_locator'])[0]
-            _qty = formatter.clear_price(_qty)
+            _qty = SF.clear_price(_qty)
 
 
 
@@ -321,7 +324,7 @@ def grab_product_page(s , p):
             return True
         except Exception as ex: 
             
-            print(ex)
+            logger.error(ex)
             return False
 
 
@@ -329,11 +332,11 @@ def grab_product_page(s , p):
     def set_qty():
             try:
                 _qty = _d.find(_['product_qty_locator'])[0]
-                _field['qty'] = formatter.clear_price(_qty)
+                _field['qty'] = SF.clear_price(_qty)
                 return True
             except Exception as ex: 
                 #field['qty'] = None
-                print(ex)
+                logger.error(ex)
                 return False
 
     def set_byer_protection():
@@ -342,9 +345,9 @@ def grab_product_page(s , p):
             return True
         except Exception as ex: 
             field['product_byer_protection'] = None
-            print(ex)
-    def set_description():pass
-        #_description = _d.find(_['product_description'])
+            logger.error(ex)
+    def set_description():
+        field['description']  = _d.find(_['product_description'])
         #return _description
     def set_specification():pass
         #specification = _d.find(_['product_specification'])

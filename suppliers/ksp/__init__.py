@@ -6,12 +6,12 @@ __author__ = 'e-cat.me'
 #Documentation for this module
 #           Функции, присущие поставщику  KSP, которыми я дополняю класс supplier
 
-from logger import Log
+ 
 
 from bs4 import BeautifulSoup
 import execute_json as json
-from strings_formatter import StringFormatter
-formatter = StringFormatter()
+from strings_formatter import StringFormatter as SF
+#formatter = StringFormatter()
 from suppliers.product import Product 
 
 def product_attributes(self, p, delimeter, elements):
@@ -32,7 +32,7 @@ def product_attributes(self, p, delimeter, elements):
                 skip = True
                 continue
 
-            attr = formatter.remove_HTML_tags(e)
+            attr = SF.remove_HTML_tags(e)
             ''' первое значение '''
             if c["Attribute (Name:Type: Position)"] == "": c["Attribute (Name:Type: Position)"] = f'''{attr}:select:0'''
             else: c["Attribute (Name:Type: Position)"] += f''', {attr}:select:0'''
@@ -78,7 +78,7 @@ def grab_product_page(s , p) -> Product:
 
     def set_title():
         _field['title'] = _d.find(_['product_title_locator'])
-        _field['title'] = formatter.remove_non_latin_characters(_field['title'])
+        _field['title'] = SF.remove_non_latin_characters(_field['title'])
     
     def set_summary():
         _field['summary'] = _d.find(_['product_summary_locator'])
@@ -90,7 +90,7 @@ def grab_product_page(s , p) -> Product:
         _price = _d.find(_['product_price_locator'])
         try:
             '''  Может прийти все, что угодно  '''
-            _price = formatter.clear_price(_price)
+            _price = SF.clear_price(_price)
         except Exception as ex: return False , print (f''' Exception   {ex} in set_price() ''')
         _field['mexir olut'] = _price
         return True
@@ -105,11 +105,28 @@ def grab_product_page(s , p) -> Product:
     def set_images():
         #imgs_list  = _d.find(_['product_images_locator'])
         #imgs_str :str = ','.join(_d.find(_['product_images_locator']))
+        imgs = _d.find(_['product_images_locator'])
+        ''' может вернуться одна или несколько картинок или хуй.
+        есть несколько ситуаций:
+        - картинки нет на сайте
+        - картинка не загрузилась (таймаут)
+        - прочая хуйня
+        '''
+        if imgs is None: 
+            _field['img url'] = ''
+            return True
+        elif isinstance(imgs , list):
+            imgs = ','.join(imgs)
+            _field['img url'] = imgs
+        elif str(imgs)>0:_field['img url'] = imgs
+
         try:
-            _field['img url'] = ','.join(_d.find(_['product_images_locator']))
+            _field['img url'] = ','.join(imgs)
         except Exception as ex:
-            print(f'''ошибка в  _field['img url']  
-            {ex}''')
+            logger.error(f'''ошибка в  _field['img url']  
+            {ex}
+            ''')
+            _field['img url'] = ''
 
 
     def set_combinations():pass

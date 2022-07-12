@@ -9,7 +9,7 @@ __author__ = 'e-cat.me'
 from pathlib import Path
 import json as json
 import csv
-from logger import Log
+from loguru import logger
 import pandas as pd
 
 ## Читаю файл из внешнего источника .
@@ -21,16 +21,6 @@ def loads(path:Path )-> dict :
     return data
 
 
-## скидываю словарь <b>data</b> в файл <b>path</b>
-# dump(data , path).
-# <hr>
-# data : данные в виде словаря или   списка (?). <br>
-# path : путь к файлу.
-def dump(data , path:Path):
-    if str(type(data)).find('list')>-1: 
-        data = json.dumps(data).replace('[','{').replace(']','}')
-    with path.absolute().open('w',encoding='utf-8') as f:
-            json.dump(data ,f)
 
 
 ## Документация для функции.
@@ -41,28 +31,31 @@ def html2json(html:str)->json:
 
 
 ### экспортирую данные в файл .
-# функция позволяет экспортировать словарь в файл <br>
+# функция позволяет экспортировать словарь в файл 
 # из всех точек выполнения сценариев 
 def export(supplier, data, filename:str = None, format:list = ['json','csv','txt'])->bool:
 
-    export_file_path = Path(f'''{supplier.ini.paths.export_dir}''')
-       
-    #if filename == None:
-    #    filename = f'''-{supplier.supplier_prefics}'''
+    def dumps(data , path:Path):
+        with path.absolute().open('w',encoding='utf-8') as f:
+            f.write(json.dumps(data))
 
 
-    filename = f'''-{supplier.supplier_prefics} '''
-    
+
+    if filename == None:
+        filename = f'''{supplier.supplier_prefics}'''
+
 
     for frmt in format:
-        export_file_path =  Path(export_file_path , f'''{filename}-{supplier.ini.get_now()}.{frmt}''')
+        export_file_path = Path(f'''{supplier.ini.paths.export_dir}''' , f'''{filename}.{frmt}''')
         if frmt == 'json':
-            json.dump(data, export_file_path)
+            dumps(data, export_file_path)
 
         if frmt == 'csv':
             df = pd.DataFrame(data)
-            df.to_csv(export_file_path , sep = ';' , index=False ,  encoding='utf-8')
-           
+            try:
+                df.to_csv(export_file_path , sep = ';' , index=False ,  encoding='utf-8')
+            except Exception as ex:
+                logger.error(ex)
         if frmt == 'txt': 
             with open(export_file_path, 'w')as txtfile:
                 txtfile.write(str(data))

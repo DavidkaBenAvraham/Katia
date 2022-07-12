@@ -15,8 +15,9 @@ import pandas as pd
 
 from suppliers.product import Product
 import execute_json as json
-from ini_files_dir import Ini
-ini = Ini()
+from strings_formatter import StringFormatter as SF
+#from ini_files_dir import Ini
+#ini = Ini()
 
 
 
@@ -37,11 +38,9 @@ def execute_list_of_scenaries(Supplier) -> bool :
    
     
     ## 0. 
-    json_files = _d.get_url(s.settings['start_url'])
-    
-    if not json_files:
-        print(f''' supplier not started in url:
-       {s.settings['start_url']}''')
+    if not _d.get_url(s.settings['start_url']):
+        logger.error(f''' supplier not started in url:
+            {s.settings['start_url']}''')
         return False
 
 
@@ -53,13 +52,13 @@ def execute_list_of_scenaries(Supplier) -> bool :
         #   каждому магазину.
     def run(json_file) -> bool:
         s.scenaries = json.loads(Path(s.ini.paths.ini_files_dir , f'''{json_file}'''))
-        s.scenario_category = json_file.split('_')[2]
-        export_file_name = f'''{s.settings['supplier_prefics']}-{s.scenario_category}'''
+        s.scenario_category = f'''{json_file.split('_')[-2]}{json_file.split('_')[-1]}'''
+        s.export_file_name = f'''{s.settings['supplier_prefics']}-{s.scenario_category}'''
         ''' третье слово в названии файла сценариев это категория товаров '''
         while len(s.scenaries.items())>0:
             _scenario = s.scenaries.popitem()[1]
             run_scenario(s , _scenario) 
-            json.export(s, s.p , export_file_name  , ['csv'] )
+            #json.export(s, s.p , export_file_name  , ['csv'] )
            
             
         
@@ -136,9 +135,10 @@ def run_scenario(s , scenario) -> bool:
                     grab_product_page()
                     
                 else: 
-                    print(f''' нет такой страницы товара {product_url} ''') 
+                    logger.error(f''' нет такой страницы товара {product_url} ''') 
                     continue
 
+            export()
 
             ''' ... строкой '''
         elif s.driver.get_url(list_products_urls):
@@ -148,11 +148,13 @@ def run_scenario(s , scenario) -> bool:
             Исключения обрабатываются внутри самой get_url()'''
             grab_product_page()
         else:
-            print(f''' нет такой страницы товара {list_products_urls} ''') 
+            logger.error(f''' нет такой страницы товара {list_products_urls} ''') 
+        
 
             
-      
+    # экспорт файла
     def export():
+        json.export(s, s.p  , f'''{s.export_file_name}''', ['csv'])
         pass
 
 
@@ -163,16 +165,18 @@ def run_scenario(s , scenario) -> bool:
     if 'store_id' in scenario.keys():
         while len(scenario['scenaries'].items())>0:
             run(s , scenario['scenaries'].popitem()[1])
-            json.export(s, s.p  , f'''{scenario}''', ['csv'])
-
+            #json.export(s, s.p  , f'''{s.export_file_name}''', ['csv'])
+            export()
 
         
     ## ksp, morlevi etc alone trade
         ''' имею дело с узлом сценария как в ksp, mor, etc '''
     else:
         run(s , scenario)
-        json.export(s, s.p  , f'''{scenario}''', ['csv'])
+        #json.export(s, s.p  , f'''{s.export_file_name}''', ['csv'])
+        export()
 
+    export()
     return True
 
 ## get_list_products_urls
@@ -180,20 +184,36 @@ def run_scenario(s , scenario) -> bool:
 # по локатору self.locators['product']['link_to_product_locator']
 def get_list_products_urls(s , scenario_node : dict ) ->list:
 
-    ## Проверяю изменения чексбоксов на странице категории
+    ###############################################
+    #
+    #   Проверяю изменения чексбоксов на странице категории
+    #   узнаю изменения после последнего посещения
+    #   Собираю актуальные баннеры
     # 
+    #########################################################
     def get_page_check_list(s):
         locator = {
                    'by': 'xpath', 
                    'selector': '//input'}
+
         elems = s.driver.find(locator)
-
-
+        controls = []
         for e in elems:
-            print(e.id)
-        pass
+            controls.append(e.id)
+
+        filename = SF.convert_url_to_valid_string(s.driver.current_url)
+        _out : dict = {filename:controls}
+        json.export(s, _out, filename=filename, format=['json'])
+
+    def get_top_banners(s):
+        banners = s.driver.find(s.locators['top_banner_locator'])
+        s.driver.save_images(banners)
+
+
+
+
     if not s.driver.get_url(scenario_node["url"]): 
-        return [] , print(f'''нет такой страницы! 
+        return [] , logger.error(f'''нет такой страницы! 
                 {s.current_node["url"]}
                 Возможно, 
                 проверить категорию в файле сценария ? ''')
@@ -205,7 +225,7 @@ def get_list_products_urls(s , scenario_node : dict ) ->list:
     #json_checkboxes = scenario_node["checkbox"]
     #if json_checkboxes: 
     #    s.driver.click_checkboxes(s, json_checkboxes) 
-    #    log.print(f''' есть чекбоксы {json_checkboxes}''')
+    #    log.logger.error(f''' есть чекбоксы {json_checkboxes}''')
        
 
     
@@ -216,14 +236,19 @@ def get_list_products_urls(s , scenario_node : dict ) ->list:
     if s.locators['infinity_scroll'] == True: 
         ''' А бесконечная прокрука '''
         s.driver.scroll()
-        list_product_urls : list = s.driver.find(_)
+        
         get_page_check_list(s)
+        get_top_banners(s)
+
+
+        list_product_urls : list = s.driver.find(_)
         return list_product_urls
     
     else:
         ''' Б переключение между страницами реализуется в каждом постащике '''
         list_product_urls = s.related_functions.pagination(s)
         get_page_check_list(s)
+        get_top_banners(s)
         return list_product_urls
 
 

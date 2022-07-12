@@ -1,13 +1,22 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/env python
-__author__ = 'e-cat.me'
-##@package Katia.Driver.driver_options
+##
+# @package Katia.Driver.driver_options
+# 
+#   ## Опции запуска ведрайвера(ов)
+#   
+#   - В разработке я использую FireFox 
+#       Для работы в goggle research (collab.google) можно посмотреть на 
+#       библиотеку kora, она вроде под него заточена
+#
+#   - в качестве вебдрайвера неплох seleniumwire
+#
 # Documentation for module driver_options
 #   https://stackoverflow.com/questions/12211781/how-to-maximize-window-in-chrome-using-webdriver-python
 
 from selenium.webdriver.firefox.options import Options
 
-
+from loguru import logger
 ##@package Katia.Driver.Options
 # doc for chrome_options()
 def chrome_options(self):

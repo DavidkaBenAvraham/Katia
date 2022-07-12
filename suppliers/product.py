@@ -147,7 +147,7 @@ class Product():
 
 
             #field = None
-            print(f''' 
+            logger.error(f''' 
             {ex}, 
             locator {locator} , 
             field {field} ''')
@@ -189,7 +189,7 @@ class Product():
                 return True
             except Exception as ex: 
                 field['product_description'] = None
-                print(ex)
+                logger.error(ex)
 
         def set_specification():
             try:
@@ -197,13 +197,13 @@ class Product():
                 return True
             except Exception as ex: 
                 field['product_specification'] = None
-                print(ex)
+                logger.error(ex)
         def set_customer_reviews():
             try:
                 field['product_customer_reviews'] = _d.find(_['product_customer_reviews_locator'])
             except Exception as ex:
                field['product_customer_reviews'] = None
-               print(ex)
+               logger.error(ex)
 
         def set_categories():
             ''' 

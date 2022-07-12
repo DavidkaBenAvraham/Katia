@@ -853,6 +853,7 @@
     <Folder Include="DOC\html\search\" />
     <Folder Include="google_api\" />
     <Folder Include="google_api\.ipynb_checkpoints\" />
+    <Folder Include="jupiter_notebook\" />
     <Folder Include="suppliers\aliexpress\" />
     <Folder Include="suppliers\bangood\" />
     <Folder Include="suppliers\ebay\" />

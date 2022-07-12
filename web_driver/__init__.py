@@ -1,11 +1,25 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/env python
-__author__ = 'e-cat.me'
-##@package Katia.Driver
-### Обертка 
-# под капотом работают:
-# selenium , kora , seleniumwire
-# инерфейс самый простой - произвести простые комманды поймав
+##
+# @package Katia.Driver.driver_options
+# 
+#   ## Опции запуска ведрайвера(ов)
+#   
+#   - В разработке я использую FireFox 
+#       Для работы в goggle research (collab.google) можно посмотреть на 
+#       библиотеку kora, она вроде под него заточена
+#
+#   - в качестве вебдрайвера неплох seleniumwire
+#   --  https://github.com/DavidkaBenAvraham/selenium-wire
+#
+#   - как работает driver_options
+#   --  https://stackoverflow.com/questions/12211781/how-to-maximize-window-in-chrome-using-webdriver-python
+#   
+#   - как работает библиотека ast
+#   -- #https://www.techiedelight.com/ru/parse-string-to-float-or-int-python/
+#
+#
+# инерфейс самый простой - произвести команды поймав 
 # локатором элемент
 # 
 ##<h5>Типы поддерживаемых вебдрайверов (не все!) </h5>
@@ -27,37 +41,45 @@ __author__ = 'e-cat.me'
 #</ul>
 
 from pathlib import Path
-from strings_formatter import StringFormatter
-formatter = StringFormatter()
+#from base64 import b64decode
+import urllib
+#import requests
+#import codecs
+from loguru import logger
+
+import selenium
+
+
+from strings_formatter import StringFormatter as SF
 from logging import Formatter
 
 
-import selenium
-from selenium import * 
-
-
+##############################################################
+#
+#           все перенесено в логику set_driver()
+#
 #from selenium.webdriver.support.ui import WebDriverWait
 #from selenium.webdriver.support import expected_conditions as EC
 #from selenium.webdriver.common.by import By
 #from selenium.webdriver.common.keys import Keys
 #from selenium.webdriver.common.action_chains import ActionChains
 ## from https://ru.stackoverflow.com/questions/1340290/%D0%A0%D0%B5%D0%B0%D0%BB%D0%B8%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C-%D0%BA%D0%BB%D0%B8%D0%BA-%D0%BF%D0%BE-%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D1%83-%D0%B2-selenium-python
+#############################################################
 
-#import selenium.webdriver as webdriver
 
-import kora
-import seleniumwire
-from seleniumwire import webdriver as seleniumwire_wedriver
-# https://github.com/DavidkaBenAvraham/selenium-wire 
 
 import pickle
 
 
+###############################################################
+#
+#               Подключение вебдрайвера
+#                  WD = KWD | SWD | SWWD
+#import kora
 #from kora.selenium import wd as KWD
-
-from selenium import webdriver as selenium_wedriver
-SWD = selenium_wedriver
-SWWD = seleniumwire_wedriver
+import seleniumwire
+from selenium import webdriver as SWD
+from seleniumwire import webdriver as SWWD
 WD = SWWD
 
 
@@ -70,17 +92,17 @@ WD = SWWD
 
 
 import ast
-#https://www.techiedelight.com/ru/parse-string-to-float-or-int-python/
+
 
 import os
 import pandas as pd
 import datetime
 import time
+from attr import attrs, attrib, Factory
 
-from logger import Log as log
 from ini_files_dir import Ini as ini
 import execute_json as json
-from attr import attrs, attrib, Factory
+
 
 @attrs
 ## класс <b>Driver()</b> 
@@ -112,9 +134,7 @@ from attr import attrs, attrib, Factory
 #<li>get_parsed_google_search_result : время запуска скрипта</li>
 #</ul>
 class Driver:
-
-
-
+   
     ### JS: Всякие javascrits полезности
     def unhide(driver,element) -> bool:
         script :str = f''' arguments[0].style.opacity=1;
@@ -129,7 +149,7 @@ class Driver:
             driver.execute_script(script, element)
             return True
         except Exception as ex:
-            print(f'''
+            logger.error(f'''
            ошибка в driver.execute_script(script)
            script = {script}
            ------------------
@@ -145,7 +165,7 @@ class Driver:
         try:
             return self.driver.execute_script(script)
         except Exception as ex:
-            print(f'''
+            logger.error(f'''
            ошибка в driver.execute_script(script)
            script = {script}
            ----------------
@@ -169,16 +189,26 @@ class Driver:
 
     driver : WD =  attrib(init = False , default = WD)
 
+    ################################################################
+    #
+    #       заголовки 
+    #   https://stackoverflow.com/questions/15645093/setting-request-headers-in-selenium
+    #
+    ################################################################
+    headers : dict = attrib(init = False , default = None)
+    
+
 
     cookies = attrib(init = False , default = None)
     cookies_file_path : Path = attrib(init = False , default = Path('cookies.pkl'))
     
     
-    ## <pre>
-    # драйвер запускается через вызов set_driver(webdriver_settings)
-    # при инициализации класса s = Supplier()
-    # s.driver = Driver().set_driver(webdriver_settings : dict)
-    # </pre>
+    ##############################################################
+    #
+    #        драйвер запускается через вызов set_driver(webdriver_settings)
+    #           при инициализации класса s = Supplier()
+    #
+    #############################################################
     def __attrs_post_init__(self ,  *args, **kwrads):
 
         pass
@@ -207,12 +237,11 @@ class Driver:
     #   }
     # }
     # </pre>
-    def set_driver(self , webdriver_settings : dict) -> WD:  
-    
+    def set_driver(self , ini) -> WD:  
 
         ## set_Chrome
         def set_Chrome() -> bool:
-            _settings = webdriver_settings['chrome']
+            _settings = ini.launcher['webdriver']['chrome']
             options = self.driver.ChromeOptions()
             for argument in _settings['arguments']:
                     options.add_argument(argument)
@@ -221,7 +250,7 @@ class Driver:
 
         ## set_Firefox
         def set_Firefox() -> bool:
-            _settings = webdriver_settings['firefox']
+            _settings = ini.launcher['webdriver']['chrome']
             options = self.driver.FirefoxOptions()
             for argument in _settings['arguments']:
                     options.add_argument(argument)
@@ -232,12 +261,12 @@ class Driver:
         def set_Kora() -> bool:
             _wd = kora.selenium.wd
             if not kora.IN_COLAB: 
-                print(f''' Hello local  :) ''')
+                logger.error(f''' Hello local  :) ''')
                 set_Chrome()
                 
             else:
                 set_Chrome()
-                print(f''' Hello colab ''')
+                logger.error(f''' Hello colab ''')
                 #options = _wd.ChromeOptions()
                 #for argument in webdriver_settings['kora']:
                 #        options.add_argument(argument)
@@ -245,11 +274,22 @@ class Driver:
 
             return True
 
+        # Create a request interceptor
+        def interceptor(request):
+            self.headers = dict(ini.launcher['webdriver']['headers'])
+            for k in self.headers:
+                del request.headers[k]  # Delete the header first
+                request.headers[k] = self.headers[k]
+
+        
+
 
         set_Firefox()
         #set_Chrome()
         self.driver.maximize_window()
-
+        # Set the interceptor on the driver
+        #https://stackoverflow.com/questions/15645093/setting-request-headers-in-selenium
+        self.driver.request_interceptor = interceptor
 
 
         self.driver.wait =                              self._wait
@@ -262,8 +302,7 @@ class Driver:
         self.driver.close =                             self._close  
         self.driver.scroll =                            self._scroller
         self.driver.previous_url :str =                 self.previous_url
-        self.get_dict_from_urlstr : dict =              self._get_urlstr_params
-
+        self.driver.save_images  =                       self._save_images
         #self.driver.get_parsed_google_search_result =   GoogleHtmlParser
         self.driver.send_keys =                         self._send_keys
         
@@ -294,7 +333,7 @@ class Driver:
 
         from selenium.webdriver.common.action_chains import ActionChains
         self.driver.ActionChains = ActionChains
-
+        self.ini = ini
         return self.driver
 
 
@@ -370,13 +409,13 @@ class Driver:
         try:
             cookies_file_path = self.cookies_file_path if cookies_file_path is None else cookies_file_path
             if not cookies_file_path.exists():
-                return False , print(f''' {cookies_file_path} не найден ''')
+                return False , logger.error(f''' {cookies_file_path} не найден ''')
             self.cookies = pickle.load(open(cookies_file_path , 'rb'))
             for cookie in self.cookies:
                 self.driver.add_cookie(cookie)  
             return True
         except Exception as ex :     
-            return False, print(f''' 
+            return False, logger.error(f''' 
             ошибка в _load_cookies_from_file
             {ex}''') 
 
@@ -395,22 +434,26 @@ class Driver:
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ####################   driver.get() ###########################
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-########################### GET URL
 
 
 
@@ -451,22 +494,18 @@ class Driver:
         try:
             _d.get(f'''{url}''')
         except Exception as ex:
-            return False , print(f''' Ошибка в _get_url() :
+            return False , logger.error(f''' Ошибка в _get_url() :
             {ex}
             -------------------------------------
             url = {url}''')  
         
-        ''' способ дождаться полной загрузки '''
-        #_locator = (_d.By.TAG_NAME , 'html')
-        #self._wait_to_precence_located(_locator)
-
-
+       
 
         ''' ожидание полной загрузки 
-        страницы с проверкой document.readyState'''
+        страницы с проверкой JS document.readyState'''
         count = 1
         while self.get_ready_state() == 'loading':
-            print(f''' {self.get_ready_state()} - {_d.current_url}''')
+            logger.error(f''' {self.get_ready_state()} - {_d.current_url}''')
             self._wait(1)
             count +=1
             if count>3:break
@@ -487,7 +526,16 @@ class Driver:
         # запоминаю рабочее окно 
         main_window_handler = _d.current_window_handle
         return True
-        ### experimental:
+
+
+
+
+
+
+
+        #####################################################
+        # 
+        #                       experimental:
         #<pre>
         #try:
         #    # Access requests via the `requests` attribute
@@ -502,26 +550,32 @@ class Driver:
         #except:pass
         #finally:return  json_files
         #</pre>
-
-    
-    #ожидание полной загрузки реализoваное на javascript
-    #WebDriverWait(driver, 10).until(lambda driver: self.driver.execute_script('return document.readyState') == 'complete')
-    #self.driver.execute_script('return document.readyState') == 'complete'
-        
+        ################################################
 
 
-    def  _get_urlstr_params(self)->dict:
-        _url = self.current_url
+    def _save_images(self, src)->bool:
+        def _w(img:dict)->bool:
+            for i in img:
+                file_path = Path(self.ini.paths.export_dir , i.split('/')[-1])
+            
+                # https://stackoverflow.com/questions/17361742/download-image-with-selenium-python
+                # элегантно. По сути я храню скриншот элемента
+                with open(file_path , 'wb') as file:
+                    file.write(img[i].screenshot_as_png)
 
-        _url_str_to_list = str(_url).split(str(_url).find('?'))
 
-        _params_str = f'''{{ {str(_url_str_to_list[1]).strip().replace('=' , ':' ,str(_url_str_to_list[1]))} }}'''
-        
-        _params = ast.literal_eval(_params_str)
+        if isinstance(src , list):
+            for s in src:
+                if isinstance(s , dict):_w(s)
+        elif isinstance(src , dict):_w(src)
 
-        _out :dict = {"url":_url_str_to_list[0], "params":_params}
 
-        return _out
+        elif src is not None:_w(src)
+
+        else: logger.error(''' упс, а баннеров нет ''')
+            
+
+
 
 
 
@@ -538,7 +592,7 @@ class Driver:
             self._wait(0.6)
         
         return True
-        #except Exception as ex: return  False , print(f''' ошибка скроллинга {ex}''')
+        #except Exception as ex: return  False , logger.error(f''' ошибка скроллинга {ex}''')
    
 
     ## parce_html_block
@@ -563,8 +617,17 @@ class Driver:
             if isinstance(elements , list):
                 ''' ЭЛЕМЕНТЫ списком '''
                 for el in elements: 
+                    ''' если attr is None я получу весь элемент '''
                     for i in _.items():
-                        _е.append({el.get_attribute(i[0]):el.get_attribute(i[1])})
+                        if i[0] is None: 
+                            k = el
+                        else:
+                            k = el.get_attribute(i[0])
+                        if i[1] is None:
+                            v = el
+                        else:
+                            v = el.get_attribute(i[1])
+                        _е.append({k:v})
             else:                     
                 for k,v in _.popitem():
                     _е.append({elements.get_attribute(k):elements.get_attribute(v)})
@@ -576,10 +639,16 @@ class Driver:
                 ''' ЭЛЕМЕНТЫ списком '''
                 for el in elements:
                     for attr in _:
-                        _е.append(el.get_attribute(attr))
+                        ''' если attr is None я получу весь элемент
+                        '''
+                        if attr is None:_е.append(el) 
+                        else: _е.append(el.get_attribute(attr))
             else: 
                 for attr in _:
-                    _е.append(elements.get_attribute(attr))
+                    ''' если attr is None я получу весь элемент
+                    '''
+                    if attr is None:_е.append(el) 
+                    else: _е.append(elements.get_attribute(attr))
 
 
         #3) если один 
@@ -650,21 +719,21 @@ class Driver:
         # херовенько возвращать разные типы данных из функции, но мне так удобно
         return elements if  locator['attribute'] is None else self._find_attributes_in_webelements(elements , locator)
 
-    ## get_webelments_from_page
-    ''' возвращает найденные на странице элементы в списке элементы
-        если элементы  не найдны -возвращает пустой список []
-    '''
+    ### get_webelments_from_page
+    #   возвращает найденные на странице элементы в списке элементы
+    #    если элементы  не найдны -возвращает пустой список []
     def _get_webelments_from_page(self, locator) -> list:
 
         try: 
             elements = self.driver.find_elements(locator['by'] , locator['selector'])
             return elements 
-        except Exception as ex: return None , print(f'''_get_webelments_from_page() 
+        except Exception as ex: return None , logger.error(f'''_get_webelments_from_page() 
         locator['by'] , locator['selector']  {locator['by']} , {locator['selector']}
         ex: {ex} ''')
         
     ## CLICK
     ##  Обработчик события click()
+    ## ОЧЕНЬ - ОЧЕНЬ ПЛОХО РЕАЛИЗОВАН!!!
     def _click(self, locator) ->bool:
         
 
@@ -676,61 +745,62 @@ class Driver:
             pass
 
         if isinstance(locator['selector'] , list):
+
             for i in range(len(locator['selector'])):
-                try: 
-                    # создаю подлокатор
-                    _ = {      
-                        "attribute": None,
-                        "by": "xpath",
-                        "selector": locator['selector'][i]
-                        }
-                    _el = self._find(_)
-                    ## Я могу получить несколько элементов
-                    # так устроена система: я жадно собираю со страницы 
-                    # ВСЕ элементы по локатору
-                    if isinstance(_el , list): 
-                            for e in _el: 
-                                try: e.click()
-                                except Exception as ex: print(f''' 
-                                Возникла ошибка  {ex} 
-                                ----------------------
-                                элемент:
-                                {e} ne обязательно должен нажиматься
-                                он часть списка 
-                                {_el}
-                                ''')
-                                continue
-                    else: 
-                        _results : Factory(list) = []
-                        try: 
-                            _el.click()
-                            _results.append(True)
-                        except Exception as ex: 
-                            print(f''' 
-                                Возникла ошибка  {ex} 
-                                ----------------------
-                                элемент:
-                                {_el} не нажался
-                                --------
-                                я попробую достучаться до него посылая Key.Return
-                                ''')
-                            try:self._send_keys( _ , self.driver.Keys.RETURN)
-                            except Exception as ex: print(f'''   ХУЙ! ''')
-                except Exception as ex: 
-                            print(f''' 
-                                Возникла ошибка  {ex} 
-                                ----------------------
-                                элемент:
-                                {_el} не нажался
-                                --------
-                                я попробую достучаться до него посылая Key.Return
-                                ''')
-                            try:self._send_keys( _ , self.driver.Keys.RETURN)
-                            except Exception as ex: print(f'''   ХУЙ! ''')
+
+                # создаю подлокатор
+                _ = {      
+                    "attribute": None,
+                    "by": "xpath",
+                    "selector": locator['selector'][i]
+                    }
+                _el = self._find(_)
+                ## Я могу получить несколько элементов
+                # так устроена система: я жадно собираю со страницы 
+                # ВСЕ элементы по локатору
+                if isinstance(_el , list): 
+                        for e in _el: 
+                            try: e.click()
+                            except Exception as ex: logger.error(f''' 
+                            Возникла ошибка  {ex} 
+                            ----------------------
+                            элемент:
+                            {e} ne обязательно должен нажиматься
+                            он часть списка 
+                            {_el}
+                            ''')
+                            continue
+                else: 
+                    _results : Factory(list) = []
+                    try: 
+                        _el.click()
+                        _results.append(True)
+                    except Exception as ex: 
+                        logger.error(f''' 
+                            Возникла ошибка  {ex} 
+                            ----------------------
+                            элемент:
+                            {_el} не нажался
+                            --------
+                            я попробую достучаться до него посылая Key.Return
+                            ''')
+                        try:self._send_keys( _ , self.driver.Keys.RETURN)
+                        except Exception as ex: logger.error(f'''   ХУЙ! ''')
+                #except Exception as ex: 
+                #            logger.error(f''' 
+                #                Возникла ошибка  {ex} 
+                #                ----------------------
+                #                элемент:
+                #                {_el} не нажался
+                #                --------
+                #                я попробую достучаться до него посылая Key.Return
+                #                ''')
+                #            try:self._send_keys( _ , self.driver.Keys.RETURN)
+                #            except Exception as ex: logger.error(f'''   ХУЙ! ''')
             return True
 
         try: _e = self._find(locator)
-        except Exception as ex:  return False , print(f''' Возникла ошибка {ex} поиска элемента {locator} ''') 
+        except Exception as ex:  return False , logger.error(f''' Возникла ошибка {ex} поиска элемента {locator} ''') 
         
         
         try:
@@ -742,7 +812,7 @@ class Driver:
                 self.previous_url = _url_before_click
 
         except Exception as ex: 
-                            print(f''' 
+                            logger.error(f''' 
                                 Возникла ошибка  {ex} 
                                 ----------------------
                                 элемент:
@@ -751,7 +821,7 @@ class Driver:
                                 я попробую достучаться до него посылая Key.Return
                                 ''')
                             try:self._send_keys( _ , self.driver.Keys.RETURN)
-                            except Exception as ex: print(f'''   ХУЙ! ''')
+                            except Exception as ex: logger.error(f'''   ХУЙ! ''')
         return True
     ## SEND KEYS
     def _send_keys(self, keys , locator : dict ='' , el  = None) ->bool:
@@ -778,7 +848,7 @@ class Driver:
                 self.previous_url = _url_before_send_keys
 
 
-        except Exception as ex: return False , print(f''' ошибка {ex} при отправке {keys} в {locator} ''')
+        except Exception as ex: return False , logger.error(f''' ошибка {ex} при отправке {keys} в {locator} ''')
     ## PAGE REFRESH      
     def _page_refresh(self):
         ##Рефреш с ожиданием полной перезагрузки страницы
@@ -786,7 +856,7 @@ class Driver:
         pass
     ## CLOSE
     def _close(self):
-            if self.driver.close(): self.print(''' DRIVER CLOSED ''')
+            if self.driver.close(): self.logger.error(''' DRIVER CLOSED ''')
             pass
 
         

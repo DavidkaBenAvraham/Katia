@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+#!/usr/bin/env python
+##
+# @package Katia.Driver.facebook
+from loguru import logger
+
+
 ## https://qna.habr.com/q/1162122
 def face_token():
     """Get TOKEN"""
@@ -27,17 +34,17 @@ def face_token():
             "TE": "trailers",
         },
     )
-    print("[* Response headers]\n", r.headers)
+    logger.error("[* Response headers]\n", r.headers)
     # From headers you can get => privacy_mutation_token(see x-fb-debug) =
     # "eyJ0eXBlIjowLCJjcmVhdGlvbl90aW1lIjoxNjU0NzE4MTg0LCJjYWxsc2l0ZV9pZCI6MzgxMjI5MDc5NTc1OTQ2fQ=="
     # use it for POST https://www.facebook.com/login/?privacy_mutation_token=
     # eyJ0eXBlIjowLCJjcmVhdGlvbl90aW1lIjoxNjU0NzE4MTg0LCJjYWxsc2l0ZV9pZCI6MzgxMjI5MDc5NTc1OTQ2fQ==
 
     body = BeautifulSoup(r.text, "lxml")
-    print("[* All JS scripts]")
+    logger.error("[* All JS scripts]")
     # find all scripts one of them will be "accessToken"
     for script in body.find_all("script"):
-        print(script)
+        logger.error(script)
 
 
 if __name__ == "__main__":

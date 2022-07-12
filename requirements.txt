@@ -13,25 +13,9 @@ aliyun-python-sdk-core-v3
 aliexpress-sdk
 selenium-wire
 pyautogui
-
-
-<!--
-Как подружить jupiter с gheets
-https://towardsdatascience.com/how-to-integrate-google-sheets-and-jupyter-notebooks-c469309aacea
-
-conda install pandas jupyter 
-pip install gspread oauth2client df2gspread
-
--->
-
+loguru
 gspread 
 oauth2client 
 df2gspread
 google-auth-httplib2
 
-
-
-
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkwNDg1NTQzNF19
--->

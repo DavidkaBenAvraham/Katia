@@ -28,6 +28,12 @@
     }
   },
 
+  "top_banner_locator": {
+    "attribute": {"src" : null},
+    "by": "xpath",
+    "selector": "//ul[contains(@class , 'slider animated')]//img",
+    "action": null
+  },
 
   "product": {
 
@@ -102,7 +108,7 @@
     },
 
     "product_description_locator": {
-      "attribute": null,
+      "attribute": "innerText",
       "by": "xpath",
       "selector": "//div[contains(@id , 'review-section')]"
     },

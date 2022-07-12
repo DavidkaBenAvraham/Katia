@@ -16,10 +16,10 @@ import inspect
 import pandas as pd
 import importlib
 from pathlib import Path
-from suppliers.aliexpress import  *
+from loguru import logger
 from web_driver import Driver 
-from strings_formatter import StringFormatter
-formatter = StringFormatter()
+from strings_formatter import StringFormatter as SF
+#formatter = StringFormatter()
 import execute_json as json
 import suppliers.execute_scenaries as execute_scenaries
 from attr import attrs, attrib, Factory
@@ -79,7 +79,9 @@ class Supplier:
 
     current_nodename    : str =  attrib(init=False, default = None) 
     ''' Имя испоняемого узла сценария'''
-     
+    export_file_name    : str =  attrib(init=False, default = None) 
+
+
     related_functions = attrib(init = False , default = None)
     ''' функции, присущие конкретному постащику '''
 
@@ -95,16 +97,16 @@ class Supplier:
     #self.lang = lang 
     #которые задяются при инициализации класса Supplier в виде парамтров:  attrib(kw_only = True)  
     def __attrs_post_init__(self, *args, **kwards):
-        _ = self.ini
+        _ini = self.ini
 
 
-        self.settings : dict  = json.loads(Path(_.paths.ini_files_dir , f'''{self.supplier_prefics}.json'''))
+        self.settings : dict  = json.loads(Path(_ini.paths.ini_files_dir , f'''{self.supplier_prefics}.json'''))
 
-        _.start_time = _.get_now()
+        self.start_time = _ini.get_now()
 
-        self.driver = Driver().set_driver(_.launcher['webdriver'])
+        self.driver = Driver().set_driver(_ini)
 
-        self.locators : dict = json.loads(Path(_.paths.ini_files_dir , f'''{self.supplier_prefics}_locators.json'''))
+        self.locators : dict = json.loads(Path(_ini.paths.ini_files_dir , f'''{self.supplier_prefics}_locators.json'''))
         ''' локаторы элементов страницы '''
         
         self.related_functions = importlib.import_module(f'''suppliers.{self.supplier_prefics}''')
@@ -114,6 +116,8 @@ class Supplier:
         
         if self.settings['if_login']: self.related_functions.login(self)
         ''' логин '''
+
+        logger.info(f'''Родился объект supplier {self.supplier_prefics}''')
 
     ''' ------------------ КОНЕЦ  -------------------------- '''
 

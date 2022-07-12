@@ -101,7 +101,6 @@ class StringFormatter():
             method_to_decorate(self,s)
         return remover(s)
 
-    
     def __attrs_post_init__(self , *srgs, **kwrads):
         ## инициализация класса StringFormatter()
         self.pattern_remove_HTML = pattern_remove_HTML
@@ -112,63 +111,101 @@ class StringFormatter():
         self.pattern_remove_special_characters = pattern_remove_special_characters
 
         pass
-
+    @staticmethod
     # убираю все значки переноса строк
-    def remove_line_breaks(self,s:str)->str:
+    def remove_line_breaks(s:str)->str:
         def _(s):
-            return self.pattern_remove_line_breaks.sub(r' ', s).strip()
+            return pattern_remove_line_breaks.sub(r'', s).strip()
 
         if isinstance(s , list ):
             for sub_s in s:
                 sub_s = _(sub_s)
         else: s=_(s)
         return s
-        
-    #@remove_suppliers_and_special_chars
-    def remove_htmls(self , s):
+    
+    @staticmethod
+    # remove_suppliers_and_special_chars
+    def remove_htmls(s:str)->str:
         def _(s):
-            return self.pattern_remove_HTML.sub(r' ', str(s)).strip()
+            return pattern_remove_HTML.sub(r'', str(s)).strip()
         ''' если пришел список строк '''
         if isinstance(s , list ):
             for sub_s in s: sub_s = _(sub_s)
         else: s=_(s)
         return s
 
-    def remove_non_latin_characters(self , s:str)->str:
-        s = self.remove_special_characters(s)
+
+    @staticmethod
+    #     def remove_non_latin_characters
+    def remove_non_latin_characters(s:str)->str:
+        s = StringFormatter.remove_special_characters(s)
         def _(s):
-            return self.pattern_remove_non_latin_characters.sub(r' ', str(s)).strip()
+            return pattern_remove_non_latin_characters.sub(r'', str(s)).strip()
+
         ''' если пришел список строк '''
         if isinstance(s , list ):
             for sub_s in s: sub_s = _(sub_s)
         else: s=_(s)
 
         return s
-
-    def remove_special_characters(self , s:str)->str:
-        s = self.remove_htmls(s)
-        s = self.remove_line_breaks(s)
+    @staticmethod
+    def remove_special_characters(s:str)->str:
+        s = StringFormatter.remove_htmls(s)
+        s = StringFormatter.remove_line_breaks(s)
         return s
 
-
-    def clear_number(self , s):
+    @staticmethod
+    def clear_number(s:str)->str:
         def _(s):
-            s = self.pattern_clear_number.sub(r'', str(s)).strip()
+            s = pattern_clear_number.sub(r'', str(s)).strip()
             return ast.literal_eval(s)
 
         if isinstance(s , list):
             for sub_s in s: sub_s = _(sub_s)
         else: s = _(s)
         return s
-
-    def clear_price(self , s):
+    @staticmethod
+    def clear_price(s:str)->str:
         def _(s):
-            s = self.pattern_clear_price.sub(r'', str(s)).strip().replace(',','.')
+            s = pattern_clear_price.sub(r'', str(s)).strip().replace(',','.')
             return ast.literal_eval(s)
 
-        if isinstance(s , list ):
+        if isinstance(s, list ):
             for sub_s in s: sub_s = _(sub_s)
         else: s=_(s)
         return s
 
-      
+    @staticmethod
+    def convert_url_to_valid_string(s)->str:
+        def remove_protocol(s)->str:
+            return s.split(':')[-1]
+        def convert_slashes_to_to_mysign(s)->str:
+            return s.split('/')[-1]
+        def convert_dottes_to_underlines(s)->str:
+            return str(s).replace('.','_')
+        def convert_question_sign_to_mysign(s)->str:
+            return str(s).replace('?','-_params_-')
+        def convert_amp_sign_to_mysign(s)->str:
+            return str(s).replace('&','-_p_-')
+        def convert_eq_sign_to_mysign(s)->str:
+            return str(s).replace('=','-_v_-')
+
+        s = remove_protocol(s)
+        s = convert_dottes_to_underlines(s)
+        s = convert_slashes_to_to_mysign(s)
+        s = convert_question_sign_to_mysign(s)
+        s = convert_amp_sign_to_mysign(s)
+        s = convert_eq_sign_to_mysign(s)
+        
+        return s
+
+    @staticmethod
+    def  get_urlstr_params_as_dict(s:str)->dict:
+       
+        _list = str(s).split(str(s).find('?'))
+        _params_str = f'''{{ {str(_list[1]).strip().replace('=' , ':' ,str(_list[1]))} }}'''
+        _params = ast.literal_eval(_params_str)
+
+        _out :dict = {"url":_list[0], "params":_params}
+
+        return _out
