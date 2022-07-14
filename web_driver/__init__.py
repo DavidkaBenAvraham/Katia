@@ -404,23 +404,23 @@ class Driver:
     #########################################################
 
     def _load_cookies_from_file(self, cookies_file_path : Path = None ) -> bool:
-        ''' cookies_file_path if None = self.cookies_file_path '''
+        cookies_file_path = self.cookies_file_path if cookies_file_path is None else cookies_file_path
+        logger.debug(''' cookies_file_path
+        ---------------------------
+        cookies_file_path} ''')
 
-        try:
-            cookies_file_path = self.cookies_file_path if cookies_file_path is None else cookies_file_path
-            if not cookies_file_path.exists():
+        if not cookies_file_path.exists():
                 return False , logger.error(f''' {cookies_file_path} не найден ''')
-            self.cookies = pickle.load(open(cookies_file_path , 'rb'))
-            for cookie in self.cookies:
+        
+        self.cookies = pickle.load(open(cookies_file_path , 'rb'))
+        for cookie in self.cookies:
                 self.driver.add_cookie(cookie)  
-            return True
-        except Exception as ex :     
-            return False, logger.error(f''' 
-            ошибка в _load_cookies_from_file
-            {ex}''') 
+                return True
+
 
     ## После успешного события ведрайвера я бережно сохраню печеньку  в файл 
-    #@param
+    #   @param
+    # -------------
     #   cookies_file : Path('cookies.pkl')
     def _dump_cookies_to_file(self, cookies_file_path : Path = None):
         cookies_file_path = self.cookies_file_path if cookies_file_path is None else cookies_file_path
@@ -429,6 +429,11 @@ class Driver:
             if cookie.get('expiry', None) is not None:
                 cookie['expires'] = cookie.pop('expiry')
         pickle.dump(_cookies, open(cookies_file_path, 'wb'))
+        logger.debug(''' сохранил печеньку 
+        {_cookies}
+        ---------------------------
+        в файл:
+        {cookies_file_path} ''')
 
 
 
@@ -485,7 +490,7 @@ class Driver:
     # @param
     #   view_html_source_mode : bool     возвращает код страницы
     def _get_url(self, url:str , wait_to_locator_be_loaded : dict = {} , view_html_source_mode : bool = False):
-       
+        logger.debug(f''' url : {url}''')
         
         _d = self.driver
         json_files : str = ''
@@ -521,10 +526,11 @@ class Driver:
 
 
         # запоминаю, где был
-        _d.previous_url = _url
+        _d.previous_url = _url if _d.previous_url != _url else _d.previous_url
 
         # запоминаю рабочее окно 
         main_window_handler = _d.current_window_handle
+
         return True
 
 

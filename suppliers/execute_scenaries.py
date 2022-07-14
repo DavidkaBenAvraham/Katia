@@ -12,7 +12,7 @@
 
 from pathlib import Path
 import pandas as pd
-
+from loguru import logger
 from suppliers.product import Product
 import execute_json as json
 from strings_formatter import StringFormatter as SF
@@ -30,7 +30,7 @@ from strings_formatter import StringFormatter as SF
 #           supplier - class Supplier  f.e.: mor, cdata, visual, 
 #               aliexpress, ebay, amazon etc.
 def execute_list_of_scenaries(Supplier) -> bool :
-
+    logger.debug(f''' Старт {Supplier}''')
 
 
     s = Supplier
@@ -51,6 +51,10 @@ def execute_list_of_scenaries(Supplier) -> bool :
         #   магазинов. Я это сделал, чтобы не плодить мелкие файлы по 
         #   каждому магазину.
     def run(json_file) -> bool:
+        logger.debug(''' start
+        ---------------------------
+        json:{json_file} ''')
+
         s.scenaries = json.loads(Path(s.ini.paths.ini_files_dir , f'''{json_file}'''))
         s.scenario_category = f'''{json_file.split('_')[-2]}{json_file.split('_')[-1]}'''
         s.export_file_name = f'''{s.settings['supplier_prefics']}-{s.scenario_category}'''
@@ -203,10 +207,12 @@ def get_list_products_urls(s , scenario_node : dict ) ->list:
 
         filename = SF.convert_url_to_valid_string(s.driver.current_url)
         _out : dict = {filename:controls}
+        logger.debug(f'''экспорт файла {filename} ''')
         json.export(s, _out, filename=filename, format=['json'])
 
     def get_top_banners(s):
         banners = s.driver.find(s.locators['top_banner_locator'])
+        logger.debug(f'''Найдены баннеры {banners} ''')
         s.driver.save_images(banners)
 
 

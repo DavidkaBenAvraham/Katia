@@ -827,9 +827,6 @@
     <Compile Include="ini_files_dir\__init__.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="logger\__init__.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="main.py" />
   </ItemGroup>
   <ItemGroup>
@@ -848,9 +845,11 @@
     <Folder Include="dingtalk\api\" />
     <Folder Include="dingtalk\api\rest\" />
     <Folder Include="DOC\" />
-    <Folder Include="DOC\def\" />
+    <Folder Include="DOC\doxygen\def\" />
     <Folder Include="DOC\html\" />
     <Folder Include="DOC\html\search\" />
+    <Folder Include="DOC\doxygen\" />
+    <Folder Include="DOC\diagrams.net\" />
     <Folder Include="google_api\" />
     <Folder Include="google_api\.ipynb_checkpoints\" />
     <Folder Include="jupiter_notebook\" />
@@ -888,7 +887,6 @@
     <Folder Include="Facebook\scenario\" />
     <Folder Include="Facebook\__pycache__\" />
     <Folder Include="apis\" />
-    <Folder Include="logger\" />
     <Folder Include="ini_files_dir\" />
     <Folder Include="web_driver\" />
     <Folder Include="suppliers\ksp\" />
@@ -933,9 +931,9 @@
     <Content Include="aliexpress_api\tools\desktop.ini" />
     <Content Include="apis\README.md" />
     <Content Include="DB\prestashop-viewers-creation.sql" />
-    <Content Include="DOC\def\doxygen.def" />
-    <Content Include="DOC\Doxyfile" />
-    <Content Include="DOC\doxygen_log.txt" />
+    <Content Include="DOC\doxygen\def\doxygen.def" />
+    <Content Include="DOC\doxygen\Doxyfile" />
+    <Content Include="DOC\doxygen\doxygen_log.txt" />
     <Content Include="DOC\html\affiliate__link_8py.html" />
     <Content Include="DOC\html\affiliate__link_8py.js" />
     <Content Include="DOC\html\affiliate__link_8py_source.html" />
@@ -3934,7 +3932,6 @@
     <Content Include="DOC\html\request__parameters_8py.js" />
     <Content Include="DOC\html\request__parameters_8py_source.html" />
     <Content Include="DOC\html\resize.js" />
-    <Content Include="DOC\html\search\all_0.html" />
     <Content Include="DOC\html\search\all_0.js" />
     <Content Include="DOC\html\search\all_1.html" />
     <Content Include="DOC\html\search\all_1.js" />
@@ -4855,9 +4852,9 @@
     <Content Include="DOC\html\_top_secret_register_request_8py.html" />
     <Content Include="DOC\html\_top_secret_register_request_8py.js" />
     <Content Include="DOC\html\_top_secret_register_request_8py_source.html" />
-    <Content Include="DOC\katia.doxygen" />
-    <Content Include="DOC\log.txt" />
-    <Content Include="DOC\Untitled Diagram.drawio" />
+    <Content Include="DOC\doxygen\katia.doxygen" />
+    <Content Include="DOC\doxygen\log.txt" />
+    <Content Include="DOC\diagrams.net\Untitled Diagram.drawio" />
     <Content Include="Facebook\.ipynb_checkpoints\facebook.ini 23042020-checkpoint.ipynb" />
     <Content Include="Facebook\.ipynb_checkpoints\Untitled-checkpoint.ipynb" />
     <Content Include="Facebook\.ipynb_checkpoints\Написать сообщение-checkpoint.ipynb" />
@@ -5105,9 +5102,6 @@
     </Content>
     <Content Include="ini_files_dir\morlevi_categories_memory_dimm_ddr3.json" />
     <Content Include="ini_files_dir\readme.md">
-      <SubType>Code</SubType>
-    </Content>
-    <Content Include="logger\readme.md">
       <SubType>Code</SubType>
     </Content>
     <Content Include="Facebook\ui\readme.md">
