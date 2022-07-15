@@ -1,14 +1,29 @@
-<mxfile host="app.diagrams.net" modified="2022-07-15T14:22:26.130Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" etag="wVaXgDda1In3PY0qJDnq" version="20.1.1" type="github">
-  <diagram name="Page-1" id="edf60f1a-56cd-e834-aa8a-f176f3a09ee4">
-    <mxGraphModel dx="1407" dy="987" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#DAD2D8" math="0" shadow="1">
+<mxfile host="app.diagrams.net" modified="2022-07-15T14:32:20.474Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" etag="M7DCvr7HbTGt_VcJl65E" version="20.1.1" type="github">
+  <diagram name="class Supplier" id="edf60f1a-56cd-e834-aa8a-f176f3a09ee4">
+    <mxGraphModel dx="1918" dy="1345" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#DAD2D8" math="0" shadow="1">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="ekk3zo_unMke56bc-vDB-20" value="" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.document2;whiteSpace=wrap;size=0.25;rounded=1;fillColor=#FAE5C7;strokeColor=#0F8B8D;fontColor=#143642;" vertex="1" parent="1">
-          <mxGeometry x="110" y="50" width="100" height="60" as="geometry" />
+        <mxCell id="ekk3zo_unMke56bc-vDB-21" value="" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;fillColor=#dae8fc;strokeColor=#6c8ebf;shadow=0;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="560" y="60" width="300" height="150" as="geometry" />
         </mxCell>
-        <mxCell id="ekk3zo_unMke56bc-vDB-21" value="" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;fillColor=#FAE5C7;strokeColor=#0F8B8D;fontColor=#143642;" vertex="1" parent="1">
-          <mxGeometry x="570" y="190" width="100" height="60" as="geometry" />
+        <mxCell id="ekk3zo_unMke56bc-vDB-23" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="60" y="55" width="190" height="330" as="geometry" />
+        </mxCell>
+        <mxCell id="ekk3zo_unMke56bc-vDB-22" value="&lt;h1&gt;Heading&lt;/h1&gt;&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/p&gt;" style="text;html=1;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;sketch=0;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="ekk3zo_unMke56bc-vDB-23">
+          <mxGeometry width="190" height="330" as="geometry" />
+        </mxCell>
+        <mxCell id="ekk3zo_unMke56bc-vDB-20" value="" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.document2;whiteSpace=wrap;size=0.25;rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="ekk3zo_unMke56bc-vDB-23">
+          <mxGeometry x="20" y="140" width="140" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="ekk3zo_unMke56bc-vDB-29" value="" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="560" y="310" width="300" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="ekk3zo_unMke56bc-vDB-30" value="" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="560" y="570" width="300" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="ekk3zo_unMke56bc-vDB-31" value="" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="560" y="850" width="300" height="150" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
