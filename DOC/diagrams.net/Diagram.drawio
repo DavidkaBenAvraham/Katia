@@ -1,11 +1,32 @@
-<mxfile host="app.diagrams.net" modified="2022-07-15T13:52:46.653Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" etag="_1BidicWRk9uBBVj8WTF" version="20.1.1" type="github">
+<mxfile host="app.diagrams.net" modified="2022-07-15T13:56:03.249Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" etag="5lak9Vf2Uz2ELxA8V_cJ" version="20.1.1" type="github">
   <diagram name="Page-1" id="edf60f1a-56cd-e834-aa8a-f176f3a09ee4">
-    <mxGraphModel dx="1559" dy="925" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="0">
+    <mxGraphModel dx="1781" dy="1057" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="60e70716793133e9-2" value="Determine need to&amp;nbsp;&lt;div&gt;replenish value-add&amp;nbsp;&lt;/div&gt;&lt;div&gt;stock&lt;/div&gt;" style="shape=trapezoid;whiteSpace=wrap;html=1;rounded=0;shadow=1;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=8;align=center;flipV=1;" parent="1" vertex="1">
-          <mxGeometry x="100" y="120" width="120" height="60" as="geometry" />
+        <mxCell id="nRCfi5Vhjr_dwB51fEkk-1" value="" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="460" y="40" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="nRCfi5Vhjr_dwB51fEkk-2" value="Start" style="ellipse" vertex="1" parent="1">
+          <mxGeometry x="255" y="200" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nRCfi5Vhjr_dwB51fEkk-3" value="Entry" style="rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="235" y="280" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="nRCfi5Vhjr_dwB51fEkk-4" value="" style="edgeStyle=elbowEdgeStyle;elbow=vertical;" edge="1" source="nRCfi5Vhjr_dwB51fEkk-2" target="nRCfi5Vhjr_dwB51fEkk-3" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nRCfi5Vhjr_dwB51fEkk-5" value="Entry" style="rounded=1;direction=south;" vertex="1" parent="1">
+          <mxGeometry x="220" y="355" width="30" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="nRCfi5Vhjr_dwB51fEkk-6" value="" style="edgeStyle=elbowEdgeStyle;elbow=vertical;" edge="1" source="nRCfi5Vhjr_dwB51fEkk-3" target="nRCfi5Vhjr_dwB51fEkk-5" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nRCfi5Vhjr_dwB51fEkk-7" value="Entry" style="rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="315" y="380" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nRCfi5Vhjr_dwB51fEkk-8" value="" style="edgeStyle=elbowEdgeStyle;elbow=vertical;" edge="1" source="nRCfi5Vhjr_dwB51fEkk-3" target="nRCfi5Vhjr_dwB51fEkk-7" parent="1">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
