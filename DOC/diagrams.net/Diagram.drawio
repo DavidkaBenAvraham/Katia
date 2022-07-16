@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-07-16T08:28:04.479Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" etag="8f4Qtb-qWW9DVo_vAaus" version="20.1.1" type="github" pages="8">
+<mxfile host="app.diagrams.net" modified="2022-07-16T08:32:39.693Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" etag="whzIcgNdYxBzdQC0GlbX" version="20.1.1" type="github" pages="8">
   <diagram id="yhTf4TmdZgpS1rNykIqM" name="main">
     <mxGraphModel dx="1185" dy="693" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -58,7 +58,7 @@
     </mxGraphModel>
   </diagram>
   <diagram name="class Driver" id="ysdDV4_WqvMWStNbYexU">
-    <mxGraphModel dx="4929" dy="5300" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#F5ECF3" backgroundImage="{&quot;src&quot;:&quot;data:page/id,yhTf4TmdZgpS1rNykIqM&quot;}" math="0" shadow="1">
+    <mxGraphModel dx="6967" dy="6500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#F5ECF3" backgroundImage="{&quot;src&quot;:&quot;data:page/id,yhTf4TmdZgpS1rNykIqM&quot;}" math="0" shadow="1">
       <root>
         <mxCell id="ObKBtXxkil_jg0MMg40D-0" />
         <mxCell id="ObKBtXxkil_jg0MMg40D-1" parent="ObKBtXxkil_jg0MMg40D-0" />
@@ -140,9 +140,9 @@
         <mxCell id="yC-eHWIwe22s_UlDkgon-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=0;orthogonalLoop=1;jettySize=auto;html=1;shadow=1;labelBackgroundColor=#FFFFFF;fontFamily=Helvetica;fontSize=12;fontColor=#990000;strokeColor=#0000CC;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="mt-q63Fig5xZk1sBkrIT-15" source="yC-eHWIwe22s_UlDkgon-38" target="yC-eHWIwe22s_UlDkgon-0">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="nD4qpughCUnWPWfD4-__-29" value="Выбор ведрайвера.&lt;br&gt;seleniumwire&lt;br&gt;kora_webdriver" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=18;fontFamily=Helvetica;fontColor=#0000CC;" vertex="1" connectable="0" parent="yC-eHWIwe22s_UlDkgon-5">
+        <mxCell id="nD4qpughCUnWPWfD4-__-29" value="Выбор ведрайвера.&lt;br&gt;Firefox, Chrome" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=18;fontFamily=Helvetica;fontColor=#0000CC;" vertex="1" connectable="0" parent="yC-eHWIwe22s_UlDkgon-5">
           <mxGeometry x="0.6371" relative="1" as="geometry">
-            <mxPoint as="offset" />
+            <mxPoint y="-17" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="yC-eHWIwe22s_UlDkgon-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=12;fontColor=default;strokeColor=#0000CC;shadow=1;sketch=0;fillColor=#dae8fc;labelBackgroundColor=#FFFFFF;" edge="1" parent="mt-q63Fig5xZk1sBkrIT-15" source="yC-eHWIwe22s_UlDkgon-0" target="D1VUMT7-tkHUqvoUWx6l-37">
@@ -174,7 +174,7 @@
         <mxCell id="mt-q63Fig5xZk1sBkrIT-16" value="&lt;h1&gt;set_driver()&lt;/h1&gt;&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;pointerEvents=0;fontFamily=Helvetica;fontSize=18;fontColor=#990000;" vertex="1" parent="D1VUMT7-tkHUqvoUWx6l-35">
           <mxGeometry x="1030" y="80" width="460" height="370" as="geometry" />
         </mxCell>
-        <UserObject label="" link="data:page/id,7iAC8ZQK8H3TLRAQ1f7X" id="D1VUMT7-tkHUqvoUWx6l-0">
+        <UserObject label="" link="data:page/id,7iAC8ZQK8H3TLRAQ1f7X" tooltip="Обертки селениума.&#xa;seleniumwire = продвинутый selenium с куками, прокси и пр.&#xa;kora = оболочка для запуска в colab" id="D1VUMT7-tkHUqvoUWx6l-0">
           <mxCell style="group;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;connectable=1;fontSize=14;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="ObKBtXxkil_jg0MMg40D-1" vertex="1" connectable="0">
             <mxGeometry x="-2470" y="-4290" width="770" height="610" as="geometry" />
           </mxCell>
